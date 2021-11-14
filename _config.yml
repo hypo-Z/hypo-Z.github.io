@@ -3,22 +3,35 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: 程序旅途 #主页标题
+subtitle: 周大苏打的博客 #副标题
+description: go语言学习者，互联网新手，努力做一个自律的行者 #网站描述，可以加一句喜欢的座右铭
 keywords:
-author: John Doe
-language: zh-CN
+author: 周海波 #作者，左下角显示
+language: zh-CN #中文显示
 timezone: ''
+since: 2021-11-14
+
+#Social links
+Links:
+    我的微博:
+    Github: https://github.com/Zhb233go
+    Email: mailto:2925376741@qq.com
+
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://zhb233go.github.io
+url: https://github.com/Zhb233go/zhb233go.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# 本地搜索
+    search:
+      path: search.xml
+      field: post
 
 # Directoryhttps : 
 source_dir: source
@@ -46,7 +59,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
@@ -98,6 +111,25 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-matery
+
+ # ---------------下面选项需要对应插件的支持---------------
+    # npm install hexo-generator-index --save
+    # npm install hexo-generator-archive --save
+    # npm install hexo-generator-category --save
+    # npm install hexo-generator-tag --save
+ index_generator:
+      per_page: 10 ##首页默认10篇文章标题 如果值为0不分页
+
+ archive_generator:
+      per_page: 20 ##归档页面默认20篇文章标题
+      yearly: true  ##生成年视图
+      monthly: true ##生成月视图
+ tag_generator:
+      per_page: 10 ##标签分类页面默认10篇文章
+ category_generator:
+      per_page: 10 ###分类页面默认10篇文章     
+      
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
