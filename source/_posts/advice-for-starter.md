@@ -1,8 +1,8 @@
 ---
-#title: advice-for-starter
+title: advice-for-starter
 date: 2021-11-20 20:15:13
 tags: good article
-
+---
 
 # 软件开发人员促销：获得更高水平的建议
 
@@ -167,4 +167,3 @@ tags: good article
 
 **不要忘记，升职是对你成长的认可。最好的成长方式之一就是**[**通过指导**](https://blog.pragmaticengineer.com/developers-mentoring-other-developers/)**来**[**教导他人**](https://blog.pragmaticengineer.com/developers-mentoring-other-developers/)**。**保持平易近人和乐于助人的态度，并为此付出代价。你会学到更多，结交许多盟友，这样你的职业生涯将变得更加愉快。
 
----
