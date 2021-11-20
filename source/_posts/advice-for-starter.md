@@ -1,3 +1,9 @@
+---
+#title: advice-for-starter
+#date: 2021-11-20 20:15:13
+#tags: good article
+
+
 # 软件开发人员促销：获得更高水平的建议
 
 我最近的促销活动进展顺利。当[我从工程师过渡到管理人员时](https://blog.pragmaticengineer.com/things-ive-learned-transitioning-from-engineer-to-engineering-manager/)，我有八个人向我报告。两年后，他们都被提升到了一个新的水平，还有一些其他的开发人员，他们后来加入了我的团队。从那以后，我帮助团队以外的人整理了成功的晋升案例，并成为了几个工程师晋升委员会的成员。最近，我也被提升到了更高一级的工程管理。
@@ -160,3 +166,5 @@
 即使你还没有得到提升，也要帮助他人成长并因他们的成长而获得认可。如果你所在的公司有更重量级的晋升流程，有同行评审，你可能会被其他人要求对他们的晋升进行同行评审。如果您在更高级别加入，其他工程师可能会向您寻求有关发展的建议。
 
 **不要忘记，升职是对你成长的认可。最好的成长方式之一就是**[**通过指导**](https://blog.pragmaticengineer.com/developers-mentoring-other-developers/)**来**[**教导他人**](https://blog.pragmaticengineer.com/developers-mentoring-other-developers/)**。**保持平易近人和乐于助人的态度，并为此付出代价。你会学到更多，结交许多盟友，这样你的职业生涯将变得更加愉快。
+
+---
