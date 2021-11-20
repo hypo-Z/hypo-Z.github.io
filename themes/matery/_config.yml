@@ -16,29 +16,30 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-      # 二级菜单写法如下
-    #  Medias:/about/medias
-     #   icon: fas fa-list
-     #   children:
-      #    - name: Musics
-        #   url: /musics
-       #    icon: fas fa-music
-       #   - name: Movies
-       #    url: /movies
-        #   icon: fas fa-film
-        #  - name: Books
-        #   url: /books
-         #  icon: fas fa-book
-          #- name: Galleries
-           #url: /galleries
-           #icon: fas fa-image
+
   Contact:
     url: /contact
     icon: fas fa-comments
   Friends:
     url: /friends
     icon: fas fa-address-book
-
+    # 二级菜单写法如下
+  Medias:
+    url: /medias
+    icon: fas fa-list
+    children:
+      - name: Musics
+      url: /musics
+      icon: fas fa-music
+     - name: Movies
+      url: /movies
+      icon: fas fa-film
+     - name: Books
+      url: /books
+      icon: fas fa-book
+      - name: Galleries
+      url: /galleries
+        icon: fas fa-image
 
 # Website start time.
 # 站点运行开始时间.
@@ -54,9 +55,9 @@ time:
 # Index cover carousel configuration.
 # 首页封面轮播图的相关配置.
 cover:
-  showPrevNext: true # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
-  showIndicators: true # 是否显示指示器. # Whether to display the indicators
-  autoLoop: true # 是否自动轮播. Whether it is automatically rotated.
+  showPrevNext: false # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
+  showIndicators: false # 是否显示指示器. # Whether to display the indicators
+  autoLoop: false # 是否自动轮播. Whether it is automatically rotated.
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 20 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
   useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
@@ -64,10 +65,9 @@ cover:
   video:
     enable: true
     src:
-      - https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-his-computer-41640-large.mp4
+     # - https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-his-computer-41640-large.mp4
       - https://assets.mixkit.co/videos/preview/mixkit-luminous-particles-on-black-background-18142-large.mp4
       - https://assets.mixkit.co/videos/preview/mixkit-driving-through-futuristic-neon-3d-space-landscape-5399-large.mp4
-# index page dream text,
 
 # index page dream text,
 # 配置首页显示"梦想"的语句.
