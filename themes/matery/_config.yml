@@ -24,18 +24,18 @@ menu:
     url: /friends
     icon: fas fa-address-book
     # 二级菜单写法如下
-   Musics:
-    url: /musics
-    icon: fas fa-music
-   Movies:
-    url: /movies
-    icon: fas fa-film
-   Books:
-    url: /books
-    icon: fas fa-book
-   Galleries:
-    url: /galleries
-    icon: fas fa-image
+   #Musics:
+   # url: /musics
+   # icon: fas fa-music
+   #Movies:
+   # url: /movies
+   # icon: fas fa-film
+   #Books:
+   # url: /books
+   # icon: fas fa-book
+   #Galleries:
+   # url: /galleries
+    #icon: fas fa-image
 
 # Website start time.
 # 站点运行开始时间.
