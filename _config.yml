@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 程序旅途 #主页标题
-subtitle: 周大苏打的博客 #副标题
-description: go语言学习者，互联网新手，努力做一个自律的行者 #网站描述，可以加一句喜欢的座右铭
-keywords:
+title: 周大苏打的博客 #主页标题
+subtitle:  #副标题
+description: 'go语言学习者，互联网新手，努力做一个自律的行者' #网站描述，可以加一句喜欢的座右铭
+keywords: '菜鸟程序员'
 author: 周海波 #作者，左下角显示
 language: zh-CN #中文显示
-timezone: ''
+timezone: 'Asia/Shanghai'
 since: 2021-11-14
 
 #Social links
@@ -71,13 +71,34 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 
+  per_page: 10
   order_by: -date
 
 # Category & Tag
 default_category: uncategorized
 category_map:
+  技术: skill
+  前端: front_end
+  后端: back_end
+  算法: algorithm
+  踩坑日记: pitDiary
+  随笔: essays
+  情感: emotional
+  总结: summary
+  阅读: reading
+  面试: interview
 tag_map:
+  关于我: about_me
+    随笔: essay
+    总结: summary
+    读书笔记: study_notes
+    教程: tutorials
+    学习: learn
+    算法: algorithm
+    皮肤: skin
+    面试: interview
+    日记: diary
+    破解: crack
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -119,6 +140,7 @@ deploy:
 search:
   path: search.xml
   field: post
+  content: true
 
 #中文链接转拼音
 permalink_pinyin:
@@ -143,3 +165,4 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
+
