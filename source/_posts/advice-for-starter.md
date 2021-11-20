@@ -1,7 +1,7 @@
 ---
 #title: advice-for-starter
-#date: 2021-11-20 20:15:13
-#tags: good article
+date: 2021-11-20 20:15:13
+tags: good article
 
 
 # 软件开发人员促销：获得更高水平的建议
