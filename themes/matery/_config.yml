@@ -23,7 +23,7 @@ menu:
     icon: fas fa-list
     children:
       - name: Music
-        url:/music
+        url: /music
         src:
         - https://www.lofi.cafe
         icon: fas fa-music
