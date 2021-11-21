@@ -1,5 +1,5 @@
 ---
-title: advice-for-starter
+title: 对新人的一些建议
 date: 2021-11-20 20:15:13
 author: 
 top: true
@@ -9,9 +9,10 @@ password:
 toc: true
 mathjax: false
 summary: 本文收集了我向团队中的工程师提供的晋升建议
-categories: article
+categories: 文章
 tags:
-- article
+- 转载
+- 文章
 ---
 
 # 软件开发人员促销：获得更高水平的建议

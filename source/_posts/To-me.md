@@ -1,17 +1,20 @@
 ---
 title: 最重要的事,就是做你认为正确的事
 date: 2021-11-21 18:36:13
-author: 周海波
+author: 
 top: true
 hide: false
 cover: true
 password:
 toc: true
 mathjax: false
-summary: 本文收集了我向团队中的工程师提供的晋升建议
-categories: article
+summary: "你最重要是做你觉得正确的事情,
+最重要的是你听不到内心的抱怨,最重要的是多年以后的你能够看得
+起现在的你,过好每一天,演好当下的剧本,朝着心中的那个标杆去前进。
+categories: 文章
 tags:
-- article
+- 随笔
+- 文章
 ---
 ##最重要的事,就是做你认为正确的事
 - 在小时候母亲都外出务工了,由爷爷奶奶扶养到初中,他们就
