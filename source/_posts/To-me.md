@@ -8,10 +8,7 @@ cover: true
 password:
 toc: true
 mathjax: false
-summary: "你最重要是做你觉得正确的事情,
-最重要的是你听不到内心的抱怨,最重要的是多年以后的你能够看得
-起现在的你,过好每一天,演好当下的剧本,朝着心中的那个标杆去前进。
-
+summary: 做你觉得正确的事情, 最重要的是你听不到内心的抱怨
 categories: 文章
 tags:
 - 随笔
