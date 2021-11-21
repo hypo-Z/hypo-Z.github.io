@@ -5,7 +5,7 @@ tags: good article
 top: true
 categories: article
 cover: true
-coverImg: 
+coverImg: /images/10.jpg
 summary:本文收集了我向团队中的工程师提供的晋升建议
 ---
 
