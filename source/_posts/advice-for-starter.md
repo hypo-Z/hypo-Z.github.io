@@ -1,12 +1,20 @@
 ---
 title: advice-for-starter
 date: 2021-11-20 20:15:13
-tags: good article
+author: 赵奇
+img: /source/images/1.jpg
 top: true
-categories: article
+hide: false
 cover: true
-coverImg: /images/10.jpg
-summary:本文收集了我向团队中的工程师提供的晋升建议
+coverImg: /images/1.jpg
+password: 
+toc: false
+mathjax: false
+summary: 本文收集了我向团队中的工程师提供的晋升建议
+categories: article
+tags:
+- good article
+- Markdown
 ---
 
 # 软件开发人员促销：获得更高水平的建议
