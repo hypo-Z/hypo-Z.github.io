@@ -5,6 +5,8 @@ tags: good article
 top: true
 categories: article
 cover: true
+coverImg: 
+summary:本文收集了我向团队中的工程师提供的晋升建议
 ---
 
 # 软件开发人员促销：获得更高水平的建议
