@@ -57,10 +57,10 @@ cover:
   useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
   video:
-    enable: true
+    enable: false
     src:
-      - https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-his-computer-41640-large.mp4
-      - https://assets.mixkit.co/videos/preview/mixkit-luminous-particles-on-black-background-18142-large.mp4
+      #- https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-his-computer-41640-large.mp4
+      #- https://assets.mixkit.co/videos/preview/mixkit-luminous-particles-on-black-background-18142-large.mp4
       - https://assets.mixkit.co/videos/preview/mixkit-driving-through-futuristic-neon-3d-space-landscape-5399-large.mp4
 
 # index page dream text,
@@ -68,13 +68,18 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 我的梦想
-  text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+  title: 笺言
+  text: 你最重要是做你觉得正确的事情,
+  最重要的是你听不到内心的抱怨,最重要的是多年以后的你能够看得
+  起现在的你,过好每一天,演好当下的剧本,朝着心中的那个标杆去前进,
+  人要做到!不清高,不娇情,不抱怨,就是在黑夜中看到了微光,
+  你就朝着微光的方向走过去,虽然有的时候你去怀疑你会觉得
+  是不是走错了,但是所有的怀疑都为了确信:那就是如何过看起来好的一生
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
-  enable: true
+  enable: false
   title:  #非吸底模式有效
     enable: true
     show: 听听音乐
