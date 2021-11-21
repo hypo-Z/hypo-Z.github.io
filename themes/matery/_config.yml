@@ -24,10 +24,10 @@ menu:
     children:
       - name: Music
         url: /music
-        icon: fas fa-mailchimp
+        icon: fab fa-earlybirds
       - name: Movies
         url: /movies
-        icon: fas fa-galactic-senate
+        icon: fab fa-d-and-d
       - name: Books
         url: /books
         icon: fab fa-freebsd
