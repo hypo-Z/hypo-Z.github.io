@@ -1,12 +1,10 @@
 ---
 title: advice-for-starter
 date: 2021-11-20 20:15:13
-author: 赵奇
-img: /source/featureimages/1.jpeg
+author: 
 top: true
 hide: false
 cover: true
-coverImg:
 password: 
 toc: false
 mathjax: false
