@@ -3,39 +3,37 @@
 menu:
   Index:
     url: /
-    icon: fas fa-home
+    icon: fab fa-ubnutu
   Tags:
     url: /tags
-    icon: fas fa-tags
+    icon: fab fa-optin-monster
   Categories:
     url: /categories
-    icon: fas fa-bookmark
+    icon: fab fa-the-red-yeti
   Archives:
     url: /archives
-    icon: fas fa-archive
+    icon: fas fa-space-shuttle
   About:
     url: /about
-    icon: fas fa-user-circle-o
+    icon: fab fa-reddit
   Friends:
     url: /friends
-    icon: fas fa-address-book
+    icon: fab fa-hornbill
   Medias:
-    icon: fas fa-list
+    icon: fab fa-grav
     children:
       - name: Music
         url: /music
-        src:
-        - https://www.lofi.cafe
-        icon: fas fa-music
+        icon: fas fa-mailchimp
       - name: Movies
         url: /movies
-        icon: fas fa-film
+        icon: fas fa-galactic-senate
       - name: Books
         url: /books
-        icon: fas fa-book
+        icon: fab fa-freebsd
       - name: Galleries
         url: /galleries
-        icon: fas fa-image
+        icon: fas fa-icons
 
 # Website start time.
 # 站点运行开始时间.
@@ -51,11 +49,11 @@ time:
 # Index cover carousel configuration.
 # 首页封面轮播图的相关配置.
 cover:
-  showPrevNext: false # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
-  showIndicators: false # 是否显示指示器. # Whether to display the indicators
-  autoLoop: false # 是否自动轮播. Whether it is automatically rotated.
+  showPrevNext: true # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
+  showIndicators: true # 是否显示指示器. # Whether to display the indicators
+  autoLoop: true # 是否自动轮播. Whether it is automatically rotated.
   duration: 120 # 切换延迟时间. Switching delay time.
-  intervalTime: 50 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
+  intervalTime: 500 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
   useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
   video:
@@ -184,7 +182,7 @@ copyright:
 # 是否激活mathjax数学公式，这是全局配置，但文章仍然不会都开启mathjax渲染，
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
 mathjax:
-  enable: false
+  enable: true
   cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # Post word count, reading duration, site total word count.
@@ -322,7 +320,7 @@ gitalk:
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
 gitment:
-  enable: false
+  enable: true
   owner:
   repo:
   oauth:
@@ -346,14 +344,14 @@ livere:
 # 介绍: https://cloud.tencent.com/document/product/1110/36841
 # 管理验证码: https://console.cloud.tencent.com/captcha/graphical
 tcaptcha:
-  enable: true
+  enable: false
   appid: xxxxxxxxxx # 你的appid
 
 # The configuration of the Valine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
 # Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 valine:
-  enable: true
+  enable: false
   appId:
   appKey:
   notify: true
@@ -370,7 +368,7 @@ valine:
 # MiniValine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项
 # See: https://github.com/MiniValine/MiniValine
 minivaline:
-  enable: true
+  enable: false
   # 更多选项 https://minivaline.js.org/docs/cn/#/Options 按照yml格式继续填写即可 （除了 [el] 选项）  
   # emoticonUrl 等列表选项 可参考 https://github.com/MiniValine/hexo-next-minivaline
   # 下面是一个例子：
