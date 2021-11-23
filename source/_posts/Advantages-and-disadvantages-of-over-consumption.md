@@ -8,7 +8,7 @@ cover: true
 password:
 toc: true
 mathjax: false
-summary: 在我看来,就像花呗、信用卡之类形式的消费方式就与 货款无异,都是透支你的个人信用
+summary: 在我看来,就像花呗、信用卡之类形式的消费方式就与货款无异,都是透支你的个人信用
 categories: 文章
 tags:
 - 随笔
