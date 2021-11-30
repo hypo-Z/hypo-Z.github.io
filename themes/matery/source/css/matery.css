@@ -914,6 +914,17 @@ article .article-content .summary {
     padding-left: 0;
     margin-bottom: 6px;
     word-break: break-all;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    display:-webkit-box;
+
+    -webkit-box-orient:vertical;
+min-height:47px;
+    -webkit-line-clamp:2;
+
 }
 
 article .article-content .publish-author {
