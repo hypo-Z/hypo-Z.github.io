@@ -8,7 +8,7 @@ cover: false
 password:
 toc: false
 mathjax: false
-summary: Go语言基础——数组与切片
+summary: Go语言基础——文件操作
 categories: Golang
 tags:
 - 转载
