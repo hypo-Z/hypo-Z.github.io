@@ -21,7 +21,8 @@ Links:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/Zhb233go/zhb233go.github.io
+url: https://github.com/Zhb233go
+root: /zhb233go.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,8 +106,8 @@ pagination_dir: page
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:
-  - CNAME
   - .nojekyll
+  - CNAME
 exclude:
 ignore:
 
@@ -152,3 +153,21 @@ feed:
   content_limit_delim: ' '
   order_by: -date
 
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: live2d-widget-model-shizuku
+  display:
+    position: left
+    width: 150
+    height: 300
+  mobile:
+    show: true
+  react:
+    opacity: 0.9
