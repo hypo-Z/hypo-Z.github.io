@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="旅行的意义, 菜鸟程序员">
-    <meta name="description" content="旅行中,我们真正感兴趣的东西都是那些留在原地,努力建设的人们建造出来的。">
+    <meta name="keywords" content="Go使用S3搭建Lambda无状态服务, 菜鸟程序员">
+    <meta name="description" content="Go使用S3搭建Lambda无状态服务">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>旅行的意义 | 周大苏打的博客</title>
+    <title>Go使用S3搭建Lambda无状态服务 | 周大苏打的博客</title>
     <link rel="icon" type="image/png" href="/zhb233go.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/awesome/css/all.min.css">
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">旅行的意义</h1>
+                    <h1 class="description center-align post-title">Go使用S3搭建Lambda无状态服务</h1>
                 </div>
             </div>
         </div>
@@ -422,104 +422,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/zhb233go.github.io/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -544,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/zhb233go.github.io/categories/%E6%96%87%E7%AB%A0/" class="post-category">
-                                文章
+                            <a href="/zhb233go.github.io/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -557,28 +463,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-22
+                    2021-12-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-23
+                    2021-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    364
+                    619
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -606,21 +512,58 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="旅行的意义"><a href="#旅行的意义" class="headerlink" title="旅行的意义"></a>旅行的意义</h1><ul>
-<li>今天看到一句话:”年轻时,我认为旅行是人生重要的事情,但是</li>
+                <h1 id="golang使用S3搭建Lambda无状态服务"><a href="#golang使用S3搭建Lambda无状态服务" class="headerlink" title="golang使用S3搭建Lambda无状态服务"></a>golang使用S3搭建Lambda无状态服务</h1><p>由于项目需求我需要使用aws的Lambda服务来自动处理存入图片的缩略图的生成和存入功能。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
+<li>根据尺寸需求生成对应的缩略图</li>
+<li>自动保存入S3对应位置</li>
+<li>将位置信息告诉后端存入数据库</li>
+<li>日志记录报错和运行信息</li>
 </ul>
-<p>现在,我意识到旅行不是如此。它没有那么让人兴奋,也算不上成就,</p>
-<p>跟其它的消费行为没有太大区别。旅行中,我们真正感兴趣的东西都是</p>
-<p>那些留在原地,努力建设的人们建造出来的。</p>
-<p>现在想想去年我年的技术支持,也去过了许多的地方,对于我来说,第一份</p>
-<p>工作它虽然谈不上好,但对于我自己的成长和视界上的提升是巨大的,从</p>
-<p>小我就希望到外界的世界去看看.大山的孩子的心思总是单纯的一年的时间,</p>
-<p>一边工作的同时也欣赏了各地的风景,但是我遗憾是给我去探寻留在原地</p>
-<p>的人们建造出来的美景、美食和美丽的心灵的时间太短。每经过一个</p>
-<p>地方都够而过,虽然时间短暂,但留在我心中的种子已经种子,我相信这颗种子不会死去,</p>
-<p>随着时间的成熟和我个人的成长,一定会再次绽放那个短暂回忆美丽的</p>
-<p>花朵,因为人是一直成长的,但是那么地方和那些人一定</p>
-<p>会留住原地继续建造，等待每个匆匆过往的旅客。</p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><h4 id="1-一个aws账号"><a href="#1-一个aws账号" class="headerlink" title="1.一个aws账号"></a>1.一个aws账号</h4><h4 id="2-编辑好需求的程序-需要在本地测试好，确定没问题再转化成Lambda格式，虽然在aws控制台可以测试，但需要打包，很麻烦，先做测试，减少上线步骤。"><a href="#2-编辑好需求的程序-需要在本地测试好，确定没问题再转化成Lambda格式，虽然在aws控制台可以测试，但需要打包，很麻烦，先做测试，减少上线步骤。" class="headerlink" title="2.编辑好需求的程序,需要在本地测试好，确定没问题再转化成Lambda格式，虽然在aws控制台可以测试，但需要打包，很麻烦，先做测试，减少上线步骤。"></a>2.编辑好需求的程序,需要在本地测试好，确定没问题再转化成Lambda格式，虽然在aws控制台可以测试，但需要打包，很麻烦，先做测试，减少上线步骤。</h4><p>官方的例子：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+        <span class="token string">"fmt"</span>
+        <span class="token string">"context"</span>
+        <span class="token string">"github.com/aws/aws-lambda-go/lambda"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> MyEvent <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+        Name <span class="token builtin">string</span> <span class="token string">`json:"name"`</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">HandleRequest</span><span class="token punctuation">(</span>ctx context<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> name MyEvent<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"Hello %s!"</span><span class="token punctuation">,</span> name<span class="token punctuation">.</span>Name <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        lambda<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span>HandleRequest<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下面列出了有效的处理程序签名。TIn 和 TOut 表示类型与 encoding/json 标准库兼容。有关更多信息，请参阅 func Unmarshal，以了解如何反序列化这些类型。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>TIn<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">error</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>TOut<span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> TIn<span class="token punctuation">)</span> <span class="token builtin">error</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">(</span>TOut<span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> TIn<span class="token punctuation">)</span> <span class="token punctuation">(</span>TOut<span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-部署-zip文件存档"><a href="#3-部署-zip文件存档" class="headerlink" title="3.部署.zip文件存档"></a>3.部署.zip文件存档</h4><h5 id="在-macOS-和-Linux-上创建-zip-文件"><a href="#在-macOS-和-Linux-上创建-zip-文件" class="headerlink" title="在 macOS 和 Linux 上创建 .zip 文件"></a>在 macOS 和 Linux 上创建 .zip 文件</h5><p>编译您的可执行文件。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">GOOS<span class="token operator">=</span>linux <span class="token keyword">go</span> build main<span class="token punctuation">.</span><span class="token keyword">go</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将 GOOS 设置为 linux 可确保编译的可执行文件与 Go 运行时兼容（即使您在非 Linux 环境中编译它也是如此）。</p>
+<p>（可选）如果您的 main 程序包包含多个文件，请使用以下 go build 命令来编译此程序包：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">GOOS<span class="token operator">=</span>linux <span class="token keyword">go</span> build main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（可选）您可能需要使用 Linux 上的 CGO_ENABLED=0 编译程序包：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">GOOS<span class="token operator">=</span>linux CGO_ENABLED<span class="token operator">=</span><span class="token number">0</span> <span class="token keyword">go</span> build main<span class="token punctuation">.</span><span class="token keyword">go</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此命令为标准 C 库 (libc) 版本创建稳定的二进制程序包，这在 Lambda 和其他设备上可能有所不同。</p>
+<p>Lambda 使用 POSIX 文件权限，因此在创建 .zip 文件存档之前，您可能需要为部署程序包文件夹设置权限。</p>
+<p>通过将可执行文件打包为 .zip 文件来创建部署程序包。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">zip function<span class="token punctuation">.</span>zip main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里有个坑需要踩一下：<br>main包下，最好是将全部程序放在main.go里面，防止在编译时报错，这样打好zip包后到控制台测试运行，一定要做测试，这样才能确保你的程序能够成功运行，最好是查看图片与需求结果是否相同。</p>
+<p>…补充…</p>
 
                 
             </div>
@@ -647,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2021/11/22/7-lu-xing-de-yi-yi/">https://github.com/Zhb233go/zhb233go.github.io/2021/11/22/7-lu-xing-de-yi-yi/</a>
+                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2021/12/04/go-shi-yong-s3-da-jian-lambda-wu-zhuang-tai-fu-wu/">https://github.com/Zhb233go/zhb233go.github.io/2021/12/04/go-shi-yong-s3-da-jian-lambda-wu-zhuang-tai-fu-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -730,9 +673,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://github.com/Zhb233go/2021/11/22/7-lu-xing-de-yi-yi/';
-        this.page.identifier = '/zhb233go.github.io/2021/11/22/7-lu-xing-de-yi-yi/';
-        this.page.title = '旅行的意义';
+        this.page.url = 'https://github.com/Zhb233go/2021/12/04/go-shi-yong-s3-da-jian-lambda-wu-zhuang-tai-fu-wu/';
+        this.page.identifier = '/zhb233go.github.io/2021/12/04/go-shi-yong-s3-da-jian-lambda-wu-zhuang-tai-fu-wu/';
+        this.page.title = 'Go使用S3搭建Lambda无状态服务';
     };
     let disqus_shortname = '';
 
@@ -762,50 +705,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/zhb233go.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/">
+                <a href="/zhb233go.github.io/2021/12/04/go-shi-yong-s3-da-jian-lambda-wu-zhuang-tai-fu-wu/">
                     <div class="card-image">
                         
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="Ubuntu开发环境快速安装教程">
+                        <img src="/zhb233go.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="Go使用S3搭建Lambda无状态服务">
                         
-                        <span class="card-title">Ubuntu开发环境快速安装教程</span>
+                        <span class="card-title">Go使用S3搭建Lambda无状态服务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Ubuntu开发环境快速安装教程
+                            Go使用S3搭建Lambda无状态服务
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/zhb233go.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
+                            <a href="/zhb233go.github.io/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
                     </a>
                     
-                    <a href="/zhb233go.github.io/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
+                    <a href="/zhb233go.github.io/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
@@ -819,31 +764,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/zhb233go.github.io/2021/11/21/6-zui-chong-yao-de-shi-jiu-shi-zuo-ni-ren-wei-zheng-que-de-shi/">
+                <a href="/zhb233go.github.io/2021/12/03/19-json-web-token-ru-men-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="最重要的事,就是做你认为正确的事">
+                        <img src="/zhb233go.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="JSON Web Token 入门教程">
                         
-                        <span class="card-title">最重要的事,就是做你认为正确的事</span>
+                        <span class="card-title">JSON Web Token 入门教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            做你觉得正确的事情, 最重要的是你听不到内心的抱怨
+                            JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/zhb233go.github.io/categories/%E6%96%87%E7%AB%A0/" class="post-category">
-                                    文章
+                            <a href="/zhb233go.github.io/categories/JWT/" class="post-category">
+                                    JWT
                                 </a>
                             
                             
@@ -853,12 +798,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
+                    <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
                     </a>
                     
-                    <a href="/zhb233go.github.io/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
                     </a>
                     
                 </div>
@@ -927,100 +872,6 @@
 
 <script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeShrink.js"></script>
 
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/zhb233go.github.io/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 
