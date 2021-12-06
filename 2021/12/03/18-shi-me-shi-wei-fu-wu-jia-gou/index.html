@@ -1,0 +1,1222 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="什么是微服务架构？, 菜鸟程序员">
+    <meta name="description" content="软件架构本质上是任何给定软件系统的结构。它用于提供整个系统的图形表示，有助于开发人员。通常有多个组件，每个组件都解决一个或多个功能。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>什么是微服务架构？ | 周大苏打的博客</title>
+    <link rel="icon" type="image/png" href="/zhb233go.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/my.css">
+
+    <script src="/zhb233go.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/zhb233go.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://pic.netbian.com/tupian/27531.html);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/zhb233go.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">周大苏打的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+      
+      <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fab fa-reddit" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fab fa-grav" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/zhb233go.github.io/music">
+          
+          <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Music</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/movies">
+          
+          <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/books">
+          
+          <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/galleries">
+          
+          <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/zhb233go.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">周大苏打的博客</div>
+        <div class="logo-desc">
+            
+            go语言学习者，互联网新手，努力做一个自律的行者
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-ubnutu"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-optin-monster"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-the-red-yeti"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-space-shuttle"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-reddit"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-hornbill"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fab fa-grav"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/music " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Music</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/movies " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/books " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Zhb233go/zhb233go.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Zhb233go/zhb233go.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">什么是微服务架构？</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                                <span class="chip bg-color">文章</span>
+                            </a>
+                        
+                            <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                <span class="chip bg-color">转载</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/zhb233go.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                微服务
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-12-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/zhb233go.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>什么是软件架构？<br>软件架构的重要性<br>什么是微服务架构？<br>微服务架构的优缺点<br>其他突出的软件架构模式<br>构建微服务架构的最佳实践<br>计划构建微服务架构？</p>
+<h2 id="什么是软件架构？"><a href="#什么是软件架构？" class="headerlink" title="什么是软件架构？"></a>什么是软件架构？</h2><p><img src="https://www.devteam.space/wp-content/uploads/2019/01/What-is-software-architecture.jpg"><br>软件架构模式的模式</p>
+<p>软件架构本质上是任何给定软件系统的结构。它用于提供整个系统的图形表示，有助于开发人员。</p>
+<p>通常有多个组件，每个组件都解决一个或多个功能。</p>
+<p>上面的软件架构图示例显示了这些组件如何相互交互。在“软件架构”中阅读更多相关信息。请记住，上图只是一个基本示例。</p>
+<p>我们称之为软件架构的示意图只是一种视觉表示。每个系统图都显示了软件架构师决定的一系列设计原则，以确保最佳的整体系统功能。做出架构决策是为了确保最佳的安全性、性能、可管理性等。</p>
+<p>这些设计原则、架构决策和示意图都是软件架构的组成部分。它们共同使系统能够满足其业务、运营和技术目标。在此 Techopedia 软件架构定义中阅读更多内容。</p>
+<h2 id="软件架构的重要性"><a href="#软件架构的重要性" class="headerlink" title="软件架构的重要性"></a>软件架构的重要性</h2><p>软件架构对于产品的成功极其重要。有几个原因。</p>
+<h3 id="第一组决定"><a href="#第一组决定" class="headerlink" title="第一组决定"></a>第一组决定</h3><p>在“软件开发生命周期”（SDLC）期间，开发团队在软件架构的创建过程中做出与系统相关的关键决策。在此过程之前，将仅概述业务需求。</p>
+<p>如您所知，确保第一组决策正确无误，将使您的项目处于最佳状态以顺利运行。另一方面，如果这些决定不正确，您的项目几乎肯定会遇到严重的问题。在“良好软件架构的重要性”中阅读更多相关信息。</p>
+<h3 id="视觉呈现的交流工具"><a href="#视觉呈现的交流工具" class="headerlink" title="视觉呈现的交流工具"></a>视觉呈现的交流工具</h3><p>软件架构是一种工具，通过提供示意性表示来帮助沟通，这些表示显示与改进核心功能相关的底层决策。做对了，您的所有项目利益相关者以及您的开发团队将准确了解您的产品将如何运作。</p>
+<h3 id="可重用性"><a href="#可重用性" class="headerlink" title="可重用性"></a>可重用性</h3><p>软件架构有助于持续开发，特别是对于未来的项目。由于您已经制定和实施了一次架构决策，并拥有示意图，因此可以在未来的项目中重复使用或扩展这些决策。</p>
+<p>这意味着您可以为新产品重用大部分核心结构，因为只有开发工具、编程语言等会有所不同。没有良好的软件架构，项目或产品可能会失败。在此 Quora 问答主题中阅读更多相关信息。</p>
+<h2 id="什么是微服务架构？"><a href="#什么是微服务架构？" class="headerlink" title="什么是微服务架构？"></a>什么是微服务架构？</h2><p><img src="https://www.devteam.space/wp-content/uploads/2019/01/What-is-the-microservices-architecture.jpg"><br>单体架构和微服务架构差异的示意图</p>
+<p>微服务架构模式帮助开发人员创建多个较小的程序，而不是一个大程序。一个大程序通常很难维护，此外，添加新功能也很困难。使用微服务架构，程序员为每个功能创建一个小程序。添加新功能只需要创建另一个小程序。</p>
+<p>视频点播平台 Netflix 是这种架构模式的一个很好的例子。正如您所料，Netflix“用户界面”(UI) 中的每个部分都是不同的服务。实际上，UI 就像是不同网站的集合，尽管它看起来只是一个。阅读“微服务架构（示例和图表） ”了解更多详情。</p>
+<h2 id="微服务架构的优缺点"><a href="#微服务架构的优缺点" class="headerlink" title="微服务架构的优缺点"></a>微服务架构的优缺点</h2><h4 id="这种模式有很多优点："><a href="#这种模式有很多优点：" class="headerlink" title="这种模式有很多优点："></a>这种模式有很多优点：</h4><p>当企业提供彼此明显分离的功能时，这种架构模式可以使他们的应用程序具有高度可扩展性。<br>个别服务可能有不同的需求概况，因此，企业将为这些个别服务实施扩展策略。这有助于优化和确定资源的优先级。<br>如果您使用这种架构模式，您会发现阅读和理解您的代码库会容易得多。<br>维护应用程序更容易。<br>单个微服务可以单独部署。您只部署已更改的微服务，而不是整个应用程序。这减少了在部署过程中花费的时间和精力。<br>您发现调试应用程序更容易，因为您无需查看大型应用程序的多个层。<br>微服务架构模式可以更轻松地隔离故障。<br>如果您使用微服务架构模式，您可以构建更具弹性的服务，这会提高您的应用程序的容错能力。<br>如果您使用微服务架构，则可以提高可重用性。在此模式中，您可以围绕业务功能构建和组织微服务。当与其他业务功能存在共性时，您可以以最少的更改重用您之前开发的微服务。这种重用有助于降低您的开发成本。<br>在“什么是微服务？”。</p>
+<h4 id="也有缺点："><a href="#也有缺点：" class="headerlink" title="也有缺点："></a>也有缺点：</h4><p>如果我们不能清楚地将服务彼此分开，这种模式会增加复杂性。<br>如果多个服务使用相同的任务，则此模式会对性能产生不利影响。<br>如果由于网站不同部分的页面速度不同，微服务过多，用户可能会发现 UI 混乱。如果您使用太多不同的编程语言来开发不同的微服务，那么您的应用程序将更加难以维护。<br>如果您使用微服务架构，集成测试可能会很困难。如果您的组件位于其他系统/环境中，那么您会发现很难设置端到端的集成测试环境。<br>您需要仔细定义微服务与其他服务交互的接口。如果您有太多由不同团队开发的微服务，那么定义此类接口可能会很困难。不同的微服务将相互依赖输入。不同的开发团队需要清楚地了解其他微服务可能使用的接口，因此，沟通是关键。<br>微服务架构实现的一个突出例子<br>想看看微服务架构在起作用吗？好吧，Netflix 就是您的最佳选择！这家流行的流媒体服务提供商充分利用了这种架构模式。</p>
+<p>Netflix 仍在经历高速增长，然而，该公司最初难以跟上它的步伐。它有一个单体架构，它的数据中心与此保持一致。Netflix 无法以足够快的速度建立足够数量的数据中心来跟上其令人印象深刻的增长。</p>
+<p>同年，一个模块代码中缺少一个分号导致 Netflix 网站瘫痪。该网站关闭了几个小时，需要一个大型工程团队的共同努力才能恢复。当 Netflix 不得不进行故障排除时，它总是不得不聘请一个由多个领域组成的大型工程团队。嗯，这就是使用单体架构的巨大应用程序的缺点！</p>
+<p>Netflix 于 2009 年开始转向 AWS 云微服务架构，当时微服务架构模式并不流行，甚至连“微服务”这个词都没有使用。</p>
+<p>该公司于 2009 年首次迁移了一款非面向客户的应用程序，并且进展顺利。随后，Netflix 将其网站的几个面向客户的功能转移到了 AWS 云微服务架构中。到 2011 年 12 月，Netflix 完成了搬迁。</p>
+<p>就本月的情况而言，Netflix 微服务架构中的 API 网关每天处理 20 亿次 API 调用！您可以阅读“为什么不提及 Netflix 就不能谈论微服务”以了解有关此转变的更多信息。</p>
+<p>其他突出的软件架构模式<br>当我们回顾其他软件架构模式的特征时，微服务架构的重要性变得更加清晰。</p>
+<p>微服务架构还有其他四种关键模式：</p>
+<h4 id="分层架构"><a href="#分层架构" class="headerlink" title="分层架构"></a>分层架构</h4><p>这是最常见的软件架构模式。大多数业务应用程序将信息存储在数据库表中。这种模式在层中有代码。最顶层接受数据。然后数据导航到最底部的层，即数据库。</p>
+<p>大多数关键框架（如 Java EE）都使用这种模式。分层架构提供了一些优势，例如，应用程序易于维护，测试更容易。在“大型企业 Java 项目架构”中阅读更多相关信息。</p>
+<p>缺点是代码量大且无组织，其中大部分只在层之间传递数据，不执行任何业务逻辑。这会影响产品的性能。</p>
+<h4 id="事件驱动架构"><a href="#事件驱动架构" class="headerlink" title="事件驱动架构"></a>事件驱动架构</h4><p>许多用例涉及仅在有数据要处理时才执行的程序。在事件驱动架构的情况下，中央单元接收所有数据输入。特定的数据输入是事件。然后中央单元委托适当的组件处理特定类型的数据。</p>
+<p>并非所有模块都处理所有数据。这使得应用程序具有可扩展性，此外，开发人员可以轻松扩展系统以应对新事件。在“前 5 种软件架构模式：如何做出正确选择”中阅读更多相关信息。</p>
+<p>有一些缺点。当模块相互影响时，测试变得更加困难。如果多个模块处理同一个事件，它会使错误处理复杂化。由于消息传递开销，系统可能会变慢。</p>
+<h4 id="微内核架构"><a href="#微内核架构" class="headerlink" title="微内核架构"></a>微内核架构</h4><p>常用工具有一组用户重复执行的任务。著名的“集成开发环境”(IDE) Eclipse 就是一个这样的例子，它具有可重复的任务，如打开文件、编辑文件等。</p>
+<p>微内核架构使用微内核来包含这些基本功能。我们可以将其上的所有其他内容视为“插件”。这种模式非常适合流行的工具，因为它可以提高性能。但是，很难定义常见的任务。在“软件架构：您需要了解的 5 种模式”中阅读更多相关信息。</p>
+<h4 id="天基建筑"><a href="#天基建筑" class="headerlink" title="天基建筑"></a>天基建筑</h4><p>基于空间的架构的目标 是在高负载时为 Web 应用程序提供健壮性和稳定性。大多数网站都是围绕数据库构建的，因此，它们依赖于数据库来处理负载。</p>
+<p>使用基于空间的架构，软件架构师将处理和存储拆分到多个服务器中。数据和服务调用分布在节点之间。这有助于避免数据库在高负载情况下崩溃。请注意，测试整个系统可能很困难，因为模拟负载条件可能很棘手。</p>
+<h3 id="构建微服务架构的最佳实践"><a href="#构建微服务架构的最佳实践" class="headerlink" title="构建微服务架构的最佳实践"></a>构建微服务架构的最佳实践</h3><p>微服务架构实现的最佳实践<br>寻找最佳微服务架构<br>概述您的微服务<br>领域驱动设计<br>让每个人都加入<br>使用 RESTful API<br>为特定的微服务建立团队<br>设置服务器和数据存储环境<br>文档 API<br>使用最好的 DevOps 工具包<br>监控是关键</p>
+<h4 id="最佳实践-1：确定微服务架构是否符合您的要求"><a href="#最佳实践-1：确定微服务架构是否符合您的要求" class="headerlink" title="最佳实践 #1：确定微服务架构是否符合您的要求"></a>最佳实践 #1：确定微服务架构是否符合您的要求</h4><p>Amazon、Twitter、eBay 和 PayPal 是成功实施微服务架构设计的组织的例子。这是一种流行的模式，然而，这并不意味着它对你有用。</p>
+<p>如果您不能将您的 Web 应用程序分解为提供价值的功能，那么微服务架构对您来说就没有意义了。阅读“模式：按业务能力分解”以获得更多见解。</p>
+<h4 id="最佳实践-2：定义您的微服务"><a href="#最佳实践-2：定义您的微服务" class="headerlink" title="最佳实践#2：定义您的微服务"></a>最佳实践#2：定义您的微服务</h4><p>您需要明确区分业务功能、服务和微服务。如果没有这个，您可能会构建过大的微服务。这是一种不完整的形式，您将看不到使用微服务方法的任何好处。</p>
+<p>另一方面是创建过多微服务的可能性。这将导致您的架构过度碎片化。请记住，要管理微服务架构，您需要一个成熟的运营团队。在“微服务权衡”中了解它。</p>
+<p>如果微服务太多，运营管理成本会很高。您将看到运营成本的激增掩盖了您从微服务中获得的收益。</p>
+<h4 id="最佳实践-3：使用“领域驱动设计”（DDD）来设计微服务"><a href="#最佳实践-3：使用“领域驱动设计”（DDD）来设计微服务" class="headerlink" title="最佳实践#3：使用“领域驱动设计”（DDD）来设计微服务"></a>最佳实践#3：使用“领域驱动设计”（DDD）来设计微服务</h4><p>虽然这一步与定义微服务的练习密切相关，但它更进了一步。在这里，您可以围绕您的业务领域设计微服务。让我们再次回顾 Netflix 示例。他们从不同的服务器运行他们的内容交付和不同的跟踪服务。</p>
+<p>“领域驱动设计”(DDD) 是一种设计原则，它使用实用的规则和思想来表达面向对象的模型。它帮助软件架构师了解不同的业务领域，因此，他们可以专注于构建业务可以很好理解的微服务架构。在“ DDD 101 — 5 分钟之旅”中阅读更多相关信息。</p>
+<h4 id="最佳实践-4：尽早获得组织领导和团队的支持"><a href="#最佳实践-4：尽早获得组织领导和团队的支持" class="headerlink" title="最佳实践#4：尽早获得组织领导和团队的支持"></a>最佳实践#4：尽早获得组织领导和团队的支持</h4><p>实现微服务架构设计不仅仅是一个技术决策。这种转型代价高昂，而且影响不仅限于内部开发团队。从单体架构过渡是一个漫长的项目。组织中的高级管理人员必须为此投入资金。</p>
+<p>对您的开发团队的影响将是巨大的。到目前为止，您的团队一直在使用端到端测试过程来测试整个系统，以防出现增强。您现在需要围绕微服务对系统进行模块化。这需要文化转型。</p>
+<p>转型将有助于您的业务敏捷性，因为它将促进持续交付。但是，团队必须完全接受转型。阅读我们的指南“敏捷帮助变革管理的 5 种方式”，了解如何有效地帮助这种转变。</p>
+<h4 id="最佳实践-5：最佳地使用-RESTful-API"><a href="#最佳实践-5：最佳地使用-RESTful-API" class="headerlink" title="最佳实践 #5：最佳地使用 RESTful API"></a>最佳实践 #5：最佳地使用 RESTful API</h4><p>如果您优化使用 RESTful API，微服务架构模式可以提供重要的价值。RESTful API 提供了许多优点，例如，您不需要在客户端安装任何东西。您不需要 SDK 或框架，因为使用 API 服务的 HTTP 请求就足够了。在此 Quora 问答主题中阅读有关 RESTful API 优势的更多信息。</p>
+<p>RESTful API 领域的专家 Leonard Richardson 提出了 REST API 使用的成熟度模型。为了从您的微服务架构中实现最佳价值，您应该尝试达到此成熟度模型的最高水平。阅读“微服务架构的 10 个最佳实践”以获得更多见解。</p>
+<h4 id="最佳实践-6：围绕微服务组织团队"><a href="#最佳实践-6：围绕微服务组织团队" class="headerlink" title="最佳实践 #6：围绕微服务组织团队"></a>最佳实践 #6：围绕微服务组织团队</h4><p>您需要建立不同的团队来处理不同的微服务。这些团队应该被赋予足够的权力来处理他们的微服务。但是，所有团队都应该跨职能并了解整个项目计划。</p>
+<p>每个团队都应该具备构建云原生应用程序的必要技能。每个团队都需要业务分析师、开发人员、测试人员和 DevOps 工程师。每个团队都应该有自己的项目经理 (PM)。我们的指南“如何建立Scrum开发团队？”可以帮助您组织这些团队。</p>
+<h4 id="最佳实践-7：为每个微服务提供单独的数据存储"><a href="#最佳实践-7：为每个微服务提供单独的数据存储" class="headerlink" title="最佳实践 #7：为每个微服务提供单独的数据存储"></a>最佳实践 #7：为每个微服务提供单独的数据存储</h4><p>每个微服务都应该为其数据存储做好准备。每个微服务都应该完全拥有自己的数据。当然，数据可以在微服务之间共享，但是，这应该通过 API 进行。</p>
+<p>如果多个微服务共享同一个数据存储，这会导致服务之间的耦合。这将大大违背微服务架构的目的。在“ Top 5+ 微服务架构和设计最佳实践”中阅读更多相关信息。</p>
+<h4 id="最佳实践-8：基于领域设计-API-并很好地记录它们"><a href="#最佳实践-8：基于领域设计-API-并很好地记录它们" class="headerlink" title="最佳实践 #8：基于领域设计 API 并很好地记录它们"></a>最佳实践 #8：基于领域设计 API 并很好地记录它们</h4><p>充分注意基于业务领域设计 API。很好地记录 API。考虑使用Swagger 之类的工具。我们有一个指南“如何为您的移动应用程序构建 RESTful API？”您可以咨询。</p>
+<h4 id="最佳实践-9：使用好的-DevOps-工具集"><a href="#最佳实践-9：使用好的-DevOps-工具集" class="headerlink" title="最佳实践 #9：使用好的 DevOps 工具集"></a>最佳实践 #9：使用好的 DevOps 工具集</h4><p>到目前为止，您应该已经将微服务设计得足够好，可以独立部署它们。为了从这些微服务中实现最佳价值，您需要自动化构建和部署管理。因此，您将需要一套良好的 DevOps 工具。</p>
+<p>用于部署自动化的 Jenkins 和用于容器化的 Docker 是一个很好的组合。但是，如果您需要更多示例，请阅读“ 2019 年的 10 个最佳 DevOps 工具”。</p>
+<h4 id="最佳实践-10：投资于监控"><a href="#最佳实践-10：投资于监控" class="headerlink" title="最佳实践 #10：投资于监控"></a>最佳实践 #10：投资于监控</h4><p>如果您使用的是单体架构并正在过渡到微服务架构，则必须解决日益增加的复杂性。对性能和动态环境的需求增加需要更高级的监控。</p>
+<p>一个好的监控解决方案应该解决资源分配的持续变化。这样的解决方案应该将从监控中收集的数据存储在中央数据库中。它产生的洞察力应该揭示应用程序的动态特性。</p>
+<p>每个微服务都应该使用监控代理。监控系统应支持根本原因分析。阅读更多关于它在“成功微服务设计的 5 个基础”中的重要性。</p>
+<h3 id="部署微服务架构时的关键考虑因素"><a href="#部署微服务架构时的关键考虑因素" class="headerlink" title="部署微服务架构时的关键考虑因素"></a>部署微服务架构时的关键考虑因素</h3><p>可以看到，部署微服务架构是一个涉及到的项目。在进行此类项目时，请牢记以下注意事项：</p>
+<ol>
+<li><p>管理依赖<br>您需要在微服务架构中以不同于单体应用程序中的方式管理依赖项。微服务架构涉及每个独立运行的服务。但是，一个微服务可能需要访问系统的其他部分。这就是复杂性出现的地方。仔细考虑依赖关系。</p>
+</li>
+<li><p>寻找具有所需知识的建筑师<br>架构师将在实施微服务架构中发挥关键作用。你需要一个称职的建筑师。架构师可能需要使用事件驱动的聚合来实现此架构，这需要适当的后端相关专业知识。</p>
+</li>
+</ol>
+<p>请记住，微服务架构中的微服务是分布式系统。因此，架构师需要具备这方面的良好知识。</p>
+<p>此外，架构师需要实现从多个数据存储中检索数据的查询。在微服务架构中，这将比单体应用更复杂。该项目可能会使用“事件溯源”模式，这会增加复杂性。架构师可能需要在此处使用“通用查询职责分离”(CQRS) 模式。</p>
+<p>在某些情况下，架构师可能需要使用“断路器”模式。这可以帮助多个服务在为请求提供服务时进行协作。一个服务可能会同步调用另一个服务。此其他服务可能会停机，或者，它可能会遇到高延迟。“断路器”模式可防止此类问题影响其他服务。</p>
+<p>负载平衡恰好是架构师需要足够经验的另一个领域。它有助于微服务在管理系统负载的同时保持安全性和可用性。</p>
+<p>开发人员可能会在创建微服务时对要实现的端点数量感到困惑。知识渊博的软件架构师可以在这里发挥很大的作用，因为他/她知道端点的数量取决于服务的类型。</p>
+<ol start="3">
+<li>使用正确的工具和框架，如“Spring Boot”<br>使用正确的开源工具可以极大地帮助实现微服务架构。幸运的是，您可以利用丰富的开源工具生态系统。</li>
+</ol>
+<p>例如，您可以使用流行的开源框架“Spring Boot”轻松创建微服务。以下是此类工具的更多示例：</p>
+<p>API开发的邮递员；<br>用于消息传递的 Amazon Simple Queue Service (SQS)；<br>用于监控的 Logstash；<br>用于部署的 Kubernetes。<br>GitHub 在这里值得一提，尽管它不是完全开源的。这有助于您进行版本控制和源代码管理。</p>
+<ol start="4">
+<li>为可扩展性设计微服务<br>在设计微服务时，可扩展性是一个关键因素。无论是创建新服务还是增强现有服务，都需要注意这一点。为此，您需要考虑各种方法和技术。</li>
+</ol>
+<p>一个很好的例子是缓存。请记住遵循正确的教程在微服务架构中实现它。异步消息传递使您能够在构建微服务时提供更好的可扩展性。</p>
+<ol start="5">
+<li>处理认证和授权<br>处理用户身份验证和授权在微服务和单体应用程序之间差异很大。您需要非常了解这些差异的架构师和开发人员。</li>
+</ol>
+<p>例如，他们需要准确地定义有界上下文。这将帮助他们定义具有大量粒度的用户授权。</p>
+<p>再举一个例子。您的团队将需要使用令牌进行用户身份验证。存在各种类型的令牌，例如“JSON Web 令牌”(JWT)。近年来，这种开放标准的代币越来越受欢迎。您需要了解此类现代标准的架构师和开发人员。</p>
+<ol start="6">
+<li>恰当地使用服务网格<br>有时您需要实现外部配置，如凭据以及微服务架构模式。您可能需要监控指标以了解应用程序的执行情况。考虑使用服务网格来管理服务之间的通信。</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/zhb233go.github.io/about" rel="external nofollow noreferrer">https://www.devteam.space/blog/10-best-practices-for-building-a-microservice-architecture/</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2021/12/03/18-shi-me-shi-wei-fu-wu-jia-gou/">https://github.com/Zhb233go/zhb233go.github.io/2021/12/03/18-shi-me-shi-wei-fu-wu-jia-gou/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/zhb233go.github.io/about" target="_blank">https://www.devteam.space/blog/10-best-practices-for-building-a-microservice-architecture/</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                                    <span class="chip bg-color">文章</span>
+                                </a>
+                            
+                                <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                    <span class="chip bg-color">转载</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/zhb233go.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'https://github.com/Zhb233go/2021/12/03/18-shi-me-shi-wei-fu-wu-jia-gou/';
+        this.page.identifier = '/zhb233go.github.io/2021/12/03/18-shi-me-shi-wei-fu-wu-jia-gou/';
+        this.page.title = '什么是微服务架构？';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/zhb233go.github.io/2021/12/03/19-json-web-token-ru-men-jiao-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/zhb233go.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="JSON Web Token 入门教程">
+                        
+                        <span class="card-title">JSON Web Token 入门教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/zhb233go.github.io/categories/JWT/" class="post-category">
+                                    JWT
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/zhb233go.github.io/2021/12/02/17-xi-guan-de-yang-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/zhb233go.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="习惯的养成">
+                        
+                        <span class="card-title">习惯的养成</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            习惯的养成
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/zhb233go.github.io/categories/%E6%96%87%E7%AB%A0/" class="post-category">
+                                    文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/zhb233go.github.io/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 周大苏打的博客<br />'
+            + '文章作者: 周海波<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+    <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=482999696&auto=1&height=66"></iframe></div>
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <a href="/zhb233go.github.io/about" target="_blank">周海波</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">38.3k</span>
+            
+            
+            
+                
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "14";
+                        var startHour = "17";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhb233go" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2925376741@qq.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/zhb233go.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/zhb233go.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/zhb233go.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/zhb233go.github.io/libs/aos/aos.js"></script>
+    <script src="/zhb233go.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/zhb233go.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/zhb233go.github.io/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/zhb233go.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/zhb233go.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/zhb233go.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/zhb233go.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/zhb233go.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/zhb233go.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/zhb233go.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/zhb233go.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>

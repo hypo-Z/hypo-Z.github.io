@@ -1,0 +1,1579 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Ubuntu开发环境快速安装教程, 菜鸟程序员">
+    <meta name="description" content="Ubuntu开发环境快速安装教程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Ubuntu开发环境快速安装教程 | 周大苏打的博客</title>
+    <link rel="icon" type="image/png" href="/zhb233go.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/my.css">
+
+    <script src="/zhb233go.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/zhb233go.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://pic.netbian.com/tupian/27531.html);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/zhb233go.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">周大苏打的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+      
+      <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fab fa-reddit" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fab fa-grav" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/zhb233go.github.io/music">
+          
+          <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Music</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/movies">
+          
+          <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/books">
+          
+          <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zhb233go.github.io/galleries">
+          
+          <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/zhb233go.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">周大苏打的博客</div>
+        <div class="logo-desc">
+            
+            go语言学习者，互联网新手，努力做一个自律的行者
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-ubnutu"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-optin-monster"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-the-red-yeti"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-space-shuttle"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-reddit"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-hornbill"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fab fa-grav"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/music " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Music</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/movies " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/books " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/zhb233go.github.io/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Zhb233go/zhb233go.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Zhb233go/zhb233go.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Ubuntu开发环境快速安装教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/zhb233go.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/zhb233go.github.io/tags/%E6%95%99%E7%A8%8B/">
+                                <span class="chip bg-color">教程</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/zhb233go.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-12-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/zhb233go.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Ubuntu开发环境快速安装教程："><a href="#Ubuntu开发环境快速安装教程：" class="headerlink" title="Ubuntu开发环境快速安装教程："></a>Ubuntu开发环境快速安装教程：</h1><h3 id="ubuntu安装go："><a href="#ubuntu安装go：" class="headerlink" title="ubuntu安装go："></a>ubuntu安装go：</h3><p>1、下载二进制包：go1.4.linux-amd64.tar.gz。</p>
+<p>2、将下载的二进制包解压至 /usr/local目录。</p>
+<pre class="line-numbers language-none"><code class="language-none">tar -C /usr/local -xzf go1.4.linux-amd64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3、将 /usr/local/go/bin 目录添加至PATH环境变量：</p>
+<pre class="line-numbers language-none"><code class="language-none">export PATH=$PATH:/usr/local/go/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="ubuntu安装docker："><a href="#ubuntu安装docker：" class="headerlink" title="ubuntu安装docker："></a>ubuntu安装docker：</h3><p>在终端中输入以下命令：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>没有错误则成功了。</p>
+<p>二、安装需要的包</p>
+<p>在终端输入命令</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install apt-transport-https ca-certificates software-properties-common curl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>没有错误则成功。<br>三、添加 GPG 密钥，并添加 Docker-ce 软件源</p>
+<p>官方的软件源（不推荐，很慢）：</p>
+<pre class="line-numbers language-none"><code class="language-none">curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>中国科技大学的 Docker-ce 源（其他源类似）：</p>
+<pre class="line-numbers language-none"><code class="language-none">curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+$(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h5 id="注意：添加错了可以用以下命令删除"><a href="#注意：添加错了可以用以下命令删除" class="headerlink" title="注意：添加错了可以用以下命令删除"></a>注意：添加错了可以用以下命令删除</h5><h5 id="查询keyid-下图"><a href="#查询keyid-下图" class="headerlink" title="查询keyid,下图"></a>查询keyid,下图</h5><pre class="line-numbers language-none"><code class="language-none">sudo apt-key list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="keyid-就是90那一串"><a href="#keyid-就是90那一串" class="headerlink" title="keyid 就是90那一串"></a>keyid 就是90那一串</h5><pre class="line-numbers language-none"><code class="language-none">sudo apt-key del &lt;keyid&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="加参数-r可以移除"><a href="#加参数-r可以移除" class="headerlink" title="加参数-r可以移除"></a>加参数-r可以移除</h5><pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository -r "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>更新软件包缓存</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>四、安装 Docker-ce</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>五、测试运行</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo docker run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>六、添加当前用户到 docker 用户组，可以不用 sudo 运行 docker</p>
+<p>将当前用户添加到 docker 组</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo gpasswd -a ${USER} docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>重新登录或者用以下命令切换到docker组</p>
+<pre class="line-numbers language-none"><code class="language-none">newgrp - docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>重启docker服务</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo service docker restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>不加sudo直接执行docker命令检查效果</p>
+<pre class="line-numbers language-none"><code class="language-none">docker ps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="ubuntu安装git："><a href="#ubuntu安装git：" class="headerlink" title="ubuntu安装git："></a>ubuntu安装git：</h3><h5 id="Linux-平台上安装"><a href="#Linux-平台上安装" class="headerlink" title="Linux 平台上安装"></a>Linux 平台上安装</h5><p>Git 的工作需要调用 curl，zlib，openssl，expat，libiconv 等库的代码，所以需要先安装这些依赖工具。</p>
+<p>在有 yum 的系统上（比如 Fedora）或者有 apt-get 的系统上（比如 Debian 体系），可以用下面的命令安装：</p>
+<p>各 Linux 系统可以使用其安装包管理工具（apt-get、yum 等）进行安装：</p>
+<h5 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h5><p>Debian/Ubuntu Git 安装命令为：</p>
+<pre class="line-numbers language-none"><code class="language-none">$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
+  libz-dev libssl-dev
+
+$ apt-get install git
+
+$ git --version
+git version 1.8.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="ubuntu安装goland："><a href="#ubuntu安装goland：" class="headerlink" title="ubuntu安装goland："></a>ubuntu安装goland：</h3><h5 id="goland安装"><a href="#goland安装" class="headerlink" title="goland安装"></a>goland安装</h5><ol>
+<li>下载goland<br><a target="_blank" rel="noopener" href="https://www.jetbrains.com/go/download/#section=linux">Goland下载链接</a></li>
+<li>cd到安装包目录，移动并解压</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">tar</span> -zxvf goland-2020.3.4.tar.gz -C /usr/local/ <span class="token comment">#包的名字自行修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>启动Goland</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210320104439418.png" alt="在这里插入图片描述"></p>
+<h3 id="ubuntu安装google-chorme："><a href="#ubuntu安装google-chorme：" class="headerlink" title="ubuntu安装google chorme："></a>ubuntu安装google chorme：</h3><p>下载Chrome</p>
+<pre class="line-numbers language-none"><code class="language-none">$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装</p>
+<pre class="line-numbers language-none"><code class="language-none">$ sudo dpkg -i google-chrome-stable_current_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>报错</p>
+<pre class="line-numbers language-none"><code class="language-none">$ sudo dpkg -i google-chrome-stable_current_amd64.deb
+(Reading database ... 155736 files and directories currently installed.)
+Preparing to unpack google-chrome-stable_current_amd64.deb ...
+Unpacking google-chrome-stable (88.0.4324.96-1) ...
+dpkg: dependency problems prevent configuration of google-chrome-stable:
+ google-chrome-stable depends on fonts-liberation; however:
+  Package fonts-liberation is not installed.
+ google-chrome-stable depends on libatk-bridge2.0-0 (&gt;= 2.5.3); however:
+  Package libatk-bridge2.0-0 is not installed.
+ google-chrome-stable depends on libatk1.0-0 (&gt;= 2.2.0); however:
+  Package libatk1.0-0 is not installed.
+ google-chrome-stable depends on libatspi2.0-0 (&gt;= 2.9.90); however:
+  Package libatspi2.0-0 is not installed.
+ google-chrome-stable depends on libcairo2 (&gt;= 1.6.0); however:
+  Package libcairo2 is not installed.
+ google-chrome-stable depends on libcups2 (&gt;= 1.4.0); however:
+  Package libcups2 is not installed.
+ google-chrome-stable depends on libgbm1 (&gt;= 8.1~0); however:
+  Package libgbm1 is not installed.
+ google-chrome-stable depends on libgdk-pixbuf2.0-0 (&gt;= 2.22.0); however:
+  Package libgdk-pixbuf2.0-0 is not installed.
+ google-chrome-stable depends on libgtk-3-0 (&gt;= 3.9.10); however:
+  Package libgtk-3-0 is not installed.
+ google-chrome-stable depends on libnspr4 (&gt;= 2:4.9-2~); however:
+  Package libnspr4 is not installed.
+ google-chrome-stable depends on libnss3 (&gt;= 2:3.22); however:
+  Package libnss3 is not installed.
+ google-chrome-stable depends on libpango-1.0-0 (&gt;= 1.14.0); however:
+  Package libpango-1.0-0 is not installed.
+ google-chrome-stable depends on libxkbcommon0 (&gt;= 0.4.1); however:
+  Package libxkbcommon0 is not installed.
+ google-chrome-stable depends on xdg-utils (&gt;= 1.0.2); however:
+  Package xdg-utils is not installed.
+
+dpkg: error processing package google-chrome-stable (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for mime-support (3.64ubuntu1) ...
+Processing triggers for man-db (2.9.1-1) ...
+Errors were encountered while processing:
+ google-chrome-stable
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>报错原因：缺少依赖软件包</p>
+<pre class="line-numbers language-none"><code class="language-none">dpkg: error processing package google-chrome-stable (--install):
+ dependency problems - leaving unconfigured<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>解决办法：修复依赖关系</p>
+<pre class="line-numbers language-none"><code class="language-none">$ sudo apt-get install -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果系统中有某个软件包不满足依赖条件,这个命令就会自动修复,将要安装那个软件包依赖的软件包。</p>
+<p>查看Chrome版本信息</p>
+<pre class="line-numbers language-none"><code class="language-none">$ google-chrome --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="ubuntu安装teams："><a href="#ubuntu安装teams：" class="headerlink" title="ubuntu安装teams："></a>ubuntu安装teams：</h3><p>1、去官网下载二进制包teams.tar.gz。</p>
+<p>2、将下载的二进制包解压至 /usr/local目录。</p>
+<pre class="line-numbers language-none"><code class="language-none">tar -C /usr/local -xzf teams.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="Ubuntu安装typora"><a href="#Ubuntu安装typora" class="headerlink" title="Ubuntu安装typora:"></a>Ubuntu安装typora:</h3><p>在终端中输入以下命令：</p>
+<pre class="line-numbers language-none"><code class="language-none"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+
+# add Typora's repository
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+
+# install typora
+sudo apt-get install typora<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="ubuntu安装cloudmusic："><a href="#ubuntu安装cloudmusic：" class="headerlink" title="ubuntu安装cloudmusic："></a>ubuntu安装cloudmusic：</h3><p>先到网站下载安装包，网址：<a target="_blank" rel="noopener" href="https://music.163.com/#/download">https://music.163.com/#/download</a> , 然后下载客户端，点击下载全部客户端，选择Linux版，选择Ubuntu18.04，其实我的20.04 版的没找到，不过这个用起来还不错。至于是32还是64，自己看吧。<br>然后将安装包下载到：~/下载 目录下，然后在这个目录下面打开终端。<br>在终端里面输入：sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb 就行了</p>
+<h3 id="ubuntu安装vim："><a href="#ubuntu安装vim：" class="headerlink" title="ubuntu安装vim："></a>ubuntu安装vim：</h3><p>自带的vi不好用，所以自己重新下了一下</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install vim<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装完成后进入/etc/vim目录下配置文件，使用会舒服一点</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo vim vimrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在末尾添加代码</p>
+<pre><code>set number   
+set history=1000   
+set autoindent
+set smartindent 
+set tabstop=4 
+set shiftwidth=4 
+set showmatch
+</code></pre>
+<h3 id="ubuntu-安装PostMan"><a href="#ubuntu-安装PostMan" class="headerlink" title="ubuntu 安装PostMan:"></a>ubuntu 安装PostMan:</h3><pre class="line-numbers language-test" data-language="test"><code class="language-test">sudo snap install postman<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="ubuntu-安装nodejs和npm"><a href="#ubuntu-安装nodejs和npm" class="headerlink" title="ubuntu 安装nodejs和npm:"></a>ubuntu 安装nodejs和npm:</h4><p>一.下载最新版本的nodejs包（最新版本的nodejs包里默认含有npm）<br>可以去nodejs官网去查看最新版本的nodejs<br>网址如下：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/current/">https://nodejs.org/en/download/current/</a><br>目前最新版本为：v17.1.0</p>
+<pre class="line-numbers language-none"><code class="language-none">wget https://nodejs.org/dist/v17.1.0/node-v17.1.0-linux-x64.tar.xz    
+tar xf  node-v17.1.0-linux-x64.tar.xz       // 解压
+cd node-v17.1.0-linux-x64/                  // 进入解压目录
+ ./bin/node -v                               // 执行node命令 查看版本
+// bin目录下有执行文件npm和node 做软链接<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>下载到你当前的目录,假如是：/home/root/</p>
+<p>第二步 创建软连接 可以在任意路径下执行npm node<br>注意：在创建软连接的时候要写 绝对路径,软连接到/usr/local/bin/</p>
+<pre class="line-numbers language-none"><code class="language-none">ln -s  /home/root/node-v17.1.0-linux-x64/bin/node  /usr/local/bin/
+ln -s /home/root/node-v17.1.0-linux-x64/bin/npm  /usr/local/bin/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>// 注意要写文件的绝对路径</p>
+<p>如果你在创建软连的时候，出现npm已经存在,node 已经存在<br>解决方案：<br>删除 /usr/local/bin/目录下的node，npm</p>
+<p>rt@ubuntu:<del>$ sudo rm -rf /usr/local/bin/node<br>rt@ubuntu:</del>$ sudo rm -rf /usr/local/bin/npm</p>
+<p>之后再创建软连接，完成。</p>
+<pre class="line-numbers language-none"><code class="language-none">rbt@ubuntu:~$ node -v
+v17.1.0
+rt@ubuntu:~$ npm -v
+8.4.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>这样node和npm就同时安装成功了！</p>
+<h4 id="ubuntu安装python3："><a href="#ubuntu安装python3：" class="headerlink" title="ubuntu安装python3："></a>ubuntu安装python3：</h4><p>ubuntu本身是有Python2.7版本的，但是不同版本的ubuntu中的Python3的版本是不同的，我现在用的是14版本就是python3.4，我想把它升级为3.6版本。当然，如果需要，你可以改为任意版本。</p>
+<ol>
+<li>安装python3.6(非必需)<br>在终端中输入下面的命令（不要怀疑，每行都是一个命令）</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">wget http://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz  
+tar -xvzf Python-3.6.4.tgz  
+cd Python-3.6.4  
+./configure --with-ssl  
+make  
+sudo make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这些命令会使你的ubuntu下载python3.6.4，并替换你现在的python3版本。</p>
+<ol start="2">
+<li>安装python运行环境<br>输入sudo passwd 输入root相关密码，输入su，进入超级管理员（如果你没设置过，需要设置root用户密码），也许你在安装时还需要升级你的apt-get，命令行下输入apt-get update</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install python
+sudo apt-get install python-dev(编译外部模块文件使用的)
+sudo apt-get install python-pip
+sudo apt-get install libxml*
+sudo apt-get install net-tools
+sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>python3的话安装pip，命令为sudo apt-get install python3-pip<br>执行之后，输入python3来确定你是否安装成功，如下图所示显示python3.6.4即安装成功：</p>
+<p>3.更新pip版本</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo pip install --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4.安装SSH</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install openssh-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>5.安装 Nginx</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>6.安装 uwsgi</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo pip install uwsgi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>部署django项目前输入以下命令开启8000端口</p>
+<pre class="line-numbers language-none"><code class="language-none">uwsgi --http :8000  --chdir 项目路径 -w  项目名称.wsgi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>解除端口被占用的命令：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo fuser -k 8000/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h5 id="至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！"><a href="#至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！" class="headerlink" title="至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！"></a>至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！</h5>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/zhb233go.github.io/about" rel="external nofollow noreferrer">hypo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/">https://github.com/Zhb233go/zhb233go.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/zhb233go.github.io/about" target="_blank">hypo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/zhb233go.github.io/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/zhb233go.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'https://github.com/Zhb233go/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/';
+        this.page.identifier = '/zhb233go.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/';
+        this.page.title = 'Ubuntu开发环境快速安装教程';
+    };
+    let disqus_shortname = '';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/zhb233go.github.io/2021/11/23/9-yi-xie-kai-fa-wen-ti-kuai-su-jie-jue-fang-an-lian-jie-chi-xu-geng-xin-zhong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/zhb233go.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="一些开发问题快速解决方案">
+                        
+                        <span class="card-title">一些开发问题快速解决方案</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一些开发问题快速解决方案链接(持续更新中...)
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/zhb233go.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/zhb233go.github.io/2021/11/22/7-lu-xing-de-yi-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/zhb233go.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="旅行的意义">
+                        
+                        <span class="card-title">旅行的意义</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            旅行中,我们真正感兴趣的东西都是那些留在原地,努力建设的人们建造出来的。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/zhb233go.github.io/categories/%E6%96%87%E7%AB%A0/" class="post-category">
+                                    文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/zhb233go.github.io/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 周大苏打的博客<br />'
+            + '文章作者: 周海波<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/zhb233go.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=482999696&auto=1&height=66"></iframe></div>
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <a href="/zhb233go.github.io/about" target="_blank">周海波</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">38.3k</span>
+            
+            
+            
+                
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "14";
+                        var startHour = "17";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhb233go" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2925376741@qq.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/zhb233go.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/zhb233go.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/zhb233go.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/zhb233go.github.io/libs/aos/aos.js"></script>
+    <script src="/zhb233go.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/zhb233go.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/zhb233go.github.io/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/zhb233go.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/zhb233go.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/zhb233go.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/zhb233go.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/zhb233go.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/zhb233go.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/zhb233go.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/zhb233go.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>
