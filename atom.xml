@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2021-12-07T10:55:52.602Z</updated>
+  <updated>2021-12-15T08:09:02.472Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go语言实现邮箱验证/邮件发送</title>
+    <link href="https://github.com/Zhb233go/2021/12/15/go-yu-yan-shi-xian-you-xiang-yan-zheng-you-jian-fa-song/"/>
+    <id>https://github.com/Zhb233go/2021/12/15/go-yu-yan-shi-xian-you-xiang-yan-zheng-you-jian-fa-song/</id>
+    <published>2021-12-15T08:02:27.000Z</published>
+    <updated>2021-12-15T08:09:02.472Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Go语言实现邮箱验证-邮件发送&quot;&gt;&lt;a href=&quot;#Go语言实现邮箱验证-邮件发送&quot; class=&quot;headerlink&quot; title=&quot;Go语言实现邮箱验证/邮件发送&quot;&gt;&lt;/a&gt;Go语言实现邮箱验证/邮件发送&lt;/h1&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://github.com/Zhb233go/categories/Golang/"/>
+    
+    
+    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
+    
+    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>Gin框架中使用JWT进行接口认证</title>
@@ -159,7 +186,7 @@
     <link href="https://github.com/Zhb233go/2021/11/30/16-er-ba-ding-lu/"/>
     <id>https://github.com/Zhb233go/2021/11/30/16-er-ba-ding-lu/</id>
     <published>2021-11-30T03:45:52.000Z</published>
-    <updated>2021-12-02T04:00:43.406Z</updated>
+    <updated>2021-12-10T06:52:32.308Z</updated>
     
     
       
@@ -520,33 +547,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;旅行的意义&quot;&gt;&lt;a href=&quot;#旅行的意义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="文章" scheme="https://github.com/Zhb233go/categories/%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
-    
-    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最重要的事,就是做你认为正确的事</title>
-    <link href="https://github.com/Zhb233go/2021/11/21/6-zui-chong-yao-de-shi-jiu-shi-zuo-ni-ren-wei-zheng-que-de-shi/"/>
-    <id>https://github.com/Zhb233go/2021/11/21/6-zui-chong-yao-de-shi-jiu-shi-zuo-ni-ren-wei-zheng-que-de-shi/</id>
-    <published>2021-11-21T10:36:13.000Z</published>
-    <updated>2021-11-23T02:41:28.081Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;最重要的事-就是做你认为正确的事&quot;&gt;&lt;a href=&quot;#最重要的事-就是做你认为正确的事&quot; class=&quot;headerlink&quot;</summary>
         
       
     
