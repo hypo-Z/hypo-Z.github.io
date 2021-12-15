@@ -9,7 +9,7 @@ password:
 toc: false
 mathjax: false
 summary: JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，本文介绍它的原理和用法。
-categories: JWT
+categories: 转载
 tags:
 - 转载
 - 文章
