@@ -86,7 +86,7 @@ func main(){
 ```
 成功发送：
 
-![success](/home/zhb/pictrue/qqmail_test_success.jpg)
+![success](https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg)
 
 
 
@@ -102,3 +102,6 @@ func main(){
 - 这个只能单人进行验证，如果多个人同时验证会造成验证码记录覆盖，导致用户输入验证码错误。
 
 代解决。。。
+
+**解决方法：** 将验证码记录在本地数据库个人用户的字段中，并设置过期时间，时间一到就会被覆盖掉；
+验证时，在过期时间之前，通过邮箱号查找验证码比较是否相同，即可解决多个用户验证问题。
