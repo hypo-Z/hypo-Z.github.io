@@ -1,5 +1,5 @@
 ---
-title: go语言使用阿里云实现短信发送/验证服务（gin框架）
+title: Go语言使用阿里云实现短信发送/验证服务（gin框架）
 date: 2021-12-16 11:57:24
 author:
 top: false
