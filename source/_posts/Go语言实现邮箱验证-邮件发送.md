@@ -13,6 +13,8 @@ categories: Golang
 tags:
 - 随笔
 - 文章
+- Gin框架
+- SMTP
 ---
 
 # Go语言实现邮箱验证/邮件发送

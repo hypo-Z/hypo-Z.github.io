@@ -13,6 +13,7 @@ categories: 笔记
 tags:
 - 笔记
 - 教程
+- Linux
 ---
 
 # Ubuntu开发环境快速安装教程：

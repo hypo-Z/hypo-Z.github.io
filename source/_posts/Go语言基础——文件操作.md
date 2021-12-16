@@ -13,6 +13,7 @@ categories: Golang
 tags:
 - 转载
 - 文章
+- 基础
 ---
 
 # Go语言基础——文件操作

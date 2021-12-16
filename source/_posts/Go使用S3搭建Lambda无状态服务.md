@@ -13,6 +13,9 @@ categories: Golang
 tags:
 - 随笔
 - 文章
+- AWS
+- S3
+- Lambda
 ---
 # golang使用S3搭建Lambda无状态服务
 
