@@ -24,6 +24,10 @@
             
             <tag> 随笔 </tag>
             
+            <tag> Gin框架 </tag>
+            
+            <tag> AliYun </tag>
+            
         </tags>
       
     </entry>
@@ -51,6 +55,10 @@
             
             <tag> 随笔 </tag>
             
+            <tag> Gin框架 </tag>
+            
+            <tag> SMTP </tag>
+            
         </tags>
       
     </entry>
@@ -77,6 +85,10 @@
             <tag> 转载 </tag>
             
             <tag> 文章 </tag>
+            
+            <tag> JWT </tag>
+            
+            <tag> Gin框架 </tag>
             
         </tags>
       
@@ -161,6 +173,12 @@
             
             <tag> 随笔 </tag>
             
+            <tag> AWS </tag>
+            
+            <tag> S3 </tag>
+            
+            <tag> Lambda </tag>
+            
         </tags>
       
     </entry>
@@ -187,6 +205,8 @@
             <tag> 转载 </tag>
             
             <tag> 文章 </tag>
+            
+            <tag> JWT </tag>
             
         </tags>
       
@@ -377,6 +397,8 @@
             
             <tag> 文章 </tag>
             
+            <tag> 基础 </tag>
+            
         </tags>
       
     </entry>
@@ -403,6 +425,8 @@
             <tag> 转载 </tag>
             
             <tag> 文章 </tag>
+            
+            <tag> 基础 </tag>
             
         </tags>
       
@@ -431,6 +455,8 @@
             
             <tag> 文章 </tag>
             
+            <tag> 基础 </tag>
+            
         </tags>
       
     </entry>
@@ -457,6 +483,8 @@
             <tag> 转载 </tag>
             
             <tag> 文章 </tag>
+            
+            <tag> 基础 </tag>
             
         </tags>
       
@@ -592,6 +620,8 @@
             <tag> 笔记 </tag>
             
             <tag> 教程 </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
