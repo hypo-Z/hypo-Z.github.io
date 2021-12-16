@@ -7,7 +7,7 @@ title: 周大苏打的博客 #主页标题
 subtitle:  '欢迎来到我的博客' #副标题
 description: 'go语言学习者，互联网新手，努力做一个自律的行者' #网站描述，可以加一句喜欢的座右铭
 keywords: '菜鸟程序员'
-author: 周海波 #作者，左下角显示
+author: hypo #作者，左下角显示
 language: zh-CN #中文显示
 timezone: 'Asia/Shanghai'
 since: 2021-11-14
@@ -71,9 +71,9 @@ prismjs:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+ # path: ''
   per_page: 12
-  order_by: -date
+  #order_by: -date
 
 #archive分页每页显示文章数
 archive_generator:
