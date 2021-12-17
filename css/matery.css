@@ -33,6 +33,22 @@
     }
 }
 
+.reprint__type{
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+}
+
+#busuanzi_container_site_pv,
+#busuanzi_value_site_pv,
+#busuanzi_container_site_uv{
+    display: inline !important;
+}
+
+header .brand-logo .logo-img{
+    display: none;
+}
+
 body {
     background-color: #eaeaea;
     margin: 0;
@@ -732,6 +748,7 @@ header .go-back i {
 .index-card .card .card-content {
     padding: 20px 40px;
 }
+
 
 @media only screen and (min-width: 1418px) {
     .recommend {

@@ -450,13 +450,12 @@
 
     </div>
 </div>
-
 <main class="content">
 
-<div id="indexCard" class="index-card">
-<div class="container ">
-<div class="card">
-<div class="card-content">
+<!-- <div id="indexCard" class="index-card"> -->
+<!-- <div class="container "> -->
+<!-- <div class="card"> -->
+<!-- <div class="card-content"> -->
 <!--  -->
 <!-- <div class="dream">
     
@@ -528,9 +527,8 @@
 <script src="/zhb233go.github.io/libs/aplayer/Meting.min.js"></script>
  -->
 <!--  -->
-
-
-<link rel="stylesheet" href="/zhb233go.github.io/libs/dplayer/DPlayer.min.css">
+<!--  -->
+<!-- <link rel="stylesheet" href="/zhb233go.github.io/libs/dplayer/DPlayer.min.css">
 <div class="video-player">
     
     <div class="title center-align">
@@ -552,9 +550,9 @@
     $(function () {
         new DPlayer({
             container: document.getElementById('dplayer'),
-            autoplay: 'true' === 'true',
+            autoplay: 'false' === 'true',
             theme: '#42b983',
-            loop: 'true' === 'true',
+            loop: 'false' === 'true',
             lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
             preload: 'auto',
             volume: Number('0.7'),
@@ -566,6 +564,9 @@
         });
     });
 </script>
+ -->
+<!--  -->
+
 
 
 
@@ -579,8 +580,8 @@
         
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/15.jpg">
-                <img src="/zhb233go.github.io/medias/featureimages/15.jpg" class="responsive-img">
+            <div class="img-item" data-src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg">
+                <img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg" class="responsive-img">
             </div>
         </div>
         
@@ -629,10 +630,28 @@
     });
 </script>
  -->
-
-</div>
-</div>
-</div>
+<!--  -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<div class="video-player">
+        <div class="title center-align">
+            <i class="fa fa-video-camera"></i>&nbsp;&nbsp;hypo`s video
+        </div>
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="vi" style="height: 50em;">
+                <!-- iframe src 后面添加 &high_quality=1 ，设定播放清晰度为最高 -->
+                <!-- iframe 添加 sandbox 禁止选择清晰度自动跳转至B站-->
+                <iframe src="//player.bilibili.com/player.html?aid=839390557&bvid=BV1J54y127ob&cid=228847342&page=1&high_quality=1"
+                        scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true" width="100%" height="100%"
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                </iframe>
+            </div>
+        </div>
+    </div>
 </div>
 </main>
 
