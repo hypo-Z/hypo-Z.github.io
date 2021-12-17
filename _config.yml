@@ -70,13 +70,24 @@ prismjs:
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
-index_generator:
- # path: ''
-  per_page: 12
-  #order_by: -date
+algolia_search:
+  enable: false
+  hits:
+    per_page: 12
 
+#主页每页显示文章数
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
 #archive分页每页显示文章数
 archive_generator:
+  per_page: 12
+#tag分页每页显示文章数
+tag_generator:
+  per_page: 12
+#category分页每页显示文章数
+category_generator:
   per_page: 12
 
 # Category & Tag
