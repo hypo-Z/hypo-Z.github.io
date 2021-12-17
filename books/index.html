@@ -403,7 +403,54 @@
 
 </header>
 
-    <main class="content">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                欢迎来到我的博客
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "改变自己最快的事情就是做自己害怕的事情",
+                            
+                                "The fastest thing to change yourself is to do what you fear",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 100,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/zhb233go.github.io/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+    </div>
+</div>
+<main class="content">
 
 <div id="indexCard" class="index-card">
    <div class="container ">
