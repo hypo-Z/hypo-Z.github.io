@@ -49,15 +49,15 @@ time:
 # Index cover carousel configuration.
 # 首页封面轮播图的相关配置.
 cover:
-  showPrevNext: true # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
-  showIndicators: true # 是否显示指示器. # Whether to display the indicators
-  autoLoop: true # 是否自动轮播. Whether it is automatically rotated.
+  showPrevNext: false # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
+  showIndicators: false # 是否显示指示器. # Whether to display the indicators
+  autoLoop: false # 是否自动轮播. Whether it is automatically rotated.
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 20000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
   useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
   video:
-    enable: false
+    enable: true
     src:
       #- https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-his-computer-41640-large.mp4
       #- https://assets.mixkit.co/videos/preview/mixkit-luminous-particles-on-black-background-18142-large.mp4
@@ -79,11 +79,11 @@ music:
     enable: true
     show: 听听音乐
   autoHide: true    # hide automaticaly
- # server: netease   #server可选netease（网易云音乐），tencent（QQ音乐），kugou（酷狗音乐），xiami（虾米音乐）， baidu（百度音乐）
- # type: playlist    #type可选song（歌曲），playlist（歌单），album（专辑），search（搜索关键字），artist（歌手）
- # id: 503838841     #id获取方法示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，浏览器地址栏后面会有一串数字，
+  server: netease   #server可选netease（网易云音乐），tencent（QQ音乐），kugou（酷狗音乐），xiami（虾米音乐）， baidu（百度音乐）
+  type: playlist    #type可选song（歌曲），playlist（歌单），album（专辑），search（搜索关键字），artist（歌手）
+  id: 503838841     #id获取方法示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，浏览器地址栏后面会有一串数字，
   fixed: false       # 开启吸底模式
-  autoplay: true   # 是否自动播放
+  autoplay: false   # 是否自动播放
   theme: '#42b983'
   loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
   order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
@@ -413,8 +413,8 @@ verifyPassword:
 # 不蒜子(http://busuanzi.ibruce.info/) 网站统计
 busuanziStatistics:
   enable: true
-  totalTraffic: false # 总访问量
-  totalNumberOfvisitors: false # 总人次
+  totalTraffic: true # 总访问量
+  totalNumberOfvisitors: true # 总人次
 
 # Add google analytics configuration
 # 添加 Google Analytics 配置
@@ -559,7 +559,7 @@ featureImages:
 # noreprint（不允许转载 not allowed to reprint）
 # pay（付费转载 pay for reprinting）
 reprint:
-  enable: true # whether enable reprint section 是否启用“转载规则限定模块”
+  enable: false # whether enable reprint section 是否启用“转载规则限定模块”
   default: cc_by
 
 # DaoVoice online contact
