@@ -8,7 +8,7 @@ cover: false
 password:
 toc: false
 mathjax: false
-summary: Go语言实现邮箱验证/邮件发送
+summary: Go语言使用阿里云实现短信发送/验证服务（gin框架）
 categories: Golang
 tags:
 - 随笔
