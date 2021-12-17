@@ -1,0 +1,47 @@
+<%- partial('_partial/bg-cover') %>
+<main class="content">
+
+<!-- <div id="indexCard" class="index-card"> -->
+<!-- <div class="container "> -->
+<!-- <div class="card"> -->
+<!-- <div class="card-content"> -->
+<!-- <% if (theme.dream.enable) { %> -->
+<!-- <%- partial('_widget/dream') %> -->
+<!-- <% } %> -->
+
+<!-- <% if (theme.music.enable && !theme.music.fixed) { %> -->
+<!-- <%- partial('_widget/music') %> -->
+<!-- <% } %> -->
+<!-- <% if (theme.video.enable) { %> -->
+<!-- <%- partial('_widget/video') %> -->
+<!-- <% } %> -->
+
+
+
+
+<!-- <% if (theme.myGallery && theme.myGallery.enable) { %> -->
+<!-- <%- partial('_widget/my-gallery') %> -->
+<!-- <% } %> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<div class="video-player">
+        <div class="title center-align">
+            <i class="fa fa-video-camera"></i>&nbsp;&nbsp;hypo`s video
+        </div>
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="vi" style="height: 50em;">
+                <!-- iframe src 后面添加 &high_quality=1 ，设定播放清晰度为最高 -->
+                <!-- iframe 添加 sandbox 禁止选择清晰度自动跳转至B站-->
+                <iframe src="//player.bilibili.com/player.html?aid=839390557&bvid=BV1J54y127ob&cid=228847342&page=1&high_quality=1"
+                        scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true" width="100%" height="100%"
+                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</main>

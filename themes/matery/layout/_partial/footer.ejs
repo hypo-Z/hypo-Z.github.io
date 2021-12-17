@@ -21,21 +21,14 @@
                         class="white-color"><%= totalcount(site) %></span>
             <% } %>
             <% let socialClass = '' %>
+
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
                 <% socialClass = 'social-statis' %>
             <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;<%- __('siteTotalVisits') %>:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;<%- __('siteTotalVisitors') %>:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
-            <% } %>
+
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %> <span id="busuanzi_container_site_pv"></span> <i class="fa fa-heart"></i> 本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span> <% } %> <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %> <span id="busuanzi_container_site_uv"></span> 次,&nbsp; <i class="fa fa-users"></i> 访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人 <% } %>
+
+
             <br>
 
             <!-- 运行天数提醒. -->
