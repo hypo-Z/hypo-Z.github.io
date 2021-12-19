@@ -1,5 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+author: hypo
+tags: 
+comments: true
 ---

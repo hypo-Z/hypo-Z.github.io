@@ -83,12 +83,7 @@ index_generator:
 #archive分页每页显示文章数
 archive_generator:
   per_page: 12
-#tag分页每页显示文章数
-tag_generator:
-  per_page: 12
-#category分页每页显示文章数
-category_generator:
-  per_page: 12
+
 
 # Category & Tag
 default_category: uncategorized
