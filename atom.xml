@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2021-12-16T08:36:45.688Z</updated>
+  <updated>2021-12-19T08:46:07.988Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是分布式？</title>
+    <link href="https://github.com/Zhb233go/2021/12/17/23-shi-me-shi-fen-bu-shi/"/>
+    <id>https://github.com/Zhb233go/2021/12/17/23-shi-me-shi-fen-bu-shi/</id>
+    <published>2021-12-17T06:19:16.000Z</published>
+    <updated>2021-12-19T08:46:07.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;什么是分布式？&quot;&gt;&lt;a href=&quot;#什么是分布式？&quot; class=&quot;headerlink&quot; title=&quot;什么是分布式？&quot;&gt;&lt;/a&gt;什么是分布式？&lt;/h1&gt;&lt;h2 id=&quot;一、分布式锁一、分布式锁&quot;&gt;&lt;a href=&quot;#一、分布式锁一、分布式锁&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="转载" scheme="https://github.com/Zhb233go/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
+    
+    <category term="转载" scheme="https://github.com/Zhb233go/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>什么是缓存？</title>
@@ -48,7 +75,7 @@
     <link href="https://github.com/Zhb233go/2021/12/16/go-yu-yan-shi-yong-a-li-yun-shi-xian-duan-xin-fa-song-yan-zheng-fu-wu-gin-kuang-jia/"/>
     <id>https://github.com/Zhb233go/2021/12/16/go-yu-yan-shi-yong-a-li-yun-shi-xian-duan-xin-fa-song-yan-zheng-fu-wu-gin-kuang-jia/</id>
     <published>2021-12-16T03:57:24.000Z</published>
-    <updated>2021-12-16T04:07:31.863Z</updated>
+    <updated>2021-12-19T08:46:07.989Z</updated>
     
     
       
@@ -553,34 +580,6 @@
     <category term="转载" scheme="https://github.com/Zhb233go/tags/%E8%BD%AC%E8%BD%BD/"/>
     
     <category term="基础" scheme="https://github.com/Zhb233go/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每天必逛且可以提升技术能力的网址</title>
-    <link href="https://github.com/Zhb233go/2021/11/23/12-mei-tian-bi-guang-qie-ke-yi-ti-sheng-ji-zhu-neng-li-de-wang-zhi/"/>
-    <id>https://github.com/Zhb233go/2021/11/23/12-mei-tian-bi-guang-qie-ke-yi-ti-sheng-ji-zhu-neng-li-de-wang-zhi/</id>
-    <published>2021-11-23T09:26:26.000Z</published>
-    <updated>2021-12-06T07:33:15.368Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;1.&lt;a href=&quot;https://www.ruanyifeng.com/blog/&quot;&gt;阮一峰的网络日志&lt;/a&gt; 一个技术大佬创建的博客，里面有他每周周刊，可最新的技术和推荐文章&lt;/p&gt;
-&lt;p&gt;2.&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="笔记" scheme="https://github.com/Zhb233go/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="笔记" scheme="https://github.com/Zhb233go/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="教程" scheme="https://github.com/Zhb233go/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
