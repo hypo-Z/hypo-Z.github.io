@@ -33,11 +33,11 @@
     }
 }
 
-.reprint__type{
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-}
+/*.reprint_type{*/
+/*    display: inline-block;*/
+/*    width: 100%;*/
+/*    overflow: hidden;*/
+/*}*/
 
 #busuanzi_container_site_pv,
 #busuanzi_value_site_pv,
