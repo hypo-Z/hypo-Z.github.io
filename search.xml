@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>记录一个Dockerfile书写笔记</title>
+      <link href="/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/"/>
+      <url>/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"><a href="#记录一个有sqlite3数据库和golang的Dockerfile书写笔记" class="headerlink" title="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"></a>记录一个有sqlite3数据库和golang的Dockerfile书写笔记</h1><h3 id="以ubuntu为基础镜像"><a href="#以ubuntu为基础镜像" class="headerlink" title="以ubuntu为基础镜像"></a>以ubuntu为基础镜像</h3><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM ubuntu:latest As build# 配置环境变量ENV GOROOT=/usr/lib/goENV PATH=$PATH:/usr/lib/go/binENV GOPATH=/root/goENV PATH=$GOPATH/bin/:$PATHENV DEBIAN_FRONTEND=noninteractive# 执行命令RUN set -x; buildDeps='gcc libc6-dev make wget' \    &amp;&amp; apt-get update\    &amp;&amp; apt-get install -y $buildDeps \    &amp;&amp; wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz\    &amp;&amp; tar -xzvf go1.17.5.linux-amd64.tar.gz -C /usr/lib\    &amp;&amp; export GOROOT=/usr/lib/go \    &amp;&amp; ln -s /usr/local/go/bin/* /usr/bin/ \    &amp;&amp; export PATH=$PATH:/usr/lib/go/bin \    &amp;&amp; export GOPATH=/root/go\    &amp;&amp; export PATH=$GOPATH/bin/:$PATH\    &amp;&amp; rm go1.17.5.linux-amd64.tar.gz\    &amp;&amp; wget https://www.sqlite.org/2021/sqlite-autoconf-3370000.tar.gz\    &amp;&amp; tar -xzvf sqlite-autoconf-3370000.tar.gz -C /usr/lib\    &amp;&amp; rm sqlite-autoconf-3370000.tar.gz\    &amp;&amp; cd /usr/lib/sqlite-autoconf-3370000\    &amp;&amp; ./configure --prefix=/usr/local \    &amp;&amp; make \    &amp;&amp; make install \    &amp;&amp; cd .. \    &amp;&amp; mkdir /authCOPY . /auth/WORKDIR /authEXPOSE 8000#安装库依赖项RUN go mod tidy\    &amp;&amp; go build -o server\    &amp;&amp; apt-get purge -y --auto-remove $buildDeps####FROM ubuntu:latest as final#镜像构建参数COPY --from=build /auth/server .CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>Go</code>项目应用的<code>Dockerfile</code>通常大概类似这样，但是每个项目的细节可能有所不同。<code>FROM ubuntu:latest</code>指定了开始阶段的基础映像（其中包含ubuntu的操作系统，无工具和库，用于构建程序），<code>AS build</code>是给这个阶段取名为<code>build</code>。</p><p>ubuntu是专门为容器设计的小型<code>Linux</code>发行版。这个<code>Dockerfile</code>中使用了两次<code>FROM</code>指令，第二条<code>FROM ubuntu</code>行，它告诉<code>Docker</code>从一个全新的，完全空的容器镜像重新开始，然后将上个阶段编译好的程序复制到其中。这个才是我们随后将用于运行的<code>Go</code>应用程序的容器镜像。</p><p><code>Docker</code>用于<code>Go</code>程序的多阶段构建很常见，使用<code>新的</code>镜像可以节省大量空间，因为我们实际上不需要<code>Go</code>工具或其他任何东西来运行我们的编译好的程序，这可能也是<code>Go</code>在容器时代的一个优势吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Dockerfile </tag>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>什么是消息队列</title>
       <link href="/zhb233go.github.io/2021/12/20/24-shi-me-shi-xiao-xi-dui-lie/"/>
       <url>/zhb233go.github.io/2021/12/20/24-shi-me-shi-xiao-xi-dui-lie/</url>
