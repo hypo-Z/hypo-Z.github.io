@@ -4,9 +4,65 @@
   
     
     <entry>
+      <title>你的B计划是什么？</title>
+      <link href="/zhb233go.github.io/2021/12/23/26-ni-de-b-ji-hua-shi-shi-me/"/>
+      <url>/zhb233go.github.io/2021/12/23/26-ni-de-b-ji-hua-shi-shi-me/</url>
+      
+        <content type="html"><![CDATA[<h1 id="你的B计划是什么？"><a href="#你的B计划是什么？" class="headerlink" title="你的B计划是什么？"></a>你的B计划是什么？</h1><p>最近看新闻总是看到各大互联网公司裁员的消息，自己作为刚入互联网的新人，不禁就感叹到IT行业的残酷，意识到自己正处在一个正在风云变化的时代。<br>一是国家倡导共同富裕，希望能减小国家间的贫富差距，打击互联网巨头的无序扩张；<br>二是互联网巨头们也感受到了压力，需要减轻财务负担，大量裁掉底层技术人员，导致许多技术人员失去工作岗位。<br>三是大量的高龄技术人员越来越受到企业的弃用，从而希望招入年轻并薪资待遇较低的大学生入行；</p><p>这样就导致技术人员的焦虑感越来越强，毕竟互联网就是吃年轻饭的，淘汰年纪大的给年轻人让位，也可以使年轻人得到更多的机会，之前看到一遍新闻：说是互联网HR有一个潜规则就是28岁以后的简历一律不看，经人验证，情况属实！我看到这就很惊讶！28岁正是一个青壮年的时候，人的黄金年纪，之后互联网都看不上了，就说明整个行业的平均年纪就在28岁左右，很年轻。我计算了一下给我在互联网的红利时期也就6年左右，时间很短！</p><p>恐惧的感觉油然而生，又刚阅读的阮一峰的著作《未来的幸存者》一书，就感觉对远期互联网的未来感到悲观，虽然远不及他书中对人类的未来着想，我只能顾及我自己。就像他书中所说：<br>对于人生来说，你现在的职业就是A计划，应该努力追求职业成功。但是，也要做好两手准备，万一A计划失败，还需要一个B计划，对自己的退路有所安排。一旦有了B计划，我建议，最好立刻动手做一些准备。不一定为了真的实施，但至少让它从一个很模糊的设想，变得稍微具体一点。千万不要只是想想而已，人生缺少的就是行动，只有迈出第一步，才有后面的旅程。</p><p>我是应该想想我的B计划是什么了，虽然不是立即就要做出改变，但是是应该做一些准备了，并在这几年的时间里面做到能够在生活发生重大变化的时候能够从容一些，其实想想普通人并没有什么能够做终身的职业，那些能做终身的职业的人都是伟人，我不是，所以需要为自己找到一条后路，以备不时之需。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+            <tag> 文章 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记录一个Dockerfile书写笔记</title>
+      <link href="/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/"/>
+      <url>/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"><a href="#记录一个有sqlite3数据库和golang的Dockerfile书写笔记" class="headerlink" title="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"></a>记录一个有sqlite3数据库和golang的Dockerfile书写笔记</h1><h3 id="以ubuntu为基础镜像"><a href="#以ubuntu为基础镜像" class="headerlink" title="以ubuntu为基础镜像"></a>以ubuntu为基础镜像</h3><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM ubuntu:latest As build# 配置环境变量ENV GOROOT=/usr/lib/goENV PATH=$PATH:/usr/lib/go/binENV GOPATH=/root/goENV PATH=$GOPATH/bin/:$PATHENV DEBIAN_FRONTEND=noninteractive# 执行命令RUN set -x; buildDeps='gcc libc6-dev make wget' \    &amp;&amp; apt-get update\    &amp;&amp; apt-get install -y $buildDeps \    &amp;&amp; wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz\    &amp;&amp; tar -xzvf go1.17.5.linux-amd64.tar.gz -C /usr/lib\    &amp;&amp; export GOROOT=/usr/lib/go \    &amp;&amp; ln -s /usr/local/go/bin/* /usr/bin/ \    &amp;&amp; export PATH=$PATH:/usr/lib/go/bin \    &amp;&amp; export GOPATH=/root/go\    &amp;&amp; export PATH=$GOPATH/bin/:$PATH\    &amp;&amp; rm go1.17.5.linux-amd64.tar.gz\    &amp;&amp; wget https://www.sqlite.org/2021/sqlite-autoconf-3370000.tar.gz\    &amp;&amp; tar -xzvf sqlite-autoconf-3370000.tar.gz -C /usr/lib\    &amp;&amp; rm sqlite-autoconf-3370000.tar.gz\    &amp;&amp; cd /usr/lib/sqlite-autoconf-3370000\    &amp;&amp; ./configure --prefix=/usr/local \    &amp;&amp; make \    &amp;&amp; make install \    &amp;&amp; cd .. \    &amp;&amp; mkdir /authCOPY . /auth/WORKDIR /authEXPOSE 8000#安装库依赖项RUN go mod tidy\    &amp;&amp; go build -o server\    &amp;&amp; apt-get purge -y --auto-remove $buildDeps####FROM ubuntu:latest as final#镜像构建参数COPY --from=build /auth/server .CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>Go</code>项目应用的<code>Dockerfile</code>通常大概类似这样，但是每个项目的细节可能有所不同。<code>FROM ubuntu:latest</code>指定了开始阶段的基础映像（其中包含ubuntu的操作系统，无工具和库，用于构建程序），<code>AS build</code>是给这个阶段取名为<code>build</code>。</p><p>ubuntu是专门为容器设计的小型<code>Linux</code>发行版。这个<code>Dockerfile</code>中使用了两次<code>FROM</code>指令，第二条<code>FROM ubuntu</code>行，它告诉<code>Docker</code>从一个全新的，完全空的容器镜像重新开始，然后将上个阶段编译好的程序复制到其中。这个才是我们随后将用于运行的<code>Go</code>应用程序的容器镜像。</p><p><code>Docker</code>用于<code>Go</code>程序的多阶段构建很常见，使用<code>新的</code>镜像可以节省大量空间，因为我们实际上不需要<code>Go</code>工具或其他任何东西来运行我们的编译好的程序，这可能也是<code>Go</code>在容器时代的一个优势吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Dockerfile </tag>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>什么是消息队列</title>
-      <link href="/zhb233go.github.io/2021/12/21/24-shi-me-shi-xiao-xi-dui-lie/"/>
-      <url>/zhb233go.github.io/2021/12/21/24-shi-me-shi-xiao-xi-dui-lie/</url>
+      <link href="/zhb233go.github.io/2021/12/20/24-shi-me-shi-xiao-xi-dui-lie/"/>
+      <url>/zhb233go.github.io/2021/12/20/24-shi-me-shi-xiao-xi-dui-lie/</url>
       
         <content type="html"><![CDATA[<h1 id="什么是消息队列"><a href="#什么是消息队列" class="headerlink" title="什么是消息队列"></a>什么是消息队列</h1><h2 id="一、消息模型"><a href="#一、消息模型" class="headerlink" title="一、消息模型"></a>一、消息模型</h2><h3 id="点对点"><a href="#点对点" class="headerlink" title="点对点"></a>点对点</h3><p>消息生产者向消息队列中发送了一个消息之后，只能被一个消费者消费一次。</p><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191212011250613.png" alt="img"></p><h3 id="发布-订阅"><a href="#发布-订阅" class="headerlink" title="发布/订阅"></a>发布/订阅</h3><p>消息生产者向频道发送一个消息之后，多个消费者可以从该频道订阅到这条消息并消费。</p><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191212011410374.png" alt="img"></p><p>发布与订阅模式和观察者模式有以下不同：</p><ul><li>观察者模式中，观察者和主题都知道对方的存在；而在发布与订阅模式中，生产者与消费者不知道对方的存在，它们之间通过频道进行通信。</li><li>观察者模式是同步的，当事件触发时，主题会调用观察者的方法，然后等待方法返回；而发布与订阅模式是异步的，生产者向频道发送一个消息之后，就不需要关心消费者何时去订阅这个消息，可以立即返回。</li></ul><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191212011747967.png" alt="img"></p><h2 id="二、使用场景"><a href="#二、使用场景" class="headerlink" title="二、使用场景"></a>二、使用场景</h2><h3 id="异步处理"><a href="#异步处理" class="headerlink" title="异步处理"></a>异步处理</h3><p>发送者将消息发送给消息队列之后，不需要同步等待消息接收者处理完毕，而是立即返回进行其它操作。消息接收者从消息队列中订阅消息之后异步处理。</p><p>例如在注册流程中通常需要发送验证邮件来确保注册用户身份的合法性，可以使用消息队列使发送验证邮件的操作异步处理，用户在填写完注册信息之后就可以完成注册，而将发送验证邮件这一消息发送到消息队列中。</p><p>只有在业务流程允许异步处理的情况下才能这么做，例如上面的注册流程中，如果要求用户对验证邮件进行点击之后才能完成注册的话，就不能再使用消息队列。</p><h3 id="流量削锋"><a href="#流量削锋" class="headerlink" title="流量削锋"></a>流量削锋</h3><p>在高并发的场景下，如果短时间有大量的请求到达会压垮服务器。</p><p>可以将请求发送到消息队列中，服务器按照其处理能力从消息队列中订阅消息进行处理。</p><h3 id="应用解耦"><a href="#应用解耦" class="headerlink" title="应用解耦"></a>应用解耦</h3><p>如果模块之间不直接进行调用，模块之间耦合度就会很低，那么修改一个模块或者新增一个模块对其它模块的影响会很小，从而实现可扩展性。</p><p>通过使用消息队列，一个模块只需要向消息队列中发送消息，其它模块可以选择性地从消息队列中订阅消息从而完成调用。</p><h2 id="三、可靠性"><a href="#三、可靠性" class="headerlink" title="三、可靠性"></a>三、可靠性</h2><h3 id="发送端的可靠性"><a href="#发送端的可靠性" class="headerlink" title="发送端的可靠性"></a>发送端的可靠性</h3><p>发送端完成操作后一定能将消息成功发送到消息队列中。</p><p>实现方法：在本地数据库建一张消息表，将消息数据与业务数据保存在同一数据库实例里，这样就可以利用本地数据库的事务机制。事务提交成功后，将消息表中的消息转移到消息队列中，若转移消息成功则删除消息表中的数据，否则继续重传。</p><h3 id="接收端的可靠性"><a href="#接收端的可靠性" class="headerlink" title="接收端的可靠性"></a>接收端的可靠性</h3><p>接收端能够从消息队列成功消费一次消息。</p><p>两种实现方法：</p><ul><li>保证接收端处理消息的业务逻辑具有幂等性：只要具有幂等性，那么消费多少次消息，最后处理的结果都是一样的。</li><li>保证消息具有唯一编号，并使用一张日志表来记录已经消费的消息编号。</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="http://developers-club.com/posts/270339/">Observer vs Pub-Sub(opens new window)</a></li><li><a href="https://blog.csdn.net/lizhitao/article/details/47723105">消息队列中点对点与发布订阅区别</a></li></ul>]]></content>
       
