@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2021-12-23T13:08:59.999Z</updated>
+  <updated>2021-12-31T16:56:05.672Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在新年伊始写给自己的一封信</title>
+    <link href="https://github.com/Zhb233go/2022/01/01/zai-xin-nian-yi-shi-xie-gei-zi-ji-de-yi-feng-xin/"/>
+    <id>https://github.com/Zhb233go/2022/01/01/zai-xin-nian-yi-shi-xie-gei-zi-ji-de-yi-feng-xin/</id>
+    <published>2021-12-31T16:07:08.000Z</published>
+    <updated>2021-12-31T16:56:05.672Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;致2022年的新我&quot;&gt;&lt;a href=&quot;#致2022年的新我&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://github.com/Zhb233go/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="2022目标" scheme="https://github.com/Zhb233go/tags/2022%E7%9B%AE%E6%A0%87/"/>
+    
+  </entry>
   
   <entry>
     <title>你的B计划是什么？</title>
@@ -547,35 +574,6 @@
     <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言基础——并发</title>
-    <link href="https://github.com/Zhb233go/2021/11/24/go-yu-yan-ji-chu-bing-fa/"/>
-    <id>https://github.com/Zhb233go/2021/11/24/go-yu-yan-ji-chu-bing-fa/</id>
-    <published>2021-11-24T06:45:17.000Z</published>
-    <updated>2021-12-16T04:07:31.864Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Go语言基础——并发&quot;&gt;&lt;a href=&quot;#Go语言基础——并发&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/Zhb233go/categories/Golang/"/>
-    
-    
-    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
-    
-    <category term="转载" scheme="https://github.com/Zhb233go/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-    <category term="基础" scheme="https://github.com/Zhb233go/tags/%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
