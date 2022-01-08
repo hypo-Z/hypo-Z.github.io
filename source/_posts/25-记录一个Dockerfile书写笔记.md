@@ -13,10 +13,67 @@ summary: 使用`新的`镜像可以节省大量空间，因为我们实际上不
 categories: 笔记
 tags:
 - 笔记
+- Docker
 - Dockerfile
 - Golang
 ---
-# 记录一个有sqlite3数据库和golang的Dockerfile书写笔记
+## docker 制作镜像
+
+在`Dockerfile`所在的目录下执行`docker build`构建镜像
+
+```
+➜  docker build -t 镜像名 .
+```
+
+`docker`会依据`Dockerfile`里的指令构建镜像，整个构建的过程类似下面：
+
+### 验证镜像
+
+这一步其实可以省略，不过为了确保制作的镜像是没有问题，我们通过`docker run`命令用这个镜像运行容器验证一下。
+
+```
+➜ docker run -d -p 本机端口:容器端口 --rm --name container名 镜像名
+```
+
+在这里，我们指示`docker`从源镜像``运行容器，将主机端口``绑定到容器的内部端口``，以后台模式（-d）运行容器，给此容器命名为`容器名`，并在容器结束运行后自动删除容器（--rm）。
+
+
+
+### 多阶段构建
+
+下面就来介绍一下怎么使用`Docker`的多阶段构建制作`Go`应用的镜像。
+
+之前文章里镜像的`Dockerfile`长这样：
+
+```
+FROM golang:1.14-alpine
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN go build -o main . 
+CMD ["/app/main"]
+复制代码
+```
+
+我们使用用多阶段构建的方式构建镜像后，`Dockerfile`会变成类似下面这样：
+
+```
+FROM golang:alpine AS build
+
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN CGO_ENABLED=0 GOOS=linux go build -o myapp
+
+### 
+FROM scratch as final
+COPY --from=build /app/myapp .
+CMD ["/myapp"]
+复制代码
+```
+
+
+## 记录一个有sqlite3数据库和golang的Dockerfile书写笔记
 
 ### 以ubuntu为基础镜像
 
