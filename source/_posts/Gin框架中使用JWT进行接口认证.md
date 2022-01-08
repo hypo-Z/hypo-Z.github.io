@@ -12,7 +12,7 @@ summary: 在如今前后端分离开发的大环境中，我们需要解决一�
 categories: Golang
 tags:
 - 转载
-- 文章
+- Golang
 - Gin框架
 - JWT
 ---

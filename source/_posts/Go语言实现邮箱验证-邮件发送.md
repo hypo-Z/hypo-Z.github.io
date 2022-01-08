@@ -12,7 +12,7 @@ summary: Go语言实现邮箱验证/邮件发送
 categories: Golang
 tags:
 - 随笔
-- 文章
+- Golang
 - Gin框架
 - SMTP
 ---

@@ -13,7 +13,7 @@ summary: 作为一名开发人员Git常用命令每天都在使用，大家肯�
 categories: 转载
 tags:
 - 转载
-- 文章
+- Githubflow
 ---
 # 团队协作中的Github flow 工作流程
 

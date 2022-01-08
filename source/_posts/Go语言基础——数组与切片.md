@@ -12,7 +12,7 @@ summary: Go语言基础——数组与切片
 categories: Golang
 tags:
 - 转载
-- 文章
+- Golang
 - 基础
 ---
 

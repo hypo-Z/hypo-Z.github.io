@@ -12,7 +12,7 @@ summary: Go使用S3搭建Lambda无状态服务
 categories: Golang
 tags:
 - 随笔
-- 文章
+- Golang
 - AWS
 - S3
 - Lambda

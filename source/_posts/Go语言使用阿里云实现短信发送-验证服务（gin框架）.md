@@ -12,7 +12,7 @@ summary: Go语言使用阿里云实现短信发送/验证服务（gin框架）
 categories: Golang
 tags:
 - 随笔
-- 文章
+- Golang
 - AliYun
 - Gin框架
 ---

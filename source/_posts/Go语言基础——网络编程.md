@@ -12,7 +12,7 @@ summary: Go语言基础——网络编程
 categories: Golang
 tags:
 - 转载
-- 文章
+- Golang
 - 基础
 ---
 
