@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2022-01-07T08:02:25.330Z</updated>
+  <updated>2022-01-08T10:02:16.637Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker容器间通信</title>
+    <link href="https://github.com/Zhb233go/2022/01/08/30-docker-rong-qi-jian-tong-xin/"/>
+    <id>https://github.com/Zhb233go/2022/01/08/30-docker-rong-qi-jian-tong-xin/</id>
+    <published>2022-01-08T09:56:32.000Z</published>
+    <updated>2022-01-08T10:02:16.637Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Docker容器间通信&quot;&gt;&lt;a href=&quot;#Docker容器间通信&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://github.com/Zhb233go/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Docker" scheme="https://github.com/Zhb233go/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>团队协作中的Githubflow工作流程</title>
@@ -129,14 +154,14 @@
     <link href="https://github.com/Zhb233go/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/"/>
     <id>https://github.com/Zhb233go/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/</id>
     <published>2021-12-23T08:38:10.000Z</published>
-    <updated>2021-12-23T08:42:55.777Z</updated>
+    <updated>2022-01-08T10:02:16.625Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;记录一个有sqlite3数据库和golang的Dockerfile书写笔记&quot;&gt;&lt;a href=&quot;#记录一个有sqlite3数据库和golang的Dockerfile书写笔记&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;docker-制作镜像&quot;&gt;&lt;a href=&quot;#docker-制作镜像&quot; class=&quot;headerlink&quot; title=&quot;docker 制作镜像&quot;&gt;&lt;/a&gt;docker</summary>
         
       
     
@@ -146,6 +171,8 @@
     
     
     <category term="笔记" scheme="https://github.com/Zhb233go/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Docker" scheme="https://github.com/Zhb233go/tags/Docker/"/>
     
     <category term="Dockerfile" scheme="https://github.com/Zhb233go/tags/Dockerfile/"/>
     
@@ -542,33 +569,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;我的青春结束了&quot;&gt;&lt;a href=&quot;#我的青春结束了&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="随笔" scheme="https://github.com/Zhb233go/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人生游戏</title>
-    <link href="https://github.com/Zhb233go/2021/11/25/14-ren-sheng-you-xi/"/>
-    <id>https://github.com/Zhb233go/2021/11/25/14-ren-sheng-you-xi/</id>
-    <published>2021-11-25T02:23:18.000Z</published>
-    <updated>2021-12-15T08:10:57.924Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;人生是场游戏&quot;&gt;&lt;a href=&quot;#人生是场游戏&quot; class=&quot;headerlink&quot;</summary>
         
       
     
