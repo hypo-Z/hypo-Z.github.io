@@ -35,7 +35,7 @@ dec8ce58f992        host                host                local
 36e1a4828e03        none                null                local
 ```
 
-#创建新的网桥
+## 创建新的网桥
 
 ```
 docker network create my-bridge
@@ -43,14 +43,14 @@ docker network create my-bridge
 
 
 
-#容器和网桥绑定
+## 容器和网桥绑定
 
 ```
 docker network connect my-bridge web
 docker network connect my-bridge database
 ```
 
-网桥实现原理
+## 网桥实现原理
 
 ```
 外网---->物理网卡（192.168.0.117）----->docker里的虚拟网卡（172.17.0.1）|----->redis(172.17.0.2:6375)  |---->server(172.17.0.3:8080)  
@@ -62,7 +62,7 @@ docker network connect my-bridge database
 
 
 
-#容器和网桥解除绑定
+## 容器和网桥解除绑定
 
 ```
 docker network disconnect my-bridge server
