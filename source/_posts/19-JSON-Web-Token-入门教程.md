@@ -5,7 +5,7 @@ author: 阮一峰
 top: false
 hide: false
 cover: false
-img: medias/featureimages/18.jpg
+img: medias/featureimages/19.jpg
 password:
 toc: false
 mathjax: false
