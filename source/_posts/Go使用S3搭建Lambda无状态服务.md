@@ -5,7 +5,7 @@ author:
 top: false
 hide: false
 cover: false
-img: medias/featureimages/35.jpg
+img: medias/featureimages/35.png
 password:
 toc: false
 mathjax: false

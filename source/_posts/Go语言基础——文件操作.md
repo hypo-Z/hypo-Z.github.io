@@ -5,7 +5,7 @@ author: 李文周的博客
 top: false
 hide: false
 cover: false
-img: medias/featureimages/39.jpg
+img: medias/featureimages/39.png
 password:
 toc: false
 mathjax: false
