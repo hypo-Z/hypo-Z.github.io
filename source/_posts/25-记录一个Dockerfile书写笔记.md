@@ -6,7 +6,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2021-12-23 16:38:10
-img:
+img: medias/featureimages/25.jpg
 coverImg:
 password:
 summary: 使用`新的`镜像可以节省大量空间，因为我们实际上不需要`Go`工具或其他任何东西来运行我们的编译好的程序，这可能也是`Go`在容器时代的一个优势吧。

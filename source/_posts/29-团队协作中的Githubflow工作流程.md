@@ -6,7 +6,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2022-01-07 16:00:11
-img:
+img: medias/featureimages/29.jpg
 coverImg:
 password:
 summary: 作为一名开发人员Git常用命令每天都在使用，大家肯定信手拈来，但是在团队协作中Git的使用姿势和个人开发还是有很多不一样的地方，对于技术团队，期望大家使用规范的Git操作流程，规范的CommitMessage，规范的代码风格。这样才能提高团队开发相率和项目的可维护性。

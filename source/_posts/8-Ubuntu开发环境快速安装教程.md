@@ -5,6 +5,7 @@ author: hypo
 top: false
 hide: false
 cover: false
+img: medias/featureimages/8.jpg
 password:
 toc: true
 mathjax: false

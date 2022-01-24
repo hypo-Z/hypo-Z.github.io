@@ -6,7 +6,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2022-01-21 10:49:32
-img:
+img: medias/featureimages/32.jpg
 coverImg:
 password:
 summary: 星际文件系统是一种点对点的分布式文件系统， 旨在连接所有有相同的文件系统的计算机设备。在某些方面， IPFS类似于web, 但web 是中心化的，而IPFS是一个单一的Bittorrent 群集， 用git 仓库分布式存储。换句话说， IPFS 提供了高吞吐量的内容寻址块存储模型， 具有内容寻址的超链接。这形成了一个广义的Merkle DAG 数据结构，可以用这个数据结构构建版本文件系统，区块链，甚至是永久性网站。。IPFS 结合了分布式哈希表， 带有激励机制的块交换和自我认证命名空间。IPFS 没有单故障点， 节点不需要相互信任。

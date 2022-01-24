@@ -6,7 +6,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2022-01-08 17:56:32
-img:
+img: medias/featureimages/30.jpg
 coverImg:
 password:
 summary: Bridge网桥双向通信
