@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2022-01-24T03:14:12.617Z</updated>
+  <updated>2022-01-24T03:17:25.865Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://github.com/Zhb233go/2022/01/24/32-shi-jie-mei-you-ni-xiang-xiang-de-na-me-hao/"/>
     <id>https://github.com/Zhb233go/2022/01/24/32-shi-jie-mei-you-ni-xiang-xiang-de-na-me-hao/</id>
     <published>2022-01-24T03:12:46.000Z</published>
-    <updated>2022-01-24T03:14:12.617Z</updated>
+    <updated>2022-01-24T03:17:25.865Z</updated>
     
     
       
@@ -34,6 +34,12 @@
     
     
     
+    <category term="随笔" scheme="https://github.com/Zhb233go/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
