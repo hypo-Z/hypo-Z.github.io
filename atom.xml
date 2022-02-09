@@ -6,7 +6,7 @@
   <link href="https://github.com/Zhb233go/atom.xml" rel="self"/>
   
   <link href="https://github.com/Zhb233go/"/>
-  <updated>2022-01-24T04:10:02.114Z</updated>
+  <updated>2022-02-09T10:40:26.282Z</updated>
   <id>https://github.com/Zhb233go/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>世界没有你想象的那么好</title>
-    <link href="https://github.com/Zhb233go/2022/01/24/32-shi-jie-mei-you-ni-xiang-xiang-de-na-me-hao/"/>
-    <id>https://github.com/Zhb233go/2022/01/24/32-shi-jie-mei-you-ni-xiang-xiang-de-na-me-hao/</id>
+    <title>Go程序员开发效率神器汇总！</title>
+    <link href="https://github.com/Zhb233go/2022/02/09/go-cheng-xu-yuan-kai-fa-xiao-lu-shen-qi-hui-zong/"/>
+    <id>https://github.com/Zhb233go/2022/02/09/go-cheng-xu-yuan-kai-fa-xiao-lu-shen-qi-hui-zong/</id>
+    <published>2022-02-09T10:20:03.000Z</published>
+    <updated>2022-02-09T10:40:26.282Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;neon 是鹅厂的一位资深后台开发工程师，多年工作下来他总结了很多效率神器，今天分享给大家。&lt;/p&gt;
+&lt;h2 id=&quot;一-开发工具&quot;&gt;&lt;a href=&quot;#一-开发工具&quot; class=&quot;headerlink&quot; title=&quot;一. 开发工具&quot;&gt;&lt;/a&gt;一.</summary>
+        
+      
+    
+    
+    
+    <category term="转载" scheme="https://github.com/Zhb233go/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+    <category term="转载" scheme="https://github.com/Zhb233go/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="Galang" scheme="https://github.com/Zhb233go/tags/Galang/"/>
+    
+    <category term="效率" scheme="https://github.com/Zhb233go/tags/%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人与人之间的悲喜并不相通</title>
+    <link href="https://github.com/Zhb233go/2022/01/24/32-ren-yu-ren-zhi-jian-de-bei-xi-bing-bu-xiang-tong/"/>
+    <id>https://github.com/Zhb233go/2022/01/24/32-ren-yu-ren-zhi-jian-de-bei-xi-bing-bu-xiang-tong/</id>
     <published>2022-01-24T03:12:46.000Z</published>
-    <updated>2022-01-24T04:10:02.114Z</updated>
+    <updated>2022-02-09T10:18:20.795Z</updated>
     
     
       
@@ -554,34 +584,6 @@
     <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
     
     <category term="转载" scheme="https://github.com/Zhb233go/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>习惯的养成</title>
-    <link href="https://github.com/Zhb233go/2021/12/02/17-xi-guan-de-yang-cheng/"/>
-    <id>https://github.com/Zhb233go/2021/12/02/17-xi-guan-de-yang-cheng/</id>
-    <published>2021-12-02T04:10:52.000Z</published>
-    <updated>2022-01-24T04:05:15.670Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;习惯的养成&quot;&gt;&lt;a href=&quot;#习惯的养成&quot; class=&quot;headerlink&quot; title=&quot;习惯的养成&quot;&gt;&lt;/a&gt;习惯的养成&lt;/h1&gt;&lt;p&gt;每当你发现很难开始执行某项任务时，可以试试将其缩减成2分钟的版本。&lt;/p&gt;
-&lt;p&gt;看一本书 →</summary>
-        
-      
-    
-    
-    
-    <category term="随笔" scheme="https://github.com/Zhb233go/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="https://github.com/Zhb233go/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="文章" scheme="https://github.com/Zhb233go/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
