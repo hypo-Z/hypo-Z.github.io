@@ -9,7 +9,7 @@ date: 2022-02-12 13:47:03
 img: medias/featureimages/43.jpg
 coverImg:
 password:
-summary: **栈**(Stack)是操作系统在建立某个进程时或者线程（在支持多线程的操作系统中是线程）为这个线程建立的存储区域，该区域具有FIFO的特性
+summary: 栈（Stack）是操作系统在建立某个进程时或者线程（在支持多线程的操作系统中是线程）为这个线程建立的存储区域，该区域具有FIFO的特性
 categories: 笔记
 tags:
 - 笔记
