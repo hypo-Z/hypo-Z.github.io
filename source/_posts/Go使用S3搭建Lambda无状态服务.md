@@ -12,7 +12,6 @@ mathjax: false
 summary: Go使用S3搭建Lambda无状态服务
 categories: Golang
 tags:
-- 随笔
 - Golang
 - AWS
 - S3
