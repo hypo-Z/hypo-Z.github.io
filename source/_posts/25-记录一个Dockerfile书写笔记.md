@@ -43,7 +43,7 @@ tags:
 
 下面就来介绍一下怎么使用`Docker`的多阶段构建制作`Go`应用的镜像。
 
-之前文章里镜像的`Dockerfile`长这样：
+镜像的`Dockerfile`长这样：
 
 ```
 FROM golang:1.14-alpine
