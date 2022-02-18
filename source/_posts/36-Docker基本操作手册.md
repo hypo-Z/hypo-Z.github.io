@@ -10,7 +10,7 @@ img: medias/featureimages/46.jpeg
 coverImg:
 password:
 summary: docker镜像和容器常用命令
-categories:
+categories: Docker
 tags:
 - Docker
 ---
