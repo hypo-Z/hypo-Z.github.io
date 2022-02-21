@@ -1,5 +1,5 @@
 ---
-title: Go语言进阶-逃逸分析
+title: Go语言进阶——逃逸分析
 author: EricZhou
 top: false
 cover: false
