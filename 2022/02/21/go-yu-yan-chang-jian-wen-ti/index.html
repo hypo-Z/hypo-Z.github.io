@@ -568,7 +568,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-21
+                    2022-02-22
                 </div>
                 
 
@@ -929,18 +929,18 @@ map_variable <span class="token operator">:=</span> <span class="token function"
 <li>缺点：不能很好的处理循环引用</li>
 </ul>
 </li>
-<li>标记-清除：从根变量开始遍历所有引用的对象，引用的对象标记“被引用”，没有被标记的则进行回收。<ul>
+<li>标记-清除(<strong>go</strong>使用)：从根变量开始遍历所有引用的对象，引用的对象标记“被引用”，没有被标记的则进行回收。<ul>
 <li>优点：解决了引用计数的缺点。</li>
-<li>缺点：需要 STW（stop the world），暂时停止程序运行。</li>
+<li>缺点：需要 <strong>STW（stop the world）</strong>，暂时停止程序运行。</li>
 </ul>
 </li>
-<li>分代收集：按照对象生命周期长短划分不同的代空间，生命周期长的放入老年代，短的放入新生代，不同代有不同的回收算法和回收频率。<ul>
+<li>分代收集(<strong>java</strong>使用)：按照对象生命周期长短划分不同的代空间，生命周期长的放入老年代，短的放入新生代，不同代有不同的回收算法和回收频率。<ul>
 <li>优点：回收性能好</li>
 <li>缺点：算法复杂</li>
 </ul>
 </li>
 </ul>
-<h4 id="1-2-三色标记法"><a href="#1-2-三色标记法" class="headerlink" title="1.2 三色标记法"></a>1.2 三色标记法</h4><ul>
+<h4 id="1-2-三色标记法-即标记-清除算法"><a href="#1-2-三色标记法-即标记-清除算法" class="headerlink" title="1.2 三色标记法(即标记-清除算法)"></a>1.2 三色标记法(即<strong>标记-清除</strong>算法)</h4><ul>
 <li>初始状态下所有对象都是白色的。</li>
 <li>从根节点开始遍历所有对象，把遍历到的对象变成灰色对象</li>
 <li>遍历灰色对象，将灰色对象引用的对象也变成灰色对象，然后将遍历过的灰色对象变成黑色对象。</li>
