@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记录一个Dockerfile书写笔记, 菜鸟程序员">
-    <meta name="description" content="使用`新的`镜像可以节省大量空间，因为我们实际上不需要`Go`工具或其他任何东西来运行我们的编译好的程序，这可能也是`Go`在容器时代的一个优势吧。">
+    <meta name="keywords" content="Docker时区调整方案, 菜鸟程序员">
+    <meta name="description" content="对于经常使用Docker的人来说，可能会碰到一个问题：时区问题。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>记录一个Dockerfile书写笔记 | 周大苏打的博客</title>
+    <title>Docker时区调整方案 | 周大苏打的博客</title>
     <link rel="icon" type="image/png" href="/zhb233go.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/awesome/css/all.min.css">
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/25.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/50.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记录一个Dockerfile书写笔记</h1>
+                    <h1 class="description center-align post-title">Docker时区调整方案</h1>
                 </div>
             </div>
         </div>
@@ -528,20 +528,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/zhb233go.github.io/tags/Docker/">
                                 <span class="chip bg-color">Docker</span>
-                            </a>
-                        
-                            <a href="/zhb233go.github.io/tags/Dockerfile/">
-                                <span class="chip bg-color">Dockerfile</span>
-                            </a>
-                        
-                            <a href="/zhb233go.github.io/tags/Golang/">
-                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -565,21 +553,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2022-02-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-17
+                    2022-02-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    827
+                    848
                 </div>
                 
 
@@ -614,84 +602,83 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="docker-制作镜像"><a href="#docker-制作镜像" class="headerlink" title="docker 制作镜像"></a>docker 制作镜像</h2><p>在<code>Dockerfile</code>所在的目录下执行<code>docker build</code>构建镜像</p>
-<pre class="line-numbers language-none"><code class="language-none">➜  docker build -t 镜像名 .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="Docker-时区调整方案"><a href="#Docker-时区调整方案" class="headerlink" title="Docker 时区调整方案"></a>Docker 时区调整方案</h1><p>对于经常使用 Docker 的人来说，可能会碰到一个问题：时区问题。</p>
+<p>大部分 Docker 镜像都是基于 Alpine，Ubuntu，Debian，CentOS 等基础镜像制作而成。</p>
+<p>基本上都采用 UTC 时间，默认时区为零时区。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">docker run <span class="token operator">--</span>name test <span class="token operator">--</span>rm <span class="token operator">-</span>ti alpine <span class="token operator">/</span>bin<span class="token operator">/</span>sh
+<span class="token operator">/</span> # date
+Fri Nov <span class="token number">29</span> <span class="token number">08</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">49</span> <span class="token constant">UTC</span> <span class="token number">2019</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><code>docker</code>会依据<code>Dockerfile</code>里的指令构建镜像，整个构建的过程类似下面：</p>
-<h3 id="验证镜像"><a href="#验证镜像" class="headerlink" title="验证镜像"></a>验证镜像</h3><p>这一步其实可以省略，不过为了确保制作的镜像是没有问题，我们通过<code>docker run</code>命令用这个镜像运行容器验证一下。</p>
-<pre class="line-numbers language-none"><code class="language-none">➜ docker run -d -p 本机端口:容器端口 --rm --name container名 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>而我们主要用的是 CST 时间，北京时间，位于东八区。时区代号： Asia/Shanghai</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">docker run <span class="token operator">--</span>name test <span class="token operator">--</span>rm <span class="token operator">-</span>ti <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span>ro <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span>ro alpine <span class="token operator">/</span>bin<span class="token operator">/</span>sh
+<span class="token operator">/</span> # date
+Fri Nov <span class="token number">29</span> <span class="token number">16</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">55</span> <span class="token constant">CST</span> <span class="token number">201</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>在这里，我们指示<code>docker</code>从源镜像<code>运行容器，将主机端口</code>绑定到容器的内部端口``，以后台模式（-d）运行容器，给此容器命名为<code>容器名</code>，并在容器结束运行后自动删除容器（–rm）。</p>
-<h3 id="多阶段构建"><a href="#多阶段构建" class="headerlink" title="多阶段构建"></a>多阶段构建</h3><p>下面就来介绍一下怎么使用<code>Docker</code>的多阶段构建制作<code>Go</code>应用的镜像。</p>
-<p>镜像的<code>Dockerfile</code>长这样：</p>
-<pre class="line-numbers language-none"><code class="language-none">FROM golang:1.14-alpine
-RUN mkdir /app
-COPY . /app
-WORKDIR /app
-RUN go build -o main . 
-CMD ["/app/main"]
-复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对比一下，我们会发现，时间上相差 8 小时。</p>
+<p>经过一系列探索实践，我们总结了一些 Docker 时区调整方案。</p>
+<h2 id="一、运行-Docker-容器时调整时区"><a href="#一、运行-Docker-容器时调整时区" class="headerlink" title="一、运行 Docker 容器时调整时区"></a>一、运行 Docker 容器时调整时区</h2><p>在 Linux 系统中，控制时区和时间的主要是两个地方：</p>
+<ul>
+<li><code>/etc/timezone</code> 主要代表当前时区设置，一般链接指向<code>/usr/share/zoneinfo</code>目录下的具体时区。</li>
+<li><code>/etc/localtime</code> 主要代表当前时区设置下的本地时间。</li>
+</ul>
+<h3 id="1-通用-docker-时区修改方案"><a href="#1-通用-docker-时区修改方案" class="headerlink" title="1. 通用 docker 时区修改方案"></a>1. 通用 docker 时区修改方案</h3><h4 id="宿主机为-Linux-系统"><a href="#宿主机为-Linux-系统" class="headerlink" title="宿主机为 Linux 系统"></a><a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cdh?from=10680">宿主机</a>为 Linux 系统</h4><p>当宿主机为 Linux 系统时，我们可以直接将宿主机上的<code>/etc/timezone</code>和<code>/etc/localtime</code>挂载到容器中，这样可以保持容器和宿主机时区和时间一致。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span>ro <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span>ro<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>我们使用用多阶段构建的方式构建镜像后，<code>Dockerfile</code>会变成类似下面这样：</p>
-<pre class="line-numbers language-none"><code class="language-none">FROM golang:alpine AS build
+<p>使用示例如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">docker run <span class="token operator">--</span>name test <span class="token operator">--</span>rm <span class="token operator">-</span>ti <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token operator">:</span>ro <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token operator">:</span>ro alpine <span class="token operator">/</span>bin<span class="token operator">/</span>sh
+<span class="token operator">/</span> # date
+Fri Nov <span class="token number">29</span> <span class="token number">16</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">55</span> <span class="token constant">CST</span> <span class="token number">2019</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-RUN mkdir /app
-COPY . /app
-WORKDIR /app
-RUN CGO_ENABLED=0 GOOS=linux go build -o myapp
+<h3 id="2-通过传递环境变量改变容器时区"><a href="#2-通过传递环境变量改变容器时区" class="headerlink" title="2. 通过传递环境变量改变容器时区"></a>2. 通过传递环境变量改变容器时区</h3><ul>
+<li>适用于基于 Debian 基础镜像, CentOS 基础镜像 制作的 Docker 镜像</li>
+<li>不适用于基于 Alpine 基础镜像, Ubuntu 基础镜像 制作的 Docker 镜像</li>
+</ul>
+<p>对于基于 Debian 基础镜像，CentOS 基础镜像制作的 Docker 镜像，在运行 Docker 容器时，传递环境变量<code>-e TZ=Asia/Shanghai</code>进去，能修改 docker 容器时区。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">-</span>e <span class="token constant">TZ</span><span class="token operator">=</span>Asia<span class="token operator">/</span>Shanghai<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-### 
-FROM scratch as final
-COPY --from=build /app/myapp .
-CMD ["/myapp"]
-复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用示例如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">docker run <span class="token operator">--</span>name test <span class="token operator">-</span>e <span class="token constant">TZ</span><span class="token operator">=</span>Asia<span class="token operator">/</span>Shanghai <span class="token operator">--</span>rm <span class="token operator">-</span>ti debian <span class="token operator">/</span>bin<span class="token operator">/</span>bash
+<span class="token operator">/</span># date
+Fri Nov <span class="token number">29</span> <span class="token number">18</span><span class="token operator">:</span><span class="token number">46</span><span class="token operator">:</span><span class="token number">18</span> <span class="token constant">CST</span> <span class="token number">2019</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="二、制作-Docker-镜像时调整时区"><a href="#二、制作-Docker-镜像时调整时区" class="headerlink" title="二、制作 Docker 镜像时调整时区"></a>二、制作 Docker 镜像时调整时区</h2><p>通过编写 Dockerfile,构建自己的 Docker 镜像，可以永久解决时区问题。</p>
+<h3 id="1-Alpine"><a href="#1-Alpine" class="headerlink" title="1. Alpine"></a>1. Alpine</h3><p>根据<a target="_blank" rel="noopener" href="https://wiki.alpinelinux.org/wiki/Setting_the_timezone">《Setting the timezone》</a>提示，我们可以将以下代码添加到 Dockerfile 中：</p>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">ENV TZ Asia/Shanghai
 
-<h2 id="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"><a href="#记录一个有sqlite3数据库和golang的Dockerfile书写笔记" class="headerlink" title="记录一个有sqlite3数据库和golang的Dockerfile书写笔记"></a>记录一个有sqlite3数据库和golang的Dockerfile书写笔记</h2><h3 id="以ubuntu为基础镜像"><a href="#以ubuntu为基础镜像" class="headerlink" title="以ubuntu为基础镜像"></a>以ubuntu为基础镜像</h3><pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM ubuntu:latest As build
-# 配置环境变量
-ENV GOROOT=/usr/lib/go
-ENV PATH=$PATH:/usr/lib/go/bin
-ENV GOPATH=/root/go
-ENV PATH=$GOPATH/bin/:$PATH
-ENV DEBIAN_FRONTEND=noninteractive
-# 执行命令
-RUN set -x; buildDeps='gcc libc6-dev make wget' \
-    &amp;&amp; apt-get update\
-    &amp;&amp; apt-get install -y $buildDeps \
-    &amp;&amp; wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz\
-    &amp;&amp; tar -xzvf go1.17.5.linux-amd64.tar.gz -C /usr/lib\
-    &amp;&amp; export GOROOT=/usr/lib/go \
-    &amp;&amp; ln -s /usr/local/go/bin/* /usr/bin/ \
-    &amp;&amp; export PATH=$PATH:/usr/lib/go/bin \
-    &amp;&amp; export GOPATH=/root/go\
-    &amp;&amp; export PATH=$GOPATH/bin/:$PATH\
-    &amp;&amp; rm go1.17.5.linux-amd64.tar.gz\
-    &amp;&amp; wget https://www.sqlite.org/2021/sqlite-autoconf-3370000.tar.gz\
-    &amp;&amp; tar -xzvf sqlite-autoconf-3370000.tar.gz -C /usr/lib\
-    &amp;&amp; rm sqlite-autoconf-3370000.tar.gz\
-    &amp;&amp; cd /usr/lib/sqlite-autoconf-3370000\
-    &amp;&amp; ./configure --prefix=/usr/local \
-    &amp;&amp; make \
-    &amp;&amp; make install \
-    &amp;&amp; cd .. \
-    &amp;&amp; mkdir /auth
-COPY . /auth/
-WORKDIR /auth
-EXPOSE 8000
-#安装库依赖项
-RUN go mod tidy\
-    &amp;&amp; go build -o server\
-    &amp;&amp; apt-get purge -y --auto-remove $buildDeps
+RUN apk add tzdata &amp;&amp; cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+    &amp;&amp; echo ${TZ} &gt; /etc/timezone \
+    &amp;&amp; apk del tzdata<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-####
-FROM ubuntu:latest as final
-#镜像构建参数
-COPY --from=build /auth/server .
-CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-Debian"><a href="#2-Debian" class="headerlink" title="2. Debian"></a>2. Debian</h3><p>Debian 基础镜像 中已经安装了 tzdata 包，我们可以将以下代码添加到 Dockerfile 中：</p>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">ENV TZ=Asia/Shanghai \
+    DEBIAN_FRONTEND=noninteractive
 
-<p><code>Go</code>项目应用的<code>Dockerfile</code>通常大概类似这样，但是每个项目的细节可能有所不同。<code>FROM ubuntu:latest</code>指定了开始阶段的基础映像（其中包含ubuntu的操作系统，无工具和库，用于构建程序），<code>AS build</code>是给这个阶段取名为<code>build</code>。</p>
-<p>ubuntu是专门为容器设计的小型<code>Linux</code>发行版。这个<code>Dockerfile</code>中使用了两次<code>FROM</code>指令，第二条<code>FROM ubuntu</code>行，它告诉<code>Docker</code>从一个全新的，完全空的容器镜像重新开始，然后将上个阶段编译好的程序复制到其中。这个才是我们随后将用于运行的<code>Go</code>应用程序的容器镜像。</p>
-<p><code>Docker</code>用于<code>Go</code>程序的多阶段构建很常见，使用<code>新的</code>镜像可以节省大量空间，因为我们实际上不需要<code>Go</code>工具或其他任何东西来运行我们的编译好的程序，这可能也是<code>Go</code>在容器时代的一个优势吧。</p>
+RUN ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
+    &amp;&amp; echo ${TZ} &gt; /etc/timezone \
+    &amp;&amp; dpkg-reconfigure --frontend noninteractive tzdata \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-Ubuntu"><a href="#3-Ubuntu" class="headerlink" title="3. Ubuntu"></a>3. Ubuntu</h3><p>Ubuntu 基础镜像中没有安装了 tzdata 包，因此我们需要先安装 tzdata 包。</p>
+<p>我们可以将以下代码添加到 Dockerfile 中。</p>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">ENV TZ=Asia/Shanghai \
+    DEBIAN_FRONTEND=noninteractive
+
+RUN apt update \
+    &amp;&amp; apt install -y tzdata \
+    &amp;&amp; ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
+    &amp;&amp; echo ${TZ} &gt; /etc/timezone \
+    &amp;&amp; dpkg-reconfigure --frontend noninteractive tzdata \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-CentOS"><a href="#4-CentOS" class="headerlink" title="4. CentOS"></a>4. CentOS</h3><p>CentOS 基础镜像 中已经安装了 tzdata 包，我们可以将以下代码添加到 Dockerfile 中。</p>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">ENV TZ Asia/Shanghai
+
+RUN ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
+    &amp;&amp; echo ${TZ} &gt; /etc/timezone<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>时区问题是大问题。</p>
+<p>时间没统一好，业务会乱套。</p>
+<p>希望通过上面的内容，能够帮助大家解决好 Docker 方面的时区问题。</p>
 
                 
             </div>
@@ -718,7 +705,7 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/">https://github.com/Zhb233go/zhb233go.github.io/2021/12/23/25-ji-lu-yi-ge-dockerfile-shu-xie-bi-ji/</a>
+                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2022/02/23/docker-shi-qu-diao-zheng-fang-an/">https://github.com/Zhb233go/zhb233go.github.io/2022/02/23/docker-shi-qu-diao-zheng-fang-an/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,20 +743,8 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
                     
                         <div class="article-tag">
                             
-                                <a href="/zhb233go.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/zhb233go.github.io/tags/Docker/">
                                     <span class="chip bg-color">Docker</span>
-                                </a>
-                            
-                                <a href="/zhb233go.github.io/tags/Dockerfile/">
-                                    <span class="chip bg-color">Dockerfile</span>
-                                </a>
-                            
-                                <a href="/zhb233go.github.io/tags/Golang/">
-                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -1081,49 +1056,47 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/zhb233go.github.io/2021/12/23/26-ni-de-b-ji-hua-shi-shi-me/">
+                <a href="/zhb233go.github.io/2022/02/23/docker-shi-qu-diao-zheng-fang-an/">
                     <div class="card-image">
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/26.png" class="responsive-img" alt="你的B计划是什么？">
+                        <img src="/zhb233go.github.io/medias/featureimages/50.png" class="responsive-img" alt="Docker时区调整方案">
                         
-                        <span class="card-title">你的B计划是什么？</span>
+                        <span class="card-title">Docker时区调整方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于人生来说，你现在的职业就是A计划，应该努力追求职业成功。但是，也要做好两手准备，万一A计划失败，还需要一个B计划，对自己的退路有所安排。
+                            对于经常使用Docker的人来说，可能会碰到一个问题：时区问题。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/zhb233go.github.io/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                    随笔
+                            <a href="/zhb233go.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
-                    </a>
-                    
-                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
+                    <a href="/zhb233go.github.io/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
                 </div>
@@ -1137,23 +1110,23 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/zhb233go.github.io/2021/12/20/24-shi-me-shi-xiao-xi-dui-lie/">
+                <a href="/zhb233go.github.io/2022/02/21/go-yu-yan-jin-jie-tao-yi-fen-xi/">
                     <div class="card-image">
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="什么是消息队列">
+                        <img src="/zhb233go.github.io/medias/featureimages/49.jpeg" class="responsive-img" alt="Go语言进阶——逃逸分析">
                         
-                        <span class="card-title">什么是消息队列</span>
+                        <span class="card-title">Go语言进阶——逃逸分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            观察者模式中，观察者和主题都知道对方的存在；而在发布与订阅模式中，生产者与消费者不知道对方的存在，它们之间通过频道进行通信。
+                            什么是逃逸分析？
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
                             </span>
                         <span class="publish-author">
                             
@@ -1170,12 +1143,16 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
-                    </a>
-                    
                     <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
                         <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/Galang/">
+                        <span class="chip bg-color">Galang</span>
+                    </a>
+                    
+                    <a href="/zhb233go.github.io/tags/%E8%BF%9B%E9%98%B6/">
+                        <span class="chip bg-color">进阶</span>
                     </a>
                     
                 </div>
@@ -1362,7 +1339,7 @@ CMD ["/server"]<span aria-hidden="true" class="line-numbers-rows"><span></span><
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">90.1k</span>
+                        class="white-color">90.9k</span>
             
             
             
