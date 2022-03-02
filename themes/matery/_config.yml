@@ -129,13 +129,13 @@ indexbtn:
   enable: true
   name: Github
   icon: fab fa-github-alt
-  url: https://github.com/Zhb233go
+  url: https://github.com/hypo-Z
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github: https://github.com/zhb233go
+  github: https://github.com/hypo-Z
   email: 2925376741@qq.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
@@ -385,7 +385,7 @@ changyan:
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
-  url: https://github.com/Zhb233go/zhb233go.github.io
+  url: https://github.com/hypo-Z/hypo-Z.github.io
   title: Fork Me
 
 # The configuration of the Twikoo comment module is not activated by default.
