@@ -560,14 +560,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-18
+                    2022-03-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    821
+                    875
                 </div>
                 
 
@@ -625,8 +625,13 @@
 <p>restart   重新启动一个或多个容器</p>
 <p>rm     移除一个或多个容器</p>
 <p>rmi     删除一个或多个图像</p>
-<p>run     在新容器中运行命令</p>
-<p>save    将一个或多个图像保存到tar存档文件(默认情况下流到STDOUT)</p>
+<p>run     在新容器中运行命令<br>常用设置参数：</p>
+<ul>
+<li>rm 即运行结束后自动删除容器</li>
+<li>d 后台运行</li>
+<li>p 运行端口</li>
+<li>l 连接另一个容器<br>save    将一个或多个图像保存到tar存档文件(默认情况下流到STDOUT)</li>
+</ul>
 <p>search   在Docker集线器中搜索图像</p>
 <p>start    启动一个或多个停止的容器</p>
 <p>stats    显示容器资源使用统计数据的实时流</p>
@@ -676,12 +681,14 @@
 <h1 id="push至本地镜像仓库"><a href="#push至本地镜像仓库" class="headerlink" title="push至本地镜像仓库"></a>push至本地镜像仓库</h1><p>1.查看本地镜像</p>
 <pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>2.给镜像打tag</p>
-<pre class="line-numbers language-none"><code class="language-none">docker tag 原镜像名:版本号 registry.corp/zhouhaibo/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2.给镜像打tag标签</p>
+<pre class="line-numbers language-none"><code class="language-none">docker tag 原镜像名:版本号 本地仓库名/仓库管理者/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>验证docker ima</p>
-<p>3.推送</p>
-<pre class="line-numbers language-none"><code class="language-none">docker push 本地仓库（registry.corp/zhouhaibo）/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>3.验证镜像标签</p>
+<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4.推送</p>
+<pre class="line-numbers language-none"><code class="language-none">docker push 本地仓库名/仓库管理者/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
