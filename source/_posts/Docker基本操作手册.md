@@ -73,7 +73,11 @@ rm     移除一个或多个容器
 rmi     删除一个或多个图像
 
 run     在新容器中运行命令
-
+常用设置参数：
+- rm 即运行结束后自动删除容器
+- d 后台运行
+- p 运行端口
+- l 连接另一个容器
 save    将一个或多个图像保存到tar存档文件(默认情况下流到STDOUT)
 
 search   在Docker集线器中搜索图像
@@ -175,18 +179,21 @@ docker container prune
 docker images
 ```
 
-2.给镜像打tag
+2.给镜像打tag标签
 
 ```
-docker tag 原镜像名:版本号 registry.corp/zhouhaibo/原镜像名:版本号 
+docker tag 原镜像名:版本号 本地仓库名/仓库管理者/原镜像名:版本号 
 ```
 
-验证docker ima
+3.验证镜像标签
+```
+docker images
+```
 
-3.推送
+4.推送
 
 ```
-docker push 本地仓库（registry.corp/zhouhaibo）/原镜像名:版本号 
+docker push 本地仓库名/仓库管理者/原镜像名:版本号 
 ```
 
 
