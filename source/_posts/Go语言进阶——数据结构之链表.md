@@ -1,5 +1,5 @@
 ---
-title: Go语言进阶——数据结构之链表
+title: Go语言进阶——数据结构之链表与数组
 author: hypo
 top: false
 cover: false
@@ -15,7 +15,7 @@ tags:
 - Galang
 - 进阶
 ---
-# Go语言进阶——数据结构之链表
+# Go语言进阶——数据结构之链表与数组
 
 ## 一、链表
 
