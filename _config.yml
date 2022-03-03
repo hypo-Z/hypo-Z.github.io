@@ -15,14 +15,14 @@ since: 2021-11-14
 #Social links
 Links:
     我的微博:
-    Github: https://github.com/Zhb233go
+    Github: https://github.com/hypo-Z
     Email: mailto:2925376741@qq.com
 
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/Zhb233go
-root: /zhb233go.github.io
+url: https://github.com/hypo-Z
+root: /hypo-Z.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -126,7 +126,7 @@ theme: matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: git@github.com:Zhb233go/zhb233go.github.io.git
+  repository: git@github.com:hypo-Z/hypo-Z.github.io.git
   branch: master
 
 #earch
