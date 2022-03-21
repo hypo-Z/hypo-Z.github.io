@@ -568,14 +568,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-24
+                    2022-03-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -792,7 +792,23 @@ set showmatch
 
 
 
-<h4 id="ubuntu-安装nodejs和npm"><a href="#ubuntu-安装nodejs和npm" class="headerlink" title="ubuntu 安装nodejs和npm:"></a>ubuntu 安装nodejs和npm:</h4><p>一.下载最新版本的nodejs包（最新版本的nodejs包里默认含有npm）<br>可以去nodejs官网去查看最新版本的nodejs<br>网址如下：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/current/">https://nodejs.org/en/download/current/</a><br>目前最新版本为：v17.1.0</p>
+<h3 id="ubuntu-安装nodejs和npm"><a href="#ubuntu-安装nodejs和npm" class="headerlink" title="ubuntu 安装nodejs和npm:"></a>ubuntu 安装nodejs和npm:</h3><p>快速安装：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* ~/.npm
+sudo rm -rf /usr/local/lib/node*
+sudo rm -rf /usr/local/bin/node*
+sudo rm -rf /usr/local/include/node*
+
+sudo apt-get purge nodejs npm
+sudo apt autoremove
+sudo apt-get install nodejs npm
+
+zhb@zhb-pc:~$ npm -v
+6.14.4
+zhb@zhb-pc:~$ node -v
+v10.19.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注：以上只能安装老版本的nodejs和npm,新版本可在官网下载，但是可能出现问题。</p>
+<p>一.下载最新版本的nodejs包（最新版本的nodejs包里默认含有npm）<br>可以去nodejs官网去查看最新版本的nodejs<br>网址如下：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/current/">https://nodejs.org/en/download/current/</a><br>目前最新版本为：v17.1.0</p>
 <pre class="line-numbers language-none"><code class="language-none">wget https://nodejs.org/dist/v17.1.0/node-v17.1.0-linux-x64.tar.xz    
 tar xf  node-v17.1.0-linux-x64.tar.xz       // 解压
 cd node-v17.1.0-linux-x64/                  // 进入解压目录
@@ -817,7 +833,7 @@ rt@ubuntu:~$ npm -v
 
 
 <p>这样node和npm就同时安装成功了！</p>
-<h4 id="ubuntu安装python3："><a href="#ubuntu安装python3：" class="headerlink" title="ubuntu安装python3："></a>ubuntu安装python3：</h4><p>ubuntu本身是有Python2.7版本的，但是不同版本的ubuntu中的Python3的版本是不同的，我现在用的是14版本就是python3.4，我想把它升级为3.6版本。当然，如果需要，你可以改为任意版本。</p>
+<h3 id="ubuntu安装python3："><a href="#ubuntu安装python3：" class="headerlink" title="ubuntu安装python3："></a>ubuntu安装python3：</h3><p>ubuntu本身是有Python2.7版本的，但是不同版本的ubuntu中的Python3的版本是不同的，我现在用的是14版本就是python3.4，我想把它升级为3.6版本。当然，如果需要，你可以改为任意版本。</p>
 <ol>
 <li>安装python3.6(非必需)<br>在终端中输入下面的命令（不要怀疑，每行都是一个命令）</li>
 </ol>
@@ -1527,7 +1543,7 @@ sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><spa
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">93.9k</span>
+                        class="white-color">94k</span>
             
             
             
