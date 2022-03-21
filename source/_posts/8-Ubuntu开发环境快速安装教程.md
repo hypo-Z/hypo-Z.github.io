@@ -347,7 +347,27 @@ sudo snap install postman
 
 
 
-#### ubuntu 安装nodejs和npm:
+### ubuntu 安装nodejs和npm:
+
+快速安装：
+```
+sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* ~/.npm
+sudo rm -rf /usr/local/lib/node*
+sudo rm -rf /usr/local/bin/node*
+sudo rm -rf /usr/local/include/node*
+
+sudo apt-get purge nodejs npm
+sudo apt autoremove
+sudo apt-get install nodejs npm
+
+zhb@zhb-pc:~$ npm -v
+6.14.4
+zhb@zhb-pc:~$ node -v
+v10.19.0
+
+```
+注：以上只能安装老版本的nodejs和npm,新版本可在官网下载，但是可能出现问题。
+
 
 一.下载最新版本的nodejs包（最新版本的nodejs包里默认含有npm）
 可以去nodejs官网去查看最新版本的nodejs
@@ -397,7 +417,7 @@ rt@ubuntu:~$ npm -v
 
 
 
-#### ubuntu安装python3：
+### ubuntu安装python3：
 
 ubuntu本身是有Python2.7版本的，但是不同版本的ubuntu中的Python3的版本是不同的，我现在用的是14版本就是python3.4，我想把它升级为3.6版本。当然，如果需要，你可以改为任意版本。
 
