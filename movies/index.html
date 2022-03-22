@@ -144,11 +144,11 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/hypo-Z.github.io/music">
+        <a href="/hypo-Z.github.io/musics">
           
           <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>Music</span>
+          <span>Musics</span>
         </a>
       </li>
       
@@ -286,11 +286,11 @@
               
                 <li>
 
-                  <a href="/hypo-Z.github.io/music " style="margin-left:50px">
+                  <a href="/hypo-Z.github.io/musics " style="margin-left:50px">
 				  
 				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
 			      
-		          <span>Music</span>
+		          <span>Musics</span>
                   </a>
                 </li>
               
@@ -450,210 +450,77 @@
 
     </div>
 </div>
-<main class="content">
+<!-- 视频页面 -->
 
-<!-- <div id="indexCard" class="index-card"> -->
-<!-- <div class="container "> -->
-<!-- <div class="card"> -->
-<!-- <div class="card-content"> -->
-<!--  -->
-<!-- <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;笺言
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            你最重要是做你觉得正确的事情,最重要的是你听不到内心的抱怨,最重要的是多年以后的你能够看得起现在的你,过好每一天,演好当下的剧本,朝着心中的那个标杆去前进,人要做到!不清高,不娇情,不抱怨,就是在黑夜中看到了微光,你就朝着微光的方向走过去,虽然有的时候你去怀疑你会觉得,是不是走错了,但是所有的怀疑都为了确信:那就是如何过看起来好的一生
-        </div>
-    </div>
-</div>
- -->
-<!--  -->
-
-<!--  -->
-<!-- <link rel="stylesheet" href="/hypo-Z.github.io/libs/aplayer/APlayer.min.css">
 <style>
-    .aplayer .aplayer-lrc p {
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
+@media only screen and (max-width: 601px) {
+    .movies-w {
+        width: 90%;
+        margin: 0 auto;
     }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        font-size: 15px;
-        color: #42b983;
+    .movies-h {
+        height: 90%;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
+}
+/*中等屏幕下(平板类)的样式*/
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .movies-w {
+        width: 95%;
+        margin: 0 auto;
     }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
+    .movies-h {
+        height: 95%;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
-
-    
+}
+@media only screen and (min-width: 993px) {
+    .movies-w {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .movies-h {
+        height: 80%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+}
 </style>
-<div class="music-player">
-    
-        <div class="title center-align">
-            <i class="fas fa-music"></i>&nbsp;&nbsp;听听音乐
-        </div>
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="7040972108"
-                   fixed='false'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='false'
-        >
-        </meting-js>
-    </div>
-</div>
 
-<script src="/hypo-Z.github.io/libs/aplayer/APlayer.min.js"></script>
-<script src="/hypo-Z.github.io/libs/aplayer/Meting.min.js"></script>
- -->
-<!--  -->
-<!--  -->
-<!-- <link rel="stylesheet" href="/hypo-Z.github.io/libs/dplayer/DPlayer.min.css">
-<div class="video-player">
-    
-    <div class="title center-align">
-        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;精彩视频
-    </div>
-    
-    <div class="row">
-		
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="dplayer" class="dplayer-video"
-                    ></div>
-        </div>
-		
-    </div>
-</div>
+<main class="content">
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+			<div>
+				<h1 style="text-align:center;">
+					📺
+					<span style="color:red;">我</span>
+					<span style="color:yellow;">的</span>
+					<span style="color:blue;">视</span>
+					<span style="color:green;">频</span>
+				</h1>
+			<div>
+				<div  class="movies-w" style="position: relative; padding-bottom: 75%;">
+				    <iframe class="movies-h" style="
+				    position: absolute;
+				        width: 100%;
+					    left: 0;
+					    top: 0;"
+					    src="//player.bilibili.com/player.html?aid=839390557&bvid=BV1J54y127ob&cid=228847342&page=1&high_quality=1" scrolling="no" border="0"
+					    frameborder="no"
+					    framespacing="0"
+					    allowfullscreen="true">
+				    </iframe>
 
-<script src="/hypo-Z.github.io/libs/dplayer/DPlayer.min.js"></script>
-<script>
-    $(function () {
-        new DPlayer({
-            container: document.getElementById('dplayer'),
-            autoplay: 'false' === 'true',
-            theme: '#42b983',
-            loop: 'false' === 'true',
-            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
-            preload: 'auto',
-            volume: Number('0.7'),
-            video: {
-                url: 'https://assets.mixkit.co/videos/preview/mixkit-beach-front-with-children-playing-2176-large.mp4',
-                pic: '',
-                thumbnails: ''
-            }
-        });
-    });
-</script>
- -->
-<!--  -->
-
-
-
-
-<!--  -->
-<!-- 
-<div id="myGallery" class="my-gallery">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-image"></i>&nbsp;&nbsp;相册
-    </div>
-    <div class="row">
-        
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg">
-                <img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/4.jpg">
-                <img src="/hypo-Z.github.io/medias/featureimages/4.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/21.jpg">
-                <img src="/hypo-Z.github.io/medias/featureimages/21.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/2.jpg">
-                <img src="/hypo-Z.github.io/medias/featureimages/2.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/16.jpg">
-                <img src="/hypo-Z.github.io/medias/featureimages/16.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/18.jpg">
-                <img src="/hypo-Z.github.io/medias/featureimages/18.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
-    });
-</script>
- -->
-<!--  -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<div class="video-player">
-        <div class="title center-align">
-            <i class="fa fa-video-camera"></i>&nbsp;&nbsp;hypo`s video
-        </div>
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="vi" style="height: 50em;">
-                <!-- iframe src 后面添加 &high_quality=1 ，设定播放清晰度为最高 -->
-                <!-- iframe 添加 sandbox 禁止选择清晰度自动跳转至B站-->
-                <iframe src="//player.bilibili.com/player.html?aid=839390557&bvid=BV1J54y127ob&cid=228847342&page=1&high_quality=1"
-                        scrolling="no" border="0" frameborder="no" framespacing="0"
-                        allowfullscreen="true" width="100%" height="100%"
-                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
-                </iframe>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
     </div>
 </div>
 </main>
+
 
     <footer class="page-footer bg-color">
     
