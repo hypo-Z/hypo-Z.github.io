@@ -1,0 +1,71 @@
+<%- partial('_partial/bg-cover') %>
+<!-- 视频页面 -->
+
+<style>
+@media only screen and (max-width: 601px) {
+    .movies-w {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .movies-h {
+        height: 90%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+}
+/*中等屏幕下(平板类)的样式*/
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .movies-w {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .movies-h {
+        height: 95%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+}
+@media only screen and (min-width: 993px) {
+    .movies-w {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .movies-h {
+        height: 80%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+}
+</style>
+
+<main class="content">
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+			<div>
+				<h1 style="text-align:center;">
+					📺
+					<span style="color:red;">我</span>
+					<span style="color:yellow;">的</span>
+					<span style="color:blue;">视</span>
+					<span style="color:green;">频</span>
+				</h1>
+			<div>
+				<div  class="movies-w" style="position: relative; padding-bottom: 75%;">
+				    <iframe class="movies-h" style="
+				    position: absolute;
+				        width: 100%;
+					    left: 0;
+					    top: 0;"
+					    src="//player.bilibili.com/player.html?aid=839390557&bvid=BV1J54y127ob&cid=228847342&page=1&high_quality=1" scrolling="no" border="0"
+					    frameborder="no"
+					    framespacing="0"
+					    allowfullscreen="true">
+				    </iframe>
+
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+</main>

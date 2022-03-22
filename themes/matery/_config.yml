@@ -22,8 +22,8 @@ menu:
   Medias:
     icon: fab fa-grav
     children:
-      - name: Music
-        url: /music
+      - name: Musics
+        url: /musics
         icon: fab fa-earlybirds
       - name: Movies
         url: /movies
@@ -91,6 +91,26 @@ music:
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: false  # 列表默认折叠
   hideLrc: false     # 隐藏歌词
+
+# Whether to display the musics.
+# 单独的音乐页面.
+musics:
+  enable: true
+  title:          #非吸底模式有效
+    enable: true
+    show: 听听音乐
+  server: netease   #require musics platform: netease, tencent, kugou, xiami, baidu
+  type: playlist    #require song, playlist, album, search, artist
+  id: 7040972108     #require song id / playlist id / album id / search keyword
+  fixed: false      # 开启吸底模式
+  autoplay: false   # 是否自动播放
+  theme: '#42b983'
+  loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+  listFolded: false  # 列表默认折叠
+  listMaxHeight: "525px" #列表最大高度
 
 # Whether to display the videos.
 # 是否在首页显示视频.

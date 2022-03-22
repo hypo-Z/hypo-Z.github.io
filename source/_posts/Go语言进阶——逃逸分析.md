@@ -12,7 +12,7 @@ password:
 summary: 什么是逃逸分析？
 categories: 转载
 tags:
-- Galang
+- Golang
 - 转载
 - 进阶
 ---

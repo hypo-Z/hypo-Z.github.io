@@ -1,18 +1,20 @@
+<style type="text/css">
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+</style>
+
 <%- partial('_partial/bg-cover') %>
 
 <main class="content">
-
-<div id="indexCard" class="index-card">
-<div class="container ">
-<div class="card">
-<div class="card-content">
-<!-- <% if (theme.dream.enable) { %> -->
-<!-- <%- partial('_widget/dream') %> -->
-<!-- <% } %> -->
-
-<% if (theme.music.enable && !theme.music.fixed) { %>
-<%- partial('_widget/music') %>
-<style>
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="music-player">
+                    <% if (theme.musics && theme.musics.enable) { %>
+                        <%- partial('_widget/musics') %>
+                        <style>
                         .bubbles > .particle {
                             /*初始透明度为0*/
                             opacity: 0;
@@ -61,18 +63,10 @@
                           }
                           bubbles();
                         </script>
-<% } %>
 
-
-<!-- <% if (theme.video.enable) { %> -->
-<!-- <%- partial('_widget/video') %> -->
-<!-- <% } %> -->
-
-<!-- <% if (theme.myGallery && theme.myGallery.enable) { %> -->
-<!-- <%- partial('_widget/my-gallery') %> -->
-<!-- <% } %> -->
-</div>
-</div>
-</div>
-</div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
