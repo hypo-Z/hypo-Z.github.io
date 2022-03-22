@@ -1,0 +1,101 @@
+<style>
+div.img {
+    border: 1px solid #ccc;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<%- partial('_partial/bg-cover') %>
+<main class="content">
+
+<div id="indexCard" class="index-card">
+   <div class="container ">
+     <div class="card">
+         <div class="card-content">
+            <h2 style="text-align:center">推荐书单</h2>
+
+            <div class="responsive">
+              <div class="img">
+                <a target="_blank" href="themes/matery/source/medias/books/黑天鹅.jpg">
+                  <img src="https://img14.360buyimg.com/n1/jfs/t1/81020/24/519/93729/5ceba852E09aab298/e6cd305012cb19b3.jpg" alt="黑天鹅" width="800" height="500">
+                </a>
+                <div class="desc">你不知道的事比你知道的事更有意义。在人类社会发展的进程中，对我们的历史和社会产生重大影响的，通常都不是我们已知或可以预见的东西。</div>
+              </div>
+            </div>
+
+
+            <div class="responsive">
+              <div class="img">
+                <a target="_blank" href="img_forest.jpg">
+                  <img src="https://img10.360buyimg.com/n1/jfs/t21844/141/1082279706/186548/57ca96a5/5b1f9c10N493b8e20.jpg" alt="疯子在左天才在右" width="800" height="500">
+                </a>
+                <div class="desc">读完本书，作者带我进入到一个完全不同的世界，去认识的那些常人难以理解的“怪人”的思想，使我认识的在事情的认知和那些不同寻常的人的区别，作者的核心理念就是：我们认知的疯子与天才其实只有一线之隔，他们的共同点都是在某方面与常人有明显差距或不相同的，而他们的这些突出能力是否能被常人接受则与现实所影响。</div>
+              </div>
+            </div>
+
+            <div class="responsive">
+              <div class="img">
+                <a target="_blank" href="img_lights.jpg">
+                  <img src="https://img12.360buyimg.com/n1/jfs/t1/100947/40/13951/489386/5e60b1d8Ef6bc1fa7/2cecda304e15af8c.jpg" alt="被讨厌的勇气" width="800" height="500">
+                </a>
+                <div class="desc">被人讨厌，它是一种不可避免的命运，只有你拥有了这种被讨厌的勇气，才可以换得自由。</div>
+              </div>
+            </div>
+
+            <div class="responsive">
+              <div class="img">
+                <a target="_blank" href="img_mountains.jpg">
+                  <img src="https://img14.360buyimg.com/n1/jfs/t24385/257/524990836/138418/3f00d301/5b33b5c1N4bb8946b.jpg" alt="未来世界的幸存者" width="800" height="500">
+                </a>
+                <div class="desc">如果未来如预测的那样，极少数有技术的富人控制一切，大多数人沦为毫无价值的无用阶层，那么现在就要寻找出路。虽然是以悲观者视角阐述，但作者也提到：悲观者正确,乐观者成功。</div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+         </div>
+     </div>
+   </div>
+</div>
+</main>
