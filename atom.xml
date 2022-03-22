@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2022-03-22T03:01:10.433Z</updated>
+  <updated>2022-03-22T08:27:01.535Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://github.com/hypo-Z/2022/03/02/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-zhan-he-dui-lie/"/>
     <id>https://github.com/hypo-Z/2022/03/02/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-zhan-he-dui-lie/</id>
     <published>2022-03-02T04:08:31.000Z</published>
-    <updated>2022-03-22T03:01:10.433Z</updated>
+    <updated>2022-03-22T08:27:01.535Z</updated>
     
     
       
@@ -34,10 +34,10 @@
     
     
     
-    <category term="Galang" scheme="https://github.com/hypo-Z/categories/Galang/"/>
+    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
     
     
-    <category term="Galang" scheme="https://github.com/hypo-Z/tags/Galang/"/>
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
     
     <category term="进阶" scheme="https://github.com/hypo-Z/tags/%E8%BF%9B%E9%98%B6/"/>
     
@@ -48,7 +48,7 @@
     <link href="https://github.com/hypo-Z/2022/03/01/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-lian-biao/"/>
     <id>https://github.com/hypo-Z/2022/03/01/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-lian-biao/</id>
     <published>2022-03-01T05:51:52.000Z</published>
-    <updated>2022-03-22T03:01:10.433Z</updated>
+    <updated>2022-03-22T08:27:01.538Z</updated>
     
     
       
@@ -64,7 +64,7 @@
     <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
     
     
-    <category term="Galang" scheme="https://github.com/hypo-Z/tags/Galang/"/>
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
     
     <category term="进阶" scheme="https://github.com/hypo-Z/tags/%E8%BF%9B%E9%98%B6/"/>
     
@@ -269,7 +269,7 @@
     <link href="https://github.com/hypo-Z/2022/02/09/go-cheng-xu-yuan-kai-fa-xiao-lu-shen-qi-hui-zong/"/>
     <id>https://github.com/hypo-Z/2022/02/09/go-cheng-xu-yuan-kai-fa-xiao-lu-shen-qi-hui-zong/</id>
     <published>2022-02-09T10:20:03.000Z</published>
-    <updated>2022-02-16T04:58:13.959Z</updated>
+    <updated>2022-03-22T08:27:25.509Z</updated>
     
     
       
@@ -288,7 +288,7 @@
     
     <category term="转载" scheme="https://github.com/hypo-Z/tags/%E8%BD%AC%E8%BD%BD/"/>
     
-    <category term="Galang" scheme="https://github.com/hypo-Z/tags/Galang/"/>
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
     
     <category term="效率" scheme="https://github.com/hypo-Z/tags/%E6%95%88%E7%8E%87/"/>
     

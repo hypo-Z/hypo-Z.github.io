@@ -33,6 +33,22 @@
     }
 }
 
+/*.reprint_type{*/
+/*    display: inline-block;*/
+/*    width: 100%;*/
+/*    overflow: hidden;*/
+/*}*/
+
+#busuanzi_container_site_pv,
+#busuanzi_value_site_pv,
+#busuanzi_container_site_uv{
+    display: inline !important;
+}
+
+header .brand-logo .logo-img{
+    display: none;
+}
+
 body {
     background-color: #eaeaea;
     margin: 0;
@@ -241,11 +257,11 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #51F3DE 0%, #66169B 100%);
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    color: #51F3DE !important;
 }
 
 .white-color {
@@ -257,7 +273,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #51F3DE 0%, #66169B 100%);
     opacity: 0.8;
 }
 
@@ -592,7 +608,7 @@ header .go-back i {
     font-size: 2.5rem;
     font-weight: 400;
 }
-
+/*
 @-webkit-keyframes rainbow {
 
     0%,
@@ -638,7 +654,8 @@ header .go-back i {
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
 }
-
+*/
+/*
 @keyframes rainbow {
 
     0%,
@@ -684,7 +701,7 @@ header .go-back i {
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
 }
-
+*/
 .index-card {
     margin-top: -10px;
     padding-top: 20px;
@@ -731,6 +748,7 @@ header .go-back i {
 .index-card .card .card-content {
     padding: 20px 40px;
 }
+
 
 @media only screen and (min-width: 1418px) {
     .recommend {
@@ -875,7 +893,7 @@ article a {
 
 article a:hover {
     font-weight: bold;
-    color: #42b983;
+    color: #51F3DE;
     text-decoration: underline;
 }
 
@@ -913,6 +931,17 @@ article .article-content .summary {
     padding-left: 0;
     margin-bottom: 6px;
     word-break: break-all;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    display:-webkit-box;
+
+    -webkit-box-orient:vertical;
+min-height:47px;
+    -webkit-line-clamp:2;
+
 }
 
 article .article-content .publish-author {
