@@ -1,0 +1,2060 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Go语言常见问题, 菜鸟程序员">
+    <meta name="description" content="go常见问题及解答，持续更新">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Go语言常见问题 | 周大苏打的博客</title>
+    <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/my.css">
+
+    <script src="/hypo-Z.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://pic.netbian.com/tupian/27531.html);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">周大苏打的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+      
+      <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fab fa-reddit" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fab fa-grav" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/hypo-Z.github.io/musics">
+          
+          <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/movies">
+          
+          <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/books">
+          
+          <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/galleries">
+          
+          <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">周大苏打的博客</div>
+        <div class="logo-desc">
+            
+            go语言学习者，互联网新手，努力做一个自律的行者
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-ubnutu"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-optin-monster"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-the-red-yeti"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-space-shuttle"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-reddit"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-hornbill"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fab fa-grav"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/musics " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/movies " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/books " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hypo-Z/hypo-Z.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hypo-Z/hypo-Z.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/48.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Go语言常见问题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/hypo-Z.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/hypo-Z.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="go常见问题："><a href="#go常见问题：" class="headerlink" title="go常见问题："></a>go常见问题：</h1><h3 id="1-go关键字有那些？"><a href="#1-go关键字有那些？" class="headerlink" title="1. go关键字有那些？"></a>1. go关键字有那些？</h3><p>下面列举了 Go 代码中会使用到的 25 个关键字或保留字：</p>
+<table>
+<thead>
+<tr>
+<th>break</th>
+<th>default</th>
+<th>func</th>
+<th>interface</th>
+<th>select</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>case</td>
+<td>defer</td>
+<td>go</td>
+<td>map</td>
+<td>struct</td>
+</tr>
+<tr>
+<td>chan</td>
+<td>else</td>
+<td>goto</td>
+<td>package</td>
+<td>switch</td>
+</tr>
+<tr>
+<td>const</td>
+<td>fallthrough</td>
+<td>if</td>
+<td>range</td>
+<td>type</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>for</td>
+<td>import</td>
+<td>return</td>
+<td>var</td>
+</tr>
+</tbody></table>
+<p>除了以上介绍的这些关键字，Go 语言还有 36 个预定义标识符：</p>
+<table>
+<thead>
+<tr>
+<th>append</th>
+<th>bool</th>
+<th>byte</th>
+<th>cap</th>
+<th>close</th>
+<th>complex</th>
+<th>complex64</th>
+<th>complex128</th>
+<th>uint16</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>copy</td>
+<td>false</td>
+<td>float32</td>
+<td>float64</td>
+<td>imag</td>
+<td>int</td>
+<td>int8</td>
+<td>int16</td>
+<td>uint32</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>int64</td>
+<td>iota</td>
+<td>len</td>
+<td>make</td>
+<td>new</td>
+<td>nil</td>
+<td>panic</td>
+<td>uint64</td>
+</tr>
+<tr>
+<td>print</td>
+<td>println</td>
+<td>real</td>
+<td>recover</td>
+<td>string</td>
+<td>true</td>
+<td>uint</td>
+<td>uint8</td>
+<td>uintptr</td>
+</tr>
+</tbody></table>
+<p>程序一般由关键字、常量、变量、运算符、类型和函数组成。</p>
+<p>程序中可能会使用到这些分隔符：括号 ()，中括号 [] 和大括号 {}。</p>
+<p>程序中可能会使用到这些标点符号：.、,、;、: 和 …。</p>
+<h3 id="2-new函数和make函数的区别？"><a href="#2-new函数和make函数的区别？" class="headerlink" title="2. new函数和make函数的区别？"></a>2. new函数和make函数的区别？</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">new</span><span class="token punctuation">(</span>Type<span class="token punctuation">)</span> <span class="token operator">*</span>Type<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>new的内置函数分配内存。第一个参数是一个类型，而不是一个值，返回的值是指向该类型新分配的零值的指针。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">make</span><span class="token punctuation">(</span>t Type<span class="token punctuation">,</span> size <span class="token operator">...</span>IntegerType<span class="token punctuation">)</span> Type<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>make内置函数分配并初始化类型为slice、map或channel（仅限）的对象。与new一样，第一个参数是类型，而不是值。与new不同，make的返回类型与其参数的类型相同，而不是指向它的指针。结果的规格取决于类型：</p>
+<p>slice(切片)：size指定长度。切片的容量是等于它的长度。第二个整数参数可以提供给指定不同的容量；它不能小于长例如，make（[]int，0，10）分配一个底层数组大小为10，并返回长度为0、容量为10的切片由这个底层数组支持。</p>
+<p>map(键对)：一张空地图被分配了足够的空间来存放地图指定的元素数。在这种情况下，尺寸可以省略分配了一个小的起始大小。</p>
+<p>channel(通道)：size通道的缓冲区用指定的缓冲容量。如果为零，或省略了大小，则通道为没有缓冲。</p>
+<p>就是说make函数只能用于创建slice、map和channel，而new函数可以创建多种类型</p>
+<h3 id="3-数组和切片有什么区别？"><a href="#3-数组和切片有什么区别？" class="headerlink" title="3. 数组和切片有什么区别？"></a>3. 数组和切片有什么区别？</h3><p>Go语言中数组是固定长度的，<strong>不能动态扩容</strong>，在编译期就会确定大小，声明方式如下：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> buffer <span class="token punctuation">[</span><span class="token number">255</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+buffer <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token number">255</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>切片是对数组的抽象，因为数组的长度是不可变的，在某些场景下使用起来就不是很方便，所以Go语言提供了一种灵活，功能强悍的内置类型切片(“动态数组”)，与数组相比切片的长度是不固定的，可以追加元素。切片是一种数据结构，切片不是数组，切片描述的是一块数组。</p>
+<p>我们可以直接声明一个未指定大小的数组来定义切片，也可以使用make()函数来创建切片，声明方式如下：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> slice <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token comment">// 直接声明</span>
+slice <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span> <span class="token comment">// 字面量方式</span>
+slice <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// make创建</span>
+slice <span class="token operator">:=</span> array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment">// 截取下标的方式</span>
+slice <span class="token operator">:=</span> <span class="token operator">*</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">// new一个</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>切片可以使用append追加元素，当cap不足时进行动态扩容</strong>。</p>
+<p><strong>切片扩容策略：</strong></p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">newcap <span class="token operator">:=</span> old<span class="token punctuation">.</span><span class="token builtin">cap</span>
+  <span class="token comment">// 两倍扩容</span>
+ doublecap <span class="token operator">:=</span> newcap <span class="token operator">+</span> newcap
+  <span class="token comment">// 新切片需要的容量大于两倍扩容的容量，则直接按照新切片需要的容量扩容</span>
+ <span class="token keyword">if</span> <span class="token builtin">cap</span> <span class="token operator">&gt;</span> doublecap <span class="token punctuation">{</span>
+  newcap <span class="token operator">=</span> <span class="token builtin">cap</span>
+ <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 原 slice 容量小于 1024 的时候，新 slice 容量按2倍扩容</span>
+  <span class="token keyword">if</span> old<span class="token punctuation">.</span><span class="token builtin">cap</span> <span class="token operator">&lt;</span> <span class="token number">1024</span> <span class="token punctuation">{</span>
+   newcap <span class="token operator">=</span> doublecap
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 原 slice 容量超过 1024，新 slice 容量变成原来的1.25倍。</span>
+   <span class="token comment">// Check 0 &lt; newcap to detect overflow</span>
+   <span class="token comment">// and prevent an infinite loop.</span>
+   <span class="token keyword">for</span> <span class="token number">0</span> <span class="token operator">&lt;</span> newcap <span class="token operator">&amp;&amp;</span> newcap <span class="token operator">&lt;</span> <span class="token builtin">cap</span> <span class="token punctuation">{</span>
+    newcap <span class="token operator">+=</span> newcap <span class="token operator">/</span> <span class="token number">4</span>
+   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>切片在扩容时会进行内存对齐，这个和内存分配策略相关。</p>
+<p>进行内存对齐之后，新 slice 的容量是要 大于等于老 slice 容量的 2倍或者1.25倍，则直接按照新切片需要的容量扩容；</p>
+<p>当原 slice 容量小于 1024 的时候，新 slice 容量变成原来的 2 倍；</p>
+<p>原 slice 容量超过 1024，新 slice 容量变成原来的1.25倍。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">-</span>新容量<span class="token operator">=</span>所需的容量<span class="token operator">-</span>      <span class="token operator">&gt;</span>  <span class="token number">2</span>倍原容量  <span class="token operator">&gt;</span>      <span class="token operator">-</span>新容量<span class="token operator">=</span><span class="token number">2</span>倍原容量<span class="token operator">-</span>     <span class="token operator">&gt;</span>  <span class="token number">1024</span>  <span class="token operator">&gt;</span>     <span class="token operator">-</span>新容量<span class="token operator">=</span><span class="token number">1</span><span class="token operator">/</span><span class="token number">4</span>倍原容量<span class="token operator">-</span>     <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="3-1-切片的拷贝："><a href="#3-1-切片的拷贝：" class="headerlink" title="3.1 切片的拷贝："></a>3.1 切片的拷贝：</h4><p>深浅拷贝都是进行复制，区别在于复制出来的新对象与原来的对象在它们发生改变时，是否会相互影响，本质区别就是复制出来的对象与原对象是否会指向同一个地址。在Go语言，切片拷贝有三种方式：</p>
+<ul>
+<li>使用=操作符拷贝切片，这种就是浅拷贝</li>
+<li>使用[:]下标的方式复制切片，这种也是浅拷贝</li>
+<li>使用Go语言的内置函数copy()进行切片拷贝，这种就是深拷贝</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">copy</span><span class="token punctuation">(</span>dst <span class="token punctuation">[</span><span class="token punctuation">]</span>Type<span class="token punctuation">,</span> src <span class="token punctuation">[</span><span class="token punctuation">]</span>Type<span class="token punctuation">)</span> <span class="token builtin">int</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>copy内置函数将元素从源切片复制到目标切片。（作为特例，它还将把字符串中的字节复制到字节片中。）源和目标可能重叠。Copy返回复制的元素数，即 len（src）和 len（dst）的最小值。</p>
+<h4 id="3-2-零切片、空切片、nil切片是什么？"><a href="#3-2-零切片、空切片、nil切片是什么？" class="headerlink" title="3.2 零切片、空切片、nil切片是什么？"></a>3.2 零切片、空切片、nil切片是什么？</h4><p>为什么问题中这么多种切片呢？因为在Go语言中切片的创建方式有五种，不同方式创建出来的切片也不一样；</p>
+<ul>
+<li>零切片</li>
+</ul>
+<p>我们把切片内部数组的元素都是零值或者底层数组的内容就全是 nil的切片叫做零切片，使用make创建的、长度、容量都不为0的切片就是零值切片：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">slice <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">// 0 0 0 0 0</span>
+slice <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">// nil nil nil nil nil</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>nil切片</li>
+</ul>
+<p>nil切片的长度和容量都为0，并且和nil比较的结果为true，采用直接创建切片的方式、new创建切片的方式都可以创建nil切片：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> slice <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+s <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">//允许对值为 nil 的 slice 添加元素</span>
+<span class="token keyword">var</span> slice <span class="token operator">=</span> <span class="token operator">*</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>空切片</li>
+</ul>
+<p>空切片的长度和容量也都为0，但是和nil的比较结果为false，因为所有的空切片的数据指针都指向同一个地址 0xc42003bda0；使用字面量、make可以创建空切片：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> slice <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">var</span> slice <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>空切片指向的 zerobase 内存地址是一个神奇的地址，从 Go 语言的源代码中可以看到它的定义：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// base address for all 0-byte allocations</span>
+<span class="token keyword">var</span> zerobase <span class="token builtin">uintptr</span>
+
+<span class="token comment">// 分配对象内存</span>
+<span class="token keyword">func</span> <span class="token function">mallocgc</span><span class="token punctuation">(</span>size <span class="token builtin">uintptr</span><span class="token punctuation">,</span> typ <span class="token operator">*</span>_type<span class="token punctuation">,</span> needzero <span class="token builtin">bool</span><span class="token punctuation">)</span> unsafe<span class="token punctuation">.</span>Pointer <span class="token punctuation">{</span>
+ <span class="token operator">...</span>
+ <span class="token keyword">if</span> size <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> unsafe<span class="token punctuation">.</span><span class="token function">Pointer</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>zerobase<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Go语言提供了range关键字用于for 循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素，有两种使用方式：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token operator">:=</span> <span class="token keyword">range</span> slice <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">for</span> k <span class="token operator">:=</span> <span class="token keyword">range</span> slice <span class="token punctuation">{</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>第一种是遍历下标和对应值，第二种是只遍历下标，使用range遍历切片时会先拷贝一份，然后在遍历拷贝数据</p>
+<p>因为变量v是拷贝切片中的数据，所以修改v不会对原切片有影响。</p>
+<h3 id="4-range-迭代-map是有序的吗？"><a href="#4-range-迭代-map是有序的吗？" class="headerlink" title="4. range 迭代 map是有序的吗？"></a>4. range 迭代 map是有序的吗？</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">/* 声明变量，默认 map 是 nil */</span>
+<span class="token keyword">var</span> map_variable <span class="token keyword">map</span><span class="token punctuation">[</span>key_data_type<span class="token punctuation">]</span>value_data_type
+
+<span class="token comment">/* 使用 make 函数 ，如果不初始化 map，那么就会创建一个 nil map。nil map 不能用来存放键值对*/</span>
+map_variable <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span>key_data_type<span class="token punctuation">]</span>value_data_type<span class="token punctuation">)</span>
+
+<span class="token comment">/* range 迭代 map */</span>
+<span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token keyword">range</span> map_variable <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"map`s key=%s,map`s value=%s"</span><span class="token punctuation">,</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Map 是一种无序的键值对的集合。Map 最重要的一点是通过 key 来快速检索数据，key 类似于索引，指向数据的值。</p>
+<p>Map 是一种集合，所以我们可以像迭代数组和切片那样迭代它。不过，Map 是无序的，我们无法决定它的返回顺序，这是因为 Map 是使用 hash 表来实现的。</p>
+<p>一致方法：将map的key存入一有序数组中，然后遍历数组key值，依次取出map的value值</p>
+<h3 id="5-go循环中switch语句和select语句的区别及for语句？"><a href="#5-go循环中switch语句和select语句的区别及for语句？" class="headerlink" title="5. go循环中switch语句和select语句的区别及for语句？"></a>5. go循环中switch语句和select语句的区别及for语句？</h3><h4 id="5-1-switch语句"><a href="#5-1-switch语句" class="headerlink" title="5.1 switch语句"></a>5.1 switch语句</h4><p>switch 语句用于基于不同条件执行不同动作，每一个 case 分支都是唯一的，从上至下逐一测试，直到匹配为止。</p>
+<p>switch 语句执行的过程从上至下，直到找到匹配项，匹配项后面也不需要再加 break。</p>
+<p>switch 默认情况下 case 最后自带 break 语句，匹配成功后就不会执行其他 case，如果我们需要执行后面的 case，可以使用 <strong>fallthrough</strong> 。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">switch</span> val <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> val1<span class="token punctuation">:</span>
+        <span class="token operator">...</span><span class="token comment">//自带 break 语句，匹配成功后就不会执行其他 case,直接返回</span>
+    <span class="token keyword">case</span> val2<span class="token punctuation">:</span>
+        <span class="token operator">...</span><span class="token comment">//如果我们需要执行后面的 case，可以使用fallthrough</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+        <span class="token operator">...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-2-select语句"><a href="#5-2-select语句" class="headerlink" title="5.2 select语句"></a>5.2 select语句</h4><p>select 是 Go 中的一个控制结构，类似于用于通信的 switch 语句。每个 case 必须是一个通信操作，要么是发送要么是接收。所以常用于goroutine的完美退出。</p>
+<p>select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞，直到有 case 可运行。一个默认的子句应该总是可运行的。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">select</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> communication clause  <span class="token punctuation">:</span>
+       <span class="token function">statement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>      
+    <span class="token keyword">case</span> communication clause  <span class="token punctuation">:</span>
+       <span class="token function">statement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* 你可以定义任意数量的 case */</span>
+    <span class="token keyword">default</span> <span class="token punctuation">:</span> <span class="token comment">/* 可选 */</span>
+       <span class="token function">statement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以下描述了 select 语句的语法：</p>
+<ul>
+<li><p>每个 case 都必须是一个通信</p>
+</li>
+<li><p>所有 channel 表达式都会被求值</p>
+</li>
+<li><p>所有被发送的表达式都会被求值</p>
+</li>
+<li><p>如果任意某个通信可以进行，它就执行，其他被忽略。</p>
+</li>
+<li><p>如果有多个 case 都可以运行，Select 会随机公平地选出一个执行。其他不会执行。</p>
+<p>否则：</p>
+<ol>
+<li>如果有 default 子句，则执行该语句。</li>
+<li>如果没有 default 子句，select 将阻塞，直到某个通信可以运行；Go 不会重新对 channel 或值进行求值。</li>
+</ol>
+</li>
+</ul>
+<h4 id="5-3-for语句"><a href="#5-3-for语句" class="headerlink" title="5.3 for语句"></a>5.3 for语句</h4><p>for 循环支持 continue 和 break 来控制循环，但是它提供了一个更高级的break，可以选择中断哪一个循环 for 循环不支持以逗号为间隔的多个赋值语句，必须使用平行赋值的方式来初始化多个变量。</p>
+<h3 id="6-如何从-panic-中恢复？"><a href="#6-如何从-panic-中恢复？" class="headerlink" title="6. 如何从 panic 中恢复？"></a>6. 如何从 panic 中恢复？</h3><p>在一个 defer 延迟执行的函数中调用 recover ，它便能捕捉/中断 panic。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 错误的 recover 调用示例</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token function">recover</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 什么都不会捕捉</span>
+ <span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"not good"</span><span class="token punctuation">)</span> <span class="token comment">// 发生 panic，主程序退出</span>
+ <span class="token function">recover</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 不会被执行</span>
+ <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 正确的 recover 调用示例</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"recovered: "</span><span class="token punctuation">,</span> <span class="token function">recover</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"not good"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>recover 必须在 defer 函数中运行。recover 捕获的是祖父级调用时的异常，直接调用时无效。</p>
+<h3 id="7-闭包错误引用同一个变量问题怎么处理？"><a href="#7-闭包错误引用同一个变量问题怎么处理？" class="headerlink" title="7. 闭包错误引用同一个变量问题怎么处理？"></a>7. 闭包错误引用同一个变量问题怎么处理？</h3><p>在每轮迭代中生成一个局部变量 i 。如果没有 i := i 这行，将会打印同一个变量。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        i <span class="token operator">:=</span> i
+        <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>或者是通过函数参数传入 i 。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+        <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="8-go语言触发异常的场景有哪些？"><a href="#8-go语言触发异常的场景有哪些？" class="headerlink" title="8. go语言触发异常的场景有哪些？"></a>8. go语言触发异常的场景有哪些？</h3><ul>
+<li>空指针解析</li>
+<li>下标越界</li>
+<li>除数为0</li>
+<li>调用 panic 函数</li>
+</ul>
+<h3 id="9-Go的Struct能不能比较？"><a href="#9-Go的Struct能不能比较？" class="headerlink" title="9. Go的Struct能不能比较？"></a>9. Go的Struct能不能比较？</h3><ul>
+<li>相同struct类型的可以比较</li>
+<li>不同struct类型的不可以比较,编译都不过，类型不匹配</li>
+</ul>
+<h3 id="10-协程和线程和进程的区别？"><a href="#10-协程和线程和进程的区别？" class="headerlink" title="10. 协程和线程和进程的区别？"></a>10. 协程和线程和进程的区别？</h3><p>并发掌握，goroutine和channel声明与使用！</p>
+<ul>
+<li><p>进程: 进程是具有一定独立功能的程序，进程是系统资源分配和调度的最小单位。每个进程都有自己的独立内存空间，不同进程通过进程间通信来通信。由于进程比较重量，占据独立的内存，所以上下文进程间的切换开销（栈、寄存器、虚拟内存、文件句柄等）比较大，但相对比较稳定安全。</p>
+</li>
+<li><p>线程: 线程是进程的一个实体,线程是内核态,而且是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位。线程间通信主要通过共享内存，上下文切换很快，资源开销较少，但相比进程不够稳定容易丢失数据。</p>
+</li>
+<li><p>协程: 协程是一种用户态的轻量级线程，协程的调度完全是由用户来控制的。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
+</li>
+</ul>
+<h4 id="10-1-Goroutine和线程的区别？"><a href="#10-1-Goroutine和线程的区别？" class="headerlink" title="10.1 Goroutine和线程的区别？"></a>10.1 Goroutine和线程的区别？</h4><ul>
+<li>一个线程可以有多个协程</li>
+<li>线程、进程都是同步机制，而协程是异步</li>
+<li>协程可以保留上一次调用时的状态，当过程重入时，相当于进入了上一次的调用状态</li>
+<li>协程是需要线程来承载运行的，所以协程并不能取代线程，「线程是被分割的CPU资源，协程是组织好的代码流程」</li>
+</ul>
+<h3 id="重点："><a href="#重点：" class="headerlink" title="重点："></a>重点：</h3><h3 id="1-垃圾回收（gabage-collection（简称GC））"><a href="#1-垃圾回收（gabage-collection（简称GC））" class="headerlink" title="1. 垃圾回收（gabage collection（简称GC））"></a>1. 垃圾回收（gabage collection（简称GC））</h3><p><strong>垃圾回收、三色标记原理</strong></p>
+<p>垃圾回收就是对程序中不再使用的内存资源进行自动回收的操作。</p>
+<h4 id="1-1-常见的垃圾回收算法："><a href="#1-1-常见的垃圾回收算法：" class="headerlink" title="1.1 常见的垃圾回收算法："></a>1.1 常见的垃圾回收算法：</h4><ul>
+<li>引用计数：每个对象维护一个引用计数，当被引用对象被创建或被赋值给其他对象时引用计数自动加 +1；如果这个对象被销毁，则计数 -1 ，当计数为 0 时，回收该对象。<ul>
+<li>优点：对象可以很快被回收，不会出现内存耗尽或到达阀值才回收。</li>
+<li>缺点：不能很好的处理循环引用</li>
+</ul>
+</li>
+<li>标记-清除(<strong>go</strong>使用)：从根变量开始遍历所有引用的对象，引用的对象标记“被引用”，没有被标记的则进行回收。<ul>
+<li>优点：解决了引用计数的缺点。</li>
+<li>缺点：需要 <strong>STW（stop the world）</strong>，暂时停止程序运行。</li>
+</ul>
+</li>
+<li>分代收集(<strong>java</strong>使用)：按照对象生命周期长短划分不同的代空间，生命周期长的放入老年代，短的放入新生代，不同代有不同的回收算法和回收频率。<ul>
+<li>优点：回收性能好</li>
+<li>缺点：算法复杂</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-三色标记法-即标记-清除算法"><a href="#1-2-三色标记法-即标记-清除算法" class="headerlink" title="1.2 三色标记法(即标记-清除算法)"></a>1.2 三色标记法(即<strong>标记-清除</strong>算法)</h4><ul>
+<li>初始状态下所有对象都是白色的。</li>
+<li>从根节点开始遍历所有对象，把遍历到的对象变成灰色对象</li>
+<li>遍历灰色对象，将灰色对象引用的对象也变成灰色对象，然后将遍历过的灰色对象变成黑色对象。</li>
+<li>循环步骤3，直到灰色对象全部变黑色。</li>
+<li>通过写屏障(write-barrier)检测对象有变化，重复以上操作</li>
+<li>收集所有白色对象（垃圾）。</li>
+<li>通常小对象过多会导致GC三色法消耗过多的GPU。优化思路是，减少对象分配。</li>
+</ul>
+<h4 id="1-3-STW（Stop-The-World）"><a href="#1-3-STW（Stop-The-World）" class="headerlink" title="1.3 STW（Stop The World）"></a>1.3 STW（Stop The World）</h4><ul>
+<li>为了避免在 GC 的过程中，对象之间的引用关系发生新的变更，使得GC的结果发生错误（如GC过程中新增了一个引用，但是由于未扫描到该引用导致将被引用的对象清除了），停止所有正在运行的协程。</li>
+<li>STW对性能有一些影响，Golang目前已经可以做到1ms以下的STW。</li>
+</ul>
+<h4 id="1-4-写屏障-Write-Barrier"><a href="#1-4-写屏障-Write-Barrier" class="headerlink" title="1.4 写屏障(Write Barrier)"></a>1.4 写屏障(Write Barrier)</h4><ul>
+<li>为了避免GC的过程中新修改的引用关系到GC的结果发生错误，我们需要进行STW。但是STW会影响程序的性能，所以我们要通过写屏障技术尽可能地缩短STW的时间。</li>
+</ul>
+<p>造成引用对象丢失的条件:</p>
+<p>一个黑色的节点A新增了指向白色节点C的引用，并且白色节点C没有除了A之外的其他灰色节点的引用，或者存在但是在GC过程中被删除了。以上两个条件需要同时满足：满足条件1时说明节点A已扫描完毕，A指向C的引用无法再被扫描到；满足条件2时说明白色节点C无其他灰色节点的引用了，即扫描结束后会被忽略 。</p>
+<p>写屏障破坏两个条件其一即可</p>
+<ul>
+<li>破坏条件1：Dijistra写屏障</li>
+</ul>
+<p>满足强三色不变性：黑色节点不允许引用白色节点 当黑色节点新增了白色节点的引用时，将对应的白色节点改为灰色</p>
+<ul>
+<li>破坏条件2：Yuasa写屏障</li>
+</ul>
+<p>满足弱三色不变性：黑色节点允许引用白色节点，但是该白色节点有其他灰色节点间接的引用（确保不会被遗漏） 当白色节点被删除了一个引用时，悲观地认为它一定会被一个黑色节点新增引用，所以将它置为灰色</p>
+<h4 id="1-5-GC-的触发条件？"><a href="#1-5-GC-的触发条件？" class="headerlink" title="1.5 GC 的触发条件？"></a>1.5 GC 的触发条件？</h4><p>主动触发(手动触发)，通过调用 runtime.GC 来触发GC，此调用阻塞式地等待当前GC运行完毕。<br>被动触发，分为两种方式：</p>
+<ul>
+<li>使用步调（Pacing）算法，其核心思想是控制内存增长的比例,每次内存分配时检查当前内存分配量是否已达到阈值（环境变量GOGC）：默认100%，即当内存扩大一倍时启用GC。</li>
+<li>使用系统监控，当超过两分钟没有产生任何GC时，强制触发 GC。</li>
+</ul>
+<h3 id="2-GPM-调度-和-CSP-模型"><a href="#2-GPM-调度-和-CSP-模型" class="headerlink" title="2. GPM 调度 和 CSP 模型"></a>2. GPM 调度 和 CSP 模型</h3><p><strong>协程的深入剖析</strong></p>
+<h4 id="2-1-CSP-模型？"><a href="#2-1-CSP-模型？" class="headerlink" title="2.1 CSP 模型？"></a>2.1 CSP 模型？</h4><p>CSP 模型是“以通信的方式来共享内存”，不同于传统的多线程通过共享内存来通信。用于描述两个独立的并发实体通过共享的通讯 channel (管道)进行通信的并发模型。</p>
+<h4 id="2-2-GPM-分别是什么、分别有多少数量？"><a href="#2-2-GPM-分别是什么、分别有多少数量？" class="headerlink" title="2.2 GPM 分别是什么、分别有多少数量？"></a>2.2 GPM 分别是什么、分别有多少数量？</h4><ul>
+<li>G（Goroutine）：即Go协程，每个go关键字都会创建一个协程。</li>
+<li>M（Machine）：工作线程，在Go中称为Machine，数量对应真实的CPU数（真正干活的对象）。</li>
+<li>P（Processor）：处理器（Go中定义的一个摡念，非CPU），包含运行Go代码的必要资源，用来调度 G 和 M 之间的关联关系，其数量可通过 GOMAXPROCS() 来设置，默认为核心数。</li>
+</ul>
+<p>M必须拥有P才可以执行G中的代码，P含有一个包含多个G的队列，P可以调度G交由M执行。</p>
+<h4 id="2-3-Goroutine调度策略"><a href="#2-3-Goroutine调度策略" class="headerlink" title="2.3 Goroutine调度策略"></a>2.3 Goroutine调度策略</h4><ul>
+<li>队列轮转：P 会周期性的将G调度到M中执行，执行一段时间后，保存上下文，将G放到队列尾部，然后从队列中再取出一个G进行调度。除此之外，P还会周期性的查看全局队列是否有G等待调度到M中执行。</li>
+<li>系统调用：当G0即将进入系统调用时，M0将释放P，进而某个空闲的M1获取P，继续执行P队列中剩下的G。M1的来源有可能是M的缓存池，也可能是新建的。</li>
+<li>当G0系统调用结束后，如果有空闲的P，则获取一个P，继续执行G0。如果没有，则将G0放入全局队列，等待被其他的P调度。然后M0将进入缓存池睡眠。</li>
+</ul>
+<p><img src="https://topgoer.cn/uploads/blog/202111/attach_16b401ee1e07d54d.jpg" alt="null"></p>
+<h3 id="3-CHAN-原理"><a href="#3-CHAN-原理" class="headerlink" title="3. CHAN 原理"></a>3. CHAN 原理</h3><h4 id="3-1-结构体"><a href="#3-1-结构体" class="headerlink" title="3.1 结构体"></a>3.1 结构体</h4><pre class="line-numbers language-none"><code class="language-none">   type hchan struct {
+ qcount   uint  // 队列中的总元素个数
+ dataqsiz uint  // 环形队列大小，即可存放元素的个数
+ buf      unsafe.Pointer // 环形队列指针
+ elemsize uint16  //每个元素的大小
+ closed   uint32  //标识关闭状态
+ elemtype *_type // 元素类型
+ sendx    uint   // 发送索引，元素写入时存放到队列中的位置
+
+ recvx    uint   // 接收索引，元素从队列的该位置读出
+ recvq    waitq  // 等待读消息的goroutine队列
+ sendq    waitq  // 等待写消息的goroutine队列
+ lock mutex  //互斥锁，chan不允许并发读写
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="3-2-读写流程"><a href="#3-2-读写流程" class="headerlink" title="3.2 读写流程"></a>3.2 读写流程</h4><p><strong>向 channel 写数据:</strong></p>
+<p>若等待接收队列 recvq 不为空，则缓冲区中无数据或无缓冲区，将直接从 recvq 取出 G ，并把数据写入，最后把该 G 唤醒，结束发送过程。</p>
+<p>若缓冲区中有空余位置，则将数据写入缓冲区，结束发送过程。</p>
+<p>若缓冲区中没有空余位置，则将发送数据写入 G，将当前 G 加入 sendq ，进入睡眠，等待被读 goroutine 唤醒。</p>
+<p><strong>从 channel 读数据</strong></p>
+<p>若等待发送队列 sendq 不为空，且没有缓冲区，直接从 sendq 中取出 G ，把 G 中数据读出，最后把 G 唤醒，结束读取过程。</p>
+<p>如果等待发送队列 sendq 不为空，说明缓冲区已满，从缓冲区中首部读出数据，把 G 中数据写入缓冲区尾部，把 G 唤醒，结束读取过程。</p>
+<p>如果缓冲区中有数据，则从缓冲区取出数据，结束读取过程。</p>
+<p>将当前 goroutine 加入 recvq ，进入睡眠，等待被写 goroutine 唤醒。</p>
+<p><strong>关闭 channel</strong></p>
+<p>1.关闭 channel 时会将 recvq 中的 G 全部唤醒，本该写入 G 的数据位置为 nil。将 sendq 中的 G 全部唤醒，但是这些 G 会 panic。</p>
+<p>panic 出现的场景还有：</p>
+<ul>
+<li><p>关闭值为 nil 的 channel</p>
+</li>
+<li><p>关闭已经关闭的 channel</p>
+</li>
+<li><p>向已经关闭的 channel 中写数据</p>
+</li>
+</ul>
+<h4 id="3-2-无缓冲-Chan-的发送和接收是否同步"><a href="#3-2-无缓冲-Chan-的发送和接收是否同步" class="headerlink" title="3.2 无缓冲 Chan 的发送和接收是否同步?"></a>3.2 无缓冲 Chan 的发送和接收是否同步?</h4><pre class="line-numbers language-none"><code class="language-none">// 无缓冲的channel由于没有缓冲发送和接收需要同步
+ch := make(chan int)   
+//有缓冲channel不要求发送和接收操作同步
+ch := make(chan int, 2)  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>channel 无缓冲时，发送阻塞直到数据被接收，接收阻塞直到读到数据；channel有缓冲时，当缓冲满时发送阻塞，当缓冲空时接收阻塞。</p>
+<h4 id="3-3-线程安全"><a href="#3-3-线程安全" class="headerlink" title="3.3 线程安全"></a>3.3 线程安全</h4><p>Channel 可以理解是一个先进先出的队列，通过管道进行通信,发送一个数据到Channel和从Channel接收一个数据都是原子性的。不要通过共享内存来通信，而是通过通信来共享内存，前者就是传统的加锁，后者就是Channel。设计Channel的主要目的就是在多任务间传递数据的，本身就是安全的。</p>
+<h4 id="3-4-异步"><a href="#3-4-异步" class="headerlink" title="3.4 异步"></a>3.4 异步</h4><p>Channel是异步进行的, channel存在3种状态：</p>
+<ul>
+<li>nil，未初始化的状态，只进行了声明，或者手动赋值为nil</li>
+<li>active，正常的channel，可读或者可写</li>
+<li>closed，已关闭，千万不要误认为关闭channel后，channel的值是nil</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">一个零值nil通道</th>
+<th align="left">一个非零值但已关闭的通道</th>
+<th align="left">一个非零值且尚未关闭的通道</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">关闭</td>
+<td align="left">产生恐慌</td>
+<td align="left">产生恐慌</td>
+<td align="left">成功关闭</td>
+</tr>
+<tr>
+<td align="left">发送数据</td>
+<td align="left">永久阻塞</td>
+<td align="left">产生恐慌</td>
+<td align="left">阻塞或者成功发送</td>
+</tr>
+<tr>
+<td align="left">接收数据</td>
+<td align="left">永久阻塞</td>
+<td align="left">永不阻塞</td>
+<td align="left">阻塞或者成功接收</td>
+</tr>
+</tbody></table>
+<h3 id="4-context-结构原理"><a href="#4-context-结构原理" class="headerlink" title="4. context 结构原理"></a>4. context 结构原理</h3><h4 id="4-1-用途"><a href="#4-1-用途" class="headerlink" title="4.1 用途"></a>4.1 用途</h4><p>Context（上下文）是Golang应用开发常用的并发控制技术 ，它可以控制一组呈树状结构的goroutine，每个goroutine拥有相同的上下文。Context 是并发安全的，主要是用于控制多个协程之间的协作、取消操作。</p>
+<p><img src="https://topgoer.cn/uploads/blog/202111/attach_16b40224aa38da32.jpg" alt="null"></p>
+<h4 id="4-2-数据结构"><a href="#4-2-数据结构" class="headerlink" title="4.2 数据结构"></a>4.2 数据结构</h4><p>Context 只定义了接口，凡是实现该接口的类都可称为是一种 context。</p>
+<p>并发控制神器之Context</p>
+<pre class="line-numbers language-none"><code class="language-none">  type Context interface {
+   Deadline() (deadline time.Time, ok bool)
+   Done() &lt;-chan struct{}
+   Err() error
+   Value(key interface{}) interface{}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>「Deadline」 方法：可以获取设置的截止时间，返回值 deadline 是截止时间，到了这个时间，Context 会自动发起取消请求，返回值 ok 表示是否设置了截止时间。</li>
+<li>「Done」 方法：返回一个只读的 channel ，类型为 struct{}。如果这个 chan 可以读取，说明已经发出了取消信号，可以做清理操作，然后退出协程，释放资源。</li>
+<li>「Err」 方法：返回Context 被取消的原因。</li>
+<li>「Value」 方法：获取 Context 上绑定的值，是一个键值对，通过 key 来获取对应的值。</li>
+</ul>
+<h3 id="5-竞态、内存逃逸"><a href="#5-竞态、内存逃逸" class="headerlink" title="5. 竞态、内存逃逸"></a>5. 竞态、内存逃逸</h3><p><strong>并发控制，同步原语 sync 包</strong></p>
+<h4 id="5-1-竞态"><a href="#5-1-竞态" class="headerlink" title="5.1 竞态"></a>5.1 竞态</h4><p>资源竞争，就是在程序中，同一块内存同时被多个 goroutine 访问。我们使用 go build、go run、go test 命令时，添加 -race 标识可以检查代码中是否存在资源竞争。</p>
+<p>解决这个问题，我们可以给资源进行加锁，让其在同一时刻只能被一个协程来操作。</p>
+<ul>
+<li>sync.Mutex</li>
+<li>sync.RWMutex</li>
+</ul>
+<h4 id="5-2-逃逸分析"><a href="#5-2-逃逸分析" class="headerlink" title="5.2 逃逸分析"></a>5.2 逃逸分析</h4><p><strong>面试官问我go逃逸场景有哪些，我？？？</strong></p>
+<p>「逃逸分析」就是程序运行时内存的分配位置(栈或堆)，是由编译器来确定的。堆适合不可预知大小的内存分配。但是为此付出的代价是分配速度较慢，而且会形成内存碎片。</p>
+<p>逃逸场景：</p>
+<ul>
+<li>指针逃逸</li>
+<li>栈空间不足逃逸</li>
+<li>动态类型逃逸</li>
+<li>闭包引用对象逃逸</li>
+</ul>
+<p>具体内容看下一篇文章</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/hypo-Z.github.io/about" rel="external nofollow noreferrer">hypo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/02/21/go-yu-yan-chang-jian-wen-ti/">https://github.com/hypo-Z/hypo-Z.github.io/2022/02/21/go-yu-yan-chang-jian-wen-ti/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/hypo-Z.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/hypo-Z.github.io/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/hypo-Z.github.io/libs/valine/av-min.js"></script>
+<script src="/hypo-Z.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rhHVSeznM3f6FGAdTRVSGUYE-gzGzoHsz',
+        appKey: 'fT44db2LjgOzdrx60x5Ntxmz',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/02/21/go-yu-yan-jin-jie-tao-yi-fen-xi/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/49.jpeg" class="responsive-img" alt="Go语言进阶——逃逸分析">
+                        
+                        <span class="card-title">Go语言进阶——逃逸分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            什么是逃逸分析？
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
+                                    转载
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E8%BF%9B%E9%98%B6/">
+                        <span class="chip bg-color">进阶</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/02/17/docker-ji-ben-cao-zuo-shou-ce/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/46.jpeg" class="responsive-img" alt="Docker基本操作手册">
+                        
+                        <span class="card-title">Docker基本操作手册</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            docker镜像和容器常用命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('200')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 周大苏打的博客<br />'
+            + '文章作者: hypo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/hypo-Z.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">94k</span>
+            
+            
+            
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "14";
+                        var startHour = "17";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/hypo-Z.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank">黔ICP备2021010207号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/hypo-Z" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2925376741@qq.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/hypo-Z.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/hypo-Z.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/hypo-Z.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/aos/aos.js"></script>
+    <script src="/hypo-Z.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hypo-Z.github.io/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/hypo-Z.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/hypo-Z.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/hypo-Z.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/hypo-Z.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/hypo-Z.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/hypo-Z.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/hypo-Z.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>

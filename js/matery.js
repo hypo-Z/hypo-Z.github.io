@@ -132,7 +132,8 @@ $(function () {
     $(window).scroll(function () {
         /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
         let scroll = $(window).scrollTop();
-        showOrHideNavBg(scroll);
+        //不显示绿色
+        //showOrHideNavBg(scroll);
     });
 
     function showOrHideNavBg(position) {

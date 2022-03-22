@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker容器间通信, 菜鸟程序员">
-    <meta name="description" content="Bridge网桥双向通信">
+    <meta name="keywords" content="Docker基本操作手册, 菜鸟程序员">
+    <meta name="description" content="docker镜像和容器常用命令">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,22 +17,22 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker容器间通信 | 周大苏打的博客</title>
-    <link rel="icon" type="image/png" href="/zhb233go.github.io/favicon.png">
+    <title>Docker基本操作手册 | 周大苏打的博客</title>
+    <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/my.css">
 
-    <script src="/zhb233go.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/zhb233go.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
 </head>
 
 
@@ -53,9 +53,9 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+                <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
                     
-                    <img src="/zhb233go.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">周大苏打的博客</span>
                 </a>
@@ -67,7 +67,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
       
       <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
       
@@ -78,7 +78,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
       
       <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
       
@@ -89,7 +89,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
       
       <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
       
@@ -100,7 +100,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
       
       <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
       
@@ -111,7 +111,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
       
       <i class="fab fa-reddit" style="zoom: 0.6;"></i>
       
@@ -122,7 +122,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+    <a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
       
       <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
       
@@ -144,16 +144,16 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/zhb233go.github.io/music">
+        <a href="/hypo-Z.github.io/musics">
           
           <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>Music</span>
+          <span>Musics</span>
         </a>
       </li>
       
       <li>
-        <a href="/zhb233go.github.io/movies">
+        <a href="/hypo-Z.github.io/movies">
           
           <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -162,7 +162,7 @@
       </li>
       
       <li>
-        <a href="/zhb233go.github.io/books">
+        <a href="/hypo-Z.github.io/books">
           
           <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -171,7 +171,7 @@
       </li>
       
       <li>
-        <a href="/zhb233go.github.io/galleries">
+        <a href="/hypo-Z.github.io/galleries">
           
           <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -195,7 +195,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/zhb233go.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">周大苏打的博客</div>
         <div class="logo-desc">
@@ -209,7 +209,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fab fa-ubnutu"></i>
 			
@@ -220,7 +220,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/tags" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fab fa-optin-monster"></i>
 			
@@ -231,7 +231,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/categories" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fab fa-the-red-yeti"></i>
 			
@@ -242,7 +242,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/archives" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-space-shuttle"></i>
 			
@@ -253,7 +253,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/about" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fab fa-reddit"></i>
 			
@@ -264,7 +264,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/zhb233go.github.io/friends" class="waves-effect waves-light">
+		<a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fab fa-hornbill"></i>
 			
@@ -286,17 +286,17 @@
               
                 <li>
 
-                  <a href="/zhb233go.github.io/music " style="margin-left:50px">
+                  <a href="/hypo-Z.github.io/musics " style="margin-left:50px">
 				  
 				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
 			      
-		          <span>Music</span>
+		          <span>Musics</span>
                   </a>
                 </li>
               
                 <li>
 
-                  <a href="/zhb233go.github.io/movies " style="margin-left:50px">
+                  <a href="/hypo-Z.github.io/movies " style="margin-left:50px">
 				  
 				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
 			      
@@ -306,7 +306,7 @@
               
                 <li>
 
-                  <a href="/zhb233go.github.io/books " style="margin-left:50px">
+                  <a href="/hypo-Z.github.io/books " style="margin-left:50px">
 				  
 				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
 			      
@@ -316,7 +316,7 @@
               
                 <li>
 
-                  <a href="/zhb233go.github.io/galleries " style="margin-left:50px">
+                  <a href="/hypo-Z.github.io/galleries " style="margin-left:50px">
 				  
 				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
 			      
@@ -331,7 +331,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/Zhb233go/zhb233go.github.io" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/hypo-Z/hypo-Z.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -388,7 +388,7 @@
     }
 </style>
 
-<a href="https://github.com/Zhb233go/zhb233go.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/hypo-Z/hypo-Z.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/zhb233go.github.io/medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/46.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker容器间通信</h1>
+                    <h1 class="description center-align post-title">Docker基本操作手册</h1>
                 </div>
             </div>
         </div>
@@ -425,7 +425,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/zhb233go.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/hypo-Z.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -528,7 +528,7 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/zhb233go.github.io/tags/Docker/">
+                            <a href="/hypo-Z.github.io/tags/Docker/">
                                 <span class="chip bg-color">Docker</span>
                             </a>
                         
@@ -540,7 +540,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/zhb233go.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
                                 笔记
                             </a>
                         
@@ -553,44 +553,39 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-02-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-16
+                    2022-03-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    223
+                    875
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/zhb233go.github.io/libs/prism/prism.css">
+        <link rel="stylesheet" href="/hypo-Z.github.io/libs/prism/prism.css">
         
 
         
@@ -602,33 +597,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker容器间通信"><a href="#Docker容器间通信" class="headerlink" title="Docker容器间通信"></a>Docker容器间通信</h1><p>Bridge网桥双向通信</p>
-<p><strong>浏览器&lt;==&gt;物理网卡&lt;=网桥=&gt;Docker环境下的容器</strong></p>
-<p>将指定的容器都绑定到同一个网桥上，这些容器就会天然的互联互通</p>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d --name server app
-docker run -d --name database mysql
-docker network create -d bridge my-bridge #创建一个新的网桥
-[root@VM-0-2-centos ~]# docker network ls #列出docker服务网络底层明细
-NETWORK ID          NAME                DRIVER              SCOPE
-0dfca8776e29        bridge              bridge              local
-dec8ce58f992        host                host                local
-522173622fe8        my-bridge           bridge              local
-36e1a4828e03        none                null                local<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="docker镜像常用命令"><a href="#docker镜像常用命令" class="headerlink" title="docker镜像常用命令"></a>docker镜像常用命令</h1><p>attach   将本地标准输入、输出和错误流附加到正在运行的容器中</p>
+<p>build    从Dockerfile构建一个映像</p>
+<p>commit   从容器的更改中创建一个新映像</p>
+<p>cp     在容器和本地文件系统之间复制文件/文件夹</p>
+<p>create   创建一个新容器</p>
+<p>diff    检查容器文件系统上文件或目录的更改</p>
+<p>events   从服务器获取实时事件</p>
+<p>exec    在正在运行的容器中运行命令</p>
+<p>export   将容器的文件系统导出为tar存档文件</p>
+<p>history   显示图像的历史</p>
+<p>images   图片列表</p>
+<p>import   从tarball导入内容以创建文件系统映像</p>
+<p>info    显示整个系统的信息</p>
+<p>inspect   返回Docker对象的底层信息</p>
+<p>kill    杀死一个或多个正在运行的容器</p>
+<p>load    从tar存档或STDIN加载图像</p>
+<p>login    登录到Docker注册表</p>
+<p>logout   从Docker注册表注销</p>
+<p>logs    获取容器的日志</p>
+<p>pause    暂停一个或多个容器中的所有进程</p>
+<p>port    列出容器的端口映射或特定映射</p>
+<p>ps     列表容器</p>
+<p>pull    从注册表中提取映像或存储库</p>
+<p>push    将映像或存储库推入注册表</p>
+<p>rename   重命名一个容器</p>
+<p>restart   重新启动一个或多个容器</p>
+<p>rm     移除一个或多个容器</p>
+<p>rmi     删除一个或多个图像</p>
+<p>run     在新容器中运行命令<br>常用设置参数：</p>
+<ul>
+<li>-rm 即运行结束后自动删除容器</li>
+<li>-d 后台运行</li>
+<li>-p 运行端口</li>
+<li>-l 连接另一个容器</li>
+</ul>
+<p>save    将一个或多个图像保存到tar存档文件(默认情况下流到STDOUT)</p>
+<p>search   在Docker集线器中搜索图像</p>
+<p>start    启动一个或多个停止的容器</p>
+<p>stats    显示容器资源使用统计数据的实时流</p>
+<p>stop    停止一个或多个正在运行的容器</p>
+<p>tag     创建一个引用SOURCE_IMAGE的标记TARGET_IMAGE</p>
+<p>top     显示容器的运行进程</p>
+<p>unpause   在一个或多个容器中暂停所有进程</p>
+<p>update   更新一个或多个容器的配置</p>
+<p>version   显示Docker版本信息</p>
+<p>wait    阻塞，直到一个或多个容器停止，然后打印它们的退出代码</p>
+<h1 id="docker容器基本操作"><a href="#docker容器基本操作" class="headerlink" title="docker容器基本操作"></a>docker容器基本操作</h1><p>一.宿主机的内容拷贝到启动的docker容器中<br>1.查看docker容器状态</p>
+<pre class="line-numbers language-none"><code class="language-none">docker ps-a <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="创建新的网桥"><a href="#创建新的网桥" class="headerlink" title="创建新的网桥"></a>创建新的网桥</h2><pre class="line-numbers language-none"><code class="language-none">docker network create my-bridge<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.如果没有启动docker容器则启动docker容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker start 容器名或者容器ID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3.进入容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker exec -it 容器名/容器ID  /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>4.克隆宿主机会话并在宿主机创立文件<br>(1)进入容器的根目录</p>
+<pre class="line-numbers language-none"><code class="language-none">cd /<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>(2)创建jhj文件,并写入内容123456</p>
+<pre class="line-numbers language-none"><code class="language-none">echo 123456 &gt; jhj<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>(3)拷贝到docker容器中</p>
+<pre class="line-numbers language-none"><code class="language-none">docker cp 要拷贝的宿主机文件或目录 容器名称:容器文件或目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>二、查看容器详情<br>1.查看容器运行内部细节，比如可看容器的IP</p>
+<pre class="line-numbers language-none"><code class="language-none">docker inspect 容器名：容器ID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>2.查看容器IP</p>
+<pre class="line-numbers language-none"><code class="language-none">docker inspect --format='{{.NetworkSettings.IPAddress}}` 容器名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>3.删除容器注意只能删除停止的容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rm `docker ps -a -q`<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4.清理所有处于终止状态的容器:</p>
+<pre class="line-numbers language-none"><code class="language-none">docker container prune<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="push至本地镜像仓库"><a href="#push至本地镜像仓库" class="headerlink" title="push至本地镜像仓库"></a>push至本地镜像仓库</h1><p>1.查看本地镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.给镜像打tag标签</p>
+<pre class="line-numbers language-none"><code class="language-none">docker tag 原镜像名:版本号 本地仓库名/仓库管理者/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3.验证镜像标签</p>
+<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4.推送</p>
+<pre class="line-numbers language-none"><code class="language-none">docker push 本地仓库名/仓库管理者/原镜像名:版本号 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h2 id="容器和网桥绑定"><a href="#容器和网桥绑定" class="headerlink" title="容器和网桥绑定"></a>容器和网桥绑定</h2><pre class="line-numbers language-none"><code class="language-none">docker network connect my-bridge web
-docker network connect my-bridge database<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="网桥实现原理"><a href="#网桥实现原理" class="headerlink" title="网桥实现原理"></a>网桥实现原理</h2><pre class="line-numbers language-none"><code class="language-none">外网----&gt;物理网卡（192.168.0.117）-----&gt;docker里的虚拟网卡（172.17.0.1）|-----&gt;redis(172.17.0.2:6375)  |----&gt;server(172.17.0.3:8080)  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p><img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/%E7%BD%91%E6%A1%A5.png"></p>
-<h2 id="容器和网桥解除绑定"><a href="#容器和网桥解除绑定" class="headerlink" title="容器和网桥解除绑定"></a>容器和网桥解除绑定</h2><pre class="line-numbers language-none"><code class="language-none">docker network disconnect my-bridge server
-docker network disconnect my-bridge database<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
                 
@@ -646,7 +711,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/zhb233go.github.io/about" rel="external nofollow noreferrer">hypo</a>
+                    <a href="/hypo-Z.github.io/about" rel="external nofollow noreferrer">hypo</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -656,7 +721,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/Zhb233go/zhb233go.github.io/2022/01/08/30-docker-rong-qi-jian-tong-xin/">https://github.com/Zhb233go/zhb233go.github.io/2022/01/08/30-docker-rong-qi-jian-tong-xin/</a>
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/02/17/docker-ji-ben-cao-zuo-shou-ce/">https://github.com/hypo-Z/hypo-Z.github.io/2022/02/17/docker-ji-ben-cao-zuo-shou-ce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -669,7 +734,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/zhb233go.github.io/about" target="_blank">hypo</a>
+                    <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
                     !
                 </span>
             </div>
@@ -694,7 +759,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     
                         <div class="article-tag">
                             
-                                <a href="/zhb233go.github.io/tags/Docker/">
+                                <a href="/hypo-Z.github.io/tags/Docker/">
                                     <span class="chip bg-color">Docker</span>
                                 </a>
                             
@@ -702,12 +767,12 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/zhb233go.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/zhb233go.github.io/libs/share/js/social-share.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -740,7 +805,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
 
     #vcomments textarea {
         box-sizing: border-box;
-        background: url("/zhb233go.github.io/medias/comment_bg.png") 100% 100% no-repeat;
+        background: url("/hypo-Z.github.io/medias/comment_bg.png") 100% 100% no-repeat;
     }
 
     #vcomments p {
@@ -974,8 +1039,8 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
     </div>
 </div>
 
-<script src="/zhb233go.github.io/libs/valine/av-min.js"></script>
-<script src="/zhb233go.github.io/libs/valine/Valine.min.js"></script>
+<script src="/hypo-Z.github.io/libs/valine/av-min.js"></script>
+<script src="/hypo-Z.github.io/libs/valine/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -1011,30 +1076,30 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/zhb233go.github.io/2022/01/21/31-ipfs-ke-kuai-su-suo-yin-de-ban-ben-hua-de-dian-dui-dian-wen-jian-xi-tong/">
+                <a href="/hypo-Z.github.io/2022/02/21/go-yu-yan-chang-jian-wen-ti/">
                     <div class="card-image">
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/32.jpg" class="responsive-img" alt="IPFS-可快速索引的版本化的点对点文件系统">
+                        <img src="/hypo-Z.github.io/medias/featureimages/48.jpeg" class="responsive-img" alt="Go语言常见问题">
                         
-                        <span class="card-title">IPFS-可快速索引的版本化的点对点文件系统</span>
+                        <span class="card-title">Go语言常见问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            星际文件系统是一种点对点的分布式文件系统， 旨在连接所有有相同的文件系统的计算机设备。在某些方面， IPFS类似于web, 但web 是中心化的，而IPFS是一个单一的Bittorrent 群集， 用git 仓库分布式存储。换句话说， IPFS 提供了高吞吐量的内容寻址块存储模型， 具有内容寻址的超链接。这形成了一个广义的Merkle DAG 数据结构，可以用这个数据结构构建版本文件系统，区块链，甚至是永久性网站。。IPFS 结合了分布式哈希表， 带有激励机制的块交换和自我认证命名空间。IPFS 没有单故障点， 节点不需要相互信任。
+                            go常见问题及解答，持续更新
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/zhb233go.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
-                                    转载
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1044,12 +1109,16 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
+                    <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
@@ -1063,30 +1132,30 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/zhb233go.github.io/2022/01/07/29-tuan-dui-xie-zuo-zhong-de-githubflow-gong-zuo-liu-cheng/">
+                <a href="/hypo-Z.github.io/2022/02/16/35-yuan-ni-gui-lai-zai-shao-nian/">
                     <div class="card-image">
                         
-                        <img src="/zhb233go.github.io/medias/featureimages/29.jpg" class="responsive-img" alt="团队协作中的Githubflow工作流程">
+                        <img src="/hypo-Z.github.io/medias/featureimages/45.png" class="responsive-img" alt="愿你归来再少年">
                         
-                        <span class="card-title">团队协作中的Githubflow工作流程</span>
+                        <span class="card-title">愿你归来再少年</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            作为一名开发人员Git常用命令每天都在使用，大家肯定信手拈来，但是在团队协作中Git的使用姿势和个人开发还是有很多不一样的地方，对于技术团队，期望大家使用规范的Git操作流程，规范的CommitMessage，规范的代码风格。这样才能提高团队开发相率和项目的可维护性。
+                            这个地方这么多规矩，不如顺着这条河，顺着这个山峡一直穿越出去，看看山那边是什么样的，在大江大河里，在大石头上睡一觉，就又都忘记掉了。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/zhb233go.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
-                                    转载
+                            <a href="/hypo-Z.github.io/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
+                                    随笔
                                 </a>
                             
                             
@@ -1096,12 +1165,12 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/zhb233go.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/hypo-Z.github.io/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
-                    <a href="/zhb233go.github.io/tags/Githubflow/">
-                        <span class="chip bg-color">Githubflow</span>
+                    <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
                     </a>
                     
                 </div>
@@ -1154,21 +1223,21 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/zhb233go.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1189,7 +1258,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
 </div>
 
 
-<script src="/zhb233go.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/hypo-Z.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1282,23 +1351,16 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
             
                 <span id="year">2021-2022</span>
             
-            <a href="/zhb233go.github.io/about" target="_blank">hypo</a>
+            <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">80.9k</span>
+                        class="white-color">94k</span>
             
             
             
-                
-            
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
             
             
                 <span id="busuanzi_container_site_uv">
@@ -1366,14 +1428,14 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
             
             <br>
             
-                <span id="icp"><img src="/zhb233go.github.io/medias/icp.png"
+                <span id="icp"><img src="/hypo-Z.github.io/medias/icp.png"
                                     style="vertical-align: text-bottom;"/>
                 <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank">黔ICP备2021010207号</a>
             </span>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/zhb233go" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/hypo-Z" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1399,7 +1461,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
 
 
 
-    <a href="/zhb233go.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/hypo-Z.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1510,7 +1572,7 @@ $(function () {
         });
     };
 
-    searchFunc('/zhb233go.github.io/search.xml', 'searchInput', 'searchResult');
+    searchFunc('/hypo-Z.github.io/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1522,12 +1584,12 @@ $(function () {
 </div>
 
 
-    <script src="/zhb233go.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="/zhb233go.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/zhb233go.github.io/libs/aos/aos.js"></script>
-    <script src="/zhb233go.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/zhb233go.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/zhb233go.github.io/js/matery.js"></script>
+    <script src="/hypo-Z.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/aos/aos.js"></script>
+    <script src="/hypo-Z.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hypo-Z.github.io/js/matery.js"></script>
 
     
 
@@ -1560,10 +1622,8 @@ $(function () {
 </script>
 
     
-    <script src="/zhb233go.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/hypo-Z.github.io/libs/others/clicklove.js" async="async"></script>
     
-    
-    <script async src="/zhb233go.github.io/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1576,23 +1636,23 @@ $(function () {
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
         zIndex="-1" count="99"
-        src="/zhb233go.github.io/libs/background/canvas-nest.js"></script>
+        src="/hypo-Z.github.io/libs/background/canvas-nest.js"></script>
     
 
     
     
     <script type="text/javascript" size="150" alpha='0.6'
-        zIndex="-1" src="/zhb233go.github.io/libs/background/ribbon.min.js" async="async"></script>
+        zIndex="-1" src="/hypo-Z.github.io/libs/background/ribbon.min.js" async="async"></script>
     
 
     
-    <script type="text/javascript" src="/zhb233go.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    <script type="text/javascript" src="/hypo-Z.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-    <script src="/zhb233go.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/hypo-Z.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/zhb233go.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/zhb233go.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+<script src="/hypo-Z.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/hypo-Z.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
 
 </html>
