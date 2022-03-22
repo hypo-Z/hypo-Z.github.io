@@ -12,7 +12,7 @@ password:
 summary: 链表由一个个数据节点组成的，它是一个递归结构，要么它是空的，要么它存在一个指向另外一个数据节点的引用。
 categories: Golang
 tags:
-- Galang
+- Golang
 - 进阶
 ---
 # Go语言进阶——数据结构之链表与数组

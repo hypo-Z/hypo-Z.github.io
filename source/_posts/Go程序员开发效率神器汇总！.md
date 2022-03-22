@@ -12,7 +12,7 @@ password:
 summary: neon是鹅厂的一位资深后台开发工程师，多年工作下来他总结了很多效率神器，今天分享给大家。
 categories: 转载
 tags: 
-- Galang
+- Golang
 - 转载
 - 效率
 ---

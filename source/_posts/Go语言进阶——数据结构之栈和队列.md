@@ -10,9 +10,9 @@ img: medias/featureimages/52.jpeg
 coverImg:
 password:
 summary: 由之前的文章可知，存储数据元素将数据放入或删除存储空间内，最基本的结构是数组和链表，而获取数据元素的方式有多种形式，但最简单的是取最前或最后。
-categories: Galang
+categories: Golang
 tags:
-- Galang
+- Golang
 - 进阶
 ---
 # Go语言进阶——数据结构之栈和队列
