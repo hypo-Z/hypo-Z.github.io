@@ -258,7 +258,7 @@ mark {
 
 .bg-color {
     background-image: url('.././medias/images/cool.jpeg');
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
 
 }
