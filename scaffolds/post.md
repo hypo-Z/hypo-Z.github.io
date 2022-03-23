@@ -2,7 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 author: hypo
-img:
+img: medias/featureimages/
 coverImg:
 top: false
 cover: false
