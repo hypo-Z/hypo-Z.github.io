@@ -10,7 +10,7 @@ date: 2022-06-28 17:36:26
 coverImg: 
 password:
 summary: 在实际生活中，经常会涉及到数字排序的问题，如何快速排序，人们就研究了许多的算法，下面就将常用的算法进行总结
-categories: 算法
+categories: Golang
 tags:
 - Golang
 - 算法
