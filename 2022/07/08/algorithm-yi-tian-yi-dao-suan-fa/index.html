@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ubuntu开发环境快速安装教程, 菜鸟程序员">
-    <meta name="description" content="Ubuntu开发环境快速安装教程">
+    <meta name="keywords" content="Algorithm一天一道算法, 菜鸟程序员">
+    <meta name="description" content="为了使自己每日进步一点，每天更新一道leetcode上的算法题，及理解其原理">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ubuntu开发环境快速安装教程 | 周大苏打的博客</title>
+    <title>Algorithm一天一道算法 | 周大苏打的博客</title>
     <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/55.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ubuntu开发环境快速安装教程</h1>
+                    <h1 class="description center-align post-title">Algorithm一天一道算法</h1>
                 </div>
             </div>
         </div>
@@ -528,16 +528,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/hypo-Z.github.io/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
-                            <a href="/hypo-Z.github.io/tags/%E6%95%99%E7%A8%8B/">
-                                <span class="chip bg-color">教程</span>
-                            </a>
-                        
-                            <a href="/hypo-Z.github.io/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/hypo-Z.github.io/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -548,8 +544,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                笔记
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -561,28 +557,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-23
+                    2022-07-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-21
+                    2022-07-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    712
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    3 分
                 </div>
                 
 
@@ -610,279 +606,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Ubuntu开发环境快速安装教程："><a href="#Ubuntu开发环境快速安装教程：" class="headerlink" title="Ubuntu开发环境快速安装教程："></a>Ubuntu开发环境快速安装教程：</h1><h3 id="ubuntu安装go："><a href="#ubuntu安装go：" class="headerlink" title="ubuntu安装go："></a>ubuntu安装go：</h3><p>1、下载二进制包：go1.4.linux-amd64.tar.gz。</p>
-<p>2、将下载的二进制包解压至 /usr/local目录。</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -C /usr/local -xzf go1.4.linux-amd64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="一天一道算法题"><a href="#一天一道算法题" class="headerlink" title="一天一道算法题"></a>一天一道算法题</h1><h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h2><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p>示例 1：</p>
+<p>输入：nums = [2,7,11,15], target = 9<br>输出：[0,1]<br>解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。<br>示例 2：</p>
+<p>输入：nums = [3,2,4], target = 6<br>输出：[1,2]<br>示例 3：</p>
+<p>输入：nums = [3,3], target = 6<br>输出：[0,1]</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//解法一</span>
+<span class="token keyword">func</span> <span class="token function">twoSum1</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> target <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token comment">//遍历所有的加法组合，直到找到符合相加得到目标数的两个数,并且两数不是同一个数</span>
+   l<span class="token operator">:=</span><span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+   <span class="token keyword">for</span> i<span class="token operator">:=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>l<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">{</span>
+      <span class="token keyword">for</span> j<span class="token operator">:=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>l<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">{</span>
+         <span class="token keyword">if</span> target<span class="token operator">==</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>i<span class="token operator">!=</span>j<span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span>i<span class="token punctuation">,</span>j<span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//这种方法比较笨，且较慢，时间复杂度O(n^2)</span>
+
+<span class="token comment">//解法二</span>
+<span class="token keyword">func</span> <span class="token function">twoSum2</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> target <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
+   <span class="token comment">//创建一个map存储遍历后的数组对，键值对个数为数组长度</span>
+   num2index <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token comment">//遍历数组</span>
+   <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token operator">:=</span> <span class="token keyword">range</span> nums <span class="token punctuation">{</span>
+      <span class="token comment">//核心是用目标值减去循环遍历出来的值，判断是否是数组内的值</span>
+      pair <span class="token operator">:=</span> target <span class="token operator">-</span> num
+      <span class="token comment">//</span>
+      <span class="token keyword">if</span> j<span class="token punctuation">,</span> ok <span class="token operator">:=</span> num2index<span class="token punctuation">[</span>pair<span class="token punctuation">]</span><span class="token punctuation">;</span> ok <span class="token operator">&amp;&amp;</span> i <span class="token operator">!=</span> j <span class="token punctuation">{</span>
+         <span class="token comment">// 注意返回值顺序，向后遍历 nums，所以 i 在 j 后</span>
+         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span>j<span class="token punctuation">,</span> i<span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">//循环一边就存入map</span>
+      <span class="token comment">//第一遍map[2]=0,没有相同</span>
+      <span class="token comment">//第二遍map[7]=1,没有相同且存在pair := target - num</span>
+
+      num2index<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> i
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//这种方法虽牺牲空间但速度快，时间复杂度O(log2n)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="2-翻转字符串"><a href="#2-翻转字符串" class="headerlink" title="2.翻转字符串"></a>2.翻转字符串</h2><p>给定一串字符串，将字符串进行翻转</p>
+<p>示例1：输入”abc”,输出”cba”;</p>
+<p>示例2：输入”1313adfasf”,输出”fsada3131”;</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//解法</span>
+<span class="token keyword">func</span> <span class="token function">Reverse</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token comment">//[]rune符文是int32的别名，在所有方面都与int32等效。按照惯例，它用于区分字符值和整数值。</span>
+   a <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">rune</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    <span class="token comment">//从两端开始进行转变位置</span>
+   <span class="token keyword">for</span> i<span class="token punctuation">,</span> j <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token punctuation">,</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> j<span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">{</span>
+       <span class="token comment">//go语言内部会构造一个虚拟变量</span>
+      a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="3-回文判断"><a href="#3-回文判断" class="headerlink" title="3.回文判断"></a>3.回文判断</h2><p>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。</p>
+<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<p>例如，121 是回文，而 123 不是。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//我的解法</span>
+<span class="token keyword">func</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+    <span class="token comment">//负数不是回文</span>
+   <span class="token keyword">if</span> x<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+   <span class="token punctuation">}</span>
+    <span class="token comment">//提示：转为字符串方便</span>
+   a<span class="token operator">:=</span>strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+   s<span class="token operator">:=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">rune</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+   l<span class="token operator">:=</span><span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    <span class="token comment">//由翻转想到的灵感，不是最好</span>
+   <span class="token keyword">for</span> i<span class="token punctuation">,</span>j<span class="token operator">:=</span><span class="token number">0</span><span class="token punctuation">,</span>l<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">;</span>i<span class="token punctuation">,</span>j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">{</span>
+         <span class="token keyword">return</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>3、将 /usr/local/go/bin 目录添加至PATH环境变量：</p>
-<pre class="line-numbers language-none"><code class="language-none">export PATH=$PATH:/usr/local/go/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h3 id="ubuntu安装docker："><a href="#ubuntu安装docker：" class="headerlink" title="ubuntu安装docker："></a>ubuntu安装docker：</h3><p>在终端中输入以下命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>没有错误则成功了。</p>
-<p>二、安装需要的包</p>
-<p>在终端输入命令</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install apt-transport-https ca-certificates software-properties-common curl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>没有错误则成功。<br>三、添加 GPG 密钥，并添加 Docker-ce 软件源</p>
-<p>官方的软件源（不推荐，很慢）：</p>
-<pre class="line-numbers language-none"><code class="language-none">curl -fsSL https://download.docker.com/linux/ubuntu/gpg|sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>中国科技大学的 Docker-ce 源（其他源类似）：</p>
-<pre class="line-numbers language-none"><code class="language-none">curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
-$(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h5 id="注意：添加错了可以用以下命令删除"><a href="#注意：添加错了可以用以下命令删除" class="headerlink" title="注意：添加错了可以用以下命令删除"></a>注意：添加错了可以用以下命令删除</h5><h5 id="查询keyid-下图"><a href="#查询keyid-下图" class="headerlink" title="查询keyid,下图"></a>查询keyid,下图</h5><pre class="line-numbers language-none"><code class="language-none">sudo apt-key list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="keyid-就是90那一串"><a href="#keyid-就是90那一串" class="headerlink" title="keyid 就是90那一串"></a>keyid 就是90那一串</h5><pre class="line-numbers language-none"><code class="language-none">sudo apt-key del &lt;keyid&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="加参数-r可以移除"><a href="#加参数-r可以移除" class="headerlink" title="加参数-r可以移除"></a>加参数-r可以移除</h5><pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository -r "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<p>更新软件包缓存</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>四、安装 Docker-ce</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>五、测试运行</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo docker run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<p>六、添加当前用户到 docker 用户组，可以不用 sudo 运行 docker</p>
-<p>将当前用户添加到 docker 组</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo gpasswd -a ${USER} docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>重新登录或者用以下命令切换到docker组</p>
-<pre class="line-numbers language-none"><code class="language-none">newgrp - docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>重启docker服务</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo service docker restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>不加sudo直接执行docker命令检查效果</p>
-<pre class="line-numbers language-none"><code class="language-none">docker ps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="ubuntu安装git："><a href="#ubuntu安装git：" class="headerlink" title="ubuntu安装git："></a>ubuntu安装git：</h3><h5 id="Linux-平台上安装"><a href="#Linux-平台上安装" class="headerlink" title="Linux 平台上安装"></a>Linux 平台上安装</h5><p>Git 的工作需要调用 curl，zlib，openssl，expat，libiconv 等库的代码，所以需要先安装这些依赖工具。</p>
-<p>在有 yum 的系统上（比如 Fedora）或者有 apt-get 的系统上（比如 Debian 体系），可以用下面的命令安装：</p>
-<p>各 Linux 系统可以使用其安装包管理工具（apt-get、yum 等）进行安装：</p>
-<h5 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h5><p>Debian/Ubuntu Git 安装命令为：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
-  libz-dev libssl-dev
-
-$ apt-get install git
-
-$ git --version
-git version 1.8.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="ubuntu安装goland："><a href="#ubuntu安装goland：" class="headerlink" title="ubuntu安装goland："></a>ubuntu安装goland：</h3><h5 id="goland安装"><a href="#goland安装" class="headerlink" title="goland安装"></a>goland安装</h5><ol>
-<li>下载goland<br><a target="_blank" rel="noopener" href="https://www.jetbrains.com/go/download/#section=linux">Goland下载链接</a></li>
-<li>cd到安装包目录，移动并解压</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">tar</span> -zxvf goland-2020.3.4.tar.gz -C /usr/local/ <span class="token comment">#包的名字自行修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ol>
-<li>启动Goland</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20210320104439418.png" alt="在这里插入图片描述"></p>
-<h3 id="ubuntu安装google-chorme："><a href="#ubuntu安装google-chorme：" class="headerlink" title="ubuntu安装google chorme："></a>ubuntu安装google chorme：</h3><p>下载Chrome</p>
-<pre class="line-numbers language-none"><code class="language-none">$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>安装</p>
-<pre class="line-numbers language-none"><code class="language-none">$ sudo dpkg -i google-chrome-stable_current_amd64.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>报错</p>
-<pre class="line-numbers language-none"><code class="language-none">$ sudo dpkg -i google-chrome-stable_current_amd64.deb
-(Reading database ... 155736 files and directories currently installed.)
-Preparing to unpack google-chrome-stable_current_amd64.deb ...
-Unpacking google-chrome-stable (88.0.4324.96-1) ...
-dpkg: dependency problems prevent configuration of google-chrome-stable:
- google-chrome-stable depends on fonts-liberation; however:
-  Package fonts-liberation is not installed.
- google-chrome-stable depends on libatk-bridge2.0-0 (&gt;= 2.5.3); however:
-  Package libatk-bridge2.0-0 is not installed.
- google-chrome-stable depends on libatk1.0-0 (&gt;= 2.2.0); however:
-  Package libatk1.0-0 is not installed.
- google-chrome-stable depends on libatspi2.0-0 (&gt;= 2.9.90); however:
-  Package libatspi2.0-0 is not installed.
- google-chrome-stable depends on libcairo2 (&gt;= 1.6.0); however:
-  Package libcairo2 is not installed.
- google-chrome-stable depends on libcups2 (&gt;= 1.4.0); however:
-  Package libcups2 is not installed.
- google-chrome-stable depends on libgbm1 (&gt;= 8.1~0); however:
-  Package libgbm1 is not installed.
- google-chrome-stable depends on libgdk-pixbuf2.0-0 (&gt;= 2.22.0); however:
-  Package libgdk-pixbuf2.0-0 is not installed.
- google-chrome-stable depends on libgtk-3-0 (&gt;= 3.9.10); however:
-  Package libgtk-3-0 is not installed.
- google-chrome-stable depends on libnspr4 (&gt;= 2:4.9-2~); however:
-  Package libnspr4 is not installed.
- google-chrome-stable depends on libnss3 (&gt;= 2:3.22); however:
-  Package libnss3 is not installed.
- google-chrome-stable depends on libpango-1.0-0 (&gt;= 1.14.0); however:
-  Package libpango-1.0-0 is not installed.
- google-chrome-stable depends on libxkbcommon0 (&gt;= 0.4.1); however:
-  Package libxkbcommon0 is not installed.
- google-chrome-stable depends on xdg-utils (&gt;= 1.0.2); however:
-  Package xdg-utils is not installed.
-
-dpkg: error processing package google-chrome-stable (--install):
- dependency problems - leaving unconfigured
-Processing triggers for mime-support (3.64ubuntu1) ...
-Processing triggers for man-db (2.9.1-1) ...
-Errors were encountered while processing:
- google-chrome-stable
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>报错原因：缺少依赖软件包</p>
-<pre class="line-numbers language-none"><code class="language-none">dpkg: error processing package google-chrome-stable (--install):
- dependency problems - leaving unconfigured<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>解决办法：修复依赖关系</p>
-<pre class="line-numbers language-none"><code class="language-none">$ sudo apt-get install -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果系统中有某个软件包不满足依赖条件,这个命令就会自动修复,将要安装那个软件包依赖的软件包。</p>
-<p>查看Chrome版本信息</p>
-<pre class="line-numbers language-none"><code class="language-none">$ google-chrome --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="ubuntu安装teams："><a href="#ubuntu安装teams：" class="headerlink" title="ubuntu安装teams："></a>ubuntu安装teams：</h3><p>1、去官网下载二进制包teams.tar.gz。</p>
-<p>2、将下载的二进制包解压至 /usr/local目录。</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -C /usr/local -xzf teams.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="Ubuntu安装typora"><a href="#Ubuntu安装typora" class="headerlink" title="Ubuntu安装typora:"></a>Ubuntu安装typora:</h3><p>在终端中输入以下命令：</p>
-<pre class="line-numbers language-none"><code class="language-none"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-
-# add Typora's repository
-sudo add-apt-repository 'deb https://typora.io/linux ./'
-sudo apt-get update
-
-# install typora
-sudo apt-get install typora<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="ubuntu安装cloudmusic："><a href="#ubuntu安装cloudmusic：" class="headerlink" title="ubuntu安装cloudmusic："></a>ubuntu安装cloudmusic：</h3><p>先到网站下载安装包，网址：<a target="_blank" rel="noopener" href="https://music.163.com/#/download">https://music.163.com/#/download</a> , 然后下载客户端，点击下载全部客户端，选择Linux版，选择Ubuntu18.04，其实我的20.04 版的没找到，不过这个用起来还不错。至于是32还是64，自己看吧。<br>然后将安装包下载到：~/下载 目录下，然后在这个目录下面打开终端。<br>在终端里面输入：sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb 就行了</p>
-<h3 id="ubuntu安装vim："><a href="#ubuntu安装vim：" class="headerlink" title="ubuntu安装vim："></a>ubuntu安装vim：</h3><p>自带的vi不好用，所以自己重新下了一下</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install vim<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>安装完成后进入/etc/vim目录下配置文件，使用会舒服一点</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo vim vimrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在末尾添加代码</p>
-<pre><code>set number   
-set history=1000   
-set autoindent
-set smartindent 
-set tabstop=4 
-set shiftwidth=4 
-set showmatch
-</code></pre>
-<h3 id="ubuntu-安装PostMan"><a href="#ubuntu-安装PostMan" class="headerlink" title="ubuntu 安装PostMan:"></a>ubuntu 安装PostMan:</h3><pre class="line-numbers language-test" data-language="test"><code class="language-test">sudo snap install postman<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="ubuntu-安装nodejs和npm"><a href="#ubuntu-安装nodejs和npm" class="headerlink" title="ubuntu 安装nodejs和npm:"></a>ubuntu 安装nodejs和npm:</h3><p>快速安装：</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* ~/.npm
-sudo rm -rf /usr/local/lib/node*
-sudo rm -rf /usr/local/bin/node*
-sudo rm -rf /usr/local/include/node*
-
-sudo apt-get purge nodejs npm
-sudo apt autoremove
-sudo apt-get install nodejs npm
-
-zhb@zhb-pc:~$ npm -v
-6.14.4
-zhb@zhb-pc:~$ node -v
-v10.19.0
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注：以上只能安装老版本的nodejs和npm,新版本可在官网下载，但是可能出现问题。</p>
-<p>一.下载最新版本的nodejs包（最新版本的nodejs包里默认含有npm）<br>可以去nodejs官网去查看最新版本的nodejs<br>网址如下：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/current/">https://nodejs.org/en/download/current/</a><br>目前最新版本为：v17.1.0</p>
-<pre class="line-numbers language-none"><code class="language-none">wget https://nodejs.org/dist/v17.1.0/node-v17.1.0-linux-x64.tar.xz    
-tar xf  node-v17.1.0-linux-x64.tar.xz       // 解压
-cd node-v17.1.0-linux-x64/                  // 进入解压目录
- ./bin/node -v                               // 执行node命令 查看版本
-// bin目录下有执行文件npm和node 做软链接<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>下载到你当前的目录,假如是：/home/root/</p>
-<p>第二步 创建软连接 可以在任意路径下执行npm node<br>注意：在创建软连接的时候要写 绝对路径,软连接到/usr/local/bin/</p>
-<pre class="line-numbers language-none"><code class="language-none">ln -s  /home/root/node-v17.1.0-linux-x64/bin/node  /usr/local/bin/
-ln -s /home/root/node-v17.1.0-linux-x64/bin/npm  /usr/local/bin/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>// 注意要写文件的绝对路径</p>
-<p>如果你在创建软连的时候，出现npm已经存在,node 已经存在<br>解决方案：<br>删除 /usr/local/bin/目录下的node，npm</p>
-<p>rt@ubuntu:<del>$ sudo rm -rf /usr/local/bin/node<br>rt@ubuntu:</del>$ sudo rm -rf /usr/local/bin/npm</p>
-<p>之后再创建软连接，完成。</p>
-<pre class="line-numbers language-none"><code class="language-none">rbt@ubuntu:~$ node -v
-v17.1.0
-rt@ubuntu:~$ npm -v
-8.4.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>这样node和npm就同时安装成功了！</p>
-<h3 id="ubuntu安装python3："><a href="#ubuntu安装python3：" class="headerlink" title="ubuntu安装python3："></a>ubuntu安装python3：</h3><p>ubuntu本身是有Python2.7版本的，但是不同版本的ubuntu中的Python3的版本是不同的，我现在用的是14版本就是python3.4，我想把它升级为3.6版本。当然，如果需要，你可以改为任意版本。</p>
-<ol>
-<li>安装python3.6(非必需)<br>在终端中输入下面的命令（不要怀疑，每行都是一个命令）</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">wget http://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz  
-tar -xvzf Python-3.6.4.tgz  
-cd Python-3.6.4  
-./configure --with-ssl  
-make  
-sudo make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这些命令会使你的ubuntu下载python3.6.4，并替换你现在的python3版本。</p>
-<ol start="2">
-<li>安装python运行环境<br>输入sudo passwd 输入root相关密码，输入su，进入超级管理员（如果你没设置过，需要设置root用户密码），也许你在安装时还需要升级你的apt-get，命令行下输入apt-get update</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install python
-sudo apt-get install python-dev(编译外部模块文件使用的)
-sudo apt-get install python-pip
-sudo apt-get install libxml*
-sudo apt-get install net-tools
-sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>python3的话安装pip，命令为sudo apt-get install python3-pip<br>执行之后，输入python3来确定你是否安装成功，如下图所示显示python3.6.4即安装成功：</p>
-<p>3.更新pip版本</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo pip install --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>4.安装SSH</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install openssh-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>5.安装 Nginx</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>6.安装 uwsgi</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo pip install uwsgi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>部署django项目前输入以下命令开启8000端口</p>
-<pre class="line-numbers language-none"><code class="language-none">uwsgi --http :8000  --chdir 项目路径 -w  项目名称.wsgi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<p>解除端口被占用的命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo fuser -k 8000/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h5 id="至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！"><a href="#至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！" class="headerlink" title="至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！"></a>至此ubuntu的基本的软件开发环境基本搭建完成，本文只做快速搭建环境的流程，具体问题网上都有解决方案，还有就是为什么没有数据库的安装？废话，都有Docker了，谁还安装数据库呀！！！</h5>
                 
             </div>
             <hr/>
@@ -908,7 +720,7 @@ sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/">https://github.com/hypo-Z/hypo-Z.github.io/2021/11/23/8-ubuntu-kai-fa-huan-jing-kuai-su-an-zhuang-jiao-cheng/</a>
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/">https://github.com/hypo-Z/hypo-Z.github.io/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,16 +758,12 @@ sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><spa
                     
                         <div class="article-tag">
                             
-                                <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/hypo-Z.github.io/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
-                                <a href="/hypo-Z.github.io/tags/%E6%95%99%E7%A8%8B/">
-                                    <span class="chip bg-color">教程</span>
-                                </a>
-                            
-                                <a href="/hypo-Z.github.io/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/hypo-Z.github.io/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -1267,28 +1075,82 @@ sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hypo-Z.github.io/2021/11/23/9-yi-xie-kai-fa-wen-ti-kuai-su-jie-jue-fang-an-lian-jie-chi-xu-geng-xin-zhong/">
+                <a href="/hypo-Z.github.io/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="一些开发问题快速解决方案">
+                        <img src="/hypo-Z.github.io/medias/featureimages/55.jpeg" class="responsive-img" alt="Algorithm一天一道算法">
                         
-                        <span class="card-title">一些开发问题快速解决方案</span>
+                        <span class="card-title">Algorithm一天一道算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一些开发问题快速解决方案链接(持续更新中...)
+                            为了使自己每日进步一点，每天更新一道leetcode上的算法题，及理解其原理
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-23
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                    Golang
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/07/06/36-shi-yong-pandoc-ba-markdown-zhuan-wei-pdf-wen-jian/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/54.jpeg" class="responsive-img" alt="使用Pandoc把Markdown转为PDF文件">
+                        
+                        <span class="card-title">使用Pandoc把Markdown转为PDF文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pandoc可以很方便地对不同 Markup 语言的文件进行格式转换，因此被誉为格式转换的「瑞士军刀」。使用 Pandoc 把 Markdown 文件转为 PDF 文件，实际上包含两个步骤：
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1308,60 +1170,16 @@ sudo apt-get install lsof<span aria-hidden="true" class="line-numbers-rows"><spa
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
+                    <a href="/hypo-Z.github.io/tags/pandoc/">
+                        <span class="chip bg-color">pandoc</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/hypo-Z.github.io/2021/11/22/7-lu-xing-de-yi-yi/">
-                    <div class="card-image">
-                        
-                        <img src="/hypo-Z.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="旅行的意义">
-                        
-                        <span class="card-title">旅行的意义</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            旅行中,我们真正感兴趣的东西都是那些留在原地,努力建设的人们建造出来的。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/hypo-Z.github.io/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                    随笔
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/hypo-Z.github.io/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/hypo-Z.github.io/tags/markdown/">
+                        <span class="chip bg-color">markdown</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
+                    <a href="/hypo-Z.github.io/tags/pdf/">
+                        <span class="chip bg-color">pdf</span>
                     </a>
                     
                 </div>
