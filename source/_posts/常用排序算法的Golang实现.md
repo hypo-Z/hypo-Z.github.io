@@ -1,29 +1,26 @@
 ---
-title: 常用排序算法的Golang实现
-author: hypo
-img: medias/featureimages/53.png
-top: false
-cover: false
-toc: true
+title: 常用排序算法的Golang实现 
+author: hypo 
+img: medias/featureimages/53.png 
+top: false 
+cover: false 
+toc: true 
 mathjax: false
-date: 2022-06-28 17:36:26
-coverImg: 
+date: 2022-06-28 17:36:26 
+coverImg:
 password:
-summary: 在实际生活中，经常会涉及到数字排序的问题，如何快速排序，人们就研究了许多的算法，下面就将常用的算法进行总结
-categories: Golang
+summary: 在实际生活中，经常会涉及到数字排序的问题，如何快速排序，人们就研究了许多的算法，下面就将常用的算法进行总结 
+categories: Golang 
 tags:
 - Golang
 - 算法
 ---
+
 # 常用排序算法的Golang实现
 
 在实际生活中，经常会涉及到数字排序的问题，如何快速排序，人们就研究了许多的算法，下面就将常用的算法进行总结：
 
-
-
 #### 分类
-
-
 
 ##### 根据排序顺序分类：
 
@@ -34,8 +31,6 @@ tags:
 **3.交换类排序：<font color=red>冒泡排序</font>和快速排序**
 
 **4.特殊类排序：<font color=red>并归排序</font>**
-
-
 
 ##### 根据算法稳定性分类：
 
@@ -53,8 +48,6 @@ tags:
 
 希尔排序、直接选择排序、堆排序、快速排序
 
-
-
 ##### 根据时间复杂度分类：
 
 **平均时间复杂度在O(n^2)：**
@@ -69,11 +62,9 @@ tags:
 
 并归排序、堆排序、快速排序
 
-
-
 ##### 快速了解：
 
->冒泡排序可以说是最差的排序算法。
+> 冒泡排序可以说是最差的排序算法。
 
 > 我们把冒泡排序，直接选择排序，直接插入排序认为是初级的排序算法，其中直接插入排序的性能是综合最好的，一般来说，当排序数组规模 `n` 较小时，直接插入排序可能比任何排序算法都要快，建议只在小规模排序中使用。
 
@@ -87,8 +78,6 @@ tags:
 
 > 归并排序和快速排序一样使用分治法，递归地先使每个子序列有序，再将两个有序的序列进行合并成一个有序的序列。
 
-
-
 #### 糟糕排序算法之一：冒泡排序
 
 原理：循环比较相邻两个数，直到数列从小到大排序
@@ -101,42 +90,39 @@ package main
 import "fmt"
 
 func BubbleSort(list []int) {
-    n := len(list)
-    // 在一轮中有没有交换过
-    didSwap := false
+	n := len(list)
+	// 在一轮中有没有交换过
+	didSwap := false
 
-    // 进行 N-1 轮迭代
-    for i := n - 1; i > 0; i-- {
-        // 每次从第一位开始比较，比较到第 i 位就不比较了，因为前一轮该位已经有序了
-        for j := 0; j < i; j++ {
-            // 如果前面的数比后面的大，那么交换
-            if list[j] > list[j+1] {
-                list[j], list[j+1] = list[j+1], list[j]
-                didSwap = true
-            }
-        }
+	// 进行 N-1 轮迭代
+	for i := n - 1; i > 0; i-- {
+		// 每次从第一位开始比较，比较到第 i 位就不比较了，因为前一轮该位已经有序了
+		for j := 0; j < i; j++ {
+			// 如果前面的数比后面的大，那么交换
+			if list[j] > list[j+1] {
+				list[j], list[j+1] = list[j+1], list[j]
+				didSwap = true
+			}
+		}
 
-        // 如果在一轮中没有交换过，那么已经排好序了，直接返回
-        if !didSwap {
-            return
-        }
-    }
+		// 如果在一轮中没有交换过，那么已经排好序了，直接返回
+		if !didSwap {
+			return
+		}
+	}
 }
 
 func main() {
-    list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
-    BubbleSort(list)
-    fmt.Println(list)
+	list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
+	BubbleSort(list)
+	fmt.Println(list)
 }
 ```
 
-
-
-冒泡排序交换和比较的次数相加是一个和 `N` 有关的平方数，所以冒泡排序的最好和最差时间复杂度都是：`O(n^2)`。也就是说在最好的情况下：对已经排好序的数列进行冒泡排序，只需比较 `N` 次，最好时间复杂度从 `O(n^2)` 骤减为 `O(n)`。
+冒泡排序交换和比较的次数相加是一个和 `N` 有关的平方数，所以冒泡排序的最好和最差时间复杂度都是：`O(n^2)`。也就是说在最好的情况下：对已经排好序的数列进行冒泡排序，只需比较 `N` 次，最好时间复杂度从 `O(n^2)`
+骤减为 `O(n)`。
 
 冒泡排序算法是稳定的，因为如果两个相邻元素相等，是不会交换的，保证了稳定性的要求。
-
-
 
 #### 糟糕排序算法之二：直接选择排序
 
@@ -150,37 +136,35 @@ package main
 import "fmt"
 
 func SelectSort(list []int) {
-    n := len(list)
-    // 进行 N-1 轮迭代
-    for i := 0; i < n-1; i++ {
-        // 每次从第 i 位开始，找到最小的元素
-        min := list[i] // 最小数
-        minIndex := i  // 最小数的下标
-        for j := i + 1; j < n; j++ {
-            if list[j] < min {
-                // 如果找到的数比上次的还小，那么最小的数变为它
-                min = list[j]
-                minIndex = j
-            }
-        }
+	n := len(list)
+	// 进行 N-1 轮迭代
+	for i := 0; i < n-1; i++ {
+		// 每次从第 i 位开始，找到最小的元素
+		min := list[i] // 最小数
+		minIndex := i  // 最小数的下标
+		for j := i + 1; j < n; j++ {
+			if list[j] < min {
+				// 如果找到的数比上次的还小，那么最小的数变为它
+				min = list[j]
+				minIndex = j
+			}
+		}
 
-        // 这一轮找到的最小数的下标不等于最开始的下标，交换元素
-        if i != minIndex {
-            list[i], list[minIndex] = list[minIndex], list[i]
-        }
-    }
+		// 这一轮找到的最小数的下标不等于最开始的下标，交换元素
+		if i != minIndex {
+			list[i], list[minIndex] = list[minIndex], list[i]
+		}
+	}
 }
 
 func main() {
-    list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
-    SelectSort(list)
-    fmt.Println(list)
+	list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
+	SelectSort(list)
+	fmt.Println(list)
 }
 ```
 
 比较的次数和冒泡排序一样多，因为扫描过程也是比较的过程，只不过交换的次数减少为每轮 1 次。最佳和最坏时间复杂度仍然是：`O(n^2)`。选择排序是一个不稳定的排序算法，因为它在交换时将后面的数字排列变化了。
-
-
 
 #### 糟糕排序算法之三：直接插入排序
 
@@ -188,22 +172,22 @@ func main() {
 
 举个简单例子，有 4 个元素的数列：`4 2 9 1`，我们使用插入排序：
 
-```go
+```
 []表示排好序
 
 第一轮： [4] 2 9 1 拿待排序的第二个数 2，插入到排好序的数列 [4]
-    与排好序的数列 [4] 比较
-    第一轮进行中：2 比 4 小，插入到 4 前
+与排好序的数列 [4] 比较
+第一轮进行中：2 比 4 小，插入到 4 前
 
 第二轮： [2 4] 9 1 拿待排序的第三个数 9，插入到排好序的数列 [2 4]
-    与排好序的数列 [2 4] 比较
-    第二轮进行中： 9 比 4 大，不变化
+与排好序的数列 [2 4] 比较
+第二轮进行中： 9 比 4 大，不变化
 
 第三轮： [2 4 9] 1 拿待排序的第四个数 1，插入到排好序的数列 [2 4 9]
-    与排好序的数列 [2 4 9] 比较
-    第三轮进行中： 1 比 9 小，插入到 9 前
-    第三轮进行中： 1 比 4 小，插入到 4 前
-    第三轮进行中： 1 比 2 小，插入到 2 前
+与排好序的数列 [2 4 9] 比较
+第三轮进行中： 1 比 9 小，插入到 9 前
+第三轮进行中： 1 比 4 小，插入到 4 前
+第三轮进行中： 1 比 2 小，插入到 2 前
 
 结果： [1 2 4 9]
 ```
@@ -216,27 +200,27 @@ package main
 import "fmt"
 
 func InsertSort(list []int) {
-    n := len(list)
-    // 进行 N-1 轮迭代
-    for i := 1; i <= n-1; i++ {
-        deal := list[i] // 待排序的数
-        j := i - 1      // 待排序的数左边的第一个数的位置
+	n := len(list)
+	// 进行 N-1 轮迭代
+	for i := 1; i <= n-1; i++ {
+		deal := list[i] // 待排序的数
+		j := i - 1      // 待排序的数左边的第一个数的位置
 
-        // 如果第一次比较，比左边的已排好序的第一个数小，那么进入处理
-        if deal < list[j] {
-            // 一直往左边找，比待排序大的数都往后挪，腾空位给待排序插入
-            for ; j >= 0 && deal < list[j]; j-- {
-                list[j+1] = list[j] // 某数后移，给待排序留空位
-            }
-            list[j+1] = deal // 结束了，待排序的数插入空位
-        }
-    }
+		// 如果第一次比较，比左边的已排好序的第一个数小，那么进入处理
+		if deal < list[j] {
+			// 一直往左边找，比待排序大的数都往后挪，腾空位给待排序插入
+			for ; j >= 0 && deal < list[j]; j-- {
+				list[j+1] = list[j] // 某数后移，给待排序留空位
+			}
+			list[j+1] = deal // 结束了，待排序的数插入空位
+		}
+	}
 }
 
 func main() {
-    list2 := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
-    InsertSort(list2)
-    fmt.Println(list2)
+	list2 := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
+	InsertSort(list2)
+	fmt.Println(list2)
 }
 
 ```
@@ -245,13 +229,11 @@ func main() {
 
 
 
->小结：数组规模 `n` 较小的大多数情况下，我们可以使用插入排序，它比冒泡排序，选择排序都快，甚至比任何的排序算法都快。
+> 小结：数组规模 `n` 较小的大多数情况下，我们可以使用插入排序，它比冒泡排序，选择排序都快，甚至比任何的排序算法都快。
 
->数列中的有序性越高，插入排序的性能越高，因为待排序数组有序性越高，插入排序比较的次数越少。
+> 数列中的有序性越高，插入排序的性能越高，因为待排序数组有序性越高，插入排序比较的次数越少。
 
->大家都很少使用冒泡、直接选择，直接插入排序算法，因为在有大量元素的无序数列下，这些算法的效率都很低。
-
-
+> 大家都很少使用冒泡、直接选择，直接插入排序算法，因为在有大量元素的无序数列下，这些算法的效率都很低。
 
 #### 直接插入排序改进型：希尔排序
 
@@ -266,7 +248,8 @@ x 表示不需要排序的数
 取 d = 1 对 [4 9 1 5 8 14 6 49 25 6 6 3] 进行直接插入排序，因为 d=1 完全就是直接插入排序了。
 ```
 
-越有序的数列，直接插入排序的效率越高，希尔排序通过分组使用直接插入排序，因为步长比 `1` 大，在一开始可以很快将无序的数列变得不那么无序，比较和交换的次数也减少，直到最后使用步长为 `1` 的直接插入排序，数列已经是相对有序了，所以时间复杂度会稍好一点。
+越有序的数列，直接插入排序的效率越高，希尔排序通过分组使用直接插入排序，因为步长比 `1` 大，在一开始可以很快将无序的数列变得不那么无序，比较和交换的次数也减少，直到最后使用步长为 `1`
+的直接插入排序，数列已经是相对有序了，所以时间复杂度会稍好一点。
 
 代码实现：
 
@@ -277,41 +260,43 @@ import "fmt"
 
 // 增量序列折半的希尔排序
 func ShellSort(list []int) {
-    // 数组长度
-    n := len(list)
+	// 数组长度
+	n := len(list)
 
-    // 每次减半，直到步长为 1
-    for step := n / 2; step >= 1; step /= 2 {
-        // 开始插入排序，每一轮的步长为 step
-        for i := step; i < n; i += step {
-            for j := i - step; j >= 0; j -= step {
-                // 满足插入那么交换元素
-                if list[j+step] < list[j] {
-                    list[j], list[j+step] = list[j+step], list[j]
-                    continue
-                }
-                break
-            }
-        }
-    }
+	// 每次减半，直到步长为 1
+	for step := n / 2; step >= 1; step /= 2 {
+		// 开始插入排序，每一轮的步长为 step
+		for i := step; i < n; i += step {
+			for j := i - step; j >= 0; j -= step {
+				// 满足插入那么交换元素
+				if list[j+step] < list[j] {
+					list[j], list[j+step] = list[j+step], list[j]
+					continue
+				}
+				break
+			}
+		}
+	}
 }
 
 func main() {
-    list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3, 2, 4, 23, 467, 85, 23, 567, 335, 677, 33, 56, 2, 5, 33, 6, 8, 3}
-    ShellSort(list)
-    fmt.Println(list)
+	list := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3, 2, 4, 23, 467, 85, 23, 567, 335, 677, 33, 56, 2, 5, 33, 6, 8, 3}
+	ShellSort(list)
+	fmt.Println(list)
 }
 
 ```
 
 希尔排序不是稳定的，因为每一轮分组，都使用了直接插入排序，希尔排序的时间复杂度大约在这个范围：`O(n^1.3)~O(n^2)`。
 
->按照之前分析的几种排序算法，一般建议待排序数组为小规模情况下使用直接插入排序，在规模中等的情况下可以使用希尔排序，但在大规模还是要使用快速排序，归并排序或堆排序。
+> 按照之前分析的几种排序算法，一般建议待排序数组为小规模情况下使用直接插入排序，在规模中等的情况下可以使用希尔排序，但在大规模还是要使用快速排序，归并排序或堆排序。
 
 
 
 以下三种算法由于代码实现复杂，此阶段仅作原理了解：
 
+---
+2022.7.15更新，将之前没有补完的算法解析补上，接着撸代码...
 
 
 #### 优秀排序算法之一：并归排序
@@ -330,7 +315,68 @@ func main() {
 
 从小数组开始排序，不断地合并形成更大的有序数组。时间复杂度和自顶向上归并排序一样，也都是 `O(nlogn)`
 
+代码实现：使用自顶向下法
 
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func mergeSort(data []int) []int {
+	//确定数组长度
+	length := len(data)
+	//长度小于等于一直接返回
+	if length <= 1 {
+		return data
+	}
+	//切分数组
+	num := length / 2
+	//不断切分数组,递归调用函数，直到切分最小
+	//小于等于num为左数组
+	left := mergeSort(data[:num])
+	//大于num为右数组
+	right := mergeSort(data[num:])
+	//并调用数组排序并合并
+	return merge(left, right)
+}
+
+//数组合并，对左右数组并入到一个新数组
+func merge(left, right []int) (result []int) {
+	l, r := 0, 0
+	//左右数组不超过原数组
+	for l < len(left) && r < len(right) {
+		//若左数组最小位小于右数组最小位，则将左数组元素加至数组尾部
+		if left[l] < right[r] {
+			result = append(result, left[l])
+			l++
+			//反之，则将右数组元素加至数组尾部
+		} else {
+			result = append(result, right[r])
+			r++
+		}
+	}
+	//因为左右数组的长度会变化，所以(数组[0:]...)表示可变长度的数组
+	//将新的左数组全部添加至新数组
+	result = append(result, left[l:]...)
+	//再将新的右数组全部添加至新数组
+	result = append(result, right[r:]...)
+	//回参已经定义了就直接return
+	return
+}
+
+func main() {
+	s := make([]int, 0, 16)
+	for i := 0; i < 16; i++ {
+		s = append(s, rand.Intn(100))
+	}
+	fmt.Println(s)
+	s = mergeSort(s)
+	fmt.Println(s)
+}
+```
 
 #### 优秀排序算法之二：堆排序
 
@@ -345,14 +391,111 @@ func main() {
 1. 父节点的值都小于左右儿子节点，且左儿子小于右儿子。
 2. 这是一个递归的性质。
 
+```sh
+           1
+          / \
+         2   3
+        / \ / \
+        4 5 6 7
+```
+
+
 最大堆的性质：
 
 1. 父节点的值都大于左右儿子节点，且左儿子小于右儿子。
 2. 这是一个递归的性质。
 
+```sh
+            7
+           / \
+          5   6
+         / \ / \
+         1 2 3 4
+```
+
 最大堆和最小堆实现方式一样，只不过根节点一个是最大的，一个是最小的。时间复杂度为：`O(nlogn)`
 
+这个算法实现起来非常抽象，借用菜鸟教程的动态演示可能会更加清晰
+![动图演示](https://www.runoob.com/wp-content/uploads/2019/03/heapSort.gif)
+再配合[堆排序详解](https://zhuanlan.zhihu.com/p/142095184) 食用，理解更加通透
 
+代码实现：
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+//堆排序函数
+func heapSort(arr []int) []int {
+	arrLen := len(arr)
+	//第一步，先构造最大堆
+	buildMaxHeap(arr, arrLen)
+	//构造最大堆完成后
+	for i := arrLen - 1; i >= 0; i-- {
+		//交换最大根和尾部子树
+		swap(arr, 0, i)
+		//长度减一
+		arrLen -= 1
+		//从根部开始构建最大堆
+		heapify(arr, 0, arrLen)
+	}
+	return arr
+}
+
+//构造最大堆函数
+func buildMaxHeap(arr []int, arrLen int) {
+	for i := (arrLen / 2)-1; i >= 0; i-- {
+		heapify(arr, i, arrLen)
+	}
+}
+
+//核心算法，将大于根的子树进行交换
+func heapify(arr []int, i, arrLen int) {
+	//左子树下标
+	left := 2*i + 1
+	//右子树下标
+	right := 2*i + 2
+	//根下标
+	largest := i
+
+	//当arrLen>left和right 时，表示该子树存在
+	//并且左子树大于根，则根的下标等于作子树的下标
+	if left < arrLen && arr[left] > arr[largest] {
+		largest = left
+	}
+	//在这个时候largest = left,就相当于右子树和左子树进行比较
+	//若右子树大于左子树，则根的下标等于右子树的下标
+	if right < arrLen && arr[right] > arr[largest] {
+		largest = right
+	}
+	//若上面的if满足，则largest != i，进行元素交换
+	if largest != i {
+		swap(arr, i, largest)
+		//递归变化位置后的子树，保证满足最大堆规则
+		heapify(arr, largest, arrLen)
+	}
+}
+
+//交换函数
+func swap(arr []int, i, j int) {
+	arr[i], arr[j] = arr[j], arr[i]
+}
+
+func main() {
+	s := make([]int, 0, 16)
+	for i := 0; i < 16; i++ {
+		s = append(s, rand.Intn(100))
+	}
+	fmt.Println(s)
+	heapSort(s)
+	fmt.Println(s)
+}
+
+```
 
 #### 优秀排序算法之三：快速排序
 
@@ -394,5 +537,58 @@ func main() {
 
 使用递归分别对两个数列进行快速排序。
 ```
+
+代码实现：
+
+````go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+//快速排序
+func quickSort(data []int) {
+	if len(data) <= 1 {
+		return
+	}
+	//第一轮排序，先选出基准数
+	base := data[0]
+	l, r := 0, len(data)-1
+	//i是要交换位置的下标
+	for i := 1; i <= r; {
+		//如果左边的数比基准数大，那么该数要往右边扔
+		if data[i] > base {
+			//将大于基准数的数字移至最右边
+			data[i], data[r] = data[r], data[i]
+			//右边进行比较的数下标减一位
+			r--
+			//如果左边的数比基准数小，那么该数要往左边扔
+		} else {
+			//将小于基准数的数字移至最左边
+			data[i], data[l] = data[l], data[i]
+			//左边进行比较的下标加一位
+			l++
+			//交换位置的下标加一位
+			i++
+		}
+	}
+	//一次循环结束后，以基准数位置分成左右两个部分分别在进行递归
+	quickSort(data[:l])
+	quickSort(data[l+1:])
+}
+
+func main() {
+	s := make([]int, 0, 16)
+	for i := 0; i < 16; i++ {
+		s = append(s, rand.Intn(100))
+	}
+	fmt.Println(s)
+	quickSort(s)
+	fmt.Println(s)
+}
+
+````
 
 时间复杂度为：`O(nlogn)`
