@@ -592,3 +592,7 @@ func main() {
 ````
 
 时间复杂度为：`O(nlogn)`
+
+参考文章：
+[数据结构与算法](https://goa.lenggirl.com/#/algorithm/sort)
+[菜鸟教程：排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
