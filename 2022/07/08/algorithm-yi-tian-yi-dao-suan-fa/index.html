@@ -564,21 +564,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-08
+                    2022-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    712
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -692,6 +692,94 @@
    <span class="token keyword">return</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="4-最大容器问题"><a href="#4-最大容器问题" class="headerlink" title="4.最大容器问题"></a>4.最大容器问题</h2><p>给定一个长度为 n 的整数数组height。有n条垂线，第 i 条线的两个端点是(i, 0)和(i, height[i])。<br>找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。<br>返回容器可以储存的最大水量。</p>
+<p>说明：你不能倾斜容器。</p>
+<p>示例 1：</p>
+<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49<br>解释：垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为49。<br>示例 2：</p>
+<p>输入：height = [1,1]<br>输出：1</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 两条线段之间的面积受限与最短的线段，线段间距越长，面积越大</span>
+<span class="token comment">// 使用 2 个指针指向首部和尾部，将短指针向长指针方向移动，看能不能找到更长的线，使面积更大</span>
+<span class="token comment">// 依据：向长线方向每次移动 1 格，虽然宽度-1，但是(高度变高)*(宽度-1) &gt;= 高度*宽度</span>
+<span class="token comment">// 双指针法</span>
+<span class="token keyword">func</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>height <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	maxarea<span class="token operator">:=</span><span class="token number">0</span>
+	<span class="token comment">//分别取左右两个指针</span>
+	<span class="token keyword">for</span> i<span class="token punctuation">,</span>j<span class="token operator">:=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token function">len</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>j <span class="token punctuation">{</span>
+		<span class="token comment">//面积等于短指针高度*两个指针距离</span>
+		maxarea<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>maxarea<span class="token punctuation">,</span><span class="token function">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token comment">//如果右指针更高，则左指针向右一格</span>
+		<span class="token keyword">if</span> height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>height<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+			i<span class="token operator">++</span>
+			<span class="token comment">//反之，右指针向左一格</span>
+		<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+			j<span class="token operator">--</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> maxarea
+<span class="token punctuation">}</span>
+<span class="token comment">//两数最小</span>
+<span class="token keyword">func</span> <span class="token function">min</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span> a<span class="token operator">&gt;</span>b <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> b
+	<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> a
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//两数最大</span>
+<span class="token keyword">func</span> <span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> a<span class="token operator">&gt;</span>b <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> a
+	<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> b
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-最长前缀问题"><a href="#5-最长前缀问题" class="headerlink" title="5.最长前缀问题"></a>5.最长前缀问题</h2><p>编写一个函数来查找字符串数组中的最长公共前缀。<br>如果不存在公共前缀，返回空字符串””。</p>
+<p>示例 1：</p>
+<p>输入：strs = [“flower”,”flow”,”flight”]<br>输出：”fl”<br>示例 2：</p>
+<p>输入：strs = [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"strings"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">//test1</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">"flower"</span><span class="token punctuation">,</span> <span class="token string">"fly"</span><span class="token punctuation">,</span> <span class="token string">"flight"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// fl</span>
+	<span class="token comment">//test2</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token string">"racecar"</span><span class="token punctuation">,</span> <span class="token string">"car"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">// ""</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 维护一个前缀库，不断往后遍历，判断前缀逐步剪短前缀库的大小</span>
+<span class="token keyword">func</span> <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span>strs <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>strs<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">""</span>
+    <span class="token punctuation">}</span>
+    s1 <span class="token operator">:=</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    prefixes <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token comment">//将第一个字符串遍历为一个字符串前缀库</span>
+	<span class="token comment">//test1：[]prefixes{"f","fl","flo","flow","flowe","flower"}</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token keyword">range</span> s1 <span class="token punctuation">{</span>
+        prefixes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> s1<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//遍历输入的字符串数组</span>
+    <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> s <span class="token operator">:=</span> <span class="token keyword">range</span> strs <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> pre <span class="token operator">:=</span> <span class="token keyword">range</span> prefixes <span class="token punctuation">{</span>
+			<span class="token comment">//HasPrefix判断字符串s是否以pre前缀开头。</span>
+            <span class="token keyword">if</span> <span class="token operator">!</span>strings<span class="token punctuation">.</span><span class="token function">HasPrefix</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> pre<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                prefixes <span class="token operator">=</span> prefixes<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span>
+                <span class="token keyword">break</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>prefixes<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		<span class="token comment">//返回最后一个字符串即最长前缀</span>
+        <span class="token keyword">return</span> prefixes<span class="token punctuation">[</span><span class="token function">len</span><span class="token punctuation">(</span>prefixes<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token string">""</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1366,7 +1454,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">100.9k</span>
+                        class="white-color">101.6k</span>
             
             
             
