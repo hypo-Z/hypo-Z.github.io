@@ -136,5 +136,120 @@ func isPalindrome(x int) bool {
 }
 ```
 
+## 4.最大容器问题
+
+给定一个长度为 n 的整数数组height。有n条垂线，第 i 条线的两个端点是(i, 0)和(i, height[i])。
+找出其中的两条线，使得它们与x轴共同构成的容器可以容纳最多的水。
+返回容器可以储存的最大水量。
+
+说明：你不能倾斜容器。
+
+示例 1：
+
+输入：[1,8,6,2,5,4,8,3,7]
+输出：49
+解释：垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为49。
+示例 2：
+
+输入：height = [1,1]
+输出：1
+
+```go
+// 两条线段之间的面积受限与最短的线段，线段间距越长，面积越大
+// 使用 2 个指针指向首部和尾部，将短指针向长指针方向移动，看能不能找到更长的线，使面积更大
+// 依据：向长线方向每次移动 1 格，虽然宽度-1，但是(高度变高)*(宽度-1) >= 高度*宽度
+// 双指针法
+func maxArea(height []int) int {
+	maxarea:=0
+	//分别取左右两个指针
+	for i,j:=0,len(height)-1;i<j {
+		//面积等于短指针高度*两个指针距离
+		maxarea=max(maxarea,min(height[i],height[j])*(j-i))
+		//如果右指针更高，则左指针向右一格
+		if height[i]<height[j] {
+			i++
+			//反之，右指针向左一格
+		}else {
+			j--
+		}
+	}
+	return maxarea
+}
+//两数最小
+func min(a,b int) int{
+	if a>b {
+		return b
+	}else{
+		return a
+	}
+}
+//两数最大
+func max(a,b int) int {
+	if a>b {
+		return a
+	}else{
+		return b
+	}
+}
+```
+
+## 5.最长前缀问题
+编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串""。
+
+示例 1：
+
+输入：strs = ["flower","flow","flight"]
+输出："fl"
+示例 2：
+
+输入：strs = ["dog","racecar","car"]
+输出：""
+解释：输入不存在公共前缀。
+
+```go
+package main
+
+import (
+    "fmt"
+    "strings"
+)
+
+func main() {
+	//test1
+    fmt.Println(longestCommonPrefix([]string{"flower", "fly", "flight"})) // fl
+	//test2
+    fmt.Println(longestCommonPrefix([]string{"dog", "racecar", "car"}))   // ""
+}
+
+// 维护一个前缀库，不断往后遍历，判断前缀逐步剪短前缀库的大小
+func longestCommonPrefix(strs []string) string {
+    if len(strs) <= 0 {
+        return ""
+    }
+    s1 := strs[0]
+    prefixes := make([]string, len(s1))
+	//将第一个字符串遍历为一个字符串前缀库
+	//test1：[]prefixes{"f","fl","flo","flow","flowe","flower"}
+    for i := range s1 {
+        prefixes[i] = s1[:i+1]
+    }
+    //遍历输入的字符串数组
+    for _, s := range strs {
+        for i, pre := range prefixes {
+			//HasPrefix判断字符串s是否以pre前缀开头。
+            if !strings.HasPrefix(s, pre) {
+                prefixes = prefixes[:i]
+                break
+            }
+        }
+    }
+    if len(prefixes) > 0 {
+		//返回最后一个字符串即最长前缀
+        return prefixes[len(prefixes)-1]
+    }
+    return ""
+}
+```
 
 
