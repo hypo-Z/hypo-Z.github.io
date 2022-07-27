@@ -579,7 +579,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -681,7 +681,7 @@
 </blockquote>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#使用pandoc先将test.md文件转为无格式的output.tex文件
 pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p> 其中一些字段需要修改的可以使用linux自带的sed命令<br> 使用 sed 替换字符串的语法。</p>
+<p> 其中一些字段需要修改的可以使用linux自带的sed命令，比如将verbatim替换成listings(用于代码块)、或者不想要标题号section替换成section*(无标题号)<br> 使用 sed 替换字符串的语法。</p>
  <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sed -i 's/Search_String/Replacement_String/g' Input_File <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p> 首先我们需要了解 sed 语法来做到这一点。请参阅有关的细节。</p>
@@ -1397,7 +1397,7 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">106.4k</span>
+                        class="white-color">106.5k</span>
             
             
             
