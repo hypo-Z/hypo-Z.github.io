@@ -160,7 +160,7 @@ pandoc --pdf-engine=xelatex -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=
 #使用pandoc先将test.md文件转为无格式的output.tex文件
 pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.md
 ```
- 其中一些字段需要修改的可以使用linux自带的sed命令
+ 其中一些字段需要修改的可以使用linux自带的sed命令，比如将verbatim替换成listings(用于代码块)、或者不想要标题号section替换成section*(无标题号)
  使用 sed 替换字符串的语法。
 
  ```sh
