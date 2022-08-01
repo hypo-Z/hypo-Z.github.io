@@ -32,7 +32,7 @@ QQ邮箱：SMTP服务器地址：smtp.qq.com（端口：587）
 
 我使用的是QQ邮箱进行测试
 
-![qqmail](https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test.jpg)
+![qqmail](http://rfxlwr9xo.hn-bkt.clouddn.com/hypo.ltd/qqmail_test.jpg)
 
 QQ邮箱默认关闭SMTP服务，将IMAP/SMTP服务打开，跟着流程做后你会得到令牌密码。
 
@@ -86,7 +86,7 @@ func main(){
 ```
 成功发送：
 
-![success](https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg)
+![success](http://rfxlwr9xo.hn-bkt.clouddn.com/hypo.ltd/qqmail_test_success.jpg)
 
 
 

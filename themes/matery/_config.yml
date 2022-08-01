@@ -306,7 +306,7 @@ mySkills:
 myGallery:
   enable: true
   data:
-    - https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg
+    - /medias/featureimages/40.jpg
     - /medias/featureimages/4.jpg
     - /medias/featureimages/21.jpg
     - /medias/featureimages/2.jpg
