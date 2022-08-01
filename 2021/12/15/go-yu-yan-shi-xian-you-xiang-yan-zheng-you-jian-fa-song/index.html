@@ -474,7 +474,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-12
+                    2022-08-01
                 </div>
                 
 
@@ -519,7 +519,7 @@
                 <h1 id="Go语言实现邮箱验证-邮件发送"><a href="#Go语言实现邮箱验证-邮件发送" class="headerlink" title="Go语言实现邮箱验证/邮件发送"></a>Go语言实现邮箱验证/邮件发送</h1><h3 id="1-首先设置邮箱的smtp"><a href="#1-首先设置邮箱的smtp" class="headerlink" title="1.首先设置邮箱的smtp"></a>1.首先设置邮箱的smtp</h3><p>SMTP服务器就是邮件代收发服务器，由邮件服务商提供，常见的SMTP服务器端口号：<br>QQ邮箱：SMTP服务器地址：smtp.qq.com（端口：587）<br>雅虎邮箱: SMTP服务器地址：smtp.yahoo.com（端口：587）<br>163邮箱：SMTP服务器地址：smtp.163.com（端口：25）<br>126邮箱: SMTP服务器地址：smtp.126.com（端口：25）<br>新浪邮箱: SMTP服务器地址：smtp.sina.com（端口：25）</p>
 <p>登录邮箱账户 设置开启SMTP 并获取授权码</p>
 <p>我使用的是QQ邮箱进行测试</p>
-<p><img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test.jpg" alt="qqmail"></p>
+<p><img src="http://rfxlwr9xo.hn-bkt.clouddn.com/hypo.ltd/qqmail_test.jpg" alt="qqmail"></p>
 <p>QQ邮箱默认关闭SMTP服务，将IMAP/SMTP服务打开，跟着流程做后你会得到令牌密码。</p>
 <h3 id="代码实现如下："><a href="#代码实现如下：" class="headerlink" title="代码实现如下："></a>代码实现如下：</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">SendToMail</span><span class="token punctuation">(</span>rand<span class="token punctuation">,</span> to <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
 
@@ -566,7 +566,7 @@
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>成功发送：</p>
-<p><img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/qqmail_test_success.jpg" alt="success"></p>
+<p><img src="http://rfxlwr9xo.hn-bkt.clouddn.com/hypo.ltd/qqmail_test_success.jpg" alt="success"></p>
 <h3 id="遇到的几个坑"><a href="#遇到的几个坑" class="headerlink" title="遇到的几个坑"></a>遇到的几个坑</h3><ul>
 <li>smtp.SendMail 后出现 EOF 失败</li>
 </ul>
