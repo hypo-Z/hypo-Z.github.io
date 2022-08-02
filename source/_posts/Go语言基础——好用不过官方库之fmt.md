@@ -9,7 +9,7 @@ mathjax: false
 date: 2022-08-01 11:18:32
 coverImg:
 password:
-summary: 拒绝重复造轮子，看看那些好用的官方库的包，这里仅仅总结我自己觉得好用的库及应用点，具体包函数可查看[go官方库]
+summary: 好用不过官方库之fmt
 categories: Golang
 tags:
 
@@ -23,7 +23,7 @@ tags:
 
 拒绝重复造轮子，看看那些好用的官方库的包，这里仅仅总结我自己觉得好用的库及应用点，具体包函数可查看[go官方库](https://studygolang.com/pkgdoc)
 
-## fmt
+## fmt包
 
 fmt包实现了类似C语言printf和scanf的格式化I/O。格式化动作（'verb'）源自C语言但更简单
 
