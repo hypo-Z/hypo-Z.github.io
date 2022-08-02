@@ -407,7 +407,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/58.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/58.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -617,128 +617,204 @@
 </ul>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//示例结构体</span>
 <span class="token keyword">type</span> Person <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-	Name	<span class="token builtin">string</span>
+Name    <span class="token builtin">string</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">%</span>v	值的默认格式表示  <span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%v"</span><span class="token punctuation">,</span>person <span class="token punctuation">)</span>	<span class="token punctuation">{</span>hypo<span class="token punctuation">}</span>
-<span class="token operator">%</span><span class="token operator">+</span>v	类似<span class="token operator">%</span>v，但输出结构体时会添加字段名 <span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%+v"</span><span class="token punctuation">,</span>person <span class="token punctuation">)</span>	<span class="token punctuation">{</span>Name<span class="token punctuation">:</span>hypo<span class="token punctuation">}</span>
-<span class="token operator">%</span>#v	值的Go语法表示 <span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"#v"</span><span class="token punctuation">,</span>person <span class="token punctuation">)</span>	main<span class="token punctuation">.</span>Person<span class="token operator">=</span><span class="token punctuation">{</span>hypo<span class="token punctuation">}</span>
-<span class="token operator">%</span>T	值的类型的Go语法表示 <span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%T"</span><span class="token punctuation">,</span>person <span class="token punctuation">)</span>	main<span class="token punctuation">.</span>Person
-<span class="token operator">%</span><span class="token operator">%</span>	百分号 <span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%%"</span><span class="token punctuation">)</span>	<span class="token operator">%</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<ul>
+<li>参数打印</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+<th>示例</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%v</td>
+<td>值的默认格式表示</td>
+<td>Printf(“%v”,person )</td>
+<td>{hypo}</td>
+</tr>
+<tr>
+<td>%+v</td>
+<td>类似%v，但输出结构体时会添加字段名</td>
+<td>Printf(“%+v”,person )</td>
+<td>{Name:hypo}</td>
+</tr>
+<tr>
+<td>%#v</td>
+<td>值的Go语法表示</td>
+<td>Printf(“#v”,person )</td>
+<td>main.Person={hypo}</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>值的类型的Go语法表示</td>
+<td>Printf(“%T”,person )</td>
+<td>main.Person</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>百分号</td>
+<td>Printf(“%%”)</td>
+<td>%</td>
+</tr>
+</tbody></table>
 <ul>
 <li>可以打印精度和宽度，通过一个紧跟在百分号后面的十进制数指定，如果未指定宽度，则表示值时除必需之外不作填充。精度通过（可选的）宽度后跟点号后跟的十进制数指定。如果未指定精度，会使用默认精度；如果点号后没有跟数字，表示精度为0。举例如下：</li>
 </ul>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">%</span>f<span class="token punctuation">:</span>    默认宽度，默认精度
-<span class="token operator">%</span><span class="token number">9</span>f    宽度<span class="token number">9</span>，默认精度
-<span class="token operator">%</span><span class="token number">.2</span>f   默认宽度，精度<span class="token number">2</span>
-<span class="token operator">%</span><span class="token number">9.2</span>f  宽度<span class="token number">9</span>，精度<span class="token number">2</span>
-<span class="token operator">%</span><span class="token number">9.</span>f   宽度<span class="token number">9</span>，精度<span class="token number">0</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">%f:  //默认宽度，默认精度
+%9f  //宽度9，默认精度
+%.2f //默认宽度，精度2
+%9.2f //宽度9，精度2
+%9.f  //宽度9，精度0 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>整数进制转换</li>
 </ul>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//占位符	说明	示例	输出</span>
-<span class="token operator">%</span>b	二进制表示	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%b"</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>	<span class="token number">101</span>
-<span class="token operator">%</span>c	该值对应的unicode码值	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span><span class="token number">0x4E2d</span><span class="token punctuation">)</span>	中
-<span class="token operator">%</span>d	十进制表示	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token number">0x12</span><span class="token punctuation">)</span>	<span class="token number">18</span>
-<span class="token operator">%</span>o	八进制表示	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%o"</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>	<span class="token number">12</span>
-<span class="token operator">%</span>q	单引号围绕的字符字面值，由Go语法安全的转译	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%q"</span><span class="token punctuation">,</span><span class="token number">0x4E2d</span><span class="token punctuation">)</span>	<span class="token string">'中'</span>
-<span class="token operator">%</span>x	十六进制表示，字母形式为小写a<span class="token operator">-</span>f	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%x"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span>	d
-<span class="token operator">%</span>X	十六进制表示，字母形式为大写A<span class="token operator">-</span>F	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%X"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span>	D
-<span class="token operator">%</span>U	表示为Unicode格式：U<span class="token operator">+</span><span class="token number">1234</span>，等价于<span class="token string">"U+%04X"</span>	<span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%U"</span><span class="token punctuation">,</span><span class="token number">0x4E2d</span><span class="token punctuation">)</span>	U<span class="token operator">+</span><span class="token number">4E2</span>D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>说明</th>
+<th>示例</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%b</td>
+<td>二进制表示</td>
+<td>Printf(“%b”,5)</td>
+<td>101</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>该值对应的unicode码值</td>
+<td>Printf(“%c”,0x4E2d)</td>
+<td>中</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>十进制表示</td>
+<td>Printf(“%d”,0x12)</td>
+<td>18</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制表示</td>
+<td>Printf(“%o”,10)</td>
+<td>12</td>
+</tr>
+<tr>
+<td>%q</td>
+<td>单引号围绕的字符字面值，由Go语法安全的转译</td>
+<td>Printf(“%q”,0x4E2d)</td>
+<td>‘中’</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制表示，字母形式为小写a-f</td>
+<td>Printf(“%x”,13)</td>
+<td>d</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>十六进制表示，字母形式为大写A-F</td>
+<td>Printf(“%X”,13)</td>
+<td>D</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>表示为Unicode格式：U+1234，等价于”U+%04X”</td>
+<td>Printf(“%U”,0x4E2d)</td>
+<td>U+4E2D</td>
+</tr>
+</tbody></table>
 <h3 id="Fprintf"><a href="#Fprintf" class="headerlink" title="Fprintf"></a>Fprintf</h3><p>// 功能同上面三个函数，只不过将转换结果写入到 w 中。<br>func Fprint(w io.Writer, a …interface{}) (n int, err error)<br>func Fprintln(w io.Writer, a …interface{}) (n int, err error)<br>func Fprintf(w io.Writer, format string, a …interface{}) (n int, err error)</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	<span class="token comment">//创建文件</span>
-	f<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span>
-	<span class="token keyword">defer</span> f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
-	<span class="token comment">//定义零值Buffer类型变量b</span>
-	<span class="token keyword">var</span> b bytes<span class="token punctuation">.</span>Buffer
-    
-	<span class="token comment">//使用Write方法为写入字符串</span>
-	b<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//写入缓存</span>
-	f<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//写入文件</span>
-    
-	<span class="token comment">//这个是把一个字符串拼接到Buffer里</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"https://hypo.ltd"</span><span class="token punctuation">)</span>
-    <span class="token comment">//这是是把一个字符串拼接并写入文件中</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"https://hypo.ltd"</span><span class="token punctuation">)</span>
-    
-	<span class="token comment">//把Buffer里的内容打印到终端控制台</span>
-	b<span class="token punctuation">.</span><span class="token function">WriteTo</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">)</span>
-	<span class="token comment">//读出文件内容并打印</span>
-	content<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadFile</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span>
-	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
-		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"read file failed, err:"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
-		<span class="token keyword">return</span>
-	<span class="token punctuation">}</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
-    <span class="token comment">//官方示例，直接输出至控制台</span>
-    <span class="token keyword">const</span> name<span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token string">"Kim"</span><span class="token punctuation">,</span> <span class="token number">22</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token string">" is "</span><span class="token punctuation">,</span> age<span class="token punctuation">,</span> <span class="token string">" years old.\n"</span><span class="token punctuation">)</span>
+<span class="token comment">//创建文件</span>
+f<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span>
+<span class="token keyword">defer</span> f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">//定义零值Buffer类型变量b</span>
+<span class="token keyword">var</span> b bytes<span class="token punctuation">.</span>Buffer
+
+<span class="token comment">//使用Write方法为写入字符串</span>
+b<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//写入缓存</span>
+f<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//写入文件</span>
+
+<span class="token comment">//这个是把一个字符串拼接到Buffer里</span>
+fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"https://hypo.ltd"</span><span class="token punctuation">)</span>
+<span class="token comment">//这是是把一个字符串拼接并写入文件中</span>
+fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"https://hypo.ltd"</span><span class="token punctuation">)</span>
+
+<span class="token comment">//把Buffer里的内容打印到终端控制台</span>
+b<span class="token punctuation">.</span><span class="token function">WriteTo</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">)</span>
+<span class="token comment">//读出文件内容并打印</span>
+content<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadFile</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"read file failed, err:"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+<span class="token keyword">return</span>
+<span class="token punctuation">}</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">//官方示例，直接输出至控制台</span>
+<span class="token keyword">const</span> name<span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token string">"Kim"</span><span class="token punctuation">,</span> <span class="token number">22</span>
+fmt<span class="token punctuation">.</span><span class="token function">Fprint</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token string">" is "</span><span class="token punctuation">,</span> age<span class="token punctuation">,</span> <span class="token string">" years old.\n"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="Sprintf"><a href="#Sprintf" class="headerlink" title="Sprintf"></a>Sprintf</h3><p>// 功能同上面三个函数，只不过将转换结果以字符串形式返回。<br>func Sprint(a …interface{}) string<br>func Sprintln(a …interface{}) string<br>func Sprintf(format string, a …interface{}) string</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//可使用此函数标准化输出字符串string</span>
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment">// go 中格式化字符串并赋值给新串，使用 fmt.Sprintf</span>
-    <span class="token comment">// %s 表示字符串</span>
-    <span class="token keyword">var</span> stockcode<span class="token operator">=</span><span class="token string">"000987"</span>
-    <span class="token keyword">var</span> enddate<span class="token operator">=</span><span class="token string">"2020-12-31"</span>
-    <span class="token keyword">var</span> url<span class="token operator">=</span><span class="token string">"Code=%s&amp;endDate=%s"</span>
-    <span class="token keyword">var</span> target_url<span class="token operator">=</span>fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>stockcode<span class="token punctuation">,</span>enddate<span class="token punctuation">)</span>
-    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>target_url<span class="token punctuation">)</span>
+<span class="token comment">// go 中格式化字符串并赋值给新串，使用 fmt.Sprintf</span>
+<span class="token comment">// %s 表示字符串</span>
+<span class="token keyword">var</span> stockcode <span class="token operator">=</span> <span class="token string">"000987"</span>
+<span class="token keyword">var</span> enddate <span class="token operator">=</span> <span class="token string">"2020-12-31"</span>
+<span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"Code=%s&amp;endDate=%s"</span>
+<span class="token keyword">var</span> target_url <span class="token operator">=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> stockcode<span class="token punctuation">,</span> enddate<span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>target_url<span class="token punctuation">)</span>
 
-    <span class="token comment">// 另外一个实例，%d 表示整型</span>
-    <span class="token keyword">const</span> name<span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token string">"Kim"</span><span class="token punctuation">,</span> <span class="token number">22</span>
-    s <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s is %d years old.\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
-    io<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> s<span class="token punctuation">)</span> <span class="token comment">// 简单起见，忽略一些错误</span>
+<span class="token comment">// 另外一个实例，%d 表示整型</span>
+<span class="token keyword">const</span> name<span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token string">"Kim"</span><span class="token punctuation">,</span> <span class="token number">22</span>
+s <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s is %d years old.\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
+io<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdout<span class="token punctuation">,</span> s<span class="token punctuation">)</span> <span class="token comment">// 简单起见，忽略一些错误</span>
 <span class="token punctuation">}</span>
 <span class="token comment">//输出</span>
-Code<span class="token operator">=</span><span class="token number">000987</span><span class="token operator">&amp;</span>endDate<span class="token operator">=</span><span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">31</span>
+Code <span class="token operator">=</span> <span class="token number">000987</span><span class="token operator">&amp;</span>endDate <span class="token operator">=</span> <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">31</span>
 Kim is <span class="token number">22</span> years old<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="Errorf"><a href="#Errorf" class="headerlink" title="Errorf"></a>Errorf</h3><p>// 功能同 Sprintf，只不过结果字符串被包装成了 error 类型。<br>func Errorf(format string, a …interface{}) error</p>
 <h3 id="Scanf"><a href="#Scanf" class="headerlink" title="Scanf"></a>Scanf</h3><p>// 从标准输入扫描文本，根据format 参数指定的格式将成功读取的空白分隔的值保存进成功传递给本函数的参数。返回成功扫描的条目个数和遇到的任何错误。</p>
 <p>func Scanf(format string, a …interface{}) (n int, err error)</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 当程序执行到fmt.Scanl(&amp;name),程序会停止这里,等待用户输入,多个参数使用空格,并回车</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Scanf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>Age<span class="token punctuation">)</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Name:%v,Age:%v \n"</span><span class="token punctuation">,</span> Name<span class="token punctuation">,</span> Age<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
+fmt<span class="token punctuation">.</span><span class="token function">Scanf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>Age<span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Name:%v,Age:%v \n"</span><span class="token punctuation">,</span> Name<span class="token punctuation">,</span> Age<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Fscanf"><a href="#Fscanf" class="headerlink" title="Fscanf"></a>Fscanf</h3><p>//Fscanf从r扫描文本，根据format 参数指定的格式将成功读取的空白分隔的值保存进成功传递给本函数的参数。返回成功扫描的条目个数和遇到的任何错误。</p>
 <p>func Fscanf(r io.Reader, format string, a …interface{}) (n int, err error)</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> name <span class="token builtin">string</span>
-	<span class="token keyword">var</span> age <span class="token builtin">int</span>
-	of<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span><span class="token comment">//文件里写hypo 18</span>
-	<span class="token keyword">defer</span> of<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment">//也可以根据官方示例学习</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Fscanf</span><span class="token punctuation">(</span>of<span class="token punctuation">,</span> <span class="token string">"%s %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span><span class="token comment">//可从文件中读入参数</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"name=%s,age=%d\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token comment">//name=hypo,age=18   </span>
+<span class="token keyword">var</span> name <span class="token builtin">string</span>
+<span class="token keyword">var</span> age <span class="token builtin">int</span>
+of<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span> <span class="token comment">//文件里写hypo 18</span>
+<span class="token keyword">defer</span> of<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">//也可以根据官方示例学习</span>
+fmt<span class="token punctuation">.</span><span class="token function">Fscanf</span><span class="token punctuation">(</span>of<span class="token punctuation">,</span> <span class="token string">"%s %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span><span class="token comment">//可从文件中读入参数</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"name=%s,age=%d\n"</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token comment">//name=hypo,age=18   </span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="SScanf"><a href="#SScanf" class="headerlink" title="SScanf"></a>SScanf</h3><p>//Sscanf从字符串str扫描文本，根据format 参数指定的格式将成功读取的空白分隔的值保存进成功传递给本函数的参数。返回成功扫描的条目个数和遇到的任何错误。</p>
 <p>func Sscanf(str string, format string, a …interface{}) (n int, err error)</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//官方示例</span>
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token keyword">var</span> name <span class="token builtin">string</span>
-	<span class="token keyword">var</span> age <span class="token builtin">int</span>
-	n<span class="token punctuation">,</span> err <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sscanf</span><span class="token punctuation">(</span><span class="token string">"Kim is 22 years old"</span><span class="token punctuation">,</span> <span class="token string">"%s is %d years old"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span>
-	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
-		<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-	<span class="token punctuation">}</span>
-	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%d: %s, %d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>  
+<span class="token keyword">var</span> name <span class="token builtin">string</span>
+<span class="token keyword">var</span> age <span class="token builtin">int</span>
+n<span class="token punctuation">,</span> err <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sscanf</span><span class="token punctuation">(</span><span class="token string">"Kim is 22 years old"</span><span class="token punctuation">,</span> <span class="token string">"%s is %d years old"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span>
+<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%d: %s, %d\n"</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token comment">//输出</span>
 <span class="token number">2</span><span class="token punctuation">:</span> Kim<span class="token punctuation">,</span> <span class="token number">22</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1138,7 +1214,7 @@ Kim is <span class="token number">22</span> years old<span class="token punctuat
                 <a href="/hypo-Z.github.io/2022/08/01/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-fmt/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/58.jpg" class="responsive-img" alt="Go语言基础——好用不过官方库之fmt">
+                        <img src="/hypo-Z.github.io/medias/featureimages/58.jpeg" class="responsive-img" alt="Go语言基础——好用不过官方库之fmt">
                         
                         <span class="card-title">Go语言基础——好用不过官方库之fmt</span>
                     </div>
