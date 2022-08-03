@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker容器间通信, 菜鸟程序员">
-    <meta name="description" content="Bridge网桥双向通信">
+    <meta name="keywords" content="Go语言基础——好用不过官方库之os\exec, 菜鸟程序员">
+    <meta name="description" content="好用不过官方库之os\exec">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker容器间通信 | 周大苏打的博客</title>
+    <title>Go语言基础——好用不过官方库之os\exec | 周大苏打的博客</title>
     <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/60.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker容器间通信</h1>
+                    <h1 class="description center-align post-title">Go语言基础——好用不过官方库之os\exec</h1>
                 </div>
             </div>
         </div>
@@ -528,8 +528,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/hypo-Z.github.io/tags/Docker/">
-                                <span class="chip bg-color">Docker</span>
+                            <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
                             </a>
                         
                     </div>
@@ -540,8 +548,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                笔记
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -553,28 +561,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-08-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-24
+                    2022-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    223
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -602,34 +610,88 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker容器间通信"><a href="#Docker容器间通信" class="headerlink" title="Docker容器间通信"></a>Docker容器间通信</h1><p>Bridge网桥双向通信</p>
-<p><strong>浏览器&lt;==&gt;物理网卡&lt;=网桥=&gt;Docker环境下的容器</strong></p>
-<p>将指定的容器都绑定到同一个网桥上，这些容器就会天然的互联互通</p>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d --name server app
-docker run -d --name database mysql
-docker network create -d bridge my-bridge #创建一个新的网桥
-[root@VM-0-2-centos ~]# docker network ls #列出docker服务网络底层明细
-NETWORK ID          NAME                DRIVER              SCOPE
-0dfca8776e29        bridge              bridge              local
-dec8ce58f992        host                host                local
-522173622fe8        my-bridge           bridge              local
-36e1a4828e03        none                null                local<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="好用不过官方库之os-exec"><a href="#好用不过官方库之os-exec" class="headerlink" title="好用不过官方库之os/exec"></a>好用不过官方库之os/exec</h1><p>拒绝重复造轮子，看看那些好用的官方库的包，这里仅仅总结我自己觉得好用的库及应用点，具体包函数可查看<a target="_blank" rel="noopener" href="https://studygolang.com/pkgdoc">go官方库</a></p>
+<p>exec包执行外部命令。它包装了os.StartProcess函数以便更容易的修正输入和输出，使用管道连接I/O，以及作其它的一些调整。</p>
+<h3 id="type-Cmd"><a href="#type-Cmd" class="headerlink" title="type Cmd"></a>type Cmd</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Cmd <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Path是将要执行的命令的路径。</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// 该字段不能为空，如为相对路径会相对于Dir字段。</span>
+    Path <span class="token builtin">string</span>
+    <span class="token comment">// Args保管命令的参数，包括命令名作为第一个参数；如果为空切片或者nil，相当于无参数命令。</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// 典型用法下，Path和Args都应被Command函数设定。</span>
+    Args <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+    <span class="token comment">// Env指定进程的环境，如为nil，则是在当前进程的环境下执行。</span>
+    Env <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+    <span class="token comment">// Dir指定命令的工作目录。如为空字符串，会在调用者的进程当前目录下执行。</span>
+    Dir <span class="token builtin">string</span>
+    <span class="token comment">// Stdin指定进程的标准输入，如为nil，进程会从空设备读取（os.DevNull）</span>
+    Stdin io<span class="token punctuation">.</span>Reader
+    <span class="token comment">// Stdout和Stderr指定进程的标准输出和标准错误输出。</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// 如果任一个为nil，Run方法会将对应的文件描述符关联到空设备（os.DevNull）</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// 如果两个字段相同，同一时间最多有一个线程可以写入。</span>
+    Stdout io<span class="token punctuation">.</span>Writer
+    Stderr io<span class="token punctuation">.</span>Writer
+    <span class="token comment">// ExtraFiles指定额外被新进程继承的已打开文件流，不包括标准输入、标准输出、标准错误输出。</span>
+    <span class="token comment">// 如果本字段非nil，entry i会变成文件描述符3+i。</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// BUG: 在OS X 10.6系统中，子进程可能会继承不期望的文件描述符。</span>
+    <span class="token comment">// http://golang.org/issue/2603</span>
+    ExtraFiles <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>os<span class="token punctuation">.</span>File
+    <span class="token comment">// SysProcAttr保管可选的、各操作系统特定的sys执行属性。</span>
+    <span class="token comment">// Run方法会将它作为os.ProcAttr的Sys字段传递给os.StartProcess函数。</span>
+    SysProcAttr <span class="token operator">*</span>syscall<span class="token punctuation">.</span>SysProcAttr
+    <span class="token comment">// Process是底层的，只执行一次的进程。</span>
+    Process <span class="token operator">*</span>os<span class="token punctuation">.</span>Process
+    <span class="token comment">// ProcessState包含一个已经存在的进程的信息，只有在调用Wait或Run后才可用。</span>
+    ProcessState <span class="token operator">*</span>os<span class="token punctuation">.</span>ProcessState
+    <span class="token comment">// 内含隐藏或非导出字段</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="创建新的网桥"><a href="#创建新的网桥" class="headerlink" title="创建新的网桥"></a>创建新的网桥</h2><pre class="line-numbers language-none"><code class="language-none">docker network create my-bridge<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Cmd代表一个正在准备或者在执行中的外部命令。</p>
+<h3 id="func-Command"><a href="#func-Command" class="headerlink" title="func Command"></a>func Command</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Command</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">,</span> arg <span class="token operator">...</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">*</span>Cmd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>函数返回一个*Cmd，用于使用给出的参数执行name指定的程序。返回值只设定了Path和Args两个参数。</p>
+<p>如果name不含路径分隔符，将使用LookPath获取完整路径；否则直接使用name。参数arg不应包含命令名。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//重开一个新的端口运行命令</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    com <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"some-command"</span><span class="token punctuation">)</span>
+	cmd <span class="token operator">:=</span> exec<span class="token punctuation">.</span><span class="token function">Command</span><span class="token punctuation">(</span><span class="token string">"/bin/bash"</span><span class="token punctuation">,</span> <span class="token string">"-c"</span><span class="token punctuation">,</span> com<span class="token punctuation">)</span>
+	cmd<span class="token punctuation">.</span>Stdout <span class="token operator">=</span> os<span class="token punctuation">.</span>Stdout <span class="token comment">//结果输出至控制台</span>
+	cmd<span class="token punctuation">.</span>Stderr <span class="token operator">=</span> os<span class="token punctuation">.</span>Stderr <span class="token comment">//错误输出至控制台</span>
+	err <span class="token operator">=</span> cmd<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatalf</span><span class="token punctuation">(</span><span class="token string">"failed to call cmd.Run(): %v"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="func-Cmd-Run"><a href="#func-Cmd-Run" class="headerlink" title="func (*Cmd) Run"></a>func (*Cmd) Run</h4><pre class="line-numbers language-none"><code class="language-none">func (c *Cmd) Run() error<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="容器和网桥绑定"><a href="#容器和网桥绑定" class="headerlink" title="容器和网桥绑定"></a>容器和网桥绑定</h2><pre class="line-numbers language-none"><code class="language-none">docker network connect my-bridge web
-docker network connect my-bridge database<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Run执行c包含的命令，并阻塞直到完成。</p>
+<p>如果命令成功执行，stdin、stdout、stderr的转交没有问题，并且返回状态码为0，方法的返回值为nil；如果命令没有执行或者执行失败，会返回*ExitError类型的错误；否则返回的error可能是表示I/O问题。</p>
+<h4 id="func-Cmd-Start"><a href="#func-Cmd-Start" class="headerlink" title="func (*Cmd) Start"></a>func (*Cmd) Start</h4><pre class="line-numbers language-none"><code class="language-none">func (c *Cmd) Start() error<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="网桥实现原理"><a href="#网桥实现原理" class="headerlink" title="网桥实现原理"></a>网桥实现原理</h2><pre class="line-numbers language-none"><code class="language-none">外网----&gt;物理网卡（192.168.0.117）-----&gt;docker里的虚拟网卡（172.17.0.1）|-----&gt;redis(172.17.0.2:6375)  |----&gt;server(172.17.0.3:8080)  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Start开始执行c包含的命令，但并不会等待该命令完成即返回。Wait方法会返回命令的返回状态码并在命令返回后释放相关的资源。</p>
+<h4 id="func-Cmd-Wait"><a href="#func-Cmd-Wait" class="headerlink" title="func (*Cmd) Wait"></a>func (*Cmd) Wait</h4><pre class="line-numbers language-none"><code class="language-none">func (c *Cmd) Wait() error<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>Wait会阻塞直到该命令执行完成，该命令必须是被Start方法开始执行的。</p>
+<p>如果命令成功执行，stdin、stdout、stderr的转交没有问题，并且返回状态码为0，方法的返回值为nil；如果命令没有执行或者执行失败，会返回*ExitError类型的错误；否则返回的error可能是表示I/O问题。Wait方法会在命令返回后释放相关的资源。</p>
+<h4 id="func-Cmd-Output"><a href="#func-Cmd-Output" class="headerlink" title="func (*Cmd) Output"></a>func (*Cmd) Output</h4><pre class="line-numbers language-none"><code class="language-none">func (c *Cmd) Output() ([]byte, error)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>执行命令并返回标准输出的切片。</p>
+<p>Example</p>
+<pre class="line-numbers language-none"><code class="language-none">out, err := exec.Command("date").Output()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf("The date is %s\n", out)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://hypo-pictrue-1308430808.cos.ap-shanghai.myqcloud.com/hypo.ltd-%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%AD%98%E5%82%A8/%E7%BD%91%E6%A1%A5.png"></p>
-<h2 id="容器和网桥解除绑定"><a href="#容器和网桥解除绑定" class="headerlink" title="容器和网桥解除绑定"></a>容器和网桥解除绑定</h2><pre class="line-numbers language-none"><code class="language-none">docker network disconnect my-bridge server
-docker network disconnect my-bridge database<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="func-Cmd-CombinedOutput"><a href="#func-Cmd-CombinedOutput" class="headerlink" title="func (*Cmd) CombinedOutput"></a>func (*Cmd) CombinedOutput</h4><pre class="line-numbers language-none"><code class="language-none">func (c *Cmd) CombinedOutput() ([]byte, error)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>执行命令并返回标准输出和错误输出合并的切片。</p>
 
                 
             </div>
@@ -656,7 +718,7 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/01/08/docker-rong-qi-jian-tong-xin/">https://github.com/hypo-Z/hypo-Z.github.io/2022/01/08/docker-rong-qi-jian-tong-xin/</a>
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/08/03/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os-exec/">https://github.com/hypo-Z/hypo-Z.github.io/2022/08/03/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os-exec/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -694,8 +756,16 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                     
                         <div class="article-tag">
                             
-                                <a href="/hypo-Z.github.io/tags/Docker/">
-                                    <span class="chip bg-color">Docker</span>
+                                <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
                                 </a>
                             
                         </div>
@@ -1007,49 +1077,55 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hypo-Z.github.io/2022/01/21/31-ipfs-ke-kuai-su-suo-yin-de-ban-ben-hua-de-dian-dui-dian-wen-jian-xi-tong/">
+                <a href="/hypo-Z.github.io/2022/08/03/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os-exec/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/32.jpg" class="responsive-img" alt="IPFS-可快速索引的版本化的点对点文件系统">
+                        <img src="/hypo-Z.github.io/medias/featureimages/60.jpeg" class="responsive-img" alt="Go语言基础——好用不过官方库之os\exec">
                         
-                        <span class="card-title">IPFS-可快速索引的版本化的点对点文件系统</span>
+                        <span class="card-title">Go语言基础——好用不过官方库之os\exec</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            星际文件系统是一种点对点的分布式文件系统， 旨在连接所有有相同的文件系统的计算机设备。在某些方面， IPFS类似于web, 但web 是中心化的，而IPFS是一个单一的Bittorrent 群集， 用git 仓库分布式存储。换句话说， IPFS 提供了高吞吐量的内容寻址块存储模型， 具有内容寻址的超链接。这形成了一个广义的Merkle DAG 数据结构，可以用这个数据结构构建版本文件系统，区块链，甚至是永久性网站。。IPFS 结合了分布式哈希表， 带有激励机制的块交换和自我认证命名空间。IPFS 没有单故障点， 节点不需要相互信任。
+                            好用不过官方库之os\exec
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/hypo-Z.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
-                                    转载
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">文章</span>
+                    <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
@@ -1063,30 +1139,30 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hypo-Z.github.io/2022/01/07/29-tuan-dui-xie-zuo-zhong-de-githubflow-gong-zuo-liu-cheng/">
+                <a href="/hypo-Z.github.io/2022/08/02/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/29.jpg" class="responsive-img" alt="团队协作中的Githubflow工作流程">
+                        <img src="/hypo-Z.github.io/medias/featureimages/59.jpeg" class="responsive-img" alt="Go语言基础——好用不过官方库之os">
                         
-                        <span class="card-title">团队协作中的Githubflow工作流程</span>
+                        <span class="card-title">Go语言基础——好用不过官方库之os</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            作为一名开发人员Git常用命令每天都在使用，大家肯定信手拈来，但是在团队协作中Git的使用姿势和个人开发还是有很多不一样的地方，对于技术团队，期望大家使用规范的Git操作流程，规范的CommitMessage，规范的代码风格。这样才能提高团队开发相率和项目的可维护性。
+                            好用不过官方库之os
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/hypo-Z.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
-                                    转载
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -1096,12 +1172,16 @@ docker network disconnect my-bridge database<span aria-hidden="true" class="line
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/Githubflow/">
-                        <span class="chip bg-color">Githubflow</span>
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
                     </a>
                     
                 </div>
