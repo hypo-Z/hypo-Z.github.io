@@ -22,6 +22,8 @@ tags:
 
 strings包实现了用于操作字符的简单函数。
 
+## strings 判断
+
 ### func EqualFold
 
 func EqualFold(s, t string) bool
@@ -48,7 +50,7 @@ fmt.Println(strings.HasPrefix("abcefg", "abc")) //true
 fmt.Println(strings.HasPrefix("abcefg", "e")) //false
 ```
 
-### func HasSuffix 
+### func HasSuffix
 
 ```go
 func HasSuffix(s, suffix string) bool {
@@ -66,7 +68,7 @@ fmt.Println(strings.HasPrefix("abcefg", "e")) //false
 
 ### func Index
 
-```
+```go
 func Index(s, sep string) int
 ```
 
@@ -102,3 +104,112 @@ func Contains(s, substr string) bool {
 fmt.Println(strings.Contains("seafood", "foo")) //true
 ```
 
+## strings 处理
+
+### func ToLower
+
+```go
+func ToLower(s string) string
+```
+
+返回将所有字母都转为对应的小写版本的拷贝。
+
+### func ToUpper
+
+```go
+func ToUpper(s string) string
+```
+
+返回将所有字母都转为对应的大写版本的拷贝。
+
+### func Repeat
+
+```go
+func Repeat(s string, count int) string
+```
+
+返回count个s串联的字符串。
+
+### func Replace
+
+```go
+func Replace(s, old, new string, n int) string
+```
+
+返回将s中前n个不重叠old子串都替换为new的新字符串，如果n<0会替换所有old子串。
+
+```go
+fmt.Println(strings.ToLower("Gopher")) //gopher
+fmt.Println(strings.ToUpper("Gopher")) //GOPHER
+fmt.Println("ba" + strings.Repeat("na", 2)) //banana
+fmt.Println(strings.Replace("oink oink oink", "k", "ky", 2)) //oinky oinky oink
+fmt.Println(strings.Replace("oink oink oink", "oink", "moo", -1)) //moo moo moo
+```
+
+### func TrimPrefix
+
+```go
+func TrimPrefix(s, prefix string) string {
+	if HasPrefix(s, prefix) {
+		return s[len(prefix):]
+	}
+	return s
+}
+```
+
+返回去除s可能的前缀prefix的字符串。
+
+### func TrimSuffix
+
+```go
+func TrimSuffix(s, suffix string) string {
+	if HasSuffix(s, suffix) {
+		return s[:len(s)-len(suffix)]
+	}
+	return s
+}
+```
+
+返回去除s可能的后缀suffix的字符串。
+
+## strings 分割
+
+### func Fields
+
+```
+func Fields(s string) []string
+```
+
+返回将字符串按照空白（unicode.IsSpace确定，可以是一到多个连续的空白字符）分割的多个字符串。如果字符串全部是空白或者是空字符串的话，会返回空切片。
+
+###  func Split
+
+```
+func Split(s, sep string) []string
+```
+
+用去掉s中出现的sep的方式进行分割，会分割到结尾，并返回生成的所有片段组成的切片（每一个sep都会进行一次切割，即使两个sep相邻，也会进行两次切割）。如果sep为空字符，Split会将s切分成每一个unicode码值一个字符串。
+
+```go
+fmt.Printf("%q\n", strings.Fields("  foo bar  baz   ")) 				//["foo" "bar" "baz"]
+fmt.Printf("%q\n", strings.Split("a,b,c", ",")) 						//["a" "b" "c"]
+fmt.Printf("%q\n", strings.Split("a man a plan a canal panama", "a "))  //["" "man " "plan " "canal panama"]
+fmt.Printf("%q\n", strings.Split(" xyz ", "")) 							//[" " "x" "y" "z" " "]
+fmt.Printf("%q\n", strings.Split("", "Bernardo O'Higgins")) 			//[""]
+```
+
+## strings 合并
+
+### func Join
+
+```
+func Join(a []string, sep string) string
+```
+
+将一系列字符串连接为一个字符串，之间用sep来分隔。
+
+```go
+s := []string{"foo", "bar", "baz"}
+fmt.Println(strings.Join(s, ", "))
+//foo, bar, baz
+```
