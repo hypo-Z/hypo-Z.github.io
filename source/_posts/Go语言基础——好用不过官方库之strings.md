@@ -191,11 +191,16 @@ func Split(s, sep string) []string
 用去掉s中出现的sep的方式进行分割，会分割到结尾，并返回生成的所有片段组成的切片（每一个sep都会进行一次切割，即使两个sep相邻，也会进行两次切割）。如果sep为空字符，Split会将s切分成每一个unicode码值一个字符串。
 
 ```go
-fmt.Printf("%q\n", strings.Fields("  foo bar  baz   ")) 				//["foo" "bar" "baz"]
-fmt.Printf("%q\n", strings.Split("a,b,c", ",")) 						//["a" "b" "c"]
-fmt.Printf("%q\n", strings.Split("a man a plan a canal panama", "a "))  //["" "man " "plan " "canal panama"]
-fmt.Printf("%q\n", strings.Split(" xyz ", "")) 							//[" " "x" "y" "z" " "]
-fmt.Printf("%q\n", strings.Split("", "Bernardo O'Higgins")) 			//[""]
+fmt.Printf("%q\n", strings.Fields("  foo bar  baz   ")) 				
+fmt.Printf("%q\n", strings.Split("a,b,c", ",")) 						
+fmt.Printf("%q\n", strings.Split("a man a plan a canal panama", "a "))  
+fmt.Printf("%q\n", strings.Split(" xyz ", "")) 							
+fmt.Printf("%q\n", strings.Split("", "Bernardo O'Higgins")) 			
+//["foo" "bar" "baz"]
+//["a" "b" "c"]
+//["" "man " "plan " "canal panama"]
+//[" " "x" "y" "z" " "]
+//[""]
 ```
 
 ## strings 合并
