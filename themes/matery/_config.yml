@@ -315,7 +315,7 @@ myGallery:
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
-postCalendar: true
+postCalendar: false
 
 # 不建议使用gittalk,gitment这样权限过高的oauth app,因为它们能够 读写 授权者 所有的公共仓库 ，也就是说拿到你的授权 Token 的人，可以将你的 GitHub 公共仓库删空（这是github权限分的不够细的锅），如果恶意攻击者想获取使用者的 AccessToken，只需要在代码中加上一个 ajax 请求即可。原贴地址:https://www.v2ex.com/t/535608。建议大家看完。（我没有在用gittalk/gitment的网站上评论过，但根据v2ex网友的提示，如果网站自行修改了 gitalk.js 脚本 或者反代了 github api，就很容易拿到你的 Token ）
 
@@ -432,9 +432,9 @@ verifyPassword:
 # busuanzi(http://busuanzi.ibruce.info/) website statistics
 # 不蒜子(http://busuanzi.ibruce.info/) 网站统计
 busuanziStatistics:
-  enable: true
+  enable: false
   totalTraffic: false # 总访问量
-  totalNumberOfvisitors: true # 总人次
+  totalNumberOfvisitors: false # 总人次
 
 # Add google analytics configuration
 # 添加 Google Analytics 配置
