@@ -245,3 +245,7 @@ func main() {
     fmt.Println(get("p"))
 }
 ```
+
+参考文章：
+[菜鸟教程](https://www.runoob.com/go/go-map.html)
+[Go专家编程](https://topgoer.cn/docs/gozhuanjia/gozhuanjiamap)
