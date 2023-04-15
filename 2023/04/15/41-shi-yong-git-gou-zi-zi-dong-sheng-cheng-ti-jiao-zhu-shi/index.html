@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="41-使用GIT钩子自动生成提交注释, 菜鸟程序员">
+    <meta name="keywords" content="使用GIT钩子自动生成提交注释, 菜鸟程序员">
     <meta name="description" content="使用GIT钩子自动生成提交注释">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>41-使用GIT钩子自动生成提交注释 | 学习资料存储</title>
+    <title>使用GIT钩子自动生成提交注释 | 学习资料存储</title>
     <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
@@ -412,7 +412,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">41-使用GIT钩子自动生成提交注释</h1>
+                    <h1 class="description center-align post-title">使用GIT钩子自动生成提交注释</h1>
                 </div>
             </div>
         </div>
@@ -575,14 +575,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    295
+                    561
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -621,15 +621,14 @@ COMMIT_SOURCE=$2<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <pre class="line-numbers language-none"><code class="language-none">msg=...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="输出到提交注释文件"><a href="#输出到提交注释文件" class="headerlink" title="输出到提交注释文件"></a>输出到提交注释文件</h1><pre class="line-numbers language-none"><code class="language-none">echo "$msg" &gt; $COMMIT_MSG_FILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="3">
-<li>设置文件为可执行:<pre class="line-numbers language-none"><code class="language-none">bash
-chmod +x .git/hooks/prepare-commit-msg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>禁止GIT的权限提示:</li>
-</ol>
+<li><p>设置文件为可执行:</p>
 <pre class="line-numbers language-none"><code class="language-none">bash
-git config --global advice.ignoredHook false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol start="5">
-<li>提交代码,会自动生成注释</li>
+chmod +x .git/hooks/prepare-commit-msg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>禁止GIT的权限提示:</p>
+<pre class="line-numbers language-none"><code class="language-none">bash
+git config --global advice.ignoredHook false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>提交代码,会自动生成注释</p>
+</li>
 </ol>
 <h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
 <li>确认默认shell,提供对应命令(如zsh)</li>
@@ -642,6 +641,41 @@ git config --global advice.ignoredHook false<span aria-hidden="true" class="line
 <li>定制化钩子可以大大提高开发效率,值得运用</li>
 <li>可以根据实践不断完善和增强定制钩子</li>
 <li>请提出使用问题和反馈,不断修复BUG和提高</li>
+</ol>
+<h1 id="解析git-diff生成提交注释"><a href="#解析git-diff生成提交注释" class="headerlink" title="解析git diff生成提交注释"></a>解析git diff生成提交注释</h1><h2 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>在prepare-commit-msg文件中,获取git diff结果:</p>
+<pre class="line-numbers language-none"><code class="language-none">bash
+diff=$(git diff --cached)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>解析diff,提取添加/删除/修改的接口、方法等信息:</p>
+<pre class="line-numbers language-none"><code class="language-none">bash
+added=$(echo "$diff" | grep '^+    ' | grep '\[api\]')  
+removed=$(echo "$diff" | grep '^-    ' | grep '\[api\]')   
+modified=$(echo "$diff" | grep '^\+.*\[api\].*$' | grep '\-[api\]')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>根据解析结果生成详细注释:</p>
+<pre class="line-numbers language-none"><code class="language-none">bash
+if [ "$added" != "" ]; then
+msg="Add API: $added"  
+elif [ "$removed" != "" ]; then
+msg="Remove API: $removed"  
+elif [ "$modified" != "" ]; then
+msg="Modify API: $modified"
+else
+msg="Update files"   
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>输出生成的注释:</p>
+<pre class="line-numbers language-none"><code class="language-none">bash
+echo "$msg" &gt; $COMMIT_MSG_FILE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>提交代码,会自动生成详细注释</p>
+</li>
+</ol>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li>需要在代码中标记接口、方法等,如//[api]</li>
+<li>不同语言有不同的标记方式,如Go使用//[api]</li>
+<li>提交时保留标记,否则无法解析生成详细注释</li>
+<li>详细注释会标明添加/删除/修改的接口、方法名称等</li>
+<li>其他步骤同上,如设置执行权限、禁用提示等</li>
+<li>定制化变得更加强大,但也需要更多标记维护</li>
+<li>灵活运用,根据需要选择获取最近git add注释或解析diff</li>
 </ol>
 
                 
@@ -1036,9 +1070,9 @@ git config --global advice.ignoredHook false<span aria-hidden="true" class="line
                 <a href="/hypo-Z.github.io/2023/04/15/41-shi-yong-git-gou-zi-zi-dong-sheng-cheng-ti-jiao-zhu-shi/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/73.jpeg" class="responsive-img" alt="41-使用GIT钩子自动生成提交注释">
+                        <img src="/hypo-Z.github.io/medias/featureimages/73.jpeg" class="responsive-img" alt="使用GIT钩子自动生成提交注释">
                         
-                        <span class="card-title">41-使用GIT钩子自动生成提交注释</span>
+                        <span class="card-title">使用GIT钩子自动生成提交注释</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1319,7 +1353,7 @@ git config --global advice.ignoredHook false<span aria-hidden="true" class="line
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">140k</span>
+                        class="white-color">140.3k</span>
             
             
             
