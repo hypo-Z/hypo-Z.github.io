@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>队列、堆、栈、堆栈的区别与defer的关系 | 周大苏打的博客</title>
+    <title>队列、堆、栈、堆栈的区别与defer的关系 | 学习资料存储</title>
     <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
@@ -32,7 +32,7 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="周大苏打的博客" type="application/atom+xml">
+<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="学习资料存储" type="application/atom+xml">
 </head>
 
 
@@ -57,7 +57,7 @@
                     
                     <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">周大苏打的博客</span>
+                    <span class="logo-span">学习资料存储</span>
                 </a>
             </div>
             
@@ -197,7 +197,7 @@
         
         <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">周大苏打的博客</div>
+        <div class="logo-name">学习资料存储</div>
         <div class="logo-desc">
             
             go语言学习者，互联网新手，努力做一个自律的行者
@@ -568,25 +568,30 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-16
+                    2023-01-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    14 分
                 </div>
                 
 
                 
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -605,7 +610,216 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="队列、堆、栈、堆栈的区别"><a href="#队列、堆、栈、堆栈的区别" class="headerlink" title="队列、堆、栈、堆栈的区别"></a>队列、堆、栈、堆栈的区别</h1><h3 id="堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）"><a href="#堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）" class="headerlink" title="堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）"></a>堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）</h3><h3 id="队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）"><a href="#队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）" class="headerlink" title="队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）"></a>队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）</h3><p>进程中每个线程都有自己的<strong>堆栈</strong>，这是一段线程创建时保留下的地址区域。我们的“<strong>栈内存</strong>”即在此。<br>至于“<strong>堆</strong>”内存，我个人认为在未用new定义时，<strong>堆</strong>应该就是未“保留”未“提交”的自由空间，new的功能是在这些自由空间中保留（并提交）出一个地址范围。</p>
+                <h2 id="Go的堆栈"><a href="#Go的堆栈" class="headerlink" title="Go的堆栈"></a>Go的堆栈</h2><p>在理解Go的堆栈分配前,我们先理解下什么是堆栈？在计算机中堆栈的概念分为：数据结构的堆栈和内存分配中堆栈。</p>
+<h4 id="数据结构的堆栈："><a href="#数据结构的堆栈：" class="headerlink" title="数据结构的堆栈："></a>数据结构的堆栈：</h4><ul>
+<li><p>堆: 堆可以被看成是一棵树，如：堆排序。在队列中，调度程序反复提取队列中第一个作业并运行，因为实际情况中某些时间较短的任务将等待很长时间才能结束，或者某些不短小，但具有重要性的作业，同样应当具有优先权。堆即为解决此类问题设计的一种数据结构。</p>
+</li>
+<li><p>栈: 一种先进后出的数据结构。</p>
+</li>
+</ul>
+<h4 id="在内存分配中的堆和栈"><a href="#在内存分配中的堆和栈" class="headerlink" title="在内存分配中的堆和栈:"></a>在内存分配中的堆和栈:</h4><ul>
+<li><p>栈（操作系统）:由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
+</li>
+<li><p>堆（操作系统）:一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
+</li>
+</ul>
+<h4 id="堆栈缓存方式"><a href="#堆栈缓存方式" class="headerlink" title="堆栈缓存方式"></a>堆栈缓存方式</h4><ul>
+<li><p>栈使用的是一级缓存, 他们通常都是被调用时处于存储空间中，调用完毕立即释放。</p>
+</li>
+<li><p>堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。</p>
+</li>
+</ul>
+<h4 id="变量是堆（heap）还是堆栈（stack）"><a href="#变量是堆（heap）还是堆栈（stack）" class="headerlink" title="变量是堆（heap）还是堆栈（stack）"></a>变量是堆（heap）还是堆栈（stack）</h4><p>官方给出的解释如下:</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">How do I know whether a variable is allocated on the heap or the stack?
+From a correctness standpoint, you don't need to know. Each variable in Go exists as long as there are references to it. The storage location chosen by the implementation is irrelevant to the semantics of the language.
+
+The storage location does have an effect on writing efficient programs. When possible, the Go compilers will allocate variables that are local to a function in that function's stack frame. However, if the compiler cannot prove that the variable is not referenced after the function returns, then the compiler must allocate the variable on the garbage-collected heap to avoid dangling pointer errors. Also, if a local variable is very large, it might make more sense to store it on the heap rather than the stack.
+
+In the current compilers, if a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从上面可以了解到, 您不需要知道。Go中的每个变量都存在，只要有对它的引用即可。实现选择的存储位置与语言的语义无关。</p>
+<p>存储位置确实会影响编写高效的程序。如果可能，Go编译器将为该函数的堆栈帧中的函数分配本地变量。但是，如果编译器在函数返回后无法证明变量未被引用，则编译器必须在垃圾收集堆上分配变量以避免悬空指针错误。此外，如果局部变量非常大，将它存储在堆而不是堆栈上可能更有意义。</p>
+<p>在当前的编译器中，如果变量具有其地址，则该变量是堆上分配的候选变量。但是，基础的逃逸分析可以将那些生存不超过函数返回值的变量识别出来，并且因此可以分配在栈上。</p>
+<p>Go的编译器会决定在哪(堆or栈)分配内存，保证程序的正确性。</p>
+<h4 id="Go的堆栈分配"><a href="#Go的堆栈分配" class="headerlink" title="Go的堆栈分配"></a>Go的堆栈分配</h4><ul>
+<li>每个goroutine维护着一个栈空间，默认最大为4KB.</li>
+<li>当goroutine的栈空间不足时，golang会调用<code>runtime.morestack</code>(汇编实现：asm_xxx.s)来进行动态扩容.</li>
+<li>连续栈是当栈空间不足的时候申请一个2倍于当前大小的新栈，并把所有数据拷贝到新栈,接下来的所有调用执行都发生在新栈上.</li>
+<li>每个function维护着各自的栈帧(stack frame)，当function退出时会释放栈帧.</li>
+</ul>
+<h4 id="Go-function内的栈操作"><a href="#Go-function内的栈操作" class="headerlink" title="Go function内的栈操作"></a>Go function内的栈操作</h4><p>用一段简单的代码来说明Go函数调用及传参时的栈操作：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">g</span><span class="token punctuation">(</span>p <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     c <span class="token operator">:=</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+     <span class="token boolean">_</span> <span class="token operator">=</span> c
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行<code>go tool compile -S main.go</code>生成汇编，并截取其中的一部分来说明一下程序调用时的栈操作.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token string">""</span><span class="token punctuation">.</span>g t<span class="token operator">=</span><span class="token number">1</span> size<span class="token operator">=</span><span class="token number">17</span> args<span class="token operator">=</span><span class="token number">0x10</span> locals<span class="token operator">=</span><span class="token number">0x0</span>
+    <span class="token comment">// 初始化函数的栈地址</span>
+    <span class="token comment">// 0-16表示函数初始地址为0，数据大小为16字节(input: 8字节，output: 8字节)</span>
+    <span class="token comment">// SB是函数寄存器</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">)</span>  TEXT    <span class="token string">""</span><span class="token punctuation">.</span><span class="token function">g</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">16</span>
+    <span class="token comment">// 函数的gc收集提示。提示0和1是用于局部函数调用参数，需要进行回收</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">)</span>  FUNCDATA    $<span class="token number">0</span><span class="token punctuation">,</span> gclocals·<span class="token function">aef1f7ba6e2630c93a51843d99f5a28a</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">)</span>  FUNCDATA    $<span class="token number">1</span><span class="token punctuation">,</span> gclocals·<span class="token function">33cdeccccebe80329f1fdbee7f5874cb</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+    <span class="token comment">// FP(frame point)指向栈底</span>
+    <span class="token comment">// 将FP+8位置的数据(参数p)放入寄存器AX</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>  MOVQ    <span class="token string">""</span><span class="token punctuation">.</span>p<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    <span class="token number">0x0005</span> <span class="token number">00005</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>  MOVQ    <span class="token punctuation">(</span>AX<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    <span class="token comment">// 寄存器值自增</span>
+    <span class="token number">0x0008</span> <span class="token number">00008</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>  INCQ    AX
+    <span class="token comment">// 从寄存器中取出值，放入FP+16位置(返回值)</span>
+    <span class="token number">0x000b</span> <span class="token number">00011</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>  MOVQ    AX<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">.</span>~r1<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    <span class="token comment">// 返回，返回后程序栈的空间会被回收</span>
+    <span class="token number">0x0010</span> <span class="token number">00016</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>  RET
+    <span class="token number">0x0000</span> <span class="token number">48</span> <span class="token number">8</span>b <span class="token number">44</span> <span class="token number">24</span> <span class="token number">08</span> <span class="token number">48</span> <span class="token number">8</span>b <span class="token number">00</span> <span class="token number">48</span> ff c0 <span class="token number">48</span> <span class="token number">89</span> <span class="token number">44</span> <span class="token number">24</span> <span class="token number">10</span>  H<span class="token punctuation">.</span>D$<span class="token punctuation">.</span>H<span class="token punctuation">.</span><span class="token punctuation">.</span>H<span class="token punctuation">.</span><span class="token punctuation">.</span>H<span class="token punctuation">.</span>D$<span class="token punctuation">.</span>
+    <span class="token number">0x0010</span> c3                                               <span class="token punctuation">.</span>
+<span class="token string">""</span><span class="token punctuation">.</span>main t<span class="token operator">=</span><span class="token number">1</span> size<span class="token operator">=</span><span class="token number">32</span> args<span class="token operator">=</span><span class="token number">0x0</span> locals<span class="token operator">=</span><span class="token number">0x10</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  TEXT    <span class="token string">""</span><span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> $<span class="token number">16</span><span class="token operator">-</span><span class="token number">0</span>
+    <span class="token number">0x0000</span> <span class="token number">00000</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  SUBQ    $<span class="token number">16</span><span class="token punctuation">,</span> SP
+    <span class="token number">0x0004</span> <span class="token number">00004</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  MOVQ    BP<span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+    <span class="token number">0x0009</span> <span class="token number">00009</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  LEAQ    <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> BP
+    <span class="token number">0x000e</span> <span class="token number">00014</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  FUNCDATA    $<span class="token number">0</span><span class="token punctuation">,</span> gclocals·<span class="token function">33cdeccccebe80329f1fdbee7f5874cb</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+    <span class="token number">0x000e</span> <span class="token number">00014</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>  FUNCDATA    $<span class="token number">1</span><span class="token punctuation">,</span> gclocals·<span class="token function">33cdeccccebe80329f1fdbee7f5874cb</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+    <span class="token comment">// SP(stack point)指向栈顶</span>
+    <span class="token comment">// 把4存入SP的位置</span>
+    <span class="token number">0x000e</span> <span class="token number">00014</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">)</span>  MOVQ    $<span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">.</span><span class="token function">c</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+    <span class="token comment">// 这里会看到没有第9行`call g()`的调用出现，这是因为go汇编编译器会把一些短函数变成内嵌函数，减少函数调用</span>
+    <span class="token number">0x0016</span> <span class="token number">00022</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span> MOVQ    <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> BP
+    <span class="token number">0x001b</span> <span class="token number">00027</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span> ADDQ    $<span class="token number">16</span><span class="token punctuation">,</span> SP
+    <span class="token number">0x001f</span> <span class="token number">00031</span> <span class="token punctuation">(</span>test_stack<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span> RET<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>事实上，即便我定义了指针调用，以上的数据也都是在栈上拷贝的；那么Golang中的数据什么时候会被分配到堆上呢？</p>
+<h4 id="Golang逃逸分析"><a href="#Golang逃逸分析" class="headerlink" title="Golang逃逸分析"></a>Golang逃逸分析</h4><ul>
+<li>在编译程序优化理论中，逃逸分析是一种确定指针动态范围的方法，用于分析在程序的哪些地方可以访问到指针。</li>
+<li>Golang在编译时的逃逸分析可以减少gc的压力，不逃逸的对象分配在栈上，当函数返回时就回收了资源，不需要gc标记清除。</li>
+<li>如果你定义的对象的方法上有同步锁，但在运行时，却只有一个线程在访问，此时逃逸分析后的机器码，会去掉同步锁运行，提高效率。</li>
+</ul>
+<p>还是上面的那段程序代码，我们可以执行<code>go build -gcflags '-m -l' test_stack.go</code>来进行逃逸分析，输出结果如下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># command-line-arguments</span>
+./test_stack.go:3: g p does not escape
+./test_stack.go:9: main <span class="token operator">&amp;</span>c does not escape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到，对象c是没有逃逸的，还是分配在栈上。</p>
+<p>即便在一开始定义的时候直接把c定义为指针：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">g</span><span class="token punctuation">(</span>p <span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">*</span>p <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c <span class="token operator">:=</span> <span class="token function">new</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>c<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token boolean">_</span> <span class="token operator">=</span> <span class="token function">g</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>逃逸分析的结果仍然不会改变:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># command-line-arguments</span>
+./test_stack.go:3: g p does not escape
+./test_stack.go:8: main new<span class="token punctuation">(</span>int<span class="token punctuation">)</span> does not escape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>那么，在什么时候指针对象才会逃逸呢？</p>
+<p>那就是在按值传递和按址传递时候.</p>
+<ul>
+<li>按值传递</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">g</span><span class="token punctuation">(</span>p <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+    ret <span class="token operator">:=</span> p <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> ret
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c <span class="token operator">:=</span> <span class="token number">4</span>
+    <span class="token boolean">_</span> <span class="token operator">=</span> <span class="token function">g</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>返回值ret是按值传递的，执行的是栈拷贝，不存在逃逸.</p>
+<ul>
+<li>按址传递</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">g</span><span class="token punctuation">(</span>p <span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
+    ret <span class="token operator">:=</span> <span class="token operator">*</span>p <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>ret
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c <span class="token operator">:=</span> <span class="token function">new</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token operator">*</span>c <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token boolean">_</span> <span class="token operator">=</span> <span class="token function">g</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>返回值&amp;ret是按址传递，传递的是指针对象，发生了逃逸，将对象存放在堆上以便外部调用.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># command-line-arguments</span>
+./test_stack.go:5:9: <span class="token operator">&amp;</span>ret escapes to heap
+./test_stack.go:4:14: moved to heap: ret
+./test_stack.go:3:17: g p does not escape
+./test_stack.go:9:10: main new<span class="token punctuation">(</span>int<span class="token punctuation">)</span> does not escape<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>golang只有在function内的对象可能被外部访问时，才会把该对象分配在堆上.</p>
+<ul>
+<li>在g()方法中，ret对象的引用被返回到了方法外，因此会发生逃逸；而p对象只在g()内被引用，不会发生逃逸.</li>
+<li>在main()方法中，c对象虽然被g()方法引用了，但是由于引用的对象c没有在g()方法中发生逃逸，因此对象c的生命周期还是在main()中的，不会发生逃逸.</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">type</span> Result <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    Data <span class="token operator">*</span><span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">g</span><span class="token punctuation">(</span>p <span class="token operator">*</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span>Result <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> ret Result
+    ret<span class="token punctuation">.</span>Data <span class="token operator">=</span> p
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>ret
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c <span class="token operator">:=</span> <span class="token function">new</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token operator">*</span>c <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token boolean">_</span> <span class="token operator">=</span> <span class="token function">g</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>逃逸分析结果</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># command-line-arguments</span>
+./test_stack.go:10:9: <span class="token operator">&amp;</span>ret escapes to heap
+./test_stack.go:8:6: moved to heap: ret
+./test_stack.go:7:17: leaking param: p to result ~r1 <span class="token assign-left variable">level</span><span class="token operator">=</span>-1
+./test_stack.go:14:10: new<span class="token punctuation">(</span>int<span class="token punctuation">)</span> escapes to heap<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>可以看到，ret和2.2中一样，存在外部引用，发生了逃逸.</li>
+<li>由于<code>ret.Data</code>是一个指针对象，p赋值给<code>ret.Data</code>后，也伴随p发生了逃逸.</li>
+<li>main()中的对象c，由于作为参数p传入g()后发生了逃逸，因此c也发生了逃逸.</li>
+<li>当然，如果定义<code>ret.Data</code>为int(instead of *int)的话，对象p也是不会逃逸的(执行了拷贝).</li>
+</ul>
+<h4 id="开发建议大对象按址传递，小对象按值传递"><a href="#开发建议大对象按址传递，小对象按值传递" class="headerlink" title="开发建议大对象按址传递，小对象按值传递"></a>开发建议大对象按址传递，小对象按值传递</h4><ul>
+<li>按址传递更高效，按值传递更安全(from William Kennedy).</li>
+<li>90%的bug都来自于指针调用.</li>
+</ul>
+<h4 id="初始化一个结构体，使用引用的方式来传递指针"><a href="#初始化一个结构体，使用引用的方式来传递指针" class="headerlink" title="初始化一个结构体，使用引用的方式来传递指针"></a>初始化一个结构体，使用引用的方式来传递指针</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">r</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span>Result<span class="token punctuation">{</span>
+    <span class="token keyword">var</span> ret Result
+    ret<span class="token punctuation">.</span>Data <span class="token operator">=</span> <span class="token operator">...</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>ret
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只有返回ret对象的引用时才会把对象分配在堆上，我们不必要在一开始的时候就显式地把ret定义为指针.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">ret <span class="token operator">=</span> <span class="token operator">&amp;</span>Result<span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token operator">...</span>
+<span class="token keyword">return</span> ret<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>对阅读代码也会容易产生误导.****</p>
+<h2 id="队列、堆、栈、堆栈的区别"><a href="#队列、堆、栈、堆栈的区别" class="headerlink" title="队列、堆、栈、堆栈的区别"></a>队列、堆、栈、堆栈的区别</h2><h3 id="堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）"><a href="#堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）" class="headerlink" title="堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）"></a>堆栈：先进后出（就像放在箱子的衣服，先放进去的后拿出来）</h3><h3 id="队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）"><a href="#队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）" class="headerlink" title="队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）"></a>队列：先进先出（就像一条路，有一个入口和一个出口，先进去的就可以先出去）</h3><p>进程中每个线程都有自己的<strong>堆栈</strong>，这是一段线程创建时保留下的地址区域。我们的“<strong>栈内存</strong>”即在此。<br>至于“<strong>堆</strong>”内存，我个人认为在未用new定义时，<strong>堆</strong>应该就是未“保留”未“提交”的自由空间，new的功能是在这些自由空间中保留（并提交）出一个地址范围。</p>
 <p><strong>栈</strong>(Stack)是操作系统在建立某个进程时或者线程（在支持多线程的操作系统中是线程）为这个线程建立的存储区域，该区域具有FIFO的特性，在编译的时候可以指定需要的Stack的大小。在编程中，例如C/C++中，所有的局部变量都是从<strong>栈</strong>中分配内存空间，实际上也不是什么分配，只是从<strong>栈顶</strong>向上用就行，在退出函数的时候，只是修改<strong>栈指针</strong>就可以把<strong>栈</strong>中的内容销毁，所以速度最快。</p>
 <p><strong>堆</strong>（Heap)是应用程序在运行的时候请求操作系统分配给自己内存，一般是申请/给予的过程，C/C++分别用malloc/New请求分配Heap，用free/delete销毁内存。由于从操作系统管理的内存分配所以在分配和销毁时都要占用时间，所以用<strong>堆</strong>的效率低的多！但是<strong>堆</strong>的好处是可以做的很大，C/C++对分配的Heap是不初始化的。</p>
 <p>在Java中除了简单类型（int,char等）都是在<strong>堆</strong>中分配内存，这也是程序慢的一个主要原因。但是跟C/C++不同，Java中分配Heap内存是自动初始化的。在Java中所有的对象（包括int的wrapper  Integer）都是在<strong>堆</strong>中分配的，但是这个对象的引用却是在Stack中分配。也就是说在建立一个对象时从两个地方都分配内存，在Heap中分配的内存实际建立这个对象，而在Stack中分配的内存只是一个指向这个<strong>堆</strong>对象的指针（引用）而已。</p>
@@ -1177,7 +1391,7 @@ defer y(......)
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: 周大苏打的博客<br />'
+            + '来源: 学习资料存储<br />'
             + '文章作者: hypo<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
@@ -1315,7 +1529,7 @@ defer y(......)
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2022</span>
+                <span id="year">2021-2023</span>
             
             <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1323,10 +1537,17 @@ defer y(......)
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">94k</span>
+                        class="white-color">140k</span>
             
             
             
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
             
             
                 <span id="busuanzi_container_site_uv">
@@ -1400,7 +1621,7 @@ defer y(......)
             </span>
             
         </div>
-        <div class="col s12 m4 l4 social-link ">
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/hypo-Z" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1590,6 +1811,8 @@ $(function () {
     
     <script src="/hypo-Z.github.io/libs/others/clicklove.js" async="async"></script>
     
+    
+    <script async src="/hypo-Z.github.io/libs/others/busuanzi.pure.mini.js"></script>
     
 
     

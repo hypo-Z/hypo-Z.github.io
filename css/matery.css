@@ -257,9 +257,18 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #51F3DE 0%, #66169B 100%);
+    background-image: url('.././medias/images/cool.jpeg');
+    background-size: cover;
+    background-position: center center;
+
 }
 
+.bg-color1{
+    background: linear-gradient(to right, #51F3DE 0%, #66169B 100%);
+}
+.nav-menu a{
+    color: #ffffff;
+}
 .text-color {
     color: #51F3DE !important;
 }
@@ -1872,7 +1881,7 @@ footer a {
 }
 
 footer .copy-right {
-    color: #dbdbdb;
+    color: #000000;
 }
 
 /*搜索层样式*/

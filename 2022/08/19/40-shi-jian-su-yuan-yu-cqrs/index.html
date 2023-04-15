@@ -1,0 +1,1782 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="事件溯源与CQRS, 菜鸟程序员">
+    <meta name="description" content="什么是事件溯源？即将所有更改（事件）存储到系统，而不仅仅是其当前状态。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>事件溯源与CQRS | 学习资料存储</title>
+    <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/my.css">
+
+    <script src="/hypo-Z.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="学习资料存储" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://pic.netbian.com/tupian/27531.html);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">学习资料存储</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+      
+      <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fab fa-reddit" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fab fa-grav" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/hypo-Z.github.io/musics">
+          
+          <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/movies">
+          
+          <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/books">
+          
+          <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/galleries">
+          
+          <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">学习资料存储</div>
+        <div class="logo-desc">
+            
+            go语言学习者，互联网新手，努力做一个自律的行者
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-ubnutu"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-optin-monster"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-the-red-yeti"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-space-shuttle"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-reddit"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-hornbill"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fab fa-grav"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/musics " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/movies " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/books " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hypo-Z/hypo-Z.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hypo-Z/hypo-Z.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/66.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">事件溯源与CQRS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/hypo-Z.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
+                                <span class="chip bg-color">文章</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                <span class="chip bg-color">转载</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/hypo-Z.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
+                                转载
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-19
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-01-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/hypo-Z.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="领域驱动设计"><a href="#领域驱动设计" class="headerlink" title="领域驱动设计"></a>领域驱动设计</h2><h3 id="什么是域？"><a href="#什么是域？" class="headerlink" title="什么是域？"></a>什么是域？</h3><p>为其构建系统的领域。机场管理、保险销售、咖啡店、轨道飞行，应有尽有。</p>
+<p>一个应用程序跨越多个不同的域并不罕见。例如，在线零售系统可能在运输（选择适当的交付方式，取决于物品和目的地）、定价（包括促销和用户特定的定价，例如位置）和推荐（计算相关按购买历史记录的产品）。</p>
+<h3 id="什么是模型？"><a href="#什么是模型？" class="headerlink" title="什么是模型？"></a>什么是模型？</h3><p>“对手头问题的有用近似。” ——格里·苏斯曼</p>
+<p>一个<code>Employee</code>班级不是真正的雇员。它<em>模拟</em>了一个真正的员工。我们知道该模型并不能捕捉到真正员工的所有信息，这不是重点。它只是为了捕捉我们对当前上下文感兴趣的内容。</p>
+<p>不同的领域可能对建模同一事物的不同方式感兴趣。例如，工资部门和人力资源部门可能以不同的方式对员工进行建模。</p>
+<h3 id="什么是领域模型？"><a href="#什么是领域模型？" class="headerlink" title="什么是领域模型？"></a>什么是领域模型？</h3><p>域的模型。</p>
+<h3 id="什么是领域驱动设计-DDD-？"><a href="#什么是领域驱动设计-DDD-？" class="headerlink" title="什么是领域驱动设计 (DDD)？"></a>什么是领域驱动设计 (DDD)？</h3><p>这是一种深入重视领域模型并将其与实现联系起来的开发方法。DDD 由 Eric Evans 创造并最初开发。</p>
+<h3 id="大家都在谈论的蓝皮书是什么？"><a href="#大家都在谈论的蓝皮书是什么？" class="headerlink" title="大家都在谈论的蓝皮书是什么？"></a>大家都在谈论的蓝皮书是什么？</h3><p><a target="_blank" rel="noopener" href="http://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">这个</a>？它是 DDD 创始人 Eric Evans 关于领域驱动设计的定义文本。强烈推荐它。</p>
+<h3 id="什么是无处不在的语言？"><a href="#什么是无处不在的语言？" class="headerlink" title="什么是无处不在的语言？"></a>什么是无处不在的语言？</h3><p>涉及域、域模型、实现和后端的所有人员使用的一组术语。这个想法是避免<em>翻译</em>，因为正如 Eric Evans 指出的那样，</p>
+<blockquote>
+<p><em>翻译使交流变得迟钝，使知识处理变得乏力。</em></p>
+</blockquote>
+<p>也就是说，每次我们必须在人与人之间翻译概念时——“哦，在我使用‘帐户’的情况下，你使用的是‘用户’”——我们失去了清晰思考我们正在构建的东西的直接能力并让新知识在领域和实施之间来回流动。</p>
+<p>投资一种无处不在的语言是有回报的，因为它使沟通更清晰，让团队看到更多的机会。</p>
+<h3 id="什么是有界上下文？"><a href="#什么是有界上下文？" class="headerlink" title="什么是有界上下文？"></a>什么是有界上下文？</h3><p>一个更大的系统的一个部门，它有自己的通用语言和领域模型。在线零售商的定价、运输和推荐方面将被视为单独的有界上下文，因为它们具有显着不同的关注点。</p>
+<p>与其他 DDD 概念一样，有界上下文在实施时最有价值。</p>
+<h3 id="如何识别有界上下文？"><a href="#如何识别有界上下文？" class="headerlink" title="如何识别有界上下文？"></a>如何识别有界上下文？</h3><p>一些常见的事情是：</p>
+<ul>
+<li>组织中的自然边界（在有界上下文中，您通常会发现人们密切协作和沟通；在有界上下文之间，通信较少，并且通常是异步的）</li>
+<li>同一个词被赋予不同的含义（产品到定价是一个有价格的东西；产品到运输是一个有重量和尺寸的东西，等等）</li>
+</ul>
+<p>通常，良好的有界上下文看起来像产品（定价策略产品、运输计算产品、产品推荐引擎产品等）。这与产品优于项目的团队结构非常吻合。</p>
+<h3 id="有界上下文应该与我的系统的其余部分隔离到什么程度？"><a href="#有界上下文应该与我的系统的其余部分隔离到什么程度？" class="headerlink" title="有界上下文应该与我的系统的其余部分隔离到什么程度？"></a>有界上下文应该与我的系统的其余部分隔离到什么程度？</h3><p>相当强烈。一般来说，最好避免直接依赖。例如，在 .Net 中，单独的程序集是相当明智的。在诸如 SOA 或微服务之类的分布式范式中，在有界上下文之间找到进程边界是正常的。</p>
+<h3 id="如何在有界上下文之间进行通信？"><a href="#如何在有界上下文之间进行通信？" class="headerlink" title="如何在有界上下文之间进行通信？"></a>如何在有界上下文之间进行通信？</h3><p>仅就其公共 API 而言。这可能涉及订阅来自另一个有界上下文的事件。或者一个有界上下文可以像另一个的常规客户端一样发送命令和查询。</p>
+<h3 id="什么是实体？什么是价值对象？"><a href="#什么是实体？什么是价值对象？" class="headerlink" title="什么是实体？什么是价值对象？"></a>什么是实体？什么是价值对象？</h3><p><em>实体</em>或<em>引用类型</em>的特点是具有与其属性值无关的标识。实体中的所有属性都可以更改，并且它仍然是“相同”的实体。相反，两个实体可能在所有属性上都是等价的，但仍然是不同的。</p>
+<p><em>值对象</em>没有单独的标识；它们仅由它们的属性值定义。虽然我们通常在提到值类型时谈论对象，但本机类型实际上是值类型的一个很好的例子。使值类型不可变是很常见的。例如，<code>String</code>在许多语言中是不可变的，每次您想“更改”一个字符串时，都会派生一个新字符串。</p>
+<p>从事件溯源的角度来看，实体和值对象在域中都扮演着重要的角色，但只有实体需要被持久化，因为只有这些会发生变化。</p>
+<h2 id="命令和事件"><a href="#命令和事件" class="headerlink" title="命令和事件"></a>命令和事件</h2><h3 id="什么是事件？"><a href="#什么是事件？" class="headerlink" title="什么是事件？"></a>什么是事件？</h3><p>事件代表在域中发生的事情。它们总是以过去分词动词命名，例如<code>OrderConfirmed</code>. 事件命名与其相关的聚合或实体并不罕见，但不是必需的；让领域语言成为您的指南。</p>
+<p>由于事件代表过去的某事，因此可以将其视为事实陈述，并用于在系统的其他部分做出决策。</p>
+<h3 id="什么是命令？"><a href="#什么是命令？" class="headerlink" title="什么是命令？"></a>什么是命令？</h3><p>人们通过发送命令请求更改域。它们以祈使语气加动词命名，可能包括聚合类型，例如 <code>ConfirmOrder</code>。与事件不同，命令不是事实陈述；这只是一个请求，因此可能会被拒绝。（表达拒绝的典型方式是抛出异常）。</p>
+<h3 id="命令或事件是什么样的？"><a href="#命令或事件是什么样的？" class="headerlink" title="命令或事件是什么样的？"></a>命令或事件是什么样的？</h3><p>命令和事件只是包含用于读取的数据的数据结构，没有任何行为。我们称这种结构为“数据传输对象”（DTO）。名称表明目的。在许多语言中，它们被表示为类，但它们并不是真正的 OO 意义上的真正的类。下面是一个命令示例：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class ConfirmOrder {
+    public Guid OrderId;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这是一个事件的例子：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class OrderConfirmed {
+    public Guid     OrderId;
+    public DateTime ConfirmationDate;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="命令和事件有什么区别？"><a href="#命令和事件有什么区别？" class="headerlink" title="命令和事件有什么区别？"></a>命令和事件有什么区别？</h3><p>他们的意图。</p>
+<h3 id="什么是不变性？为什么命令和事件是不可变的？"><a href="#什么是不变性？为什么命令和事件是不可变的？" class="headerlink" title="什么是不变性？为什么命令和事件是不可变的？"></a>什么是不变性？为什么命令和事件是不可变的？</h3><p>就这个问题而言，不变性没有任何设置器或其他改变内部状态的方法。Java 和 C# 中的字符串类型是一个熟悉的例子。你永远不会真正<em>改变</em>现有的字符串值，你只是根据旧的字符串值创建新的字符串值。</p>
+<p>命令是不可变的，因为它们的预期用途是直接<em>发送</em>到域模型端进行处理。他们不需要在从客户端到服务器的预计生命周期内进行更改。</p>
+<p>事件是不可变的，因为它们代表过去发生的域操作。除非你是 Marty McFly，否则你无法改变过去，有时甚至无法改变过去。</p>
+<h3 id="什么是命令升级？"><a href="#什么是命令升级？" class="headerlink" title="什么是命令升级？"></a>什么是命令升级？</h3><p>当新要求导致现有命令不够用时，升级命令变得必要。例如，可能需要添加一个新字段，或者可能确实应该将现有字段拆分为几个不同的字段。</p>
+<h3 id="如何升级我的命令？"><a href="#如何升级我的命令？" class="headerlink" title="如何升级我的命令？"></a>如何升级我的命令？</h3><p>您如何进行升级取决于您对客户的控制程度。如果您可以同时部署客户端更新和服务器更新，只需更改两者并部署更新即可。任务完成。如果没有，通常最好让更新的命令成为一种新类型，并让命令处理程序接受一段时间。</p>
+<h3 id="您能否举例说明一些版本化命令的名称？"><a href="#您能否举例说明一些版本化命令的名称？" class="headerlink" title="您能否举例说明一些版本化命令的名称？"></a>您能否举例说明一些版本化命令的名称？</h3><p>当然。</p>
+<pre class="line-numbers language-none"><code class="language-none">UploadFile
+UploadFile_v2
+UploadFile_v3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这只是一种约定，但一种理智的约定。</p>
+<h2 id="命令-查询职责分离"><a href="#命令-查询职责分离" class="headerlink" title="命令/查询职责分离"></a>命令/查询职责分离</h2><h3 id="什么是-CQRS？"><a href="#什么是-CQRS？" class="headerlink" title="什么是 CQRS？"></a>什么是 CQRS？</h3><p>CQRS 的意思是“命令查询职责分离”。我们在 <em>命令</em>（写入请求）和<em>查询</em>（读取请求）之间<em>分离**职责。</em>写请求和读请求由不同的对象处理。</p>
+<p>而已。我们可以进一步拆分数据存储，拥有独立的读写存储。一旦发生这种情况，可能会有许多读取存储，针对处理不同类型的查询或跨越许多有界上下文进行了优化。尽管经常讨论与 CQRS 相关的单独的读/写存储，但这不是 CQRS 本身。CQRS 只是命令和查询的第一个拆分。</p>
+<h3 id="CQRS-听起来像是那些新奇的饮食之一。这个词是谁编的？"><a href="#CQRS-听起来像是那些新奇的饮食之一。这个词是谁编的？" class="headerlink" title="CQRS 听起来像是那些新奇的饮食之一。这个词是谁编的？"></a>CQRS 听起来像是那些新奇的饮食之一。这个词是谁编的？</h3><p>格雷格·杨。</p>
+<p>多年来，他一直在抱怨搜索引擎天真地问“你是说汽车吗？” 当搜索 CQRS 时。</p>
+<h3 id="我听说还有一种叫做-CQS-的东西。它是什么，它与-CQRS-有什么关系？"><a href="#我听说还有一种叫做-CQS-的东西。它是什么，它与-CQRS-有什么关系？" class="headerlink" title="我听说还有一种叫做 CQS 的东西。它是什么，它与 CQRS 有什么关系？"></a>我听说还有一种叫做 CQS 的东西。它是什么，它与 CQRS 有什么关系？</h3><p>CQS 的意思是“命令-查询分离”。它是由 Bertrand Meyer 介绍的，作为他在 Eiffel 编程语言工作的一部分。</p>
+<p>这意味着方法要么是执行操作的<em>命令，要么是返回数据的**查询</em> ，但不能两者兼而有之。作为纯粹的动作执行方法，命令总是有一个<code>void</code>返回类型。另一方面，查询不应该对系统本身产生任何可观察到的副作用。</p>
+<p>最初，CQRS 也被称为“CQS”。但确定两者的差异足以让 CQRS 拥有自己的名字。主要区别在于：</p>
+<ul>
+<li>CQS 将命令和查询放在一个类型中的不同<em>方法中。</em></li>
+<li>CQRS 将命令和查询放在不同的<em>对象</em>上。</li>
+</ul>
+<h3 id="CQRS-可以简化吗？"><a href="#CQRS-可以简化吗？" class="headerlink" title="CQRS 可以简化吗？"></a>CQRS 可以简化吗？</h3><p>当然。通用存储库在许多系统中都很常见。它们在 CRUD 场景中运行良好——通常是那些你可能没有应用 DDD 的场景。它们往往适用于创建、更新、删除和读取单个实体。但是一旦有一个跨越多个实体的查询，它应该去哪里？</p>
+<p>与其苦恼于它，并试图将查询硬塞到通用存储库安排中，不如将它们放在一个单独的对象上要容易得多。毫无疑问，他们可以返回简单、轻量级的数据 DTO。</p>
+<p>CQRS 并不一定意味着进行事件溯源、引入命令、事件、读取面、sagas 等等。</p>
+<h3 id="CQRS-不会使我的应用程序更复杂吗？"><a href="#CQRS-不会使我的应用程序更复杂吗？" class="headerlink" title="CQRS 不会使我的应用程序更复杂吗？"></a>CQRS 不会使我的应用程序更复杂吗？</h3><p>一个典型的 CQRS + 事件溯源系统似乎有更多的组件，因为命令、事件、异常和查询成为公共接口的一部分。聚合、命令处理程序、读取侧投影、sagas 和客户端进一步促进了组件的扩散。</p>
+<p>然而，每个组件都与其他组件巧妙地分离。最初，“复杂”的意思是“编织在一起”。CQRS+ES 系统中的组件是独立的，有利于对系统进行推理并响应不断变化的需求：</p>
+<ul>
+<li>消息类型的公共接口构成了应用程序的一层，鼓励您根据用户意图进行思考，而不是更新数据。</li>
+<li>系统分为客户端、写入端和读取端，便于在各个团队之间划分工作。</li>
+<li>也许最重要的是，测试变得非常自然，即使是业务逻辑中最重要和最复杂的部分。</li>
+</ul>
+<h3 id="写入端是否应该始终独立于读取端？"><a href="#写入端是否应该始终独立于读取端？" class="headerlink" title="写入端是否应该始终独立于读取端？"></a>写入端是否应该始终独立于读取端？</h3><p>不会。但它通常会有所帮助——例如，通过在写入端使用事件溯源，这可以提供很多好处。</p>
+<h2 id="事件溯源"><a href="#事件溯源" class="headerlink" title="事件溯源"></a>事件溯源</h2><h3 id="什么是事件溯源？"><a href="#什么是事件溯源？" class="headerlink" title="什么是事件溯源？"></a>什么是事件溯源？</h3><p>将所有更改（事件）存储到系统，而不仅仅是其当前状态。</p>
+<h3 id="为什么我以前没有听说过？"><a href="#为什么我以前没有听说过？" class="headerlink" title="为什么我以前没有听说过？"></a>为什么我以前没有听说过？</h3><p>你有。几乎所有事务 RDBMS 系统都使用事务日志来存储应用于数据库的所有更改。在紧要关头，可以从此事务日志重新创建数据库的当前状态。这是一种活动。事件溯源只是意味着遵循这个想法并使用这样的日志作为主要数据源。</p>
+<h3 id="事件溯源有哪些优势？"><a href="#事件溯源有哪些优势？" class="headerlink" title="事件溯源有哪些优势？"></a>事件溯源有哪些优势？</h3><ul>
+<li>能够将系统置于任何先前状态。对调试很有用。（即上周系统是什么样的？）</li>
+<li>拥有系统的真实历史。提供更多好处，例如审计和可追溯性。在某些领域，这是法律要求的。</li>
+<li>我们通过存储所有事件并能够根据需要创建任意读取端预测来减轻无法预测未来需求的负面影响。这允许对新要求做出更灵活的响应。</li>
+<li>在事件存储上进行的操作类型非常有限，使得持久性非常可预测，从而简化了测试。</li>
+<li>事件存储在概念上比完整的 RDBMS 解决方案更简单，并且很容易从内存中的事件列表扩展到功能齐全的事件存储。</li>
+</ul>
+<h3 id="事件溯源是否需要执行-CQRS？"><a href="#事件溯源是否需要执行-CQRS？" class="headerlink" title="事件溯源是否需要执行 CQRS？"></a>事件溯源是否需要执行 CQRS？</h3><p>不，您可以以您喜欢的任何形式保存您的聚合。然而，事件溯源与 CQRS 配合得很好，并带来了许多额外的好处。</p>
+<h3 id="如果事件队列中的事件被证明是错误的怎么办？"><a href="#如果事件队列中的事件被证明是错误的怎么办？" class="headerlink" title="如果事件队列中的事件被证明是错误的怎么办？"></a>如果事件队列中的事件被证明是错误的怎么办？</h3><p>在事件队列中，新事件被添加到队列的末尾。事件永远不会被删除或更改。（顺便说一句，就像在会计师的分类账中一样。）补偿措施是您可以添加的，以纠正实际错误。它们只是抵消早期事件的事件。</p>
+<h3 id="使用事件溯源不会让我的系统变慢吗？"><a href="#使用事件溯源不会让我的系统变慢吗？" class="headerlink" title="使用事件溯源不会让我的系统变慢吗？"></a>使用事件溯源不会让我的系统变慢吗？</h3><p>不。</p>
+<p>应用事件来建立当前状态需要更多时间。但是处理器真的很快。应用事件需要微秒的数量级。对于大多数域，性能不是问题。</p>
+<p>此外，与事件溯源密切相关的聚合边界应该会导致系统能够很好地水平扩展。</p>
+<h3 id="什么是快照？"><a href="#什么是快照？" class="headerlink" title="什么是快照？"></a>什么是快照？</h3><p>一种优化，聚合状态的快照也每隔一段时间（从概念上）保存在事件队列中，以便事件应用程序可以从快照开始，而不是从头开始。这可以加快速度。快照总是可以根据需要丢弃或重新创建，因为它们表示来自事件流的计算信息。</p>
+<p>通常，与持久事件的常规任务分开的后台进程负责创建快照。</p>
+<p>快照有许多与在数据库中重新引入当前状态相关的缺点。与其假设您将需要它，不如先不做快照，然后在分析表明它会有所帮助后才添加它。</p>
+<h3 id="如何版本-升级我的活动？"><a href="#如何版本-升级我的活动？" class="headerlink" title="如何版本/升级我的活动？"></a>如何版本/升级我的活动？</h3><p>您将它们原样保留在事件存储中，因为它在概念上是一个仅附加列表。但是，写入方和读取方都可以“升级”其处理程序中的传入事件。一个事件总是可以升级到一个更新的版本……如果不是，它可能毕竟不是一个更新的版本，而是一个完全不同的事件类型。</p>
+<h3 id="随着时间的推移，我如何处理不断增长的-大型事件存储？"><a href="#随着时间的推移，我如何处理不断增长的-大型事件存储？" class="headerlink" title="随着时间的推移，我如何处理不断增长的/大型事件存储？"></a>随着时间的推移，我如何处理不断增长的/大型事件存储？</h3><p>事件通常很小，您可以轻松地在低端关系数据库上存储、索引和搜索数百万个事件。</p>
+<p>也就是说，提前计划总是好的，并选择在大小方面为您提供良好服务的序列化格式。例如，JSON 往往小于相应的 XML。</p>
+<p>如果您觉得需要通过算法压缩您的事件，这也是一种选择。Google 的协议缓冲区是要使用的压缩序列化的现代示例。</p>
+<p>对于实际上硬盘空间用完的情况：现在磁盘很便宜。考虑将历史事件保存在一些永久存储中。活动具有重要的商业价值；不要把它们扔掉。</p>
+<p>如果事件存储超过了单台机器，那么很容易首先按聚合类型进行分片，并且即使在聚合本身的级别上也可以使用少量基于内容的路由。</p>
+<h3 id="我也可以坚持命令吗？"><a href="#我也可以坚持命令吗？" class="headerlink" title="我也可以坚持命令吗？"></a>我也可以坚持命令吗？</h3><p>记录命令通常很有用，因为它们包含有关在域模型上发出的请求的重要信息。</p>
+<p>但是命令不是事件，它们不属于事件存储。只需考虑将命令的日志记录作为围绕命令处理程序的附加方面。</p>
+<h2 id="CAP-和最终一致性"><a href="#CAP-和最终一致性" class="headerlink" title="CAP 和最终一致性"></a>CAP 和最终一致性</h2><h3 id="什么是-CAP-定理？"><a href="#什么是-CAP-定理？" class="headerlink" title="什么是 CAP 定理？"></a>什么是 CAP 定理？</h3><p>CAP 定理指出，在分布式系统中，您可以在给定时间点具有以下三个属性中的两个：</p>
+<ul>
+<li>一致性</li>
+<li>可用性</li>
+<li>分区容错</li>
+</ul>
+<p>要理解原因，想象一下当分区两侧的两个节点尝试更新整个系统时会发生什么。</p>
+<h3 id="CAP-适用于什么级别？"><a href="#CAP-适用于什么级别？" class="headerlink" title="CAP 适用于什么级别？"></a>CAP 适用于什么级别？</h3><p>CAP 是细粒度的。您可以在系统的不同部分做出不同的选择。例如，对于接受订单，通常需要可用性，因为您不想丢失订单！</p>
+<h3 id="什么是最终一致性？"><a href="#什么是最终一致性？" class="headerlink" title="什么是最终一致性？"></a>什么是最终一致性？</h3><p>不再强调系统中的即时一致性（即所有事物始终具有相同的数据视图），以换取更高的可用性和更大的组件自主权。</p>
+<h2 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h2><h3 id="如何处理重复的命令-事件问题？"><a href="#如何处理重复的命令-事件问题？" class="headerlink" title="如何处理重复的命令/事件问题？"></a>如何处理重复的命令/事件问题？</h3><p>在传输层。</p>
+<h3 id="发布事件时应该使用推送还是拉取？"><a href="#发布事件时应该使用推送还是拉取？" class="headerlink" title="发布事件时应该使用推送还是拉取？"></a>发布事件时应该使用推送还是拉取？</h3><p>推送的优点是事件可以在发生时推送。拉取的优点是读取端可以更加活跃和独立。在我们看来，在读取端使用本地事件缓存拉取似乎是最好的和最具可扩展性的解决方案。但是，Push 可以很好地与反应式编程和 Web 套接字一起工作。同样，您不必在系统中的任何地方都做出相同的选择。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="如何测试我的-CQRS-应用程序？"><a href="#如何测试我的-CQRS-应用程序？" class="headerlink" title="如何测试我的 CQRS 应用程序？"></a>如何测试我的 CQRS 应用程序？</h3><p>仅使用命令、事件和异常。</p>
+<h3 id="什么是行为测试？"><a href="#什么是行为测试？" class="headerlink" title="什么是行为测试？"></a>什么是行为测试？</h3><p>纯粹基于对象的行为进行测试，而不讨论其状态。具体来说，这意味着我们只调用方法。这非常适合命令和事件方面的测试，因为应用事件和处理命令是聚合的公共 API 的一部分。</p>
+<h3 id="“告诉，不要问”是什么意思？"><a href="#“告诉，不要问”是什么意思？" class="headerlink" title="“告诉，不要问”是什么意思？"></a>“告诉，不要问”是什么意思？</h3><p>决策应在数据所在的封装边界内做出。对象或集合是“专家”，外部事物不应该询问它的状态然后为它做出决定。</p>
+<p>“告诉，不要问”被认为是面向对象设计的一个很好的原则。</p>
+<p>CQRS 应用程序鼓励的测试是“告诉，不要问”的一个很好的例子。测试聚合行为的唯一方法是设置它们（使用事件），告诉它们做某事（使用命令），然后观察结果（更多事件或异常）。</p>
+<h3 id="我如何知道命令因正确原因而失败？"><a href="#我如何知道命令因正确原因而失败？" class="headerlink" title="我如何知道命令因正确原因而失败？"></a>我如何知道命令因正确原因而失败？</h3><p>使用类型化异常来指示失败的模式，并在测试中排除该类型的异常。</p>
+<h3 id="所以我知道我得到了正确的事件，但我怎么知道它意味着什么？"><a href="#所以我知道我得到了正确的事件，但我怎么知道它意味着什么？" class="headerlink" title="所以我知道我得到了正确的事件，但我怎么知道它意味着什么？"></a>所以我知道我得到了正确的事件，但我怎么知道它意味着什么？</h3><p>测试给定命令是否导致预期事件只是工作的一半。为了确保事件的应用程序确实有意义，请在历史记录中使用该事件编写测试。例如，要测试一个指示预约的事件是否真正生效，将其放入历史记录并尝试进行冲突预约。</p>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><h3 id="什么是聚合？"><a href="#什么是聚合？" class="headerlink" title="什么是聚合？"></a>什么是聚合？</h3><p>一个比一个类更大的封装单元。每个事务都限定为一个聚合。聚合的组件的生命周期受整个聚合的生命周期的限制。</p>
+<p>具体来说，聚合将处理命令、应用事件，并在其中封装一个状态模型，允许它实现所需的命令验证，从而维护聚合的不变量（业务规则）。</p>
+<h3 id="聚合和聚合根有什么区别？"><a href="#聚合和聚合根有什么区别？" class="headerlink" title="聚合和聚合根有什么区别？"></a>聚合和聚合根有什么区别？</h3><p>聚合形成对象关系的树或图。聚合根是“顶部”的根，它代表整体，并且可以委托给其余部分。这很重要，因为它是世界其他地方与之交流的地方。</p>
+<h3 id="我知道聚合是事务边界，但我确实需要在同一个事务中以事务方式更新两个聚合。我应该怎么办？"><a href="#我知道聚合是事务边界，但我确实需要在同一个事务中以事务方式更新两个聚合。我应该怎么办？" class="headerlink" title="我知道聚合是事务边界，但我确实需要在同一个事务中以事务方式更新两个聚合。我应该怎么办？"></a>我知道聚合是事务边界，但我确实需要在同一个事务中以事务方式更新两个聚合。我应该怎么办？</h3><p>您应该重新考虑以下问题：</p>
+<ul>
+<li>您的总边界。</li>
+<li>每个聚合的职责。</li>
+<li>在阅读方面或传奇中，您可以逃脱惩罚。</li>
+<li>您的域的实际非功能性需求。</li>
+</ul>
+<p>如果您编写了一个解决方案，其中两个或多个聚合是事务耦合的，那么您还没有理解聚合。</p>
+<h3 id="为什么使用-GUID-作为-ID-是一种好习惯？"><a href="#为什么使用-GUID-作为-ID-是一种好习惯？" class="headerlink" title="为什么使用 GUID 作为 ID 是一种好习惯？"></a>为什么使用 GUID 作为 ID 是一种好习惯？</h3><p>因为它们（合理地）是全局唯一的，并且可以由服务器或客户端生成。</p>
+<h3 id="如何获取新创建的聚合的-ID？"><a href="#如何获取新创建的聚合的-ID？" class="headerlink" title="如何获取新创建的聚合的 ID？"></a>如何获取新创建的聚合的 ID？</h3><p>客户端可以生成自己的 ID，这是一个重要的见解。</p>
+<p>如果客户端生成一个 GUID 并将其放置在 create-the-aggregate 命令中，这不是问题。否则，您必须从适当的读取端进行轮询，其中 ID 将出现在最终一致的时间范围内。显然，这比一开始就生成它要脆弱得多。</p>
+<h3 id="我应该允许聚合之间的引用吗？"><a href="#我应该允许聚合之间的引用吗？" class="headerlink" title="我应该允许聚合之间的引用吗？"></a>我应该允许聚合之间的引用吗？</h3><p>在实际的“内存引用”的意义上，绝对不是。</p>
+<p>在写入方面，从一个聚合到另一个聚合的实际内存引用是被禁止和错误的，因为根据定义不允许聚合到达它们自身之外。（允许这意味着聚合不再是事务边界，这意味着我们不能再理智地推断其支持其不变量的能力；它还将排除聚合的分片。）</p>
+<p>使用字符串标识符引用另一个聚合很好。它在写入端是无用的（因为标识符必须被视为一个不透明的值，因为聚合无法到达它们自身之外）。然而，阅读方可以自由地使用这些信息来进行有趣的关联。</p>
+<h3 id="如何跨一组聚合验证命令？"><a href="#如何跨一组聚合验证命令？" class="headerlink" title="如何跨一组聚合验证命令？"></a>如何跨一组聚合验证命令？</h3><p>这是对不再能够跨聚合进行查询的常见反应。有几个答案：</p>
+<ul>
+<li>进行客户端验证。</li>
+<li>使用读取端。</li>
+<li>使用传奇。</li>
+<li>如果这些都是完全不切实际的，那么是时候考虑一下你的聚合边界是否正确了。</li>
+</ul>
+<h3 id="如何保证跨聚合的引用完整性？"><a href="#如何保证跨聚合的引用完整性？" class="headerlink" title="如何保证跨聚合的引用完整性？"></a>如何保证跨聚合的引用完整性？</h3><p>你仍然在考虑外交关系，而不是总体。见最后一个问题。另外，请记住，仅仅因为关系设计中有两个表并不意味着它应该是两个聚合。聚合设计是不同的。</p>
+<h3 id="如何确保新创建的用户具有唯一的用户名？"><a href="#如何确保新创建的用户具有唯一的用户名？" class="headerlink" title="如何确保新创建的用户具有唯一的用户名？"></a>如何确保新创建的用户具有唯一的用户名？</h3><p>这是一个经常出现的问题，因为我们没有明确地在写入端执行交叉聚合操作。但是，我们确实有多种选择：</p>
+<ul>
+<li>创建已分配用户名的读取端。当用户键入名称时，使客户端以交互方式查询读取端。</li>
+<li>创建一个反应式传奇来标记和停用仍然使用重复用户名创建的帐户。（无论是极端巧合还是恶意或由于客户端故障。）</li>
+<li>如果最终一致性对您来说不够快，请考虑在已分配名称的写入端添加一个表，就像是一个小的本地读取端。使聚合事务包括插入该表。</li>
+</ul>
+<h3 id="下订单时如何验证客户-ID-是否真实存在？"><a href="#下订单时如何验证客户-ID-是否真实存在？" class="headerlink" title="下订单时如何验证客户 ID 是否真实存在？"></a>下订单时如何验证客户 ID 是否真实存在？</h3><p>假设 customer 和 order 在这里是聚合，很明显 order 聚合不能真正验证这一点，因为这意味着超出聚合。</p>
+<p>事后检查它，在传奇中或只是在记录“损坏”订单的读取端，是一种选择。毕竟，关于订单最重要的事情实际上是记录它，并且大概任何关于订单接收者的有趣数据都被复制到订单聚合中（指客户找到地址是糟糕的设计；订单总是交付到特定地址，无论该客户将来是否更改其地址）。</p>
+<p>能够使用以这种损坏的顺序记录的数据意味着您有机会拯救它并纠正这种情况 - 这比因为违反外键约束而放弃订单更具商业意义！</p>
+<h3 id="如何使用单个命令更新一组聚合？"><a href="#如何使用单个命令更新一组聚合？" class="headerlink" title="如何使用单个命令更新一组聚合？"></a>如何使用单个命令更新一组聚合？</h3><p>单个命令<em>不能</em>作用于一组聚合。它就是不能。</p>
+<p>首先，问问自己是否真的需要只使用一个命令来更新多个聚合。在这种情况下，这是什么要求？</p>
+<p>但是，这是您可以做的。允许一种新的“批量命令”，概念上包含您要发出的命令，以及您要发出它的一组聚合（显式或隐式指定）。写入端的功能不足以进行批量操作，但它能够创建相应的“批量事件”。saga 捕获事件，并对每个指定的聚合发出命令。如果某些命令失败，saga 可以酌情回滚或发送电子邮件。</p>
+<p>这种方法有一些优点：我们将批量操作的意图存储在事件存储中。传奇自动回滚或等效。</p>
+<p>尽管如此，不得不求助于这个解决方案是一个强烈的迹象，表明您的聚合边界没有正确绘制。您可能需要考虑更改聚合边界，而不是为此构建传奇。</p>
+<h3 id="什么是分片？"><a href="#什么是分片？" class="headerlink" title="什么是分片？"></a>什么是分片？</h3><p>一种在多个写入端节点上分布大量聚合的方法。我们可以轻松地对聚合进行分片<em>，因为</em>它们是完全自力更生的。</p>
+<p>我们可以轻松地对聚合进行分片<em>，因为</em>它们没有任何外部引用。</p>
+<h3 id="聚合可以将事件发送到另一个聚合吗？"><a href="#聚合可以将事件发送到另一个聚合吗？" class="headerlink" title="聚合可以将事件发送到另一个聚合吗？"></a>聚合可以将事件发送到另一个聚合吗？</h3><p>不。</p>
+<p>聚合和命令处理程序的分解通常已经使这个想法无法在代码中表达。但还有一个更深层次的哲学原因：回去重新阅读 <a target="_blank" rel="noopener" href="http://cqrs.nu/Faq#what-is-an-aggregate">“什么是聚合？”的答案中的第一句话。</a>. 如果您设法绕过命令处理程序并以某种方式将事件推送到另一个聚合中，那么您将剥夺该聚合参与更改验证的机会。这最终就是为什么我们只允许在聚合上的命令处理程序验证的命令的结果中创建事件。</p>
+<h3 id="我可以从我的聚合中调用读取端吗？"><a href="#我可以从我的聚合中调用读取端吗？" class="headerlink" title="我可以从我的聚合中调用读取端吗？"></a>我可以从我的聚合中调用读取端吗？</h3><p>不。</p>
+<h3 id="如何在-CQRS-系统中发送电子邮件？"><a href="#如何在-CQRS-系统中发送电子邮件？" class="headerlink" title="如何在 CQRS 系统中发送电子邮件？"></a>如何在 CQRS 系统中发送电子邮件？</h3><p>在聚合之外的事件处理程序中。不要在命令处理程序中执行此操作，就好像由于与另一个命令的竞争而导致事件没有持久化，那么电子邮件将在错误的前提下发送。</p>
+<h2 id="命令处理程序"><a href="#命令处理程序" class="headerlink" title="命令处理程序"></a>命令处理程序</h2><h3 id="命令处理程序做什么？"><a href="#命令处理程序做什么？" class="headerlink" title="命令处理程序做什么？"></a>命令处理程序做什么？</h3><p>命令处理程序接收命令并代理来自适当聚合的结果。“结果”要么是命令的成功应用，要么是异常。</p>
+<p>这是命令处理程序遵循的常见步骤序列：</p>
+<ol>
+<li>验证命令本身的优点。</li>
+<li>在聚合的当前状态上验证命令。</li>
+<li>如果验证成功，则 0..n 个事件（1 是常见的）。</li>
+<li>尝试持久化新事件。如果在这一步发生并发冲突，要么放弃，要么重试。</li>
+</ol>
+<h3 id="命令处理程序是否应该影响一个或多个聚合？"><a href="#命令处理程序是否应该影响一个或多个聚合？" class="headerlink" title="命令处理程序是否应该影响一个或多个聚合？"></a>命令处理程序是否应该影响一个或多个聚合？</h3><p>只有一个。</p>
+<h3 id="我是否将逻辑放入命令处理程序中？"><a href="#我是否将逻辑放入命令处理程序中？" class="headerlink" title="我是否将逻辑放入命令处理程序中？"></a>我是否将逻辑放入命令处理程序中？</h3><p>是的。究竟什么逻辑取决于您的因式分解。</p>
+<p>验证命令本身的优点的逻辑总是在命令处理程序中。如果命令处理程序只是聚合上的一个方法，那么下一步就是简单地使用聚合的状态来做进一步的验证。在功能更强大的分解中，聚合独立于命令处理程序存在，下一步是加载聚合并对其进行验证。</p>
+<p>如果验证成功，那么命令处理程序应该会产生事件。根据因子的不同，它还可能需要进一步的步骤来尝试和持久化它们。</p>
+<p>在 Edument CQRS 入门工具包中，命令处理程序是返回事件的方法。事件的加载、聚合的构建和事件的持久化完全由命令处理程序考虑。这使它们非常干净和专注，因此与持久性机制完全解耦。</p>
+<p>不管你有它，逻辑归结为验证和一些导致命令成为异常或事件的步骤序列。如果您想超越这一点，请参阅本节中的其余问题。</p>
+<h3 id="我可以从我的命令处理程序调用读取端吗？"><a href="#我可以从我的命令处理程序调用读取端吗？" class="headerlink" title="我可以从我的命令处理程序调用读取端吗？"></a>我可以从我的命令处理程序调用读取端吗？</h3><p>不。</p>
+<h3 id="我可以在我的命令处理程序中进行日志记录、安全性或审计吗？"><a href="#我可以在我的命令处理程序中进行日志记录、安全性或审计吗？" class="headerlink" title="我可以在我的命令处理程序中进行日志记录、安全性或审计吗？"></a>我可以在我的命令处理程序中进行日志记录、安全性或审计吗？</h3><p>是的。装饰器模式在这里派上用场，可以巧妙地分离这些关注点。</p>
+<h3 id="命令处理程序中如何处理并发命令之间的冲突？"><a href="#命令处理程序中如何处理并发命令之间的冲突？" class="headerlink" title="命令处理程序中如何处理并发命令之间的冲突？"></a>命令处理程序中如何处理并发命令之间的冲突？</h3><p>聚合的新事件被持久化的地方是系统中唯一需要担心并发冲突的地方。事件存储知道应用于该聚合的最新事件的序列号，命令处理程序知道它读取的最后一个事件的序列号。如果这些数字不一致，则意味着其他线程或进程首先到达那里。然后，命令处理程序可以再次加载事件并进行新的尝试。</p>
+<h3 id="我应该在命令处理程序中做对外界有副作用的事情（例如发送电子邮件）吗？"><a href="#我应该在命令处理程序中做对外界有副作用的事情（例如发送电子邮件）吗？" class="headerlink" title="我应该在命令处理程序中做对外界有副作用的事情（例如发送电子邮件）吗？"></a>我应该在命令处理程序中做对外界有副作用的事情（例如发送电子邮件）吗？</h3><p>不，因为并发冲突将意味着命令处理程序逻辑将再次运行。在事件处理程序中执行此类操作。</p>
+<h2 id="读边"><a href="#读边" class="headerlink" title="读边"></a>读边</h2><h3 id="什么是读端？"><a href="#什么是读端？" class="headerlink" title="什么是读端？"></a>什么是读端？</h3><p>读取端侦听从写入端发布的事件，将这些事件投影为对本地模型的更改，并允许对该模型进行查询。</p>
+<h3 id="读边解决了哪些实际问题？"><a href="#读边解决了哪些实际问题？" class="headerlink" title="读边解决了哪些实际问题？"></a>读边解决了哪些实际问题？</h3><p>它们使关联模型数据（<code>JOIN</code>用 SQL 术语称为）的成本从每次读取变为每次写入。读取端的查询只是直接的 <code>SELECT</code>，因为数据已经处于客户想要的形状。</p>
+<p>这是一个净赢，因为通常情况下，系统中的读写比率通常为 10 或更多。这个想法与 SQL 数据库中的“视图”非常相似。</p>
+<h3 id="如果我的域的写入次数多于读取次数怎么办？"><a href="#如果我的域的写入次数多于读取次数怎么办？" class="headerlink" title="如果我的域的写入次数多于读取次数怎么办？"></a>如果我的域的写入次数多于读取次数怎么办？</h3><p>你<em>确定</em>吗？在做出肯定的答复之前，请确保您进行了测量。</p>
+<p>一些域（例如电信）在短期内的写入强度很高，并且对写入端的要求很高。但随后读取端通常会赶上并读取接管。</p>
+<p>某些领域（例如实时股票市场）完全由传入的数据控制，并且必须优化写入端以实时应用命令。</p>
+<h3 id="什么是投影？"><a href="#什么是投影？" class="headerlink" title="什么是投影？"></a>什么是投影？</h3><p>一组协同工作以构建和维护读取模型的事件处理程序。</p>
+<h3 id="如果我构建了一个读取端并且预测结果以某种方式错误怎么办？"><a href="#如果我构建了一个读取端并且预测结果以某种方式错误怎么办？" class="headerlink" title="如果我构建了一个读取端并且预测结果以某种方式错误怎么办？"></a>如果我构建了一个读取端并且预测结果以某种方式错误怎么办？</h3><p>如果您无法在运行中轻松纠正它，则使用固定投影构建读取端的新版本，部署它，让它重新处理事件存储中的所有事件，以便它使用最新数据，然后切换查询使用它。</p>
+<h2 id="Sagas"><a href="#Sagas" class="headerlink" title="Sagas"></a>Sagas</h2><h3 id="什么是Sagas？"><a href="#什么是Sagas？" class="headerlink" title="什么是Sagas？"></a>什么是Sagas？</h3><p>以交叉聚合、最终一致的方式对域事件作出反应的独立组件。时间也可以是触发器。Sagas 有时纯粹是响应式的，有时代表工作流。</p>
+<p>从实现的角度来看，saga 是由传入事件（可能来自许多聚合）驱动的状态机。某些状态会产生副作用，例如发送命令、与外部 Web 服务交谈或发送电子邮件。</p>
+<h3 id="Sagas不是泄露了领域逻辑吗？"><a href="#Sagas不是泄露了领域逻辑吗？" class="headerlink" title="Sagas不是泄露了领域逻辑吗？"></a>Sagas不是泄露了领域逻辑吗？</h3><p>不。</p>
+<p>Sagas 正在做的事情是任何个体聚合都无法明智地做到的。因此，这不是逻辑泄漏，因为无论如何逻辑都不属于聚合。此外，我们不会以任何方式破坏封装，因为 sagas 使用命令和事件进行操作，它们是公共 API 的一部分。</p>
+<h3 id="我怎样才能让我的Saga对没有发生的事件做出反应？"><a href="#我怎样才能让我的Saga对没有发生的事件做出反应？" class="headerlink" title="我怎样才能让我的Saga对没有发生的事件做出反应？"></a>我怎样才能让我的Saga对<em>没有</em>发生的事件做出反应？</h3><p>除了对领域事件做出反应外，传奇故事还可以被反复出现的内部警报“唤醒”。实现这样的警报很容易。例如，参见<code>cron</code>Unix。</p>
+<h3 id="saga-如何与写入端交互？"><a href="#saga-如何与写入端交互？" class="headerlink" title="saga 如何与写入端交互？"></a>saga 如何与写入端交互？</h3><p>通过向它发送命令。</p>
+<h2 id="偶尔连接的系统"><a href="#偶尔连接的系统" class="headerlink" title="偶尔连接的系统"></a>偶尔连接的系统</h2><h3 id="线下客户呢？"><a href="#线下客户呢？" class="headerlink" title="线下客户呢？"></a>线下客户呢？</h3><p>客户端可以离线工作，允许您在本地发出命令，在重新连接时与写入端同步。</p>
+<p>客户端倾向于引入写入端（用于进行本地验证）和读取端（更新速度超过最终一致性允许的速度）的功能。从某种意义上说，由于客户端是系统的用户窗口，它总是有增长的趋势，直到它看起来像整个系统的一个小副本，包括写端和读端。</p>
+<h3 id="什么是命令合并？"><a href="#什么是命令合并？" class="headerlink" title="什么是命令合并？"></a>什么是命令合并？</h3><p>有时在高度协作的域中，命令“太晚”到达，并且聚合的当前状态已经改变，因此命令不能干净地应用。命令合并是从命令中提取潜在意图，然后从该意图创建和应用新命令的行为。</p>
+<h3 id="在偶尔连接的客户端中，如何在实践中完成命令合并？"><a href="#在偶尔连接的客户端中，如何在实践中完成命令合并？" class="headerlink" title="在偶尔连接的客户端中，如何在实践中完成命令合并？"></a>在偶尔连接的客户端中，如何在实践中完成命令合并？</h3><p>git 合并模型似乎很适合窃取。</p>
+<p>转自<a target="_blank" rel="noopener" href="http://cqrs.nu/Faq">http://cqrs.nu/Faq</a>,更多详情可前往查看<br>项目示例：<a href="https://github.com/looplab/eventhorizon">https://github.com/looplab/eventhorizon</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/hypo-Z.github.io/about" rel="external nofollow noreferrer">hypo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/08/19/40-shi-jian-su-yuan-yu-cqrs/">https://github.com/hypo-Z/hypo-Z.github.io/2022/08/19/40-shi-jian-su-yuan-yu-cqrs/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
+                                    <span class="chip bg-color">文章</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                    <span class="chip bg-color">转载</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/hypo-Z.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/hypo-Z.github.io/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/hypo-Z.github.io/libs/valine/av-min.js"></script>
+<script src="/hypo-Z.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rhHVSeznM3f6FGAdTRVSGUYE-gzGzoHsz',
+        appKey: 'fT44db2LjgOzdrx60x5Ntxmz',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/10/18/go-yu-yan-ji-chu-fan-she/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/67.jpeg" class="responsive-img" alt="Go语言基础——反射">
+                        
+                        <span class="card-title">Go语言基础——反射</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Go语言基础——反射
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                    Golang
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/08/15/39-le-guan-zhu-yi-su-zao-wei-lai/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/65.png" class="responsive-img" alt="乐观主义塑造未来">
+                        
+                        <span class="card-title">乐观主义塑造未来</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            我们需要保持乐观的第一个原因：保持乐观不仅是我们的责任，而且是未来取得成功的关键因素之一。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('200')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 学习资料存储<br />'
+            + '文章作者: hypo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/hypo-Z.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2023</span>
+            
+            <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">140k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "14";
+                        var startHour = "17";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/hypo-Z.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank">黔ICP备2021010207号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hypo-Z" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2925376741@qq.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/hypo-Z.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/hypo-Z.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/hypo-Z.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/aos/aos.js"></script>
+    <script src="/hypo-Z.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hypo-Z.github.io/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/hypo-Z.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/hypo-Z.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/hypo-Z.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/hypo-Z.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/hypo-Z.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/hypo-Z.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/hypo-Z.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/hypo-Z.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>

@@ -1,0 +1,1833 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Go语言基础——反射, 菜鸟程序员">
+    <meta name="description" content="Go语言基础——反射">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Go语言基础——反射 | 学习资料存储</title>
+    <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/css/my.css">
+
+    <script src="/hypo-Z.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/hypo-Z.github.io/atom.xml" title="学习资料存储" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://pic.netbian.com/tupian/27531.html);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">学习资料存储</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+      
+      <i class="fab fa-ubnutu" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fab fa-optin-monster" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fab fa-the-red-yeti" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-space-shuttle" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fab fa-reddit" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fab fa-hornbill" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fab fa-grav" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/hypo-Z.github.io/musics">
+          
+          <i class="fab fa-earlybirds" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/movies">
+          
+          <i class="fab fa-d-and-d" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/books">
+          
+          <i class="fab fa-freebsd" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hypo-Z.github.io/galleries">
+          
+          <i class="fas fa-icons" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/hypo-Z.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">学习资料存储</div>
+        <div class="logo-desc">
+            
+            go语言学习者，互联网新手，努力做一个自律的行者
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-ubnutu"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-optin-monster"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-the-red-yeti"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-space-shuttle"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-reddit"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/hypo-Z.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-hornbill"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fab fa-grav"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/musics " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-earlybirds" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/movies " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-d-and-d" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/books " style="margin-left:50px">
+				  
+				   <i class="fa fab fa-freebsd" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/hypo-Z.github.io/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-icons" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hypo-Z/hypo-Z.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hypo-Z/hypo-Z.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/67.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Go语言基础——反射</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/hypo-Z.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                <span class="chip bg-color">转载</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
+                            </a>
+                        
+                            <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">基础</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                Golang
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-10-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-01-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/hypo-Z.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="反射定律"><a href="#反射定律" class="headerlink" title="反射定律"></a>反射定律</h1><p>罗布派克<br>2011 年 9 月 6 日</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>计算中的反射是程序检查其自身结构的能力，特别是通过类型。这是元编程的一种形式。这也是一个很大的混乱来源。</p>
+<p>在本文中，我们试图通过解释反射在 Go 中的工作原理来澄清事情。每种语言的反射模型都不同（许多语言根本不支持），但这篇文章是关于 Go 的，所以对于本文的其余部分，“反射”这个词应该被理解为“Go 中的反射”。</p>
+<p>2022 年 1 月添加的注释：这篇博文写于 2011 年，早于 Go 中的参数多态（又名泛型）。尽管由于语言的发展，文章中的任何重要内容都没有变得不正确，但它已经在一些地方进行了调整，以避免让熟悉现代 Go 的人感到困惑。</p>
+<h2 id="类型和接口"><a href="#类型和接口" class="headerlink" title="类型和接口"></a>类型和接口</h2><p>因为反射建立在类型系统之上，所以让我们从复习一下 Go 中的类型开始。</p>
+<p>Go 是静态类型的。每个变量都有一个静态类型，也就是说，只有一种类型在编译时已知并固定： <code>int</code>、<code>float32</code>、<code>*MyType</code>、<code>[]byte</code>等等。如果我们声明</p>
+<pre class="line-numbers language-none"><code class="language-none">type MyInt int
+
+var i int
+var j MyInt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后<code>i</code>有 type<code>int</code>并且<code>j</code>有 type <code>MyInt</code>。变量<code>i</code>和<code>j</code>具有不同的静态类型，尽管它们具有相同的基础类型，但它们不能在没有转换的情况下相互分配。</p>
+<p>一类重要的类型是接口类型，它表示固定的方法集。（在讨论反射时，我们可以忽略将接口定义用作多态代码中的约束。）接口变量可以存储任何具体（非接口）值，只要该值实现接口的方法即可。一对著名的例子是<code>io.Reader</code>and <code>io.Writer</code>，类型<code>Reader</code>and<code>Writer</code>来自<a target="_blank" rel="noopener" href="https://go.dev/pkg/io/">io 包</a>：</p>
+<pre class="line-numbers language-none"><code class="language-none">// Reader is the interface that wraps the basic Read method.
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+// Writer is the interface that wraps the basic Write method.
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>任何使用此签名实现<code>Read</code>(or <code>Write</code>) 方法的类型都被称为实现<code>io.Reader</code>(or <code>io.Writer</code>)。出于本讨论的目的，这意味着类型变量 <code>io.Reader</code>可以保存其类型具有<code>Read</code>方法的任何值：</p>
+<pre class="line-numbers language-none"><code class="language-none">var r io.Reader
+r = os.Stdin
+r = bufio.NewReader(r)
+r = new(bytes.Buffer)
+// and so on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重要的是要清楚，无论具体值<code>r</code>可能是什么， <code>r</code>‘s 的类型始终是<code>io.Reader</code>：Go 是静态类型的，而静态类型<code>r</code>是<code>io.Reader</code>。</p>
+<p>接口类型的一个极其重要的例子是空接口：</p>
+<pre class="line-numbers language-none"><code class="language-none">interface{}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>或其等效别名，</p>
+<pre class="line-numbers language-none"><code class="language-none">any<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>它代表空的方法集，任何值都可以满足它，因为每个值都有零个或多个方法。</p>
+<p>有人说 Go 的接口是动态类型的，但这是一种误导。它们是静态类型的：接口类型的变量始终具有相同的静态类型，即使在运行时存储在接口变量中的值可能会改变类型，该值也将始终满足接口。</p>
+<p>我们需要对所有这些都保持精确，因为反射和接口密切相关。</p>
+<h2 id="接口的表示"><a href="#接口的表示" class="headerlink" title="接口的表示"></a>接口的表示</h2><p>Russ Cox 写了一篇 关于 Go 中接口值表示的<a target="_blank" rel="noopener" href="https://research.swtch.com/2009/12/go-data-structures-interfaces.html">详细博客文章。</a>这里没有必要重复完整的故事，但一个简化的摘要是有序的。</p>
+<p>接口类型的变量存储一对：分配给变量的具体值，以及该值的类型描述符。更准确地说，值是实现接口的底层具体数据项，类型描述了该项的完整类型。例如，之后</p>
+<pre class="line-numbers language-none"><code class="language-none">var r io.Reader
+tty, err := os.OpenFile("/dev/tty", os.O_RDWR, 0)
+if err != nil {
+    return nil, err
+}
+r = tty<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>r</code>示意性地包含 (value, type) 对 ( <code>tty</code>, <code>*os.File</code>)。请注意，该类型<code>*os.File</code>实现的方法不是<code>Read</code>; 即使接口值只提供对<code>Read</code>方法的访问，内部的值也包含有关该值的所有类型信息。这就是为什么我们可以这样做：</p>
+<pre class="line-numbers language-none"><code class="language-none">var w io.Writer
+w = r.(io.Writer)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这个赋值中的表达式是一个类型断言；它断言的是里面的项目<code>r</code>也实现了<code>io.Writer</code>，所以我们可以将它分配给<code>w</code>. 赋值后，<code>w</code>将包含对 ( <code>tty</code>, <code>*os.File</code>)。那是同一对在举行<code>r</code>。接口的静态类型决定了可以使用接口变量调用哪些方法，即使内部的具体值可能具有更大的方法集。</p>
+<p>继续，我们可以这样做：</p>
+<pre class="line-numbers language-none"><code class="language-none">var empty interface{}
+empty = w<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>并且我们的空接口值<code>empty</code>将再次包含同一对 ( <code>tty</code>, <code>*os.File</code>)。这很方便：一个空接口可以保存任何值，并包含我们可能需要的关于该值的所有信息。</p>
+<p>（我们在这里不需要类型断言，因为静态已知它 <code>w</code>满足空接口。在我们将值从 a 移动<code>Reader</code>到 a的示例中<code>Writer</code>，我们需要显式并使用类型断言，因为<code>Writer</code>‘ 的方法不是的子集<code>Reader</code>。）</p>
+<p>一个重要的细节是接口变量内的对总是有形式（值，具体类型），不能有形式（值，接口类型）。接口不保存接口值。</p>
+<p>现在我们准备好反思了。</p>
+<h2 id="第一反射定律"><a href="#第一反射定律" class="headerlink" title="第一反射定律"></a>第一反射定律</h2><h2 id="1-反射从接口值到反射对象。"><a href="#1-反射从接口值到反射对象。" class="headerlink" title="1. 反射从接口值到反射对象。"></a>1. 反射从接口值到反射对象。</h2><p>在基本层面上，反射只是一种检查存储在接口变量中的类型和值对的机制。首先，我们需要了解<a target="_blank" rel="noopener" href="https://go.dev/pkg/reflect/">反射包</a>中的两种类型： <a target="_blank" rel="noopener" href="https://go.dev/pkg/reflect/#Type">类型</a>和<a target="_blank" rel="noopener" href="https://go.dev/pkg/reflect/#Value">值</a>。这两种类型可以访问接口变量的内容，以及两个简单的函数，称为<code>reflect.TypeOf</code>and <code>reflect.ValueOf</code>，检索<code>reflect.Type</code>和<code>reflect.Value</code>分片接口值。（另外，从 a<code>reflect.Value</code>到对应的 很容易<code>reflect.Type</code>，但现在让<code>Value</code>和<code>Type</code>概念分开。）</p>
+<p>让我们从<code>TypeOf</code>：</p>
+<pre class="line-numbers language-none"><code class="language-none">package main
+
+import (
+    "fmt"
+    "reflect"
+)
+
+func main() {
+    var x float64 = 3.4
+    fmt.Println("type:", reflect.TypeOf(x))
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>该程序打印</p>
+<pre class="line-numbers language-none"><code class="language-none">type: float64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>您可能想知道接口在哪里，因为程序看起来像是将<code>float64</code>变量<code>x</code>而不是接口值传递给<code>reflect.TypeOf</code>. 但它就在那里；作为<a target="_blank" rel="noopener" href="https://go.dev/pkg/reflect/#TypeOf">godoc 报告</a>， 的签名<code>reflect.TypeOf</code>包括一个空接口：</p>
+<pre class="line-numbers language-none"><code class="language-none">// TypeOf returns the reflection Type of the value in the interface{}.
+func TypeOf(i interface{}) Type<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>当我们调用时<code>reflect.TypeOf(x)</code>，<code>x</code>首先存储在一个空接口中，然后作为参数传递； <code>reflect.TypeOf</code>解压缩该空接口以恢复类型信息。</p>
+<p>当然，该<code>reflect.ValueOf</code>函数会恢复值（从这里开始，我们将省略样板文件并只关注可执行代码）：</p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+fmt.Println("value:", reflect.ValueOf(x).String())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>印刷</p>
+<pre class="line-numbers language-none"><code class="language-none">value: &lt;float64 Value&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（我们显式调用该<code>String</code>方法，因为默认情况下，<code>fmt</code>包会深入到 a<code>reflect.Value</code>中以显示内部的具体值。该<code>String</code>方法没有。）</p>
+<p>两者<code>reflect.Type</code>都有<code>reflect.Value</code>很多方法可以让我们检查和操作它们。一个重要的例子是它<code>Value</code>有一个<code>Type</code>返回 <code>Type</code>a的方法<code>reflect.Value</code>。另一个是两者<code>Type</code>都有<code>Value</code>一个<code>Kind</code>方法，该方法返回一个常量，指示存储的项目类型： <code>Uint</code>、<code>Float64</code>、<code>Slice</code>等。还<code>Value</code>使用名称 like 的方法<code>Int</code>，<code>Float</code>让我们获取存储在其中的值（as<code>int64</code>和<code>float64</code>）：</p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+v := reflect.ValueOf(x)
+fmt.Println("type:", v.Type())
+fmt.Println("kind is float64:", v.Kind() == reflect.Float64)
+fmt.Println("value:", v.Float())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>印刷</p>
+<pre class="line-numbers language-none"><code class="language-none">type: float64
+kind is float64: true
+value: 3.4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>也有类似的方法<code>SetInt</code>，<code>SetFloat</code>但要使用它们，我们需要了解可设置性，即反射第三定律的主题，将在下面讨论。</p>
+<p>反射库有几个值得一提的属性。首先，为了保持 API 简单，“getter”和“setter”方法对<code>Value</code> 可以保存值的最大类型进行操作： <code>int64</code>例如，对于所有有符号整数。即 的<code>Int</code>方法<code>Value</code>返回一个<code>int64</code>，<code>SetInt</code> 值取一个<code>int64</code>; 可能需要转换为实际涉及的类型：</p>
+<pre class="line-numbers language-none"><code class="language-none">var x uint8 = 'x'
+v := reflect.ValueOf(x)
+fmt.Println("type:", v.Type())                            // uint8.
+fmt.Println("kind is uint8: ", v.Kind() == reflect.Uint8) // true.
+x = uint8(v.Uint())                                       // v.Uint returns a uint64.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第二个属性是<code>Kind</code>反射对象描述的是底层类型，而不是静态类型。如果反射对象包含用户定义的整数类型的值，如</p>
+<pre class="line-numbers language-none"><code class="language-none">type MyInt int
+var x MyInt = 7
+v := reflect.ValueOf(x)
+Kind`of`v`仍然是，`reflect.Int`即使静态类型`x`是`MyInt`，不是`int`。换句话说，即使可以，`Kind`也无法区分 an`int`和 a 。`MyInt``Type<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="反射第二定律"><a href="#反射第二定律" class="headerlink" title="反射第二定律"></a>反射第二定律</h2><h2 id="2-反射从反射对象到接口值。"><a href="#2-反射从反射对象到接口值。" class="headerlink" title="2. 反射从反射对象到接口值。"></a>2. 反射从反射对象到接口值。</h2><p>像物理反射一样，Go 中的反射产生了它自己的逆。</p>
+<p>给定 a<code>reflect.Value</code>我们可以使用该方法恢复接口值<code>Interface</code>；实际上，该方法将类型和值信息打包回接口表示并返回结果：</p>
+<pre class="line-numbers language-none"><code class="language-none">// Interface returns v's value as an interface{}.
+func (v Value) Interface() interface{}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>结果我们可以说</p>
+<pre class="line-numbers language-none"><code class="language-none">y := v.Interface().(float64) // y will have type float64.
+fmt.Println(y)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>打印<code>float64</code>反射对象表示的值<code>v</code>。</p>
+<p>不过，我们可以做得更好。的参数<code>fmt.Println</code>等等 <code>fmt.Printf</code>都是作为空接口值传递的，然后<code>fmt</code>就像我们在前面的示例中所做的那样，它们在内部由包解包。因此，正确打印 a 的内容所需要做的<code>reflect.Value</code>就是将方法的结果传递<code>Interface</code>给格式化的打印例程：</p>
+<pre class="line-numbers language-none"><code class="language-none">fmt.Println(v.Interface())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（因为这篇文章是第一次写的，所以对<code>fmt</code> 包做了一个改变，让它自动解包这样的<code>reflect.Value</code>，所以我们可以说</p>
+<pre class="line-numbers language-none"><code class="language-none">fmt.Println(v)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>得到相同的结果，但为了清楚起见，我们将在<code>.Interface()</code>此处保留调用。）</p>
+<p>由于我们的值是 a <code>float64</code>，我们甚至可以根据需要使用浮点格式：</p>
+<pre class="line-numbers language-none"><code class="language-none">fmt.Printf("value is %7.1e\n", v.Interface())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在这种情况下得到</p>
+<pre class="line-numbers language-none"><code class="language-none">3.4e+00<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>同样，无需对 to 的结果进行类型<code>v.Interface()</code>断言<code>float64</code>；空接口值里面有具体值的类型信息，<code>Printf</code>会恢复。</p>
+<p>简而言之，该<code>Interface</code>方法是函数的逆<code>ValueOf</code>函数，只是它的结果始终是静态类型<code>interface{}</code>。</p>
+<p>重申：反射从接口值到反射对象再返回。</p>
+<h2 id="反射第三定律"><a href="#反射第三定律" class="headerlink" title="反射第三定律"></a>反射第三定律</h2><h2 id="3-要修改反射对象，其值必须是可设置的。"><a href="#3-要修改反射对象，其值必须是可设置的。" class="headerlink" title="3.要修改反射对象，其值必须是可设置的。"></a>3.要修改反射对象，其值必须是可设置的。</h2><p>第三定律是最微妙和最令人困惑的，但是如果我们从第一原理开始就很容易理解。</p>
+<p>这是一些不起作用的代码，但值得研究。</p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+v := reflect.ValueOf(x)
+v.SetFloat(7.1) // Error: will panic.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如果你运行这段代码，它会因为神秘的消息而恐慌</p>
+<pre class="line-numbers language-none"><code class="language-none">panic: reflect.Value.SetFloat using unaddressable value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>问题不在于该值<code>7.1</code>不可寻址；这<code>v</code>是不可设置的。可设置性是反射的属性<code>Value</code>，并非所有反射<code>Values</code>都有。</p>
+<p>报告a的可设置性的<code>CanSet</code>方法；在我们的例子中，<code>Value``Value</code></p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+v := reflect.ValueOf(x)
+fmt.Println("settability of v:", v.CanSet())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>印刷</p>
+<pre class="line-numbers language-none"><code class="language-none">settability of v: false<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>Set</code>在 non-settable 上调用方法是错误的<code>Value</code>。但什么是可设置性？</p>
+<p>可设置性有点像可寻址性，但更严格。这是反射对象可以修改用于创建反射对象的实际存储的属性。可设置性取决于反射对象是否持有原始项目。当我们说</p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+v := reflect.ValueOf(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>我们传递<code>x</code>to的副本<code>reflect.ValueOf</code>，因此作为 to 参数创建的接口值<code>reflect.ValueOf</code>是 的副本<code>x</code>，而不是<code>x</code>自身。因此，如果语句</p>
+<pre class="line-numbers language-none"><code class="language-none">v.SetFloat(7.1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>被允许成功，它不会更新<code>x</code>，即使它<code>v</code>看起来像是从<code>x</code>. <code>x</code>相反，它会更新存储在反射值中的副本，并且<code>x</code>它本身不会受到影响。那会令人困惑和无用，因此它是非法的，而可设置性是用于避免此问题的属性。</p>
+<p>如果这看起来很奇怪，其实不然。这实际上是一个穿着不寻常服装的熟悉情况。考虑传递<code>x</code>给一个函数：</p>
+<pre class="line-numbers language-none"><code class="language-none">f(x)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我们不希望<code>f</code>能够修改，因为我们传递了’ 值<code>x</code>的副本，而不是它本身。如果我们想直接修改，我们必须将地址传递给我们的函数（即指向 的指针）：<code>x``x``f``x``x``x</code></p>
+<pre class="line-numbers language-none"><code class="language-none">f(&amp;x)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这是直截了当和熟悉的，反射也以同样的方式工作。如果我们想<code>x</code>通过反射进行修改，我们必须给反射库一个指向我们要修改的值的指针。</p>
+<p>让我们这样做。首先我们像往常一样初始化<code>x</code>，然后创建一个指向它的反射值，称为<code>p</code>.</p>
+<pre class="line-numbers language-none"><code class="language-none">var x float64 = 3.4
+p := reflect.ValueOf(&amp;x) // Note: take the address of x.
+fmt.Println("type of p:", p.Type())
+fmt.Println("settability of p:", p.CanSet())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>到目前为止的输出是</p>
+<pre class="line-numbers language-none"><code class="language-none">type of p: *float64
+settability of p: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>反射对象<code>p</code>是不可设置的，但它不是<code>p</code>我们想要设置的，它是 (in effect) <code>*p</code>。为了得到指向什么<code>p</code>，我们调用 的<code>Elem</code>方法<code>Value</code>，该方法通过指针间接传递，并将结果保存在<code>Value</code>名为的反射中<code>v</code>：</p>
+<pre class="line-numbers language-none"><code class="language-none">v := p.Elem()
+fmt.Println("settability of v:", v.CanSet())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>现在<code>v</code>是一个可设置的反射对象，如输出所示，</p>
+<pre class="line-numbers language-none"><code class="language-none">settability of v: true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>由于它代表<code>x</code>，我们终于可以用来<code>v.SetFloat</code>修改 的值<code>x</code>：</p>
+<pre class="line-numbers language-none"><code class="language-none">v.SetFloat(7.1)
+fmt.Println(v.Interface())
+fmt.Println(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>正如预期的那样，输出是</p>
+<pre class="line-numbers language-none"><code class="language-none">7.1
+7.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>反射可能很难理解，但它确实在做语言所做的事情，尽管是通过反射<code>Types</code>来<code>Values</code>掩盖正在发生的事情。请记住，反射值需要某些东西的地址才能修改它们所代表的内容。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>在我们之前的示例<code>v</code>中，它本身并不是一个指针，它只是从一个指针派生而来。出现这种情况的常见方法是使用反射来修改结构的字段。只要我们有结构的地址，我们就可以修改它的字段。</p>
+<p>这是一个分析结构值的简单示例，<code>t</code>. 我们使用结构的地址创建反射对象，因为我们稍后会修改它。然后我们设置<code>typeOfT</code>它的类型并使用简单的方法调用迭代字段（有关详细信息，请参阅<a target="_blank" rel="noopener" href="https://go.dev/pkg/reflect/">包反映</a>）。请注意，我们从结构类型中提取字段的名称，但字段本身是常规<code>reflect.Value</code>对象。</p>
+<pre class="line-numbers language-none"><code class="language-none">type T struct {
+    A int
+    B string
+}
+t := T{23, "skidoo"}
+s := reflect.ValueOf(&amp;t).Elem()
+typeOfT := s.Type()
+for i := 0; i &lt; s.NumField(); i++ {
+    f := s.Field(i)
+    fmt.Printf("%d: %s %s = %v\n", i,
+        typeOfT.Field(i).Name, f.Type(), f.Interface())
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个程序的输出是</p>
+<pre class="line-numbers language-none"><code class="language-none">0: A int = 23
+1: B string = skidoo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这里顺便介绍了一点关于可设置性： 的字段名称<code>T</code>是大写的（导出的），因为只有结构的导出字段是可设置的。</p>
+<p>因为<code>s</code>包含一个可设置的反射对象，所以我们可以修改结构体的字段。</p>
+<pre class="line-numbers language-none"><code class="language-none">s.Field(0).SetInt(77)
+s.Field(1).SetString("Sunset Strip")
+fmt.Println("t is now", t)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>结果如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">t is now {77 Sunset Strip}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果我们修改程序以便<code>s</code>从<code>t</code>, not中创建，则对和<code>&amp;t</code>的调用将失败，因为 的字段不可设置。<code>SetInt``SetString``t</code></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这里又是反射定律：</p>
+<ul>
+<li>反射从接口值到反射对象。</li>
+<li>反射从反射对象到接口值。</li>
+<li>要修改反射对象，该值必须是可设置的。</li>
+</ul>
+<p>一旦你理解了这些定律，Go 中的反射就会变得更容易使用，尽管它仍然很微妙。这是一个强大的工具，除非绝对必要，否则应谨慎使用并避免使用。</p>
+<p>还有很多我们没有涉及到的反射——在通道上发送和接收、分配内存、使用切片和映射、调用方法和函数——但是这篇文章已经足够长了。我们将在以后的文章中介绍其中的一些主题。</p>
+<p>转载自：<a target="_blank" rel="noopener" href="https://go.dev/blog/laws-of-reflection">https://go.dev/blog/laws-of-reflection</a>,转载请注</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/hypo-Z.github.io/about" rel="external nofollow noreferrer">罗布派克</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/10/18/go-yu-yan-ji-chu-fan-she/">https://github.com/hypo-Z/hypo-Z.github.io/2022/10/18/go-yu-yan-ji-chu-fan-she/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/hypo-Z.github.io/about" target="_blank">罗布派克</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                                    <span class="chip bg-color">转载</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
+                                </a>
+                            
+                                <a href="/hypo-Z.github.io/tags/%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">基础</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/hypo-Z.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/hypo-Z.github.io/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/hypo-Z.github.io/libs/valine/av-min.js"></script>
+<script src="/hypo-Z.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'rhHVSeznM3f6FGAdTRVSGUYE-gzGzoHsz',
+        appKey: 'fT44db2LjgOzdrx60x5Ntxmz',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/10/25/go-yu-yan-jin-jie-channel-de-shi-xian-ji-zhi/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/68.jpeg" class="responsive-img" alt="Go语言进阶——channel的实现机制">
+                        
+                        <span class="card-title">Go语言进阶——channel的实现机制</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本章从源码角度分析channel的实现机制
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
+                                    Golang
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E8%BF%9B%E9%98%B6/">
+                        <span class="chip bg-color">进阶</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/hypo-Z.github.io/2022/08/19/40-shi-jian-su-yuan-yu-cqrs/">
+                    <div class="card-image">
+                        
+                        <img src="/hypo-Z.github.io/medias/featureimages/66.jpeg" class="responsive-img" alt="事件溯源与CQRS">
+                        
+                        <span class="card-title">事件溯源与CQRS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            什么是事件溯源？即将所有更改（事件）存储到系统，而不仅仅是其当前状态。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/hypo-Z.github.io/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
+                                    转载
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/hypo-Z.github.io/tags/%E6%96%87%E7%AB%A0/">
+                        <span class="chip bg-color">文章</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('200')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 学习资料存储<br />'
+            + '文章作者: hypo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/hypo-Z.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/hypo-Z.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2023</span>
+            
+            <a href="/hypo-Z.github.io/about" target="_blank">hypo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">140k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "14";
+                        var startHour = "17";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/hypo-Z.github.io/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank">黔ICP备2021010207号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hypo-Z" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2925376741@qq.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2925376741@qq.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/hypo-Z.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/hypo-Z.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/hypo-Z.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/aos/aos.js"></script>
+    <script src="/hypo-Z.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/hypo-Z.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/hypo-Z.github.io/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/hypo-Z.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/hypo-Z.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/hypo-Z.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/hypo-Z.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/hypo-Z.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/hypo-Z.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/hypo-Z.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/hypo-Z.github.io/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.9}});</script></body>
+
+</html>
