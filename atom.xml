@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2023-04-15T02:35:54.937Z</updated>
+  <updated>2023-10-19T08:37:19.961Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go语言进阶--简单的理解操作符</title>
+    <link href="https://github.com/hypo-Z/2023/10/19/go-yu-yan-jin-jie-jian-dan-de-li-jie-cao-zuo-fu/"/>
+    <id>https://github.com/hypo-Z/2023/10/19/go-yu-yan-jin-jie-jian-dan-de-li-jie-cao-zuo-fu/</id>
+    <published>2023-10-19T08:28:27.000Z</published>
+    <updated>2023-10-19T08:37:19.961Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-什么是位运算&quot;&gt;&lt;a href=&quot;#1-什么是位运算&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://github.com/hypo-Z/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="位运算" scheme="https://github.com/hypo-Z/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+    <category term="操作符" scheme="https://github.com/hypo-Z/tags/%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>使用GIT钩子自动生成提交注释</title>
@@ -557,33 +584,6 @@
     <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
     
     <category term="算法" scheme="https://github.com/hypo-Z/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言进阶——数据结构之栈和队列</title>
-    <link href="https://github.com/hypo-Z/2022/03/02/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-zhan-he-dui-lie/"/>
-    <id>https://github.com/hypo-Z/2022/03/02/go-yu-yan-jin-jie-shu-ju-jie-gou-zhi-zhan-he-dui-lie/</id>
-    <published>2022-03-02T04:08:31.000Z</published>
-    <updated>2022-03-22T08:27:01.535Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Go语言进阶——数据结构之栈和队列&quot;&gt;&lt;a href=&quot;#Go语言进阶——数据结构之栈和队列&quot; class=&quot;headerlink&quot; title=&quot;Go语言进阶——数据结构之栈和队列&quot;&gt;&lt;/a&gt;Go语言进阶——数据结构之栈和队列&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
-    
-    <category term="进阶" scheme="https://github.com/hypo-Z/tags/%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
