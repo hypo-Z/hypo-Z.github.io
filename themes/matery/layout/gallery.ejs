@@ -18,23 +18,26 @@ function getCurrentGallery(galleries, pageTitle) {
 }
 var currentGallery = getCurrentGallery(galleries, pageTitle)
 
-var photos = currentGallery.photos;
+var photos = currentGallery ? currentGallery.photos : []; // 如果currentGallery未定义，将photos设置为空数组
+
 var galleryImageStr = theme.jsDelivr.url ? theme.jsDelivr.url : '';
 
-let imageStr = ''
+let imageStr = '';
 
-for (var i = 0, len = photos.length; i < len; i++) {
-    var photo = photos[i];
+if (photos && photos.length > 0) {
+    for (var i = 0, len = photos.length; i < len; i++) {
+        var photo = photos[i];
 
-    imageStr += "<a href=\"" + galleryImageStr + photo + "\"" +
-            "     class=\"photo-item\" rel=\"example_group\"" +
-            "     data-fancybox=\"images\">" +
-            "      <img src=\"" + galleryImageStr + photo + "\"" +
-            "       alt=" + photo + ">\n" +
-            "    </a>"
-
+        imageStr += "<a href=\"" + galleryImageStr + photo + "\"" +
+                "     class=\"photo-item\" rel=\"example_group\"" +
+                "     data-fancybox=\"images\">" +
+                "      <img src=\"" + galleryImageStr + photo + "\"" +
+                "       alt=\"" + photo + "\">\n" + // 注意这里的 alt 属性要用双引号括起来
+                "    </a>";
+    }
 }
 %>
+
 
 <div class="container">
     <div class="photo-wrapper">
