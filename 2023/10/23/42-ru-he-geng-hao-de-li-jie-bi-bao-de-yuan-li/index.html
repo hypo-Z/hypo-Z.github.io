@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用Pandoc把Markdown转为PDF文件, 菜鸟程序员">
-    <meta name="description" content="Pandoc可以很方便地对不同 Markup 语言的文件进行格式转换，因此被誉为格式转换的「瑞士军刀」。使用 Pandoc 把 Markdown 文件转为 PDF 文件，实际上包含两个步骤：">
+    <meta name="keywords" content="如何更好的理解闭包的原理, 菜鸟程序员">
+    <meta name="description" content="在Go语言中，闭包（closures）是指一个函数值（function value）捕获了其所在作用域外部变量的引用。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>使用Pandoc把Markdown转为PDF文件 | 学习资料存储</title>
+    <title>如何更好的理解闭包的原理 | 学习资料存储</title>
     <link rel="icon" type="image/png" href="/hypo-Z.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hypo-Z.github.io/libs/awesome/css/all.min.css">
@@ -407,12 +407,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/54.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hypo-Z.github.io/medias/featureimages/75.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用Pandoc把Markdown转为PDF文件</h1>
+                    <h1 class="description center-align post-title">如何更好的理解闭包的原理</h1>
                 </div>
             </div>
         </div>
@@ -528,20 +528,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/hypo-Z.github.io/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
-                            <a href="/hypo-Z.github.io/tags/pandoc/">
-                                <span class="chip bg-color">pandoc</span>
-                            </a>
-                        
-                            <a href="/hypo-Z.github.io/tags/markdown/">
-                                <span class="chip bg-color">markdown</span>
-                            </a>
-                        
-                            <a href="/hypo-Z.github.io/tags/pdf/">
-                                <span class="chip bg-color">pdf</span>
+                            <a href="/hypo-Z.github.io/tags/%E9%97%AD%E5%8C%85/">
+                                <span class="chip bg-color">闭包</span>
                             </a>
                         
                     </div>
@@ -565,28 +557,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-06
+                    2023-10-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-28
+                    2023-10-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    5 分
                 </div>
                 
 
@@ -614,119 +606,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用-Pandoc-把-Markdown-转为-PDF-文件"><a href="#使用-Pandoc-把-Markdown-转为-PDF-文件" class="headerlink" title="使用 Pandoc 把 Markdown 转为 PDF 文件"></a>使用 Pandoc 把 Markdown 转为 PDF 文件</h1><h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ul>
-<li>首先当然是 Pandoc，下载<a href="https://github.com/jgm/pandoc/releases">最新的安装包</a>，安装完以后，记得把 Pandoc 安装目录加入系统 <code>PATH</code> 变量。</li>
-<li>TeX 发行版。请确保你的系统已经安装了 TeX 软件，你可以使用 <a target="_blank" rel="noopener" href="https://www.tug.org/texlive/">TeX Live</a> 或者 <a target="_blank" rel="noopener" href="https://miktex.org/">MiKTeX</a>，安装完成之后可能需要设置 <code>PATH</code>，推荐安装 TeX Live。</li>
-<li>一个强大的文本编辑器</li>
-</ul>
-<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><a target="_blank" rel="noopener" href="https://pandoc.org/">Pandoc</a> 可以很方便地对不同 Markup 语言的文件进行格式转换，因此被誉为格式转换的「瑞士军刀」。使用 Pandoc 把 Markdown 文件转为 PDF 文件，实际上包含两个步骤：</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><ul>
-<li>第一步， Markdown 文件被转为 LaTeX 源文件。</li>
-<li>第二步，调用系统的 <code>pdflatex</code>, <code>xelatex</code> 或者其他 TeX 命令，将 <code>.tex</code> 文件转换为最终的 PDF 文件 (见上图)。</li>
-</ul>
-<p>由于我的文档是中文，并且包含引用，表格等比较复杂的格式，在文件转换过程中遇到了一些问题，下面介绍具体解决办法。</p>
-<h3 id="如何处理中文"><a href="#如何处理中文" class="headerlink" title="如何处理中文"></a>如何处理中文</h3><p>Pandoc 默认使用的 pdflatex 命令无法处理 Unicode 字符，如果要把包含中文的Markdown 文件转为 PDF，在生成 PDF 的过程中会报错。我们需要使用 xelatex 来处理中文，并且需要使用 CJKmainfont 选项指定支持中文的字体。 在 Windows 系统中，对于 Pandoc 2.0 版本以上，可以使用以下的命令生成 PDF 文件：</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex -V CJKmainfont="Noto Sans Mono CJK SC:style=Regular" test.md -o test.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>CJKmainfont 后面跟的是支持中文的字体名称。那么如何找到支持中文的字体呢？ 首先，你需要知道你所使用的语言的 language code, 例如，中文(即Chinese)的 language code 是 zh。 然后使用 fc-list 命令查看支持中文的字体(对于 Windows 系统，fc-list 命令在安装 TeX Live 完整版以后可以使用, Unix 系统一般会预装这个程序)：</p>
-<pre class="line-numbers language-none"><code class="language-none">fc-list :lang=zh # zh 是中文的 「language code」<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在 Linux 系统上，找出支持中文的字体的方式与 Windows 系统是一样的。</p>
-<h3 id="添加文档标题，作者，更新时间信息"><a href="#添加文档标题，作者，更新时间信息" class="headerlink" title="添加文档标题，作者，更新时间信息"></a>添加文档标题，作者，更新时间信息</h3><p>Pandoc 支持 YAML 格式的 header，通过 header 可以指定文章的标题，作者，更新时间等信息，一个示例 header 如下：</p>
-<hr>
-<p>data:”2022.7.7”<br>title: “My demo title”<br>author: “sfsf”</p>
-<hr>
-<h3 id="给-block-code-加上-highlight"><a href="#给-block-code-加上-highlight" class="headerlink" title="给 block code 加上 highlight"></a>给 block code 加上 highlight</h3><p>Pandoc 支持给 block code 里面的代码加上背景高亮，并提供了不同的高亮主题，支持非常多的语言。要列出 Pandoc 提供的高亮方案，使用下面命令，</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --list-highlight-styles<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>要列出所有支持的语言，使用下面命令，</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --list-highlight-languages<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>要使用语法高亮，Markdown 文件中的 block code 必须指定语言，同时在命令行使用–highlight-style 选项，例如：</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex --highlight-style zenburn test.md -o test.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>以上命令，使用了 zenburn 主题, 另外，也推荐使用 tango, zenburn 或者breezedark 高亮主题。</p>
-<h3 id="给链接加上颜色"><a href="#给链接加上颜色" class="headerlink" title="给链接加上颜色"></a>给链接加上颜色</h3><p>根据 Pandoc user guide 的说明，我们可以通过 colorlinks 选项给各种链接加上颜色，便于和普通文本区分开来：</p>
-<pre class="line-numbers language-none"><code class="language-none">colorlinks
-    add color to link text; automatically enabled if any of linkcolor, filecolor, citecolor, urlcolor, or toccolor are set<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>同时，为了精确控制不同类型链接颜色，Pandoc 还提供了对不同链接颜色的个性化设置选项：</p>
-<pre class="line-numbers language-none"><code class="language-none">linkcolor, filecolor, citecolor, urlcolor, toccolor
-    color for internal links, external links, citation links, linked URLs, and
-    links in table of contents, respectively: uses options allowed by xcolor,
-    including the dvipsnames, svgnames, and x11names lists<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>例如，如果我们想给 URL 链接加上颜色，并且 urlcolor 要设为 NavyBlue, 可以使用下面的命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex -V colorlinks -V urlcolor=NavyBlue test.md -o test.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>其他链接的颜色可以按照上述方式设置。</p>
-<p>值得注意的是，urlcolor 选项并不能给文中直接展示的 raw URL link 加上颜色。 要给直接展示的 URL link 加上颜色，可以用 &lt;&gt; 包围要展示的链接，例如&lt;<a href="http://www.google.com>./">www.google.com&gt;。</a></p>
-<p>另外，也可以使用选项 -f gfm，参考这里。完整命令如下，</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex -f gfm -Vurlcolor=cyan -o test.pdf test.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用 -f gfm 的一个缺点是 gfm 不支持公式，因此如果在 Markdown 中包含公式，将不能正确渲染。解决办法是去掉 -f gfm flag，或者使用 Pandoc 自带的 markdown格式。</p>
-<h3 id="更改-PDF-的-margin"><a href="#更改-PDF-的-margin" class="headerlink" title="更改 PDF 的 margin"></a>更改 PDF 的 margin</h3><p>使用默认设置生成的 PDF margin 太大，根据 Pandoc 官方FAQ，可以使用下面的选项更改 margin：</p>
-<pre class="line-numbers language-none"><code class="language-none">-V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>完整命令为：</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" -o test.pdf test.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="Markdown-文件中使用斜杠-backslash-会出错"><a href="#Markdown-文件中使用斜杠-backslash-会出错" class="headerlink" title="Markdown 文件中使用斜杠 backslash 会出错"></a>Markdown 文件中使用斜杠 backslash 会出错</h3><p>原始的 Markdown 格式，支持在文件中使用 backslash，但是 Pandoc 把 backslash 以及后面的内容理解成 LaTeX 命令，因此在编译包含 backslash 的文件时，可能会遇到undefined command 错误或者更加奇怪的错误。参考这里以及这里，解决办法是让 Pandoc 把 Markdown文件当成正常的 Markdown，不要解读 LaTeX 命令，使用下面的 flag:</p>
-<pre class="line-numbers language-none"><code class="language-none">pandoc -f markdown-raw_tex<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="直接上命令"><a href="#直接上命令" class="headerlink" title="直接上命令"></a>直接上命令</h3><pre class="line-numbers language-none"><code class="language-none">pandoc --pdf-engine=xelatex -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" -V CJKmainfont="Noto Sans Mono CJK SC:style=Regular" -V colorlinks -V urlcolor=NavyBlue -f markdown-raw_tex test.md -o test.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><blockquote>
-<p>以上的方法一是直接使用pandoc进行转化，下面介绍一下两步转化，即先转为tex文件再转成pdf文件</p>
+                <h1 id="如何更好的理解闭包的原理"><a href="#如何更好的理解闭包的原理" class="headerlink" title="如何更好的理解闭包的原理"></a>如何更好的理解闭包的原理</h1><blockquote>
+<p>在Go语言中，闭包（closures）是指一个函数值（function value）捕获了其所在作用域外部变量的引用。换句话说，闭包允许函数访问并操作其声明时不在同一作用域内的变量。这种行为在并发编程和函数式编程中非常有用。</p>
 </blockquote>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#使用pandoc先将test.md文件转为无格式的output.tex文件
-pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p> 其中一些字段需要修改的可以使用linux自带的sed命令，比如将verbatim替换成listings(用于代码块)、或者不想要标题号section替换成section*(无标题号)<br> 使用 sed 替换字符串的语法。</p>
- <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sed -i 's/Search_String/Replacement_String/g' Input_File <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="简单理解"><a href="#简单理解" class="headerlink" title="简单理解"></a>简单理解</h2><p>让我们通过一个例子来更好地理解Go闭包的原理：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
 
-<p> 首先我们需要了解 sed 语法来做到这一点。请参阅有关的细节。</p>
-<p>sed：这是一个 Linux 命令。<br>-i：这是 sed 命令的一个选项，它有什么作用？默认情况下，sed 打印结果到标准输出。当你使用 sed 添加这个选项时，那么它会在适当的位置修改文件。当你添加一个后缀（比如，-i.bak）时，就会创建原始文件的备份。<br>s：字母 s 是一个替换命令。<br>Search_String：搜索一个给定的字符串或正则表达式。<br>Replacement_String：替换的字符串。<br>g：全局替换标志。默认情况下，sed 命令替换每一行第一次出现的模式，它不会替换行中的其他的匹配结果。但是，提供了该替换标志时，所有匹配都将被替换。<br>/：分界符。<br>Input_File：要执行操作的文件名。</p>
-<p>然后将修改后的output.tex文件插入到latex的模板文件template.tex中，这里推荐一个模板</p>
-<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token comment">% !TEX encoding = UTF-8 Unicode</span>
-<span class="token function selector">\documentclass</span><span class="token punctuation">[</span>a4paper,11pt,twoside,fontset = none,UTF8<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">ctexart</span><span class="token punctuation">}</span> <span class="token comment">% 页面A4纸大小，11 磅大小的字体，式样为双面，字体集为Fandol，编码为UTF8，文档类型为cTex的art（支持中文）</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">[</span>a4paper,scale=0.8,hcentering<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">geometry</span><span class="token punctuation">}</span> <span class="token comment">% A4纸大小，缩放80%，设置页面居中</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">hyperref</span><span class="token punctuation">}</span>      <span class="token comment">% 超链接</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">listings</span><span class="token punctuation">}</span>      <span class="token comment">% 代码块</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">courier</span><span class="token punctuation">}</span>       <span class="token comment">% 字体</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">fontspec</span><span class="token punctuation">}</span>      <span class="token comment">% 字体</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">fancyhdr</span><span class="token punctuation">}</span>      <span class="token comment">% 页眉页脚相关宏包</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">lastpage</span><span class="token punctuation">}</span>      <span class="token comment">% 引用最后一页</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">amsmath,amsthm,amsfonts,amssymb,bm</span><span class="token punctuation">}</span> <span class="token comment">%数学</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">graphicx</span><span class="token punctuation">}</span>      <span class="token comment">% 图片</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">subcaption</span><span class="token punctuation">}</span>    <span class="token comment">% 图片描述</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">longtable,booktabs</span><span class="token punctuation">}</span> <span class="token comment">% 表格</span>
-<span class="token function selector">\setCJKsansfont</span><span class="token punctuation">{</span>Noto Sans SC<span class="token punctuation">}</span>  <span class="token comment">%设置字体为Noto Sans SC</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">xcolor</span><span class="token punctuation">}</span>
-<span class="token function selector">\lstset</span><span class="token punctuation">{</span>
-    language=Markdown,  <span class="token comment">%代码语言使用的是Markdown</span>
-    frame=single, <span class="token comment">%把代码用框圈起来</span>
-    numbers=left, <span class="token comment">% 显示行号</span>
-    numberstyle=<span class="token function selector">\tiny</span>,    <span class="token comment">% 行号字体</span>
-    stringstyle=<span class="token function selector">\ttfamily</span>, <span class="token comment">% 代码字符串的特殊格式</span>
-    breaklines=true, <span class="token comment">%对过长的代码自动换行</span>
-    extendedchars=false,  <span class="token comment">%解决代码跨页时，章节标题，页眉等汉字不显示的问题</span>
-    escapebegin=<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">CJK*</span><span class="token punctuation">}</span>
-                    ,escapeend=
-    <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">CJK*</span><span class="token punctuation">}</span>,      <span class="token comment">% 代码中出现中文必须加上，否则报错</span>
-    texcl=true<span class="token punctuation">}</span>
-<span class="token function selector">\pagestyle</span><span class="token punctuation">{</span>fancy<span class="token punctuation">}</span>         <span class="token comment">% 页眉页脚风格</span>
-<span class="token function selector">\fancyhf</span><span class="token punctuation">{</span><span class="token punctuation">}</span>                <span class="token comment">% 清空当前设置</span>
-<span class="token function selector">\fancyfoot</span><span class="token punctuation">[</span>C<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token function selector">\thepage</span><span class="token function selector">\ </span><span class="token punctuation">}</span><span class="token comment">%页脚中间显示 当前页 / 总页数，把\label{LastPage}放在最后</span>
-<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
-<span class="token comment">%    insert_begin/</span>
-<span class="token comment">%replace%</span>
-<span class="token comment">%    insert_end/</span>
-<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
-<span class="token function selector">\label</span><span class="token punctuation">{</span><span class="token keyword">LastPage</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
 
-<p>之后将完整的latex文件使用以下命令，即可打印出pdf文件</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">latexmk -pdflatex=xelatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=test.pdf template.tex<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>祝各位成功！</p>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 定义一个外部变量</span>
+	outerVar <span class="token operator">:=</span> <span class="token number">10</span>
+
+	<span class="token comment">// 创建一个闭包函数</span>
+	closureFunc <span class="token operator">:=</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 在闭包函数中访问外部变量</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Outer variable inside closure:"</span><span class="token punctuation">,</span> outerVar<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 调用闭包函数</span>
+	<span class="token function">closureFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// 修改外部变量的值</span>
+	outerVar <span class="token operator">=</span> <span class="token number">20</span>
+
+	<span class="token comment">// 再次调用闭包函数</span>
+	<span class="token function">closureFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>closureFunc</code> 是一个闭包函数。它访问了声明在其外部作用域的 <code>outerVar</code> 变量。当我们调用 <code>closureFunc()</code> 时，它会打印出 <code>outerVar</code> 的当前值。即使在闭包函数被创建后，<code>outerVar</code> 的值发生了改变，闭包函数仍然能够访问并打印出最新的值。</p>
+<p>这种能力是通过Go语言的编译器和运行时环境实现的。当你创建一个闭包时，它会持有对其外部变量的引用，使得在闭包函数内部可以访问这些变量。这就是Go闭包的基本原理。</p>
+<p>闭包在Go中常常用于实现函数式编程的概念，比如在函数中返回另一个函数，或者在并发编程中确保数据安全性。通过使用闭包，你可以方便地将函数和数据结构打包在一起，形成一个更加灵活和强大的抽象。</p>
+<h2 id="更多例子："><a href="#更多例子：" class="headerlink" title="更多例子："></a>更多例子：</h2><p>当使用闭包时，函数可以访问其外部作用域中的变量。这种特性使得闭包在很多情况下非常有用，比如延迟执行（deferred execution）、函数工厂（function factory）、事件处理等。以下是一些更多的闭包示例：</p>
+<h3 id="1-延迟执行（Deferred-Execution）"><a href="#1-延迟执行（Deferred-Execution）" class="headerlink" title="1. 延迟执行（Deferred Execution）"></a>1. 延迟执行（Deferred Execution）</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">4
+4
+4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在上述例子中，使用闭包延迟执行了一个匿名函数，但是这个闭包捕获的是变量 <code>i</code> 的引用。由于 <code>defer</code> 语句中的函数会在包含它的函数返回之后执行，所以闭包最终输出的是 <code>i</code> 的最终值，即 4。</p>
+<h3 id="2-函数工厂（Function-Factory）"><a href="#2-函数工厂（Function-Factory）" class="headerlink" title="2. 函数工厂（Function Factory）"></a>2. 函数工厂（Function Factory）</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">makeMultiplier</span><span class="token punctuation">(</span>factor <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">func</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> x <span class="token operator">*</span> factor
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	double <span class="token operator">:=</span> <span class="token function">makeMultiplier</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+	triple <span class="token operator">:=</span> <span class="token function">makeMultiplier</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">double</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 输出 10</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">triple</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 输出 15</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>makeMultiplier</code> 是一个函数工厂，它接受一个整数参数 <code>factor</code>，并返回一个新的函数，这个函数将传入的参数与 <code>factor</code> 相乘。通过不同的参数调用 <code>makeMultiplier</code>，我们创建了两个新的函数 <code>double</code> 和 <code>triple</code>。</p>
+<h3 id="3-闭包作为参数传递"><a href="#3-闭包作为参数传递" class="headerlink" title="3. 闭包作为参数传递"></a>3. 闭包作为参数传递</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">applyOperation</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">,</span> operation <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">operation</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	square <span class="token operator">:=</span> <span class="token keyword">func</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> x <span class="token operator">*</span> x
+	<span class="token punctuation">}</span>
+
+	result <span class="token operator">:=</span> <span class="token function">applyOperation</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> square<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment">// 输出 25</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>applyOperation</code> 函数接受一个整数 <code>x</code> 和一个操作函数 <code>operation</code> 作为参数，并将 <code>x</code> 传递给 <code>operation</code> 函数进行处理。在 <code>main</code> 函数中，我们定义了一个闭包 <code>square</code>，它计算输入的平方，并将它作为参数传递给 <code>applyOperation</code> 函数。</p>
+<p>这些例子展示了闭包在不同场景下的应用。闭包允许函数保持对其外部作用域的引用，使得函数变得更加灵活和通用。</p>
+<h2 id="容易遇见的坑"><a href="#容易遇见的坑" class="headerlink" title="容易遇见的坑"></a>容易遇见的坑</h2><p>闭包在Go中是一个非常强大的概念，但是也可能导致一些陷阱。以下是一些使用闭包时容易遇到的问题和注意事项：</p>
+<h3 id="1-循环变量陷阱"><a href="#1-循环变量陷阱" class="headerlink" title="1. 循环变量陷阱"></a>1. 循环变量陷阱</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> funcs <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		funcs <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>funcs<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> f <span class="token operator">:=</span> <span class="token keyword">range</span> funcs <span class="token punctuation">{</span>
+		<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 输出 3 3 3，而不是 0 1 2</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，闭包捕获的是循环变量 <code>i</code> 的引用。当<code>funcs</code> 切片中的闭包最终执行时，它们都会输出 <code>3</code>，而不是期望的循环变量的值 <code>0</code>、<code>1</code>、<code>2</code>。这是因为所有的闭包共享同一个 <code>i</code> 变量，而不是每个闭包都有自己的 <code>i</code> 值。</p>
+<p>解决方法是在循环内部创建一个局部变量，将循环变量的值复制给这个局部变量，然后在闭包中使用局部变量。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+    localI <span class="token operator">:=</span> i
+    funcs <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>funcs<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>localI<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-闭包捕获的是变量引用"><a href="#2-闭包捕获的是变量引用" class="headerlink" title="2. 闭包捕获的是变量引用"></a>2. 闭包捕获的是变量引用</h3><p>闭包捕获的是外部变量的引用，而不是它的值。如果在闭包中修改了这个变量的值，那么这个变量的改变会在闭包外部可见。例如：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	x <span class="token operator">:=</span> <span class="token number">10</span>
+	<span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		x<span class="token operator">++</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token comment">// 输出 11</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，闭包中的 <code>x++</code> 修改了外部变量 <code>x</code> 的值。这种情况可能导致意料之外的结果，因此需要小心处理。</p>
+<h3 id="3-闭包的执行顺序"><a href="#3-闭包的执行顺序" class="headerlink" title="3. 闭包的执行顺序"></a>3. 闭包的执行顺序</h3><p>闭包中的变量捕获是在闭包函数被调用时发生的，而不是在闭包创建时。这可能会导致一些意想不到的结果，特别是在涉及到循环的情况下。</p>
+<p>以上都是使用闭包容易遇到的一些陷阱。了解这些问题，开发者可以更加谨慎地使用闭包，避免不必要的错误。</p>
 
                 
             </div>
@@ -753,7 +764,7 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2022/07/06/36-shi-yong-pandoc-ba-markdown-zhuan-wei-pdf-wen-jian/">https://github.com/hypo-Z/hypo-Z.github.io/2022/07/06/36-shi-yong-pandoc-ba-markdown-zhuan-wei-pdf-wen-jian/</a>
+                    <a href="https://github.com/hypo-Z/hypo-Z.github.io/2023/10/23/42-ru-he-geng-hao-de-li-jie-bi-bao-de-yuan-li/">https://github.com/hypo-Z/hypo-Z.github.io/2023/10/23/42-ru-he-geng-hao-de-li-jie-bi-bao-de-yuan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -791,20 +802,12 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
                     
                         <div class="article-tag">
                             
-                                <a href="/hypo-Z.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/hypo-Z.github.io/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
-                                <a href="/hypo-Z.github.io/tags/pandoc/">
-                                    <span class="chip bg-color">pandoc</span>
-                                </a>
-                            
-                                <a href="/hypo-Z.github.io/tags/markdown/">
-                                    <span class="chip bg-color">markdown</span>
-                                </a>
-                            
-                                <a href="/hypo-Z.github.io/tags/pdf/">
-                                    <span class="chip bg-color">pdf</span>
+                                <a href="/hypo-Z.github.io/tags/%E9%97%AD%E5%8C%85/">
+                                    <span class="chip bg-color">闭包</span>
                                 </a>
                             
                         </div>
@@ -1116,40 +1119,42 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hypo-Z.github.io/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/">
+                <a href="/hypo-Z.github.io/2023/10/23/42-ru-he-geng-hao-de-li-jie-bi-bao-de-yuan-li/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/55.jpeg" class="responsive-img" alt="Algorithm一天一道算法">
+                        <img src="/hypo-Z.github.io/medias/featureimages/75.png" class="responsive-img" alt="如何更好的理解闭包的原理">
                         
-                        <span class="card-title">Algorithm一天一道算法</span>
+                        <span class="card-title">如何更好的理解闭包的原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为了使自己每日进步一点，每天更新一道leetcode上的算法题，及理解其原理
+                            在Go语言中，闭包（closures）是指一个函数值（function value）捕获了其所在作用域外部变量的引用。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
-                                    Golang
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1157,8 +1162,8 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
                         <span class="chip bg-color">Golang</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/hypo-Z.github.io/tags/%E9%97%AD%E5%8C%85/">
+                        <span class="chip bg-color">闭包</span>
                     </a>
                     
                 </div>
@@ -1172,30 +1177,30 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hypo-Z.github.io/2022/06/28/chang-yong-pai-xu-suan-fa-de-golang-shi-xian/">
+                <a href="/hypo-Z.github.io/2023/10/19/go-yu-yan-jin-jie-jian-dan-de-li-jie-cao-zuo-fu/">
                     <div class="card-image">
                         
-                        <img src="/hypo-Z.github.io/medias/featureimages/53.png" class="responsive-img" alt="常用排序算法的Golang实现">
+                        <img src="/hypo-Z.github.io/medias/featureimages/74.png" class="responsive-img" alt="Go语言进阶--简单的理解操作符">
                         
-                        <span class="card-title">常用排序算法的Golang实现</span>
+                        <span class="card-title">Go语言进阶--简单的理解操作符</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在实际生活中，经常会涉及到数字排序的问题，如何快速排序，人们就研究了许多的算法，下面就将常用的算法进行总结
+                            程序中的所有数在计算机内存中都是以二进制的形式储存的.位运算就是直接对整数在内存中的二进制位进行操作.
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/hypo-Z.github.io/categories/Golang/" class="post-category">
-                                    Golang
+                            <a href="/hypo-Z.github.io/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1209,8 +1214,12 @@ pandoc -r markdown-auto_identifiers --no-highlight -w latex -o output.tex test.m
                         <span class="chip bg-color">Golang</span>
                     </a>
                     
-                    <a href="/hypo-Z.github.io/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/hypo-Z.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
+                    </a>
+                    
+                    <a href="/hypo-Z.github.io/tags/%E6%93%8D%E4%BD%9C%E7%AC%A6/">
+                        <span class="chip bg-color">操作符</span>
                     </a>
                     
                 </div>
