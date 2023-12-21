@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2023-10-23T08:04:08.724Z</updated>
+  <updated>2023-12-21T09:01:23.516Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go语言实战：负载均衡详解</title>
+    <link href="https://github.com/hypo-Z/2023/12/21/go-yu-yan-shi-zhan-fu-zai-jun-heng-xiang-jie/"/>
+    <id>https://github.com/hypo-Z/2023/12/21/go-yu-yan-shi-zhan-fu-zai-jun-heng-xiang-jie/</id>
+    <published>2023-12-21T08:22:36.000Z</published>
+    <updated>2023-12-21T09:01:23.516Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Go语言实战：负载均衡详解&quot;&gt;&lt;a href=&quot;#Go语言实战：负载均衡详解&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://github.com/hypo-Z/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
+    
+    <category term="负载均衡" scheme="https://github.com/hypo-Z/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>如何更好的理解闭包的原理</title>
@@ -555,37 +582,6 @@
     <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
     
     <category term="算法" scheme="https://github.com/hypo-Z/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Pandoc把Markdown转为PDF文件</title>
-    <link href="https://github.com/hypo-Z/2022/07/06/36-shi-yong-pandoc-ba-markdown-zhuan-wei-pdf-wen-jian/"/>
-    <id>https://github.com/hypo-Z/2022/07/06/36-shi-yong-pandoc-ba-markdown-zhuan-wei-pdf-wen-jian/</id>
-    <published>2022-07-06T06:28:00.000Z</published>
-    <updated>2022-07-28T02:46:04.576Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;使用-Pandoc-把-Markdown-转为-PDF-文件&quot;&gt;&lt;a href=&quot;#使用-Pandoc-把-Markdown-转为-PDF-文件&quot; class=&quot;headerlink&quot; title=&quot;使用 Pandoc 把 Markdown 转为 PDF</summary>
-        
-      
-    
-    
-    
-    <category term="笔记" scheme="https://github.com/hypo-Z/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="pandoc" scheme="https://github.com/hypo-Z/tags/pandoc/"/>
-    
-    <category term="markdown" scheme="https://github.com/hypo-Z/tags/markdown/"/>
-    
-    <category term="pdf" scheme="https://github.com/hypo-Z/tags/pdf/"/>
     
   </entry>
   
