@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2023-12-21T09:01:23.516Z</updated>
+  <updated>2024-01-10T06:30:10.797Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go语言实用——好用也有三方库之lo</title>
+    <link href="https://github.com/hypo-Z/2024/01/10/go-yu-yan-shi-yong-hao-yong-ye-you-san-fang-ku-zhi-lo/"/>
+    <id>https://github.com/hypo-Z/2024/01/10/go-yu-yan-shi-yong-hao-yong-ye-you-san-fang-ku-zhi-lo/</id>
+    <published>2024-01-10T06:18:41.000Z</published>
+    <updated>2024-01-10T06:30:10.797Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Go语言轮子-好用也有三方库之lo&quot;&gt;&lt;a href=&quot;#Go语言轮子-好用也有三方库之lo&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://github.com/hypo-Z/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
+    
+    <category term="实用" scheme="https://github.com/hypo-Z/tags/%E5%AE%9E%E7%94%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Go语言实战：负载均衡详解</title>
@@ -295,9 +324,9 @@
     <category term="转载" scheme="https://github.com/hypo-Z/categories/%E8%BD%AC%E8%BD%BD/"/>
     
     
-    <category term="转载" scheme="https://github.com/hypo-Z/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
     <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
+    
+    <category term="转载" scheme="https://github.com/hypo-Z/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
@@ -523,9 +552,9 @@
     <category term="随笔" scheme="https://github.com/hypo-Z/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
-    
     <category term="随笔" scheme="https://github.com/hypo-Z/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
     
     <category term="好书推荐" scheme="https://github.com/hypo-Z/tags/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
     
@@ -552,36 +581,9 @@
     <category term="随笔" scheme="https://github.com/hypo-Z/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
-    
     <category term="随笔" scheme="https://github.com/hypo-Z/tags/%E9%9A%8F%E7%AC%94/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Algorithm一天一道算法</title>
-    <link href="https://github.com/hypo-Z/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/"/>
-    <id>https://github.com/hypo-Z/2022/07/08/algorithm-yi-tian-yi-dao-suan-fa/</id>
-    <published>2022-07-08T03:12:42.000Z</published>
-    <updated>2022-07-27T08:54:23.069Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一天一道算法题&quot;&gt;&lt;a href=&quot;#一天一道算法题&quot; class=&quot;headerlink&quot; title=&quot;一天一道算法题&quot;&gt;&lt;/a&gt;一天一道算法题&lt;/h1&gt;&lt;h2 id=&quot;1-两数之和&quot;&gt;&lt;a href=&quot;#1-两数之和&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
-    
-    <category term="算法" scheme="https://github.com/hypo-Z/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
