@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2024-10-28T01:04:03.123Z</updated>
+  <updated>2024-11-11T04:01:16.704Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>最伟大的推销员</title>
+    <link href="https://github.com/hypo-Z/2024/11/11/45-zui-wei-da-de-tui-xiao-yuan/"/>
+    <id>https://github.com/hypo-Z/2024/11/11/45-zui-wei-da-de-tui-xiao-yuan/</id>
+    <published>2024-11-11T03:59:48.000Z</published>
+    <updated>2024-11-11T04:01:16.704Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;最伟大的推销员&quot;&gt;&lt;a href=&quot;#最伟大的推销员&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://github.com/hypo-Z/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="随笔" scheme="https://github.com/hypo-Z/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
+    
+    <category term="好书推荐" scheme="https://github.com/hypo-Z/tags/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>坚持，直到胜利</title>
     <link href="https://github.com/hypo-Z/2024/10/28/44-jian-chi-zhi-dao-sheng-li/"/>
     <id>https://github.com/hypo-Z/2024/10/28/44-jian-chi-zhi-dao-sheng-li/</id>
     <published>2024-10-28T00:59:58.000Z</published>
-    <updated>2024-10-28T01:04:03.123Z</updated>
+    <updated>2024-11-11T03:44:45.083Z</updated>
     
     
       
@@ -544,35 +573,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;好用不过官方库之os&quot;&gt;&lt;a href=&quot;#好用不过官方库之os&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
-    
-    
-    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
-    
-    <category term="基础" scheme="https://github.com/hypo-Z/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言基础——好用不过官方库之fmt</title>
-    <link href="https://github.com/hypo-Z/2022/08/01/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-fmt/"/>
-    <id>https://github.com/hypo-Z/2022/08/01/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-fmt/</id>
-    <published>2022-08-01T03:18:32.000Z</published>
-    <updated>2023-01-03T02:32:28.474Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;好用不过官方库之fmt&quot;&gt;&lt;a href=&quot;#好用不过官方库之fmt&quot; class=&quot;headerlink&quot;</summary>
         
       
     
