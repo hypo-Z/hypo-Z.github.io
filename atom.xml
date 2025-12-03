@@ -6,7 +6,7 @@
   <link href="https://github.com/hypo-Z/atom.xml" rel="self"/>
   
   <link href="https://github.com/hypo-Z/"/>
-  <updated>2024-11-11T04:01:16.704Z</updated>
+  <updated>2025-12-03T06:33:20.795Z</updated>
   <id>https://github.com/hypo-Z/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何实现并发安全的map</title>
+    <link href="https://github.com/hypo-Z/2025/12/03/go-yu-yan-jin-jie-ru-he-shi-xian-bing-fa-an-quan-de-map/"/>
+    <id>https://github.com/hypo-Z/2025/12/03/go-yu-yan-jin-jie-ru-he-shi-xian-bing-fa-an-quan-de-map/</id>
+    <published>2025-12-03T05:53:25.000Z</published>
+    <updated>2025-12-03T06:33:20.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是一个 Go 语言中最经典、最重要的并发问题之一。我们来系统性地解释：&lt;/p&gt;
+&lt;p&gt;🧠 一、Go 原生 map 为什么不是并发安全的？&lt;/p&gt;
+&lt;p&gt;✅ 核心结论：&lt;br&gt;Go 的原生 map 在多个 goroutine 同时读写时，会导致数据竞争（data</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
+    
+    
+    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
+    
+    <category term="进阶" scheme="https://github.com/hypo-Z/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>直击本质-看透事物的三层内核</title>
+    <link href="https://github.com/hypo-Z/2025/11/06/46-zhi-ji-ben-zhi-kan-tou-shi-wu-de-san-ceng-nei-he/"/>
+    <id>https://github.com/hypo-Z/2025/11/06/46-zhi-ji-ben-zhi-kan-tou-shi-wu-de-san-ceng-nei-he/</id>
+    <published>2025-11-06T09:50:00.000Z</published>
+    <updated>2025-11-06T10:23:47.243Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;《直击本质》详细精读笔记（2020年版）&quot;&gt;&lt;a href=&quot;#《直击本质》详细精读笔记（2020年版）&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="好书推荐" scheme="https://github.com/hypo-Z/categories/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="随笔" scheme="https://github.com/hypo-Z/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="文章" scheme="https://github.com/hypo-Z/tags/%E6%96%87%E7%AB%A0/"/>
+    
+    <category term="好书推荐" scheme="https://github.com/hypo-Z/tags/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>最伟大的推销员</title>
@@ -515,64 +575,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;好用不过官方库之os-signal&quot;&gt;&lt;a href=&quot;#好用不过官方库之os-signal&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
-    
-    
-    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
-    
-    <category term="基础" scheme="https://github.com/hypo-Z/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言基础——好用不过官方库之os\exec</title>
-    <link href="https://github.com/hypo-Z/2022/08/03/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os-exec/"/>
-    <id>https://github.com/hypo-Z/2022/08/03/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os-exec/</id>
-    <published>2022-08-03T04:00:28.000Z</published>
-    <updated>2023-01-03T02:32:28.476Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;好用不过官方库之os-exec&quot;&gt;&lt;a href=&quot;#好用不过官方库之os-exec&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/categories/Golang/"/>
-    
-    
-    <category term="笔记" scheme="https://github.com/hypo-Z/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="Golang" scheme="https://github.com/hypo-Z/tags/Golang/"/>
-    
-    <category term="基础" scheme="https://github.com/hypo-Z/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go语言基础——好用不过官方库之os</title>
-    <link href="https://github.com/hypo-Z/2022/08/02/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os/"/>
-    <id>https://github.com/hypo-Z/2022/08/02/go-yu-yan-ji-chu-hao-yong-bu-guo-guan-fang-ku-zhi-os/</id>
-    <published>2022-08-02T09:45:53.000Z</published>
-    <updated>2023-01-03T02:32:28.478Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;好用不过官方库之os&quot;&gt;&lt;a href=&quot;#好用不过官方库之os&quot; class=&quot;headerlink&quot;</summary>
         
       
     
